@@ -1,0 +1,29 @@
+⛽ Petrol Scooter అసలు ఎలా పనిచేస్తుంది? | Engine, Fuel, Piston Explained
+ఒక్కసారి ఆలోచించండి… మనం petrol scooterని ON చేసి accelerator తిప్పగానే అది వెంటనే ముందుకు వెళ్లిపోతుంది.
+కానీ petrol tankలో ఉన్న fuel అసలు wheelని ఎలా తిప్పుతుంది? Petrolని engineలో ఏం చేస్తారు? ఆ చిన్న engineలో జరిగే process చివరికి wheelని ఎలా తిప్పుతుంది?
+ఇప్పుడు scooter start చేసిన దగ్గర నుంచి wheel తిరిగే వరకు మొత్తం processని చాలా simpleగా చూద్దాం.
+ముందుగా scooterకి కావాల్సిన energy ఎక్కడి నుంచి వస్తుందో చూద్దాం. Petrol scooterలో ఆ energy Petrol నుంచి వస్తుంది.
+మనం petrol tankలో fuel పోస్తాం. కానీ ఆ petrolని tank నుంచి తీసి wheelకి నేరుగా పంపించరు.
+ముందుగా దాన్ని engineలోకి తీసుకెళ్లి, అక్కడ ఉన్న energyని ఉపయోగించాలి. ఆ పని engine చేస్తుంది.
+Scooterని ON చేసి, accelerator తిప్పినప్పుడు engineలోకి అవసరమైన air మరియు petrol సరైన మొత్తంలో వెళ్తాయి.
+ఈ air-fuel mixture engineలోని ఒక చిన్న chamberలోకి చేరుతుంది. అక్కడ Spark Plug ఒక చిన్న spark ఇస్తుంది. ఆ spark వల్ల petrol-air mixture ఒక్కసారిగా burn అవుతుంది.
+ఆ fuel burn అవ్వడంతో చాలా వేడి మరియు pressure ఏర్పడుతుంది. ఈ pressure వల్ల engineలో ఉన్న Piston అనే భాగం బలంగా కిందికి push అవుతుంది.
+అంటే petrolలో ఉన్న chemical energy, ఇప్పుడు pistonని కదిలించే mechanical movementగా మారడం మొదలవుతుంది.
+కానీ piston పైకి, కిందికి కదులుతుంటే wheel నేరుగా తిరగదు కదా. అందుకే pistonకి Connecting Rod ద్వారా Crankshaft అనే rotating part connect అయి ఉంటుంది.
+Piston కిందికి, పైకి కదులుతున్నప్పుడు connecting rod ఆ movementని crankshaftకి అందిస్తుంది. Crankshaft ఆ పైకి కిందికి movementని తిరిగే movementగా మార్చుతుంది.
+ఇప్పుడు engineలో rotation వచ్చేసింది. కానీ scooter ముందుకు వెళ్లాలంటే ఈ rotation wheelకి చేరాలి.
+అందుకే crankshaft నుంచి వచ్చే rotationని Transmission ద్వారా scooter wheelకి పంపిస్తారు. Transmissionలో gears ఉంటాయి.
+ఇవి engine speedని అవసరానికి తగ్గట్టుగా మార్చి, wheelకి సరైన turning forceని అందిస్తాయి.
+ఆ turning force wheelకి చేరగానే wheel తిరగడం మొదలవుతుంది. Wheel నేలను వెనక్కి push చేస్తుంది. దానికి reactionగా నేల scooterని ముందుకు push చేస్తుంది.
+దాంతో scooter ముందుకు కదలడం మొదలవుతుంది.
+ఇప్పుడు scooter speedని మనం ఎలా control చేస్తాం? అదే Accelerator పని. Acceleratorని తిప్పితే engineలోకి వెళ్లే air-fuel mixtureని system అవసరానికి తగ్గట్టుగా పెంచుతుంది.
+ఎక్కువ fuel burn అయితే engine ఎక్కువ power produce చేస్తుంది. ఆ power wheelకి చేరడంతో scooter వేగంగా వెళ్తుంది.
+Accelerator తగ్గిస్తే engine power తగ్గుతుంది, దాంతో scooter speed కూడా తగ్గుతుంది.
+అయితే scooterని ఆపడానికి accelerator వదిలేయడం మాత్రమే సరిపోదు. పూర్తిగా ఆపడానికి Brake వేయాలి. Brake నొక్కగానే brake system wheel తిరిగే speedని తగ్గిస్తుంది.
+Wheel నెమ్మదించడంతో scooter కూడా నెమ్మదించి చివరికి ఆగిపోతుంది.
+అంటే ఇప్పటివరకు జరిగినదంతా రెండు pointsలో చెప్పాలంటే…
+Petrolలో ఉన్న energyని Engine, air మరియు spark సహాయంతో ఉపయోగించి Pistonని కదిలిస్తుంది.
+Piston movement Crankshaftలో rotationగా మారి, Transmission ద్వారా wheelకి చేరుతుంది. Wheel తిరగడంతో scooter ముందుకు కదులుతుంది.
+Petrolలో ఉన్న energy చివరికి wheelని తిప్పి మనల్ని ముందుకు తీసుకెళ్లడం నిజంగా amazing కదా! మరి ఈ technology మీకు ఎలా అనిపించింది?
+మీ opinionని కింద commentలో చెప్పండి. ఇలాంటి మనం రోజూ ఉపయోగించే technology వెనుక అసలు ఏం జరుగుతుందో తెలుసుకోవాలంటే, మా channelని subscribe చేయండి
+

@@ -1,0 +1,18 @@
+🛵 Electric Scooter అసలు ఎలా పనిచేస్తుంది? | Battery, Motor, Controller Explained
+ఒక్కసారి ఆలోచించండి… మనం ఒక electric scooter మీద కూర్చుంటాం, accelerator తిప్పగానే అది ఎలాంటి engine sound లేకుండా silentగా ముందుకు వెళ్లిపోతుంది.
+ఇప్పుడు Electric Scooter ఎలా పనిచేస్తుందో step by step చాలా simpleగా చూద్దాం… ముందుగా scooterకి power ఎక్కడి నుంచి వస్తుందో చూద్దాం. 
+Electric scooterలో fuel tankకి బదులు Battery ఉంటుంది. ఈ batteryలోనే scooter నడవడానికి కావాల్సిన energy store అయి ఉంటుంది. 
+మనం scooter switchని ON చేయగానే, power ముందుగా Controller దగ్గరికి వెళ్తుంది. Motorకి ఎంత power ఇవ్వాలి, ఎప్పుడు ఇవ్వాలి అనేది Controller decide చేస్తుంది. 
+ఇప్పుడు acceleratorని తిప్పగానే accelerator sensor, మీరు ఎంత speed కావాలో Controllerకి signal పంపుతుంది.
+మీరు acceleratorని ఎక్కువగా తిప్పితే, Controller motorకి ఎక్కువ power పంపుతుంది. తక్కువగా తిప్పితే, తక్కువ power పంపుతుంది.
+అంటే accelerator ఎంత speed కావాలో చెప్తుంది, Controller motorకి ఎంత power ఇవ్వాలో control చేస్తుంది. 
+
+Controller battery నుంచి కావాల్సిన electrical powerని motorకి పంపిస్తుంది. ఆ power motorలోకి వెళ్లగానే, motor తిరగడం మొదలవుతుంది.
+ఎందుకంటే motor electrical powerని rotating movementగా మార్చుతుంది. Motorలో current వెళ్లగానే magnetic force ఏర్పడి, Rotor తిరగడం మొదలవుతుంది.
+Motorలో rotor తిరగడం మొదలైతే scooter వెంటనే ముందుకు వెళ్లదు. ఆ rotation ఇప్పుడు wheelకి చేరాలి.
+కొన్ని scootersలో motor నేరుగా wheelని తిప్పుతుంది. మరికొన్నింటిలో motor rotation transmission ద్వారా wheelకి చేరుతుంది.
+Wheelకి rotation చేరగానే, wheel తిరగడం మొదలవుతుంది. Wheel నేలను వెనక్కి push చేస్తుంది. దానికి reactionగా నేల wheelని ముందుకు push చేస్తుంది.
+అంటే మొత్తం విషయం simpleగా చెప్పాలంటే… Petrol scooterలో petrolని engine ఉపయోగించి motionగా మారుస్తుంది.
+Electric scooterలో batteryలో ఉన్న electrical energyని motor motionగా మారుస్తుంది.
+అందుకే engine sound లేకుండా, battery powerతో ఒక electric scooter మనల్ని smoothగా ముందుకు తీసుకెళ్తుంది.
+

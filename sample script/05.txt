@@ -1,0 +1,16 @@
+05_Bluetoothలో Photo అసలు ఎలా వెళ్తుంది?
+మన phoneలో ఉన్న ఒక photoని Bluetooth ద్వారా ఇంకో phoneకి పంపితే… Wi-Fi, cable, internet ఏదీ లేకపోయినా, ఆ photo కొన్ని secondsలోనే ఇంకో phoneకి ఎలా చేరుతుంది?
+అసలు లోపల ఏం జరుగుతుందో ఒక simple exampleతో చూద్దాం.
+మన దగ్గర ఒక cat photo ఉందనుకుందాం. మనకి అది ఒక photoలా కనిపిస్తుంది. కానీ phoneకి మాత్రం అది ఒక digital file.
+ఆ photoలో చాలా pixels ఉంటాయి. ప్రతి pixelకి ఏ colour ఉండాలి, ఎంత brightness ఉండాలి అనే information phoneలో dataగా ఉంటుంది.
+ఈ మొత్తం information కలిసి మనకి ఒక complete photo కనిపిస్తుంది.
+కానీ Bluetooth ఈ pixelsని ఒక్కొక్కటిగా పంపదు. మన cat photo ముందుగానే JPEG లాంటి image fileగా save అయి ఉంటుంది. ఉదాహరణకి అది 2 MB ఉందనుకుందాం.
+మనము బ్లూటూత్ ద్వారా ఫైల్‌ని పంపగానే, ఫోన్ ఆ ఫైల్‌ని చిన్న చిన్న డేటా ప్యాకెట్లుగా విడగొట్టి, ఒక్కొక్కటిగా అవతలి ఫోన్‌కి పంపించడం మొదలుపెడుతుంది. 
+ఇక్కడ ఒక విషయం గుర్తుపెట్టుకోవాలి. Photoని నిజంగా ముక్కలుగా కట్ చేయదు. Photoలో ఉన్న digital dataని చిన్న చిన్న packetsగా organize చేస్తుంది.
+ఆ packetsని ఇంకో phoneకి పంపడానికి Bluetooth, ఆ digital dataని radio signalsగా మార్చి గాలిలో పంపుతుంది. ఈ radio signals మన కంటికి కనిపించవు.
+అవి గాలి ద్వారా ప్రయాణించి పక్కనే ఉన్న మరో phoneకి చేరుతాయి.అంటే మన ఫోటో గాలిలో వెళ్లడం కాదు… దాని digital information radio signals రూపంలో travel అవుతోంది.
+ఇంకో phoneలోని Bluetooth receiver ఆ radio signalsని receive చేస్తుంది. వాటిని మళ్లీ digital dataగా మార్చి, వచ్చిన packetsని ఒక్కటిగా కలుపుతుంది.
+అలా మొత్తం data complete అయిన తర్వాత, phone ఆ image fileని decode చేస్తుంది. వెంటనే మన screen మీద అదే cat photo కనిపిస్తుంది.
+అంటే Bluetoothలో మనం photoని గాలిలో పంపడం కాదు… photoకి సంబంధించిన digital informationని radio signals ద్వారా పంపిస్తున్నాం.
+ఇలాంటి ఇంట్రెస్టింగ్ టాపిక్స్ కోసం మా ఛానల్‌ని Subscribe చేయండి. 🔥
+ఇంకా మీకు ఏ టాపిక్ గురించి తెలుసుకోవాలనుకుంటున్నారో Comment చేయండి. 💬 

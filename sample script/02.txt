@@ -1,0 +1,12 @@
+Gas cylinderలో అంత gas ఎలా store చేస్తారో ఎప్పుడైనా ఆలోచించారా? అంత టైం నాకు ఎక్కడిది అంటారా? అయితే చెప్తా జాగ్రత్తగా విను.
+ఒక cylinderని open చేసి లోపల చూస్తే అది మొత్తం gasతో నిండి ఉంటుందని మనకు అనిపించొచ్చు. కానీ నిజానికి cylinderలో ఎక్కువ LPG liquid రూపంలో ఉంటుంది.
+మరి gas liquidగా ఎలా మారుతుంది? LPGలో ప్రధానంగా propane, butane లాంటి gases ఉంటాయి. వీటిని pressureతో compress చేస్తే liquid రూపంలోకి మారుతుంది.
+Liquidగా మారిన తర్వాత అదే LPGని చాలా తక్కువ spaceలో ఎక్కువ quantityగా store చేయవచ్చు.
+అందుకే strong steel cylinderలో LPGని liquid formలో store చేస్తారు.
+అయితే cylinderని పూర్తిగా liquidతో నింపరు. పైభాగంలో కొంత ఖాళీ space ఉంచుతారు. అక్కడ liquid LPGలో కొంత భాగం vapourగా ఉంటుంది.
+ఇప్పుడు మనం stove ON చేస్తే cylinder valve open అవుతుంది. లోపల ఉన్న pressure వల్ల పైభాగంలోని LPG vapour బయటకు రావడం మొదలవుతుంది.
+ఆ gas regulator ద్వారా controlledగా pipeలోకి వెళ్లి stove burnerకి చేరుతుంది.
+Gas బయటకు వెళ్లడంతో cylinderలో pressure కొంచెం తగ్గుతుంది.
+వెంటనే కింద ఉన్న liquid LPGలో కొంత భాగం మళ్లీ vapourగా మారుతుంది. ఆ vapour కూడా బయటకు వెళ్తుంది. ఇలా process కొనసాగుతూనే ఉంటుంది.
+అందుకే cylinderలోని liquid LPG క్రమంగా తగ్గుతూ చివరికి cylinder ఖాళీ అవుతుంది.
+మరి... ఈ Gas Cylinderలో gas liquidగా ఉంటుందని మీకు ముందే తెలుసా? తెలుసుంటే YES, తెలియకపోతే NO అని comment చేయండి!

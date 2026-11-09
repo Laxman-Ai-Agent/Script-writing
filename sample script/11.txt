@@ -1,0 +1,13 @@
+ఈ వీడియోలో డ్యామ్ ద్వారా నీటితో విద్యుత్ ఎలా తయారవుతుందో step by step చూద్దాం.
+ముందుగా డ్యామ్‌లో నీటిని నిల్వ చేస్తారు. ఆ నిల్వ చేసిన నీటిని పెద్ద pipes లేదా tunnels ద్వారా కిందికి పంపిస్తారు. నీరు ఎత్తులో ఉండటం వల్ల కిందికి వేగంగా వస్తుంది.
+ఈ వేగంగా వచ్చే నీరు కింద ఉన్న turbine అనే పెద్ద wheel లాంటి machineపై పడుతుంది. దాంతో ఆ turbine తిరగడం మొదలవుతుంది.
+ఇక్కడ turbineకి ఒక shaft connect అయి ఉంటుంది. కాబట్టి turbine తిరిగినప్పుడు, ఆ shaft కూడా turbineతో పాటు తిరుగుతుంది. ఈ shaftని generatorకి connect చేస్తారు.
+ఈ generator లోపల magnets మరియు coils ఉంటాయి. Shaft తిరిగినప్పుడు generatorలోని magnets మరియు coils మధ్య relative motion ఏర్పడుతుంది.
+దాంతో electromagnetic induction ద్వారా electrical energy generate అవుతుంది. అంటే నీరు నేరుగా electricityగా మారదు. నీటి flow వల్ల turbine తిరుగుతుంది. 
+
+Turbineకి connect అయి ఉన్న shaft తిరుగుతుంది. ఆ shaft వల్ల generatorలో magnets, coils మధ్య relative motion ఏర్పడి electricity generate అవుతుంది.
+ఇలా తర్వాత తయారైన electricityని transformers ద్వారా అవసరమైన voltageకి మార్చి, transmission lines ద్వారా ఇళ్లకు, factoriesకి, ఇతర ప్రాంతాలకు పంపిస్తారు.
+ఈ విధంగా డ్యామ్‌లో నిల్వ చేసిన నీటి energyని ఉపయోగించి electricityని తయారు చేస్తారు.
+ఇలాంటి intersting topics  తెలుసుకోవాలంటే, “dark” అని comment చేస్తే channel link వస్తుంది. Directగా వెళ్లి చూడొచ్చు. థాంక్యూ...
+
+

@@ -1,0 +1,40 @@
+ATMలో Card పెట్టగానే అసలు ఏం జరుగుతుంది? 😱 | ATM ఎలా పనిచేస్తుంది?
+మనము రోజూ ATMకి వెళ్తాం, Card పెట్టాం, PIN enter చేశాం, డబ్బులు తీసుకున్నాం… మనకి బయట నుంచి ఇదంతా చాలా simpleగా కనిపిస్తుంది.
+కానీ మనం Card పెట్టిన తర్వాత ఆ కొన్ని secondsలో ATM లోపల అసలు ఏం జరుగుతుంది? అది ఇప్పుడు step by step చూద్దాం.
+ముందుగా మనం ATMలో Card పెడతాం. Cardలో ఉన్న informationని ATM read చేస్తుంది.
+ఆ information ఆధారంగా ఈ Card ఏ bank లేదా Card networkకి సంబంధించినదో గుర్తించి, transactionని సరైన bank systemకి పంపుతుంది.
+ఇప్పుడు ATM మనల్ని PIN enter చేయమంటుంది. మనం PIN enter చేసిన తర్వాత ATM దాన్ని బయటకు ఎక్కడా చూపించదు, secureగా verification కోసం ఆ request bank systemకి వెళ్తుంది.
+అక్కడి నుంచి అసలు checking మొదలవుతుంది. Card validగా ఉందా? PIN correctగా ఉందా? Account activeగా ఉందా? ఇలాంటి security checks జరుగుతాయి.
+అన్నీ correctగా ఉంటే bank transactionని continue చేయడానికి ATMకి permission ఇస్తుంది.
+ఇప్పుడు మనకి ATM screen మీద options కనిపిస్తాయి. అందులో మనం Withdraw select చేస్తాం. తర్వాత ఎంత డబ్బు కావాలో enter చేస్తాం.
+ఉదాహరణకి ₹10,000 enter చేశాం అనుకోండి. Amount enter చేసిన తర్వాత ATM మళ్లీ bank systemకి request పంపుతుంది.
+ఈ account నుంచి ₹10,000 withdraw చేయొచ్చా అని. ఇప్పుడు bank మన account balanceని check చేస్తుంది. ఉదాహరణకి accountలో ₹50,000 ఉంటే ₹10,000 ఇవ్వడానికి సరిపోతుంది.
+అదే సమయంలో withdrawal limitలాంటి rules కూడా check చేస్తుంది. అన్నీ okay అయితే bank ATMకి approval పంపుతుంది.
+ఇక్కడి వరకు మన account గురించి checking జరిగింది. ఇక ఇప్పుడు ATMలో ఉన్న actual cash పని మొదలవుతుంది.
+ATMకి ₹10,000 ఇవ్వాలి అని తెలుసు. మరి ఆ ₹10,000ని ఏ notesతో ఇవ్వాలి? దాని కోసం ATMలో cash cassettes ఉంటాయి. ఇవి machineలోపల secureగా ఉండే cash compartments.
+వాటిలో వేర్వేరు denomination notes ఉండొచ్చు. ఒక cassetteలో ₹500 notes ఉండొచ్చు, మరో cassetteలో ₹200 notes ఉండొచ్చు, ఇంకో cassetteలో ₹100 notes ఉండొచ్చు.
+అయితే ప్రతి ATMలో ఇదే arrangement ఉండాల్సిన అవసరం లేదు. Machineలో ఏ notes availableగా ఉన్నాయో బట్టి ఎంత amountని ఎలా ఇవ్వాలో system నిర్ణయిస్తుంది.
+ఉదాహరణకి ₹500 notesతో ₹10,000 ఇవ్వగలిగితే machineకి 20 notes కావాలి. ఇప్పుడు ATM ఆ ₹500 cassette నుంచి notes తీసుకోవడం మొదలుపెడుతుంది.
+కానీ cassetteలో notes ఒక పెద్ద stackలా ఉంటాయి. అందులో నుంచి machine చేతితో తీసుకున్నట్టు తీసుకోదు. దాని కోసం rollers, belts లాంటి చిన్న mechanical parts పనిచేస్తాయి.
+ముందుగా ఒక roller పై ఉన్న noteని పట్టుకుంటుంది, ఆ noteని నెమ్మదిగా machine లోపలికి లాగుతుంది.
+ఇక్కడే మరో interesting విషయం జరుగుతుంది. కొన్నిసార్లు రెండు notes ఒకదానికొకటి stick అయి కలిసి రావచ్చు.
+అలా రెండు notes కలిసి వస్తే machine వాటిని రెండు notesగానే గుర్తించాలి. అందుకే notes ముందుకు వెళ్తున్నప్పుడు sensors వాటిని check చేస్తాయి.
+ఒక్క note వచ్చిందా? రెండు notes కలిసి వచ్చాయా? Note సరిగ్గా move అవుతోందా? ఇలాంటి విషయాలను machine detect చేస్తుంది.
+రెండు notes కలిసి వచ్చాయని గుర్తిస్తే వాటిని సాధారణ cash pathలోకి పంపకుండా reject areaకి పంపవచ్చు. ఆ తర్వాత machine మరో noteని తీసుకుంటుంది.
+ఇలా అవసరమైన notesని ఒక్కొక్కటిగా తీసుకుంటూ వెళ్తుంది. మనకి 20 valid notes కావాలంటే 20 సరైన notes collect అయ్యే వరకు ఈ process repeat అవుతుంది.
+అన్ని notes collect అయిన తర్వాత machine వాటిని మళ్లీ check చేస్తుంది.
+ఎన్ని notes వచ్చాయి? Amountకి సరిపోతుందా? ఏదైనా note మధ్యలో stuck అయిందా? ఏదైనా problem ఉందా? ఇవన్నీ సరిగ్గా ఉంటే notes next sectionకి move అవుతాయి.
+అక్కడి నుంచి మరో set of rollers ఆ notesని cash outlet వైపు తీసుకెళ్తాయి.
+చివరికి notes ATM బయట ఉన్న cash tray దగ్గరకు వస్తాయి.
+అప్పుడు మన screen మీద cash తీసుకోమని message కనిపిస్తుంది. మనం cash తీసుకుంటాం. ఇక్కడితో ATM పని పూర్తయిందని అనిపిస్తుంది.
+కానీ ఇంకా ఒక చిన్న process మిగిలి ఉంటుంది. మనము cash తీసుకున్న తర్వాత transaction status bank systemలో update అవుతుంది.
+అప్పుడు మన accountలో ఆ ₹10,000 withdrawal record అవుతుంది. అందుకే మన balance కూడా తగ్గుతుంది.
+ఇదంతా మనకి కొన్ని secondsలో జరిగిపోయినట్టు అనిపిస్తుంది. కానీ ఆ కొన్ని secondsలో ఇంత పెద్ద process జరుగుతుంది.
+ఒకవేళ ఎవరైనా ATMని బలవంతంగా తెరవడానికి ప్రయత్నించారనుకోండి. Machineలో ఉన్న security system వెంటనే ఆ unusual activityని గుర్తిస్తుంది.
+వెంటనే tampering alert trigger అవుతుంది. అదే సమయంలో alarm activate అవుతుంది. Security alert bank-side monitoring systemకి కూడా వెళ్తుంది.
+ఎందుకంటే ATM bank systemతో ప్రత్యేకమైన network connection ద్వారా connectedగా ఉంటుంది.
+అంటే ATMని కేవలం ఒక metal boxలా తీసుకెళ్లిపోవడం అంత simple విషయం కాదు.
+మనం రోజూ ఉపయోగించే ATM వెనుక ఇంత పెద్ద technology ఉందని మీకు తెలుసా?
+తెలియకపోతే ఈ videoని share చేయండి… ఇలాంటి interesting facts కోసం The Dark World ఛానల్‌ని subscribe చేయండి.
+
+

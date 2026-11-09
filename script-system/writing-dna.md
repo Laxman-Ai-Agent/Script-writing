@@ -149,7 +149,7 @@ Long-form (≥5 min) habits from 19, 20, 24, 33: section breaks by blank line; e
 - 2026-11-09: Priority order — natural human narration > fancy vocabulary > artificial storytelling.
 - 2026-11-09: Use a key noun (e.g. వ్యవస్థ) only where it's really needed. On repeats, refer back with అది / ఇదే or name the specific thing (నరం, కండరం) instead of reusing the general word.
 - 2026-11-09 (AI Doctor 1-min rewrite): **Write the way people talk, not the way they read.** Pick the word a Telugu person would actually say. If that is an English word, write it in Telugu script (హాస్పిటల్, గవర్నమెంట్, సిటీ, పేషెంట్, టెస్ట్, ఎమర్జెన్సీ, షుగర్, ఫ్యామిలీ, ఫ్రెండ్స్, కామెంట్స్, చెక్ చేయడం, ట్రీట్మెంట్, బ్రెస్ట్ క్యాన్సర్). If a warm Telugu word is what people say, use it (పల్లెటూళ్లు, ఆడవాళ్లు, అలుపు, పసిగట్టు). This refines §2.3: "natural spoken" beats "Telugu at any cost". Avoid bookish forms: ప్రభుత్వం, ఆసుపత్రి, పరిశీలన, పట్టణం, మహిళలు, మధుమేహం, స్థానం. Latin script still only for names/codes (AI, YES).
-- 2026-11-09: Voice the viewer's own thought and pull them in: "…ఏదో రోబో వచ్చి ట్రీట్మెంట్ ఇస్తుందేమో అనుకుంటారు", "ఇది మనకెందుకు అవసరం?", "కానీ గుర్తుపెట్టుకోండి…".
+- 2026-11-09: Voice the viewer's own thought and pull them in: "…ఏదో రోబో వచ్చి ట్రీట్మెంట్ ఇస్తుందేమో అనుకుంటారు", "అసలు ఇది మనకెందుకు అవసరం?", "కానీ గుర్తుపెట్టుకోండి…". A question that opens a new beat starts its own paragraph. "అసలు" is NOT a fixed opener: whether it fits depends on the previous paragraph. Use it when the previous paragraph has described WHAT something is and the new question steps back to the root WHY/basic point (e.g. after "AI డాక్టర్ అంటే ఏంటి" → "అసలు ఇది మనకెందుకు అవసరం?"). Where the flow just continues, leave it out; pick the word the context calls for (అసలు / ఇంతకీ / మరి / none).
 - 2026-11-09: Prefer vivid everyday words/images over neutral description: చేదోడువాదోడు, అలుపు ఉండదు, క్షణాల్లో, పసిగట్టే, "ఒక విషయం తేలింది", "ఫోన్లో యాప్‌లు చూస్తూ కూర్చోకుండా".
 - 2026-11-09: Safety and CTA lines in plain spoken warning style, addressed straight to the viewer: "మీరంతట మీరే సొంత వైద్యం చేసుకోకుండా నేరుగా డాక్టర్‌నే కలవండి". CTA = "ఫ్రెండ్స్, ఫ్యామిలీకి షేర్ చేయండి" + a direct question ("…ఎప్పుడైనా ఇబ్బంది పడ్డారా? కింద కామెంట్స్‌లో చెప్పండి").
 - 2026-11-09: Spoken rewriting must not add claims beyond `facts.md` (e.g. MASAI showed more cancers found, not earlier detection) and should keep hedges like "అంచనా".
@@ -184,7 +184,7 @@ Examples of the *direction* of change — understand why, don't search-and-repla
 | ఆసుపత్రి / పట్టణాల్లో | హాస్పిటల్ / సిటీల్లో | everyday loanwords beat bookish Telugu |
 | గ్రామాల్లో / మహిళలు / మధుమేహం | పల్లెటూళ్లలో / ఆడవాళ్లు / షుగర్ | warm spoken words |
 | చాలామంది AI డాక్టర్ అంటే రోబో అనుకుంటారు | …అంటే ఏదో రోబో వచ్చి ట్రీట్మెంట్ ఇస్తుందేమో అనుకుంటారు | voice the viewer's own picture |
-| ఇది ఎందుకు అవసరం? | ఇది మనకెందుకు అవసరం? | pull the viewer in |
+| ఇది ఎందుకు అవసరం? | (new paragraph) అసలు ఇది మనకెందుకు అవసరం? | pull the viewer in; "అసలు" fits here because the previous para said WHAT it is and this steps back to WHY — context-dependent, not a fixed opener |
 | డాక్టర్ స్థానంలో కాకుండా, రెండో జత కళ్లలా | డాక్టర్ స్థానాన్ని లాక్కోదు, చేదోడువాదోడుగా సహాయం చేస్తుంది | vivid everyday image |
 | అలసిపోదు, ఎన్నో స్కాన్‌లను చూడగలదు | అలుపు ఉండదు, ఎన్నో స్కాన్లను క్షణాల్లో చెక్ చేయగలదు | spoken words |
 | జరిగిన పరిశీలనలో … గుర్తించే | చేసిన టెస్టుల్లో ఒక విషయం తేలింది … పసిగట్టే | spoken reveal |

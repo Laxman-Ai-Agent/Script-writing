@@ -1,0 +1,30 @@
+# Telugu Script Writing System
+
+Research a topic in English → write a natural, human-sounding Telugu narration script in the user's channel voice.
+
+## User
+- Runs two Telugu YouTube channels: **The Dark World** (science / tech / history / AI explainers) and **Health Decode** (health, "AI డాక్టర్" persona).
+- Reply in **Telugu script** (user writes Telugu / Tanglish). Native speaker — their language corrections are final.
+- Wants narration text only: no b-roll cues, no timestamps. Final script shown directly (no fact-sheet approval step).
+
+## How to use
+- `/script <topic> <duration>` — e.g. `/script కిడ్నీ ఎలా పనిచేస్తుంది 1.30`. Durations used: 40s, 50s, 1, 1.30, 2, 3, 5, 7, 8, 10, 12, 15, 20, 30 (min).
+- `/script update` — analyze only new files in `sample script/` and merge into the profile.
+- `/script reanalyze` — full rebuild (only on explicit request).
+
+## File map
+| Path | What it is | When to change |
+|---|---|---|
+| `.claude/skills/script/SKILL.md` | The workflow: research → fact sheet → plan → write → human-narration refinement → validation → deliver | Change the *process* |
+| `script-system/writing-dna.md` | Style profile. §1–10 Dark World voice, §11 user corrections (highest priority), §12 phrase table, §13 gold reference script, §14 Health Decode mode + 7-point rubric | Change the *style* |
+| `script-system/manifest.json` | Which sample files were analyzed (name + bytes) | Auto, by `/script update` |
+| `script-system/history.json` | Openings/structures used per script, to avoid repeats | Auto, after each script |
+| `sample script/` | User's original samples (01–35 + Health-decode.txt). 21=22 duplicate, 36 empty, 34/35 vocab lists | User adds files |
+| `output/YYYY-MM-DD-<slug>/` | `facts.md` (claims + sources) and `script.txt` per script | Auto |
+
+## Rules for future changes
+- **Do not re-read `sample script/`** for normal script writing — load `writing-dna.md` only (token saving).
+- User style feedback → add a dated one-line bullet to DNA §11; word-level swaps → add a row to §12. Present corrections to the user as a side-by-side table (old | new | reason).
+- Latest user corrections override older sample habits (e.g. Telugu words first, connected paragraphs, limited English).
+- Words/min (~150) in DNA §8 is still an **estimate** — recalibrate when the user reports a real recorded duration.
+- Git: local repo only (no remote). Author is set per-repo as "Script-writing". Commit when the user asks.

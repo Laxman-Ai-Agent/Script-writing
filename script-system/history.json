@@ -1,5 +1,7 @@
 [
   {"date": "2026-11-09", "topic": "Why onions make you cry", "duration": "1.30", "opening": "O2", "structure": "S2", "ending": "E1+E4", "file": "output/2026-11-09-why-onions-make-you-cry/script.txt"},
   {"date": "2026-11-09", "topic": "Why do we get goosebumps", "duration": "2", "opening": "O3", "structure": "S1", "ending": "E2", "file": "output/2026-11-09-why-do-we-get-goosebumps/script.txt"},
-  {"date": "2026-11-09", "channel": "health", "topic": "Why anaemia happens", "duration": "1.30", "opening": "H-stat", "structure": "normal-then-wrong", "ending": "share-to-protect", "file": "output/2026-11-09-why-anaemia-happens/script.txt"}
+  {"date": "2026-11-09", "channel": "health", "topic": "Why anaemia happens", "duration": "1.30", "opening": "H-stat", "structure": "normal-then-wrong", "ending": "share-to-protect", "file": "output/2026-11-09-why-anaemia-happens/script.txt"},
+  {"date": "2026-11-09", "channel": "health", "topic": "AI Doctor (AI in healthcare)", "duration": "5", "opening": "H2", "structure": "problem-then-how-it-works-then-evidence-then-limits", "ending": "E1+share-to-protect", "file": "output/2026-11-09-ai-doctor/script-5min.txt"},
+  {"date": "2026-11-09", "channel": "health", "topic": "AI Doctor (AI in healthcare)", "duration": "1", "opening": "H4", "structure": "myth-need-evidence-caution", "ending": "share+experience", "file": "output/2026-11-09-ai-doctor/script-1min.txt"}
 ]

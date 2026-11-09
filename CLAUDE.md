@@ -25,11 +25,11 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 ## Rules for future changes
 - **Do not re-read `sample script/`** for normal script writing — load `writing-dna.md` only (token saving).
 - User style feedback → add a dated one-line bullet to DNA §11; word-level swaps → add a row to §12. Present corrections to the user as a side-by-side table (old | new | reason).
-- Latest user corrections override older sample habits (e.g. Telugu words first, connected paragraphs, limited English).
+- Latest user corrections override older sample habits and older corrections. As of 2026-11-09 (both channels, long + short): natural Tanglish with English words in **Latin script** (chest pain, hospital, doctor) — this replaced the earlier "Telugu words first / Telugu-script loanwords" rule. Connected paragraphs still apply.
 - Words/min (~150) in DNA §8 is still an **estimate** — recalibrate when the user reports a real recorded duration.
 - Git: remote `origin` = https://github.com/Laxman-Ai-Agent/Script-writing.git (branch `main`). Author is set per-repo as "Script-writing". Commit + push when the user asks.
 
 ## Status (2026-11-09)
 - System built; DNA covers both channels; user corrections through 2026-11-09 are in §11/§12/§13.
-- Scripts done: onion (Dark World, rewritten by user → §13 gold), goosebumps (Dark World), anaemia (Health Decode, user approved "బాగుంది").
+- Scripts done: onion (Dark World, rewritten by user → §13 gold), goosebumps (Dark World), anaemia (Health Decode, user approved "బాగుంది"), AI Doctor 5-min + 1-min (Health Decode, both rewritten by user → style rules in DNA §11).
 - Open: words/min calibration (no recorded duration reported yet).

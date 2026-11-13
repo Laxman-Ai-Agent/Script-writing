@@ -40,6 +40,8 @@ MODEL = "opus"  # writes the Telugu; research is delegated to a Sonnet subagent 
 # Lean run: project settings only (no user plugins/hooks/MCP), fewer built-in tools -> ~18k instead of ~56k baseline tokens per step
 LEAN = ["--setting-sources", "project", "--strict-mcp-config", "--exclude-dynamic-system-prompt-sections",
         "--tools", "Read,Write,Edit,Bash,WebSearch,WebFetch,Glob,Grep,Skill,Agent"]
+PROMPT_REVISE = ("Invoke the Skill tool with skill 'script' and args 'revise'. Follow its Mode F exactly for every claimed row in the "
+                 "Script Learning Database sheet. Do nothing else.")
 PROMPT = ("Invoke the Skill tool with skill 'script' and args 'run'. Follow its Mode E exactly for every ON row "
           "in the Google Sheet. Do nothing else.")
 
@@ -77,7 +79,7 @@ def stats_line(st):
             f"~${st['cost']:.2f} list price")
 
 
-def run_claude():
+def run_claude(prompt=PROMPT):
     """-> (ok, reason). On success `reason` is the usage line (tokens, cost). Unattended headless run;
     ponytail: one run at a time, no resume of a half-finished run."""
     exe = shutil.which("claude")
@@ -87,7 +89,7 @@ def run_claude():
     env = {**os.environ, "GATEGUARD_BASH_ROUTINE_DISABLED": "1",
            "GATEGUARD_EXEMPT_GLOBS": "output/**,script-system/history.json"}
     try:
-        p = subprocess.run([exe, "-p", PROMPT, "--output-format", "json", "--permission-mode", "dontAsk",
+        p = subprocess.run([exe, "-p", prompt, "--output-format", "json", "--permission-mode", "dontAsk",
                             "--max-budget-usd", BUDGET_USD, "--no-session-persistence", "--model", MODEL, *LEAN,
                             "--allowedTools", *ALLOWED],  # variadic flag goes last
                            cwd=ROOT, env=env, capture_output=True, text=True, encoding="utf-8",
@@ -143,6 +145,39 @@ def tick(sheet, runner=run_claude, say=log):
     return "done"
 
 
+def tick_ldb(sheet, runner=None, say=log, pending_rows=None):
+    """Same idea for the Script Learning Database tab: START in a row's RUN cell (H), or RUN ALL (H1), starts one
+    unattended run of SKILL.md Mode F that splits a pasted update into clean script / reasons / changes / rules."""
+    runner = runner or (lambda: run_claude(PROMPT_REVISE))
+    sc = L.ldb_scan(sheet.ldb_controls())
+    if sc["fill"] or sc["clear"]:
+        sheet.ldb_fill(sc["fill"], sc["clear"])
+    if not (sc["run_all"] or sc["starts"]):
+        return "idle"
+    rows = set(sc["starts"])
+    if sc["run_all"]:
+        rows |= set((pending_rows or (lambda: L.pending_rows(L.load(), sheet.ldb_all())))())
+    rows = sorted(rows)
+    if not rows:
+        sheet.ldb_set_all(L.ALL_REST, f"{stamp()} - nothing to process: no pasted updates")
+        say("learning db: nothing to process")
+        return "empty"
+    sheet.ldb_claim(rows)
+    sheet.ldb_set_all(L.ALL_RUN, f"{stamp()} - processing {len(rows)} update(s)")
+    say(f"learning db: starting {len(rows)} row(s): {rows}")
+    ok, why = runner()
+    left = L.ldb_scan(sheet.ldb_controls())["claimed"]  # anything a stopped run did not finish
+    if left:
+        sheet.ldb_release(left)
+    if not ok:
+        sheet.ldb_set_all(L.ALL_REST, f"{stamp()} - run stopped: {why}. Click START again. See watcher.log")
+        say(f"learning db run failed: {why}")
+        return "failed"
+    sheet.ldb_set_all(L.ALL_REST, f"{stamp()} - finished" + (f" | {why}" if why else ""))
+    say("learning db run finished" + (f": {why}" if why else ""))
+    return "done"
+
+
 def pid_alive(pid):
     if os.name == "nt":  # os.kill(pid, 0) would TERMINATE the process on Windows
         out = subprocess.run(["tasklist", "/FI", f"PID eq {pid}", "/NH"], capture_output=True, text=True).stdout
@@ -191,6 +226,7 @@ def main(argv=None):
             try:
                 sheet = sheet or L.GoogleSheet()
                 tick(sheet)
+                tick_ldb(sheet)
             except Exception as e:  # network/API hiccup: retry on the next poll
                 log(f"error: {e}")
                 sheet = None

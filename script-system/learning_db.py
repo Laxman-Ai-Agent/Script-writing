@@ -18,6 +18,7 @@ Usage (run from project root):
   python script-system/learning_db.py words <file>               # narration word count (title line excluded)
   python script-system/learning_db.py requests                  # ON rows still to write (+ skipped counts, RUN cell); creates/upgrades the tab
   python script-system/learning_db.py request-start <row> | request-fail <row> "<reason>" | run-finish "<summary>"
+  python script-system/learning_db.py revisions-pending | revision-done <id> [--note ...] | revision-fail <id> "<why>" | ldb-finish "<summary>"
   python script-system/learning_db.py request-done <row> <id> [--note "6 min, material short"]   # Status = Done: <id> (note)
 
 Auth: service account JSON at $GOOGLE_APPLICATION_CREDENTIALS or script-system/credentials/service-account.json
@@ -42,6 +43,7 @@ RUN_STATES = ["Idle", "RUN NOW"]  # cell B1 of the requests tab; data rows start
 G_REST, G_START, G_RUN = "▶ RUN", "▶ START", "⏳ RUNNING"  # per-row RUN control (column G)
 ALL_REST, ALL_START, ALL_RUN = "▶ RUN ALL", "▶ START ALL", "⏳ RUNNING ALL"  # RUN ALL control (cell G2)
 ALL_STATES = [ALL_REST, ALL_START, ALL_RUN]
+DONE_CELL, ASK_CELL = "✅ DONE", "❌ ASK"  # Learning DB row RUN cell: pasted update processed / needs the user (see hover note)
 WORDS_PER_MIN = 150  # same estimate as writing-dna.md section 8
 MINUTE_OPTIONS = (
     [f"Up to {n} min" for n in ("1", "2", "3", "5", "10", "15")]
@@ -166,13 +168,15 @@ def render_rules(rules):
     return "\n".join(lines)
 
 
+def render_feedback(rec):
+    return stacked(rec["feedback"], "Feedback")
+
+
 def row_values(rid, rec):
-    revised = stacked(rec["revisions"], "Revision")
-    if len(revised) > CELL_LIMIT:
-        # ponytail: older revisions then live only in learning-db.json; split across rows if this ever matters
-        revised = stacked(rec["revisions"][-1:], "Revision") + "\n\n(older revisions kept in learning-db.json)"
-    cells = [rid, rec["title"], rec["original"], revised, stacked(rec["changes"], "Changes for revision"),
-             stacked(rec["feedback"], "Feedback"), render_rules(rec["rules"])]
+    """Revised column = the latest updated script ONLY (older revisions stay in learning-db.json)."""
+    latest = rec["revisions"][-1]["text"] if rec["revisions"] else ""
+    cells = [rid, rec["title"], rec["original"], latest, stacked(rec["changes"], "Changes for revision"),
+             render_feedback(rec), render_rules(rec["rules"])]
     for name, c in zip(HEADERS, cells):
         if len(c) > CELL_LIMIT:
             raise ValueError(f"'{name}' exceeds the 50,000-char cell limit; refusing to truncate.")
@@ -210,7 +214,35 @@ class GoogleSheet:
                                               valueInputOption="RAW", body={"values": [headers]}))
 
     def ensure_tab(self):
+        """Learning DB tab: headers + the RUN column H (H1 = RUN ALL). Formatting is rebuilt only when it is missing."""
         self.ensure(TAB, HEADERS)
+        sid = self._sheet_id(TAB)
+        h1 = (self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!H1")).get("values") or [[""]])[0][0]
+        meta = self.run(self.api.get(spreadsheetId=SHEET_ID, fields="sheets(properties.sheetId,conditionalFormats)"))
+        n_rules = len(next(s for s in meta["sheets"] if s["properties"]["sheetId"] == sid).get("conditionalFormats", []))
+        if h1 not in ALL_STATES or n_rules != 5:
+            self._put([{"range": f"'{TAB}'!H1", "values": [[h1 if h1 in ALL_STATES else ALL_REST]]}])
+            rng = lambda r0, r1, c0, c1: {"sheetId": sid, "startRowIndex": r0, "endRowIndex": r1,
+                                          "startColumnIndex": c0, "endColumnIndex": c1}
+            dv = lambda r, vals: {"setDataValidation": {"range": r, "rule": {"condition": {
+                "type": "ONE_OF_LIST", "values": [{"userEnteredValue": v} for v in vals]},
+                "showCustomUi": True, "strict": True}}}
+            GREEN, ORANGE, RED, AMBER = (0.72, 0.88, 0.80), (1.0, 0.85, 0.55), (0.96, 0.78, 0.76), (1.0, 0.95, 0.62)
+            colour = lambda text, rgb: {"addConditionalFormatRule": {"index": 0, "rule": {"ranges": [rng(0, 1000, 7, 8)], "booleanRule": {
+                "condition": {"type": "TEXT_STARTS_WITH", "values": [{"userEnteredValue": text}]},
+                "format": {"backgroundColor": {"red": rgb[0], "green": rgb[1], "blue": rgb[2]}}}}}}
+            self.run(self.api.batchUpdate(spreadsheetId=SHEET_ID, body={"requests": [
+                *[{"deleteConditionalFormatRule": {"sheetId": sid, "index": 0}} for _ in range(n_rules)],  # ours only
+                colour("▶ RUN", GREEN), colour("▶ START", AMBER), colour("⏳", ORANGE), colour("✅", GREEN), colour("❌", RED),
+                dv(rng(0, 1, 7, 8), ALL_STATES),
+                dv(rng(1, 1000, 7, 8), [G_REST, G_START, G_RUN, DONE_CELL, ASK_CELL]),
+                {"repeatCell": {"range": rng(0, 1000, 7, 8), "cell": {"userEnteredFormat": {
+                    "textFormat": {"bold": True}, "horizontalAlignment": "CENTER"}},
+                    "fields": "userEnteredFormat(textFormat,horizontalAlignment)"}},
+                {"updateDimensionProperties": {"range": {"sheetId": sid, "dimension": "COLUMNS", "startIndex": 7, "endIndex": 8},
+                                               "properties": {"pixelSize": 130}, "fields": "pixelSize"}}]}))
+        sc = ldb_scan(self.ldb_controls())
+        self.ldb_fill(sc["fill"], sc["clear"])
 
     def _sheet_id(self, tab):
         meta = self.run(self.api.get(spreadsheetId=SHEET_ID, fields="sheets.properties(sheetId,title)"))
@@ -263,6 +295,8 @@ class GoogleSheet:
             colour(status, "TEXT_STARTS_WITH", "❌", RED),
             colour(runc, "TEXT_STARTS_WITH", "▶ RUN", GREEN), colour(runc, "TEXT_STARTS_WITH", "▶ START", AMBER),
             colour(runc, "TEXT_STARTS_WITH", "⏳", ORANGE),
+            # leftovers from earlier layouts (e.g. the old Minutes dropdown that now sits under Extra Data): no rule = cleared
+            {"setDataValidation": {"range": rng(0, 1000, 0, 3)}}, {"setDataValidation": {"range": rng(0, 1000, 5, 6)}},
             dv(rng(0, 1, 6, 7), ALL_STATES, True),
             dv(rng(1, 1000, 6, 7), [G_REST, G_START, G_RUN], True),
             dv(rng(1, 1000, 3, 4), MINUTE_OPTIONS, False),
@@ -329,11 +363,23 @@ class GoogleSheet:
         """Columns A:C of every row (Script ID, Title, Original Script) - used to find a record's row."""
         return self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!A:C")).get("values", [])
 
-    def write_row(self, row, values):
-        res = self.run(self.api.values().update(
-            spreadsheetId=SHEET_ID, range=f"'{TAB}'!A{row}:{LAST_COL}{row}",
-            valueInputOption="RAW", body={"values": [values]}))
-        if not res.get("updatedCells"):
+    def get_row(self, row):
+        return (self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!A{row}:H{row}")).get("values") or [[]])[0]
+
+    def write_row(self, row, values, skip=()):
+        """Write the row's cells A..G; indexes in `skip` (typed/pasted input) are left untouched."""
+        data, i = [], 0
+        while i < len(values):
+            if i in skip:
+                i += 1
+                continue
+            j = i
+            while j < len(values) and j not in skip:
+                j += 1
+            data.append({"range": f"'{TAB}'!{chr(65 + i)}{row}:{chr(64 + j)}{row}", "values": [values[i:j]]})
+            i = j
+        res = self.run(self.api.values().batchUpdate(spreadsheetId=SHEET_ID, body={"valueInputOption": "RAW", "data": data}))
+        if res.get("totalUpdatedCells", 0) < 1:
             raise RuntimeError("API did not confirm the write")
         return row
 
@@ -345,6 +391,45 @@ class GoogleSheet:
         if not upd.get("updatedCells"):
             raise RuntimeError("API did not confirm the append")
         return int(re.search(r"![A-Z]+(\d+)", upd["updatedRange"]).group(1))
+
+    # ---- Learning DB RUN column (H): only columns A and H are polled, the big script cells are not
+    def ldb_controls(self):
+        res = self.run(self.api.values().batchGet(spreadsheetId=SHEET_ID, ranges=[f"'{TAB}'!A1:A1000", f"'{TAB}'!H1:H1000"]))
+        a, h = [vr.get("values", []) for vr in res["valueRanges"]]
+        cell = lambda col, i: (col[i][0].strip() if i < len(col) and col[i] else "")
+        return {"h1": cell(h, 0), "rows": [(i + 1, cell(a, i), cell(h, i)) for i in range(1, max(len(a), len(h)))]}
+
+    def ldb_all(self):
+        return self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!A1:H1000")).get("values", [])
+
+    def ldb_note(self, row, col, text):
+        self.run(self.api.batchUpdate(spreadsheetId=SHEET_ID, body={"requests": [{"updateCells": {
+            "range": {"sheetId": self._sheet_id(TAB), "startRowIndex": row - 1, "endRowIndex": row,
+                      "startColumnIndex": col, "endColumnIndex": col + 1},
+            "rows": [{"values": [{"note": text}]}], "fields": "note"}}]}))
+
+    def ldb_mark(self, row, text, note=None):
+        self._put([{"range": f"'{TAB}'!H{row}", "values": [[text]]}])
+        if note is not None:
+            self.ldb_note(row, 7, note)
+
+    def ldb_fill(self, fill, clear=()):
+        if fill:
+            self._put([{"range": f"'{TAB}'!H{r}", "values": [[G_REST]]} for r in fill])
+        if clear:
+            self.run(self.api.values().batchClear(spreadsheetId=SHEET_ID, body={"ranges": [f"'{TAB}'!H{r}" for r in clear]}))
+
+    def ldb_claim(self, rows):
+        self._put([{"range": f"'{TAB}'!H{r}", "values": [[G_RUN]]} for r in rows])
+
+    def ldb_release(self, rows):
+        for r in rows:
+            self.ldb_mark(r, ASK_CELL, "The run stopped before this row was processed. Click START again.")
+
+    def ldb_set_all(self, text, note=None):
+        self._put([{"range": f"'{TAB}'!H1", "values": [[text]]}])
+        if note is not None:
+            self.ldb_note(1, 7, note)
 
 
 def _mins(s):
@@ -442,11 +527,64 @@ def find_row(rows, rid, original):
     return None
 
 
+def pending_input(cur, rec):
+    """True if the sheet row holds text the user typed or pasted (updated script in D, reasons in F) that is not in the
+    local record yet. Those cells are INPUT: a sync must never overwrite them."""
+    cur = ([str(c) for c in cur] + [""] * 8)[:8]
+    d, f = cur[3].strip(), cur[5].strip()
+    latest = rec["revisions"][-1]["text"].strip() if rec["revisions"] else ""
+    legacy = stacked(rec["revisions"], "Revision").strip()  # D used to hold every revision with headers
+    return (d != "" and d not in (latest, legacy)) or (f != "" and f != render_feedback(rec).strip())
+
+
+def pending_rows(db, rows):
+    """Whole sheet (A1:H...) -> row numbers whose D/F hold a pasted update that is not processed yet."""
+    out = []
+    for i, cur in enumerate(rows, start=1):
+        if i == 1 or not cur or not str(cur[0]).strip():
+            continue
+        rec = db["records"].get(str(cur[0]).strip())
+        if rec and pending_input(cur, rec):
+            out.append(i)
+    return out
+
+
+def ldb_scan(ctl):
+    """Controls of the Learning DB tab ({'h1': ..., 'rows': [(row, script id, H cell)]}) -> what the watcher must do."""
+    out = {"run_all": ctl["h1"] == ALL_START, "starts": [], "claimed": [], "fill": [], "clear": []}
+    for row, rid, h in ctl["rows"]:
+        if not rid:
+            if h in (G_REST, DONE_CELL):
+                out["clear"].append(row)
+            continue
+        if h == G_START:
+            out["starts"].append(row)
+        elif h == G_RUN:
+            out["claimed"].append(row)
+        elif h == "":
+            out["fill"].append(row)
+    return out
+
+
 def sync_record(sheet, rid, rec):
-    """Upsert one record by Script ID -> no duplicate rows."""
+    """Upsert one record by Script ID -> no duplicate rows. Pasted/typed input in D and F is left alone."""
     values = row_values(rid, rec)
     row = find_row(sheet.first_cols(), rid, rec["original"])
-    row = sheet.write_row(row, values) if row else sheet.append_row(values)
+    if row is None:
+        row = sheet.append_row(values)
+    else:
+        row = sheet.write_row(row, values, skip=(3, 5) if pending_input(sheet.get_row(row), rec) else ())
+    rec["synced"] = True
+    return row
+
+
+def finish_revision(sheet, rid, rec, note=None):
+    """After a pasted update was processed: the row gets the clean script in D, the rebuilt E/F/G, and RUN cell = done."""
+    row = find_row(sheet.first_cols(), rid, rec["original"])
+    if row is None:
+        raise RuntimeError(f"{rid} has no row in the sheet yet")
+    sheet.write_row(row, row_values(rid, rec))
+    sheet.ldb_mark(row, DONE_CELL, note if note is not None else f"{today()} - update processed")
     rec["synced"] = True
     return row
 
@@ -497,6 +635,10 @@ def main(argv=None):
     sub.add_parser("requests")
     x = sub.add_parser("request-done"); x.add_argument("row", type=int); x.add_argument("id"); x.add_argument("--note", default="")
     sub.add_parser("words").add_argument("file")
+    sub.add_parser("revisions-pending")
+    x = sub.add_parser("revision-done"); x.add_argument("id"); x.add_argument("--note")
+    x = sub.add_parser("revision-fail"); x.add_argument("id"); x.add_argument("reason")
+    sub.add_parser("ldb-finish").add_argument("summary")
     sub.add_parser("request-start").add_argument("row", type=int)
     x = sub.add_parser("request-fail"); x.add_argument("row", type=int); x.add_argument("reason")
     sub.add_parser("run-finish").add_argument("summary")
@@ -527,6 +669,45 @@ def main(argv=None):
             print(f"EXTRA DATA: {r['extra'] or '(none)'}")
             print(f"LENGTH: {r['length']}")
         print(f"{len(reqs)} ON row(s) to write | skipped: {skipped['off']} OFF, {skipped['done']} Done | RUN cell: {sheet.run_flag()}")
+        return
+    if args.cmd == "revisions-pending":
+        sheet = GoogleSheet()
+        sheet.ensure_tab()
+        rows = ldb_scan(sheet.ldb_controls())["claimed"] or pending_rows(db, sheet.ldb_all())  # claimed by the watcher, else any pasted update
+        cell = lambda cur, i: (str(cur[i]) if len(cur) > i else "")
+        for r in rows:
+            cur = sheet.get_row(r)
+            rid = cell(cur, 0).strip()
+            rec = db["records"].get(rid)
+            if rec is None:
+                print(f"=== sheet row {r}: unknown Script ID '{rid}' - skip it ===")
+                continue
+            fresh = pending_input(cur, rec)
+            print(f"=== {rid} (sheet row {r}) | title: {rec['title']} | {'NEW INPUT' if fresh else 'NO NEW INPUT'} ===")
+            print("--- ORIGINAL SCRIPT ---")
+            print(rec["original"])
+            print("--- D: Revised column, raw (the pasted update; may also hold reasons / comparison / rules) ---")
+            print(cell(cur, 3))
+            print("--- F: My Feedback column, raw (the user's own reasons) ---")
+            print(cell(cur, 5))
+        print(f"{len(rows)} row(s) to process")
+        return
+    if args.cmd == "revision-done":
+        rid = resolve(db, args.id)
+        row = finish_revision(GoogleSheet(), rid, db["records"][rid], args.note)
+        save(db)
+        print(f"{rid} -> row {row}: Revised column = clean script, RUN cell = {DONE_CELL}")
+        return
+    if args.cmd == "revision-fail":
+        rid = resolve(db, args.id)
+        sheet = GoogleSheet()
+        row = find_row(sheet.first_cols(), rid, db["records"][rid]["original"])
+        sheet.ldb_mark(row, ASK_CELL, args.reason)
+        print(f"{rid} -> row {row}: {ASK_CELL} ({args.reason})")
+        return
+    if args.cmd == "ldb-finish":
+        GoogleSheet().ldb_set_all(ALL_REST, f"{datetime.datetime.now():%Y-%m-%d %H:%M} - {args.summary}")
+        print("Learning DB run finished; RUN ALL cell reset.")
         return
     if args.cmd == "request-start":
         GoogleSheet().set_row_state(args.row, G_RUN, G_RUN)

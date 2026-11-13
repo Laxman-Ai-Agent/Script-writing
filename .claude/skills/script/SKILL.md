@@ -9,6 +9,7 @@ Usage:
 - `/script <topic> <duration>` — e.g. `/script why is the sky blue 1.30`. Duration in minutes (`1.30` = 1 min 30 s) or seconds (`40s`). No duration → ask once, default 1 min.
 - Channel: health / body / disease / medicine topics → **Health Decode** (DNA §14). Everything else → **The Dark World**. User can force with `health` or `dark` anywhere in the request.
 - `/script run` - write scripts for every Pending row in the Google Sheet tab "Script Requests" (see Mode E).
+- `/script revise` - process updated scripts pasted in the Script Learning Database sheet (see Mode F).
 - `/script update` — analyze only new sample files and update the profile.
 - `/script reanalyze` — full re-analysis of every sample (only when the user explicitly asks).
 
@@ -95,6 +96,15 @@ Columns: Script ID (filled when the row is done) | Topic / Script | Extra Data |
 3. After the last row: `python script-system/learning_db.py run-finish "3 done, 1 failed"` (resets the RUN ALL cell G1 and stores the summary as its hover note).
 4. Show every script in chat as in Mode A.
 Triggers: the user types `/script run` in Claude Code (runs regardless of the RUN cell), or `script-system/watcher.py` starts an unattended run when RUN ALL (G1) = START ALL or a row's RUN cell = START. In an unattended run you cannot ask questions: decide with defaults, never wait for input, and only touch output/, history.json and learning_db.py.
+
+## Mode F: `/script revise` (updated scripts pasted in the Script Learning Database sheet)
+The user pastes an update into the **Revised** column (D) of the script's row - the paste may also hold the old script, a comparison, reasons and rules - and/or types reasons in **My Feedback** (F), then picks START in that row's RUN cell (H) or RUN ALL (H1). The watcher claims the rows (H = ⏳ RUNNING). Unattended: never ask questions.
+1. `python script-system/learning_db.py revisions-pending` -> for every row: Script ID, ORIGINAL SCRIPT, D raw, F raw, NEW INPUT / NO NEW INPUT.
+2. Per row, find the updated script inside D: the part under a heading like UPDATED / NEW / REVISED SCRIPT (కొత్త SCRIPT, "new script", ...) - or all of D if it holds only a script. Ignore OLD / ORIGINAL SCRIPT parts. Everything else (comparison, reasons, rules / guidelines) is explanation. If you cannot tell which text is the updated script, or the row says NO NEW INPUT: `python script-system/learning_db.py revision-fail <ID> "<what is unclear>"` and go on to the next row. Never guess, never invent feedback.
+3. Write files under `output/_revise/<ID>/`: `script.txt` = the updated script exactly as pasted (title line + narration, nothing else); `feedback.txt` = the user's reasons VERBATIM (what they typed in F + the why-parts of the paste), nothing added; `changes.txt` = detailed Changes Made as in Mode D step 2 (run `add-revision` first, then `diff <ID>`; user's reason where given, "no reason given" otherwise).
+4. `python script-system/learning_db.py add-revision <ID> output/_revise/<ID>/script.txt`, then `add-feedback` (skip if there are no reasons) and `add-changes`. Rules: ones the user states outright -> `add-rule <ID> general|topic "<rule>" --approved`; rules you infer -> without `--approved` (PROPOSED).
+5. `python script-system/learning_db.py revision-done <ID>` rewrites the row: D = the clean script only, E/F/G rebuilt, H = ✅ DONE. Any failure -> `revision-fail <ID> "<reason>"` (H = ❌ ASK, reason as hover note).
+6. After the last row: `python script-system/learning_db.py ldb-finish "<n> processed, <m> need you"`.
 
 ## Mode D: user sends a revised script / feedback (Script Learning Database)
 1. Find the script by its Script ID (the user may say "S002"; `python script-system/learning_db.py list` shows IDs and titles). Save the user's complete revised script to `output/.../script.txt` AND `python script-system/learning_db.py add-revision <id> <file>` — full text, never shortened. Never touch the original.

@@ -5,6 +5,7 @@ import learning_db as L
 class FakeSheet:
     def __init__(self, rows=None):
         self.rows = rows if rows is not None else []
+        self.marks = []
 
     def ensure_tab(self):
         if not self.rows:
@@ -13,13 +14,21 @@ class FakeSheet:
     def first_cols(self):
         return [r[:3] for r in self.rows]
 
-    def write_row(self, row, values):
-        self.rows[row - 1] = values
+    def get_row(self, row):
+        return list(self.rows[row - 1])
+
+    def write_row(self, row, values, skip=()):
+        cur = list(self.rows[row - 1])
+        new = [cur[i] if (i in skip and i < len(cur)) else v for i, v in enumerate(values)]
+        self.rows[row - 1] = new + cur[len(values):]
         return row
 
     def append_row(self, values):
         self.rows.append(values)
         return len(self.rows)
+
+    def ldb_mark(self, row, text, note=None):
+        self.marks.append((row, text, note))
 
 
 def down():
@@ -65,7 +74,7 @@ def test():
     L.sync_pending(db, sheet_factory=lambda: sheet)
     row = sheet.rows[1]
     assert len(sheet.rows) == 3 and len(row) == 7 and row[0] == "S001" and row[1] == "Newer title"
-    assert "rev one" in row[3] and "rev two" in row[3] and row[3].index("rev two") < row[3].index("rev one")
+    assert row[3] == "Newer title\nrev two"  # Revised column = the latest updated script only
     assert "my reason" in row[5] and "⏳ PROPOSED" in row[6] and "✅ APPROVED" in row[6]
 
     # only approved rules are retrieved
@@ -102,6 +111,26 @@ def test():
                         ["Old title\nbody", "rev", "chg", "fb", "rules"]])
     L.sync_pending(old, sheet_factory=lambda: legacy)
     assert len(legacy.rows) == 2 and legacy.rows[1][0] == "S001" and legacy.rows[1][2] == "Old title\nbody"
+
+    # pasted/typed input in D (updated script) or F (reasons) is never overwritten by a sync
+    rec2 = {"created": "x", "title": "T", "original": "Orig", "revisions": [], "changes": [], "feedback": [], "rules": [], "synced": False}
+    L.append_entry(rec2, "revisions", "T2\nnew body")
+    assert L.row_values("S7", rec2)[3] == "T2\nnew body"
+    assert not L.pending_input(["S7", "T2", "Orig", "T2\nnew body"], rec2)  # processed
+    assert not L.pending_input(["S7", "T2", "Orig", "=== Revision 1 (2026-11-13) ===\nT2\nnew body"], rec2)  # old stacked format
+    assert L.pending_input(["S7", "T2", "Orig", "NEW SCRIPT blob + reasons"], rec2)  # fresh paste
+    assert L.pending_input(["S7", "T2", "Orig", "T2\nnew body", "", "my reasons"], rec2)  # typed feedback
+    assert not L.pending_input(["S7", "T2", "Orig"], {**rec2, "revisions": []})  # nothing typed
+    sh = FakeSheet([L.HEADERS, ["S7", "T", "Orig", "PASTED BLOB", "", "typed reason", "", "▶ START"]])
+    db3 = {"records": {"S7": rec2}}
+    L.sync_pending(db3, sheet_factory=lambda: sh)
+    assert sh.rows[1][3] == "PASTED BLOB" and sh.rows[1][5] == "typed reason" and sh.rows[1][7] == "▶ START"  # input kept
+    L.finish_revision(sh, "S7", rec2, "processed")
+    assert sh.rows[1][3] == "T2\nnew body" and sh.marks[-1][:2] == (2, L.DONE_CELL)  # now the clean script + done
+    assert L.pending_rows(db3, [L.HEADERS, ["S7", "T", "Orig", "PASTED"], ["S9", "x", "y", "z"], []]) == [2]
+    ctl = {"h1": "▶ START ALL", "rows": [(2, "S1", ""), (3, "S2", "▶ START"), (4, "", "▶ RUN"), (5, "S3", "⏳ RUNNING")]}
+    sc = L.ldb_scan(ctl)
+    assert sc["run_all"] and sc["starts"] == [3] and sc["claimed"] == [5] and sc["fill"] == [2] and sc["clear"] == [4]
 
     # request rows (A2:G): manual mode = topic + ON + not done; blank toggle = OFF; failed/running are retried
     reqs, sk = L.parse_requests([
@@ -180,6 +209,28 @@ def test():
     s = FS([H("▶ START ALL"), ["", "t1", "", "1", "ON", "⏳ RUNNING", "⏳ RUNNING"]])
     assert W.tick(s, lambda: (False, "timed out"), print) == "failed" and "timed out" in s.log[-1][2]
     assert ("release", [2]) in s.log and s.log[-1][:2] == ("all", L.ALL_REST)  # stopped run frees its rows
+    class FL:
+        def __init__(s, ctl):
+            s.ctl, s.log = ctl, []
+
+        def ldb_controls(s): return s.ctl
+        def ldb_fill(s, fill, clear=()): s.log.append(("fill", list(fill), list(clear)))
+        def ldb_claim(s, rows): s.log.append(("claim", list(rows)))
+        def ldb_release(s, rows): s.log.append(("release", list(rows)))
+        def ldb_set_all(s, text, note=None): s.log.append(("all", text, note))
+
+    n = len(calls)
+    s = FL({"h1": "▶ RUN ALL", "rows": [(2, "S1", "")]})
+    assert W.tick_ldb(s, ok, print) == "idle" and len(calls) == n and ("fill", [2], []) in s.log
+    s = FL({"h1": "▶ START ALL", "rows": [(2, "S1", "▶ RUN"), (3, "S2", "▶ START")]})
+    assert W.tick_ldb(s, ok, print, pending_rows=lambda: [2]) == "done" and ("claim", [2, 3]) in s.log  # all pasted + clicked rows
+    s = FL({"h1": "▶ RUN ALL", "rows": [(2, "S1", "▶ RUN"), (3, "S2", "▶ START")]})
+    assert W.tick_ldb(s, ok, print) == "done" and ("claim", [3]) in s.log  # one row only (no local DB needed)
+    s = FL({"h1": "▶ START ALL", "rows": [(2, "S1", "▶ RUN")]})
+    n = len(calls)
+    assert W.tick_ldb(s, ok, print, pending_rows=lambda: []) == "empty" and len(calls) == n
+    s = FL({"h1": "▶ START ALL", "rows": [(3, "S2", "⏳ RUNNING")]})
+    assert W.tick_ldb(s, lambda: (False, "timed out"), print, pending_rows=lambda: [3]) == "failed" and ("release", [3]) in s.log
     txt, st = W.summarize('{"result": "hi", "num_turns": 3, "duration_ms": 125000, "total_cost_usd": 1.234, '
                           '"usage": {"input_tokens": 10, "cache_read_input_tokens": 200000, '
                           '"cache_creation_input_tokens": 30000, "output_tokens": 15000}, "modelUsage": {"claude-opus-5-5": {}}}')

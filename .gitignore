@@ -5,3 +5,4 @@ script-system/watcher.log
 script-system/watcher.lock
 script-system/run-costs.csv
 output/_compare-*/
+output/_revise/

@@ -51,6 +51,8 @@ _Sample quotes below keep the old Tanglish spelling; copy the MOVE, write it in 
 
 ## 4. Openings menu (VARIABLE — rotate; never repeat one of the last 3 used)
 
+**⚠️ 2026-11-13 (user rule, both channels, every video script): ALWAYS start with a straight intro paragraph BEFORE the hook below** — 3–4 lines: "ఈ video లో మనం [Company] కొత్తగా release చేసిన [Topic] గురించి తెలుసుకోబోతున్నాం. అవే [Names]. అసలు [Question 1]? [Question 2]? అంతేకాదు, [curiosity hook — the most surprising fact] ఎలా జరిగిందో ఈ video లో వివరంగా చూద్దాం." Then the chosen O#/H# opening as the second paragraph. (This overrides the old "O10 = weakest" note — the summary intro is now mandatory; the O# menu picks the hook paragraph that follows it.)
+
 - **O1 Playful curiosity:** everyday question + "అంత టైం నాకు ఎక్కడిది అంటారా? అయితే చెప్తా జాగ్రత్తగా విను." (01, 02) — shorts only, rare.
 - **O2 Paradox:** "ఇంత పెద్ద shipలో వేల టన్నుల బరువు ఉంటుంది. అయినా అది ఎందుకు మునగదు?" (03, 08, 06)
 - **O3 Imagine scenario:** "ఒక్కసారి ఊహించుకోండి… మీరు ల్యాప్‌టాప్ ముందు కూర్చుని, కేవలం ఒక్క line టైప్ చేశారు. అంతే." (33, 25, 26, 27, 29)
@@ -60,7 +62,7 @@ _Sample quotes below keep the old Tanglish spelling; copy the MOVE, write it in 
 - **O7 Deep-time scene:** "సుమారు 66 million years ago... Earth మీద వేల రకాల Dinosaurs జీవించేవి." (31, 23, 21)
 - **O8 Hidden-in-plain-sight:** "రైలు పట్టాల మధ్య ఈ చిన్న gap ఎందుకు ఉంటుందో ఎప్పుడైనా గమనించారా?" (01, 13, 14)
 - **O9 Casual greeting:** "హాయ్.. Black Hole అంటే ఏంటో తెలుసా?... తెలీదు కదూ... ఐతే ఇప్పుడు తెలుసుకుందాం." (28) — rare.
-- **O10 Plain promise:** "ఈ వీడియోలో … step by step చూద్దాం." (11) — weakest; only if nothing else fits.
+- **O10 Plain promise:** "ఈ వీడియోలో … step by step చూద్దాం." (11) — superseded: now the mandatory intro paragraph (see note above), not a stand-alone opening.
 
 ## 5. Body structures menu (VARIABLE — pick by topic, avoid last used)
 
@@ -159,6 +161,11 @@ Long-form (≥5 min) habits from 19, 20, 24, 33: section breaks by blank line; e
 - 2026-11-09: **Section openers the user likes:** "ముందుగా … అసలు problem ఏంటో చూద్దాం", "మరి … నిజంగానే use అవుతుందా అంటే కొన్ని proofs చూద్దాం", "మన India విషయానికే వస్తే", "ఇప్పుడు ఒక practical scenario ఊహించుకోండి", "అయితే … కొన్ని major challenges ఉన్నాయి", "అయినప్పటికీ మన India కి ఇదొక golden opportunity". Close with "సో చూశారు కదా, …" + a strong image ("lifeline లా మారబోతోంది") + "ఏది ఏమైనా …" safety line. Scenario character = unnamed relatable person (ఊర్లో ఉండే ఒక పెద్దాయన, వాళ్లబ్బాయి), not a named one.
 - 2026-11-09: Keep caveats short instead of whole sentences — but keep at least a few words of hedge on study results (e.g. "పాత cases మీద test లో") so the fact-check rubric point stays ✅.
 
+- 2026-11-13 (Fable/Mythos 5.2 rewrite): **Straight intro first** — every script opens with the 3–4 line "ఈ video లో మనం … తెలుసుకోబోతున్నాం. అవే … అసలు …? …? అంతేకాదు, … ఈ video లో వివరంగా చూద్దాం." paragraph, then the hook (§4 note). The curiosity hook teases the most surprising fact in plain words ("test చేస్తున్న experts నే ఇది ఎలా మోసం చేసిందో").
+- 2026-11-13: **English words people say in English stay English, in Latin script** — even when a Telugu word exists, if the English one is what people say: price (not ధర), double (not డబుల్), simple గా (not సింపుల్‌గా), speed (not వేగం, in "ఇదే speed"), powerful (not శక్తివంతమైన), weak spots (not బలహీనమైన చోట్లు), daily (not రోజువారీ), strict rules (not నిబంధనలు), freedom (not వెసులుబాటు), experts (not నిపుణులు). Never write an English word in Telugu script.
+- 2026-11-13: **Shorter, lighter verb forms**: చేసే over చేయగలిగే, ఆపడం over అడ్డుకోవడం, ఏళ్లుగా over ఏళ్ల పాటు. Grammar fix: "అందరూ వాడుకునేలా" (subject), not "అందరికీ వాడుకునేలా". Refer to the thing just named with దీన్ని (near), not దాన్ని.
+- 2026-11-13: Style edits must not drop facts, numbers or technical details — simplify the words only.
+
 ## 12. Human phrasing reference (user's own corrections)
 
 Examples of the *direction* of change — understand why, don't search-and-replace.
@@ -166,22 +173,16 @@ Examples of the *direction* of change — understand why, don't search-and-repla
 | Machine-ish | Human (user's choice) | Why |
 |---|---|---|
 | అసలు ముట్టుకోదు | తాకనే తాకదు | spoken emphasis via doubling |
-| కొన్ని secondsలోనే | కాసేపట్లోనే | everyday Telugu time word |
 | మరి ఇది ఎలా జరుగుతుంది? | మరి అలా ఎందుకు జరుగుతుంది? | natural question shape |
 | అసలు విషయం వేరే ఉంది | కానీ ఇక్కడే అసలు విషయం ఉంది | spoken reveal |
 | ఒక చిన్న chain reaction మొదలై | ఒకదాని తర్వాత ఒకటి మార్పులు జరుగుతూ | describe, don't label |
-| చాలా sensitive nerves | చాలా సున్నితమైన నరాలు | Telugu word exists |
-| వెంటనే alert అవుతాయి | వెంటనే స్పందిస్తాయి | Telugu verb exists |
-| ఒకటే order వెళ్తుంది | వెంటనే ఒక సంకేతం వెళ్తుంది | less slangy, still spoken |
 | ఇది దాని self-defense system | ఇది ఉల్లిపాయ తనను తాను కాపాడుకునే పద్ధతి | explain instead of jargon |
 | ప్రకృతి ఇచ్చిన ఒక ఆయుధం | ప్రకృతి దానికి ఇచ్చిన రక్షణ | calmer, accurate |
-| ఒక interesting విషయం ఏంటంటే | ఇక్కడ ఇంకో ఆసక్తికరమైన విషయం ఉంది | Telugu phrase |
 | గుర్తించారు | గమనించారు | observation, not detection |
 | ఏకంగా సెకనుకు 40 మీటర్ల వేగం వరకు | సెకనుకు 40 మీటర్ల వేగంతో కూడా | less hype |
 | చాలావరకు తగ్గుతాయి | కళ్లలో నీళ్లు రావడం కూడా కొంతవరకు తగ్గవచ్చు | hedge matches evidence |
 | దీని వెనుక మన చర్మంలో దాగి ఉన్న ఒక చిన్న ఏర్పాటు ఉంది | దీని వెనుక మన చర్మం కింద ఒక చిన్న వ్యవస్థ పనిచేస్తుంది | active verb ("పనిచేస్తుంది") over static "ఉంది"; వ్యవస్థ over ఏర్పాటు |
 | ప్రభుత్వం అంచనా | గవర్నమెంట్ లెక్కల ప్రకారం | the way people say it |
-| ఆసుపత్రి / పట్టణాల్లో | హాస్పిటల్ / సిటీల్లో | everyday loanwords beat bookish Telugu |
 | గ్రామాల్లో / మహిళలు / మధుమేహం | పల్లెటూళ్లలో / ఆడవాళ్లు / షుగర్ | warm spoken words |
 | చాలామంది AI డాక్టర్ అంటే రోబో అనుకుంటారు | …అంటే ఏదో రోబో వచ్చి ట్రీట్మెంట్ ఇస్తుందేమో అనుకుంటారు | voice the viewer's own picture |
 | ఇది ఎందుకు అవసరం? | (new paragraph) అసలు ఇది మనకెందుకు అవసరం? | pull the viewer in; "అసలు" fits here because the previous para said WHAT it is and this steps back to WHY — context-dependent, not a fixed opener |
@@ -195,6 +196,12 @@ Examples of the *direction* of change — understand why, don't search-and-repla
 | ఆ క్షణంలో ఇంట్లో వాళ్లు ఏమీ చేయలేక చూస్తూ ఉండిపోతారు | ఆ time లో family పడే tension అంతా ఇంతా కాదు | spoken idiom for feeling |
 | ఇలాంటి ఖాళీని నింపడానికి ఒక కొత్త సాధనం వస్తోంది | సరిగ్గా ఇలాంటి gap ని fill చేయడానికే ఒక కొత్త technology వస్తోంది | how people actually say it |
 | కొన్ని పరిశోధనలు చూద్దాం | కొన్ని proofs చూద్దాం | conversational |
+| (no intro, straight to hook) | ఈ video లో మనం … తెలుసుకోబోతున్నాం. అవే … అసలు …? అంతేకాదు … వివరంగా చూద్దాం. | viewer knows the topic and payoff upfront |
+| ధర / డబుల్ / సింపుల్‌గా | price / double / simple గా | the word people say, in Latin script |
+| అత్యంత శక్తివంతమైన / బలహీనమైన చోట్లను | అత్యంత powerful / weak spots ని | textbook Telugu → spoken English |
+| రోజువారీ chat / ఇదే వేగం | daily chat / ఇదే speed | English pairs naturally with English |
+| check చేయగలిగే / అడ్డుకోవడం / ఏళ్ల పాటు | check చేసే / ఆపడం / ఏళ్లుగా | shorter, easier to say |
+| అందరికీ వాడుకునేలా | అందరూ వాడుకునేలా | correct grammar, smoother |
 
 ## 13. Gold reference script (user-written target quality — style only, NOT a fact source)
 

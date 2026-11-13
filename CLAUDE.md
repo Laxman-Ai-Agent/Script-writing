@@ -32,4 +32,5 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 ## Status (2026-11-09)
 - System built; DNA covers both channels; user corrections through 2026-11-09 are in §11/§12/§13.
 - Scripts done: onion (Dark World, rewritten by user → §13 gold), goosebumps (Dark World), anaemia (Health Decode, user approved "బాగుంది"), AI Doctor 5-min + 1-min (Health Decode, both rewritten by user → style rules in DNA §11).
+- 2026-11-13: Claude Fable/Mythos 5.2 (Dark World, 5 min) — user rewrite saved; new rules: mandatory "ఈ video లో మనం…" intro paragraph before the hook, English words people say in English stay Latin (price, simple, powerful, daily). See DNA §4 note, §11, §12.
 - Open: words/min calibration (no recorded duration reported yet).

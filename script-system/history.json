@@ -3,5 +3,6 @@
   {"date": "2026-11-09", "topic": "Why do we get goosebumps", "duration": "2", "opening": "O3", "structure": "S1", "ending": "E2", "file": "output/2026-11-09-why-do-we-get-goosebumps/script.txt"},
   {"date": "2026-11-09", "channel": "health", "topic": "Why anaemia happens", "duration": "1.30", "opening": "H-stat", "structure": "normal-then-wrong", "ending": "share-to-protect", "file": "output/2026-11-09-why-anaemia-happens/script.txt"},
   {"date": "2026-11-09", "channel": "health", "topic": "AI Doctor (AI in healthcare)", "duration": "5", "opening": "H2", "structure": "problem-then-how-it-works-then-evidence-then-limits", "ending": "E1+share-to-protect", "file": "output/2026-11-09-ai-doctor/script-5min.txt"},
-  {"date": "2026-11-09", "channel": "health", "topic": "AI Doctor (AI in healthcare)", "duration": "1", "opening": "H4", "structure": "myth-need-evidence-caution", "ending": "share+experience", "file": "output/2026-11-09-ai-doctor/script-1min.txt"}
+  {"date": "2026-11-09", "channel": "health", "topic": "AI Doctor (AI in healthcare)", "duration": "1", "opening": "H4", "structure": "myth-need-evidence-caution", "ending": "share+experience", "file": "output/2026-11-09-ai-doctor/script-1min.txt"},
+  {"date": "2026-11-13", "channel": "dark", "topic": "Claude Fable 5.2 and Mythos 5.2 latest updates", "duration": "5", "opening": "intro+O4", "note": "user-rewritten", "structure": "S3", "ending": "E3", "file": "output/2026-11-13-claude-fable-mythos-5-2/script.txt"}
 ]

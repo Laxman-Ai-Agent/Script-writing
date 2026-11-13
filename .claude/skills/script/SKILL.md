@@ -45,7 +45,7 @@ Read `script-system/writing-dna.md` (whole file) and `script-system/history.json
 - Durations ≥10 min: outline chapters first (each ~400–600 words, each opening with a bridge question).
 
 ### 5. Write
-- Telugu narration following DNA §2 (fixed voice) and §3 (signature moves). Title line first (§7), then narration in connected paragraphs (blank line between paragraphs), then CTA (§6).
+- Telugu narration following DNA §2 (fixed voice) and §3 (signature moves). Title line first (§7), then the mandatory straight intro paragraph (DNA §4 note: "ఈ video లో మనం … తెలుసుకోబోతున్నాం …"), then the chosen hook and narration in connected paragraphs (blank line between paragraphs), then CTA (§6).
 - Explain in your own Telugu, as if telling a friend at home — understand the fact first, then say it. Never translate a sentence from the sources.
 - ≤8 min: write in one pass into `output/.../script.txt`.
 - ≥10 min: write chapter by chapter, appending to `script.txt`; re-read only the previous chapter's last ~10 lines before writing the next, to keep continuity without bloating context.

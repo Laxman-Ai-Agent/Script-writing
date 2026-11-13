@@ -71,19 +71,30 @@ def run_claude():
 
 
 def tick(sheet, runner=run_claude, say=log):
-    """One poll. Acts only on RUN NOW and only when ON rows exist. Always leaves the RUN cell at Idle + a message."""
-    if sheet.run_flag() != "RUN NOW":
+    """One poll. Keeps the RUN cells tidy; acts on RUN NOW / RUN ALL (every ON row) and on per-row START clicks.
+    The chosen rows are claimed (RUN cell = running) so `learning_db.py requests` hands claude exactly those."""
+    sc = L.scan(sheet.grid())
+    if sc["fill"] or sc["clear"]:
+        sheet.fill_run_cells(sc["fill"], sc["clear"])
+    if not (sc["run_all"] or sc["starts"]):
         return "idle"
-    reqs, sk = sheet.pending_requests()
-    if not reqs:
-        sheet.set_run_state("Idle", f"{stamp()} - nothing to run: no ON rows ({sk['off']} OFF, {sk['done']} Done skipped)")
-        say("RUN NOW but no ON rows")
+    rows = sorted(set(sc["starts"]) | (set(sc["on_rows"]) if sc["run_all"] else set()))
+    if not rows:
+        sheet.set_run_state("Idle", f"{stamp()} - nothing to run: no ON rows")
+        sheet.set_all_cell(L.ALL_REST)
+        say("run requested but no rows to run")
         return "empty"
-    sheet.set_run_state("Idle", f"{stamp()} - Running {len(reqs)} script(s)... please do not edit ON rows")
-    say(f"RUN NOW: starting {len(reqs)} row(s)")
+    sheet.claim(rows)
+    sheet.set_run_state("Idle", f"{stamp()} - Running {len(rows)} script(s)... please do not edit these rows")
+    sheet.set_all_cell(L.ALL_RUN)
+    say(f"starting {len(rows)} row(s): {rows}")
     ok, why = runner()
+    left = L.scan(sheet.grid())["claimed"]  # anything a stopped run did not finish
+    if left:
+        sheet.release(left)
+    sheet.set_all_cell(L.ALL_REST)
     if not ok:
-        sheet.set_run_state("Idle", f"{stamp()} - Run stopped: {why}. Failed/Running rows are retried next time. See watcher.log")
+        sheet.set_run_state("Idle", f"{stamp()} - Run stopped: {why}. Unfinished rows are marked Failed; click RUN again. See watcher.log")
         say(f"run failed: {why}")
         return "failed"
     if "Running" in sheet.run_message():  # claude never wrote its own run-finish summary

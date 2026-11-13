@@ -42,4 +42,5 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 - 2026-11-13: ON/OFF + S.No + RUN control added; `watcher.py` built (tests + real-sheet idle check pass). NOT yet run end-to-end: the `claude` CLI login had expired (`claude auth login` needed).
 - 2026-11-13: Script IDs (S001...) + Title column: Learning DB is now 7 columns, Script Requests gets a Script ID column; old slug ids became aliases (Fable/Mythos = S001).
 - 2026-11-13: Script Requests: Script ID is column A (S.No removed); Status shows ⏳ Running (orange) -> ✅ (green) / ❌ Failed (red).
+- 2026-11-13: Script Requests column G = per-row RUN (▶ RUN / ▶ START / ⏳ RUNNING), G2 = RUN ALL; watcher claims the chosen rows. B1 RUN NOW still works. No Apps Script (an unused, unauthorized bound project "Untitled project" exists on the user's Drive).
 - Open: words/min calibration (no recorded duration reported yet).

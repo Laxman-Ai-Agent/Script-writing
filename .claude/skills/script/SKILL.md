@@ -83,12 +83,12 @@ When the user corrects style ("ఇలా రాయను", "this word is wrong",
 
 ## Mode E: `/script run` (requests from the Google Sheet)
 Tab "Script Requests": row 1 = RUN control (B1 dropdown `Idle` / `RUN NOW`, C1 = last-run message), row 2 = headers, data from row 3.
-Columns: Script ID (filled when the row is done) | Topic / Script | Extra Data | Minutes | ON/OFF | Status (⏳ Running / ✅ done / ❌ Failed: reason; colour-coded).
+Columns: Script ID (filled when the row is done) | Topic / Script | Extra Data | Minutes | ON/OFF | Status (⏳ RUNNING / ✅ done / ❌ Failed: reason; colour-coded) | RUN (column G: per-row ▶ RUN / ▶ START / ⏳ RUNNING; G2 = RUN ALL). Rows picked by a START click or RUN ALL are claimed by the watcher (G = ⏳ RUNNING) and `requests` lists exactly those; with no claimed rows (manual `/script run`) it lists the ON rows. Re-running a ✅ row writes a new script with a new Script ID.
 - ON/OFF: only `ON` rows are written. Blank counts as OFF. A ✅ Status (or legacy `Done`) is always skipped (never regenerated; to redo a row the user clears its Status). Blank / Running / Failed are retried.
 - Minutes dropdown: `Up to N min` (maximum, never pad), `Exact N min` (add real related angles if material is thin), ranges like `10-15 min`, `N+ min` (at least N). A typed plain number counts as `Up to`.
 1. `python script-system/learning_db.py requests` -> prints every ON row still to write (sheet row, TOPIC or SCRIPT, extra data, LENGTH) and the skipped counts. "0 ON row(s)" -> tell the user and stop.
 2. Process rows ONE AT A TIME, top to bottom; finish one completely before starting the next:
-   a. `python script-system/learning_db.py request-start <row>` (Status = ⏳ Running).
+   a. `python script-system/learning_db.py request-start <row>` (Status and RUN cell = ⏳ RUNNING).
    b. Run Mode A: topic = Topic/Script, extra data = the user's own notes to include (still fact-check numbers), duration = the `LENGTH:` line (words target, ~150 words/min, what to do if material is short). Channel is not a column: health -> Health Decode, else The Dark World. If the kind is SCRIPT (full script pasted): keep its facts and flow, rewrite in our style with the approved rules, research only to verify numbers. Mode A step 8 saves the original to the Learning Database; use the Script ID it printed (S###).
    c. `python script-system/learning_db.py request-done <row> <id>`; add `--note "6 min, material for 10 min not enough"` when the length differs from the request or related angles were added (Status becomes ✅, or `✅ (note)`; the Script ID goes into column A of that row). On any failure: `python script-system/learning_db.py request-fail <row> "<reason>"`, then go on to the next row.
 3. After the last row: `python script-system/learning_db.py run-finish "3 done, 1 failed"` (resets B1 to Idle and writes the summary into C1).

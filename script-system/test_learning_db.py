@@ -103,20 +103,39 @@ def test():
     L.sync_pending(old, sheet_factory=lambda: legacy)
     assert len(legacy.rows) == 2 and legacy.rows[1][0] == "S001" and legacy.rows[1][2] == "Old title\nbody"
 
-    # request rows (A3:F = Script ID | Topic | Extra | Minutes | ON/OFF | Status): written only if topic + ON + not done
+    # request rows (A3:G): manual mode = topic + ON + not done; blank toggle = OFF; failed/running are retried
     reqs, sk = L.parse_requests([
-        ["", "కిడ్నీ ఎలా పనిచేస్తుంది", "", "1.30", "ON", ""],
-        ["", "x" * 301, "notes", "5", "on", "❌ Failed: net"],
-        ["S009", "old topic", "", "2", "ON", "✅"],
-        ["", "off topic", "", "2", "OFF", ""],
+        ["", "కిడ్నీ ఎలా పనిచేస్తుంది", "", "1.30", "ON", "", "▶ RUN"],
+        ["", "x" * 301, "notes", "5", "on", "❌ Failed: net", "▶ RUN"],
+        ["S009", "old topic", "", "2", "ON", "✅", "▶ RUN"],
+        ["", "off topic", "", "2", "OFF", "", "▶ RUN"],
         [], ["", "", "extra only"],
         ["", "forgot toggle", "", "5", "", ""],
-        ["", "stale", "", "5", "ON", "⏳ Running"],
+        ["", "stale", "", "5", "ON", "⏳ RUNNING"],
         ["S003", "legacy", "", "2", "ON", "Done (old style)"]])
     assert [r["row"] for r in reqs] == [3, 4, 10] and sk == {"off": 2, "done": 2}
     assert reqs[0]["kind"] == "TOPIC" and reqs[0]["minutes"] == "1.30"
     assert reqs[1]["kind"].startswith("SCRIPT") and reqs[1]["extra"] == "notes"
     assert L.parse_requests([["", "t", "", "", "ON", ""]])[0][0]["minutes"] == "1"  # default 1 min
+    # claimed mode (RUN cell = running): exactly the claimed rows, even OFF or already-done ones
+    reqs, sk = L.parse_requests([["", "a", "", "1", "ON", "", "▶ RUN"], ["S1", "b", "", "5", "OFF", "✅", "⏳ RUNNING"],
+                                 ["", "c", "", "2", "ON", "", "⏳ RUNNING"]])
+    assert [r["row"] for r in reqs] == [4, 5]
+
+    # what the watcher reads from the whole grid
+    grid = [["RUN", "RUN NOW", "msg"], ["Script ID", "Topic / Script", "Extra", "Minutes", "ON/OFF", "Status", "▶ RUN ALL"],
+            ["", "t1", "", "1", "ON", "", ""],               # row 3: ON, RUN cell blank -> fill
+            ["", "t2", "", "1", "OFF", "", "▶ START"],       # row 4: clicked START
+            ["", "", "", "", "", "", "▶ RUN"],               # row 5: empty row with a stale button -> clear
+            ["S2", "t3", "", "1", "ON", "✅", "▶ RUN"],      # row 6: done
+            ["", "t4", "", "1", "ON", "⏳ RUNNING", "⏳ RUNNING"]]  # row 7: claimed
+    sc = L.scan(grid)
+    assert sc["run_all"] and sc["starts"] == [4] and sc["claimed"] == [7] and sc["fill"] == [3] and sc["clear"] == [5]
+    assert sc["on_rows"] == [3, 7]
+    grid[0][1] = "Idle"
+    assert not L.scan(grid)["run_all"]
+    grid[1][6] = "▶ START ALL"
+    assert L.scan(grid)["run_all"]
 
     # Minutes dropdown values -> length instructions (every dropdown option must parse)
     for o in L.MINUTE_OPTIONS:
@@ -132,27 +151,39 @@ def test():
     except ValueError:
         pass
 
-    # watcher: acts only on RUN NOW, only when ON rows exist, always reports back in the sheet
+    # watcher: acts only on RUN NOW / RUN ALL / row START, claims exactly the chosen rows, always reports back
     import watcher as W
 
     class FS:
-        def __init__(s, flag, reqs):
-            s.flag, s.reqs, s.msg = flag, reqs, ""
+        def __init__(s, grid):
+            s.g, s.msg, s.log = grid, "", []
 
-        def run_flag(s): return s.flag
-        def pending_requests(s): return s.reqs, {"off": 1, "done": 2}
+        def grid(s): return s.g
+        def fill_run_cells(s, fill, clear=()): s.log.append(("fill", list(fill), list(clear)))
+        def claim(s, rows): s.log.append(("claim", list(rows)))
+        def release(s, rows): s.log.append(("release", list(rows)))
+        def set_all_cell(s, text): s.log.append(("all", text))
         def run_message(s): return s.msg
 
         def set_run_state(s, f, m):
-            s.flag, s.msg = f, m
+            s.msg = m
 
+    H = ["Script ID", "Topic / Script", "Extra", "Minutes", "ON/OFF", "Status", "RUN ALL"]
     calls = []
     ok = lambda: (calls.append(1) or True, "")
-    s = FS("Idle", [1]); assert W.tick(s, ok, print) == "idle" and not calls
-    s = FS("RUN NOW", []); assert W.tick(s, ok, print) == "empty" and not calls and s.flag == "Idle" and "no ON rows" in s.msg
-    s = FS("RUN NOW", [1, 2]); assert W.tick(s, ok, print) == "done" and len(calls) == 1 and s.flag == "Idle"
-    assert "finished" in s.msg  # claude never wrote run-finish -> watcher closes the message itself
-    s = FS("RUN NOW", [1]); assert W.tick(s, lambda: (False, "timed out"), print) == "failed" and "timed out" in s.msg and s.flag == "Idle"
+    s = FS([["RUN", "Idle", ""], H, ["", "t1", "", "1", "ON", "", ""]])
+    assert W.tick(s, ok, print) == "idle" and not calls and ("fill", [3], []) in s.log  # tidy only
+    s = FS([["RUN", "RUN NOW", ""], H, ["", "t1", "", "1", "ON", "", "▶ RUN"], ["", "t2", "", "1", "OFF", "", "▶ RUN"]])
+    assert W.tick(s, ok, print) == "done" and len(calls) == 1 and ("claim", [3]) in s.log  # RUN ALL = ON rows only
+    assert "finished" in s.msg and s.log[-1] == ("all", L.ALL_REST)
+    s = FS([["RUN", "Idle", ""], H, ["", "t1", "", "1", "ON", "", "▶ RUN"], ["", "t2", "", "1", "OFF", "", "▶ START"]])
+    assert W.tick(s, ok, print) == "done" and ("claim", [4]) in s.log  # one row clicked, OFF is ignored
+    s = FS([["RUN", "RUN NOW", ""], H, ["", "t2", "", "1", "OFF", "", "▶ RUN"]])
+    n = len(calls)
+    assert W.tick(s, ok, print) == "empty" and len(calls) == n and "no ON rows" in s.msg
+    s = FS([["RUN", "RUN NOW", ""], H, ["", "t1", "", "1", "ON", "⏳ RUNNING", "⏳ RUNNING"]])
+    assert W.tick(s, lambda: (False, "timed out"), print) == "failed" and "timed out" in s.msg
+    assert ("release", [3]) in s.log and s.log[-1] == ("all", L.ALL_REST)  # stopped run frees its rows
     print("all checks passed")
 
 

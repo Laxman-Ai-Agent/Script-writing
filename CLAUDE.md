@@ -9,7 +9,7 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 
 ## How to use
 - `/script <topic> <duration>` — e.g. `/script కిడ్నీ ఎలా పనిచేస్తుంది 1.30`. Durations used: 40s, 50s, 1, 1.30, 2, 3, 5, 7, 8, 10, 12, 15, 20, 30 (min).
-- `/script run` - reads Pending rows from the Google Sheet tab "Script Requests" (Topic / Script, Extra Data, Minutes, Status), writes each script, saves the original to the Learning DB, marks the row Done.
+- `/script run` - reads Pending rows from the Google Sheet tab "Script Requests" (Topic / Script, Extra Data, Minutes dropdown: Up to N / Exact N / A-B range / N+, Status), writes each script, saves the original to the Learning DB, marks the row Done.
 - `/script update` — analyze only new files in `sample script/` and merge into the profile.
 - `/script reanalyze` — full rebuild (only on explicit request).
 

@@ -82,12 +82,12 @@ When the user corrects style ("ఇలా రాయను", "this word is wrong",
 ---
 
 ## Mode E: `/script run` (requests from the Google Sheet)
-Tab "Script Requests", columns: Topic / Script | Extra Data | Minutes | Status. The user fills the first three; Status is blank until done.
+Tab "Script Requests", columns: Topic / Script | Extra Data | Minutes | Status. The user fills the first three; Status is blank until done. Minutes is a dropdown: `Up to N min` (maximum, never pad), `Exact N min` (add real related angles if material is thin), ranges like `10-15 min`, and `N+ min` (at least N, longer is fine). A plain typed number counts as `Up to`.
 1. `python script-system/learning_db.py requests` -> lists Pending rows (row number, TOPIC or SCRIPT, minutes, extra data). "No pending requests." -> tell the user and stop.
-2. For each row, run Mode A with: topic = Topic/Script column, duration = Minutes (blank -> 1), extra data = user-supplied facts/points to include (treat as the user's own notes; still fact-check numbers). Channel is not a column - pick it by topic (health -> Health Decode, else The Dark World).
+2. For each row, run Mode A with: topic = Topic/Script column, duration = the `LENGTH:` line the tool prints (it turns the Minutes cell into a word target, ~150 words/min, and says what to do if material is short), extra data = user-supplied facts/points to include (treat as the user's own notes; still fact-check numbers). Channel is not a column - pick it by topic (health -> Health Decode, else The Dark World).
    - If the kind is SCRIPT (a full script pasted): keep its facts and flow, rewrite it in our style using the approved rules; research only to verify numbers.
    - Mode A step 8 already saves the original to the Learning Database; use that record id for step 3.
-3. `python script-system/learning_db.py request-done <row> <id>` marks the row "Done: <id>". Do this only after the script is saved and add-original printed SYNCED or PENDING (PENDING is fine, it is stored locally).
+3. `python script-system/learning_db.py request-done <row> <id>` marks the row "Done: <id>". If the script ended up shorter/longer than asked, or you added related angles, pass `--note "6 min, material for 10 min not enough"` so Status reads `Done: <id> (note)`. Do this only after the script is saved and add-original printed SYNCED or PENDING (PENDING is fine, it is stored locally).
 4. Show each script in chat as in Mode A. Process rows top to bottom; if one fails, leave its Status blank and say which.
 
 ## Mode D: user sends a revised script / feedback (Script Learning Database)

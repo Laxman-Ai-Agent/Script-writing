@@ -16,7 +16,7 @@ Usage (run from project root):
   python script-system/learning_db.py rules                     # approved rules, read before writing
   python script-system/learning_db.py show <id> | list | sync
   python script-system/learning_db.py requests                  # Pending rows of tab "Script Requests" (creates tab if missing)
-  python script-system/learning_db.py request-done <row> <id>   # mark that row Done: <id>
+  python script-system/learning_db.py request-done <row> <id> [--note "6 min, material short"]   # Status = Done: <id> (note)
 
 Auth: service account JSON at $GOOGLE_APPLICATION_CREDENTIALS or script-system/credentials/service-account.json
 (gitignored). Share the sheet with the service account's client_email as Editor.
@@ -36,6 +36,13 @@ SHEET_ID = "141B4qwm4Un9dXPzULWClZaUrjhcugjhoczSGrjik040"
 TAB = "Script Learning Database"
 REQ_TAB = "Script Requests"
 REQ_HEADERS = ["Topic / Script", "Extra Data", "Minutes", "Status"]
+WORDS_PER_MIN = 150  # same estimate as writing-dna.md section 8
+MINUTE_OPTIONS = (
+    [f"Up to {n} min" for n in ("1", "2", "3", "5", "10", "15")]
+    + [f"Exact {n} min" for n in ("1", "1.30", "2", "3", "5", "7", "10", "15", "20", "30")]
+    + ["5-7 min", "7-10 min", "10-15 min", "15-20 min", "20-30 min"]
+    + [f"{n}+ min" for n in ("5", "10", "15", "20", "30")]
+)
 HEADERS = ["Original Script", "Revised / Updated Script", "Changes Made", "My Feedback", "Learning Rules"]
 CELL_LIMIT = 50000  # Google Sheets hard limit per cell
 
@@ -154,8 +161,18 @@ class GoogleSheet:
     def ensure_tab(self):
         self.ensure(TAB, HEADERS)
 
-    def pending_requests(self):
+    def ensure_requests(self):
+        """Requests tab + headers + Minutes dropdown (idempotent; typed values still allowed with a warning)."""
         self.ensure(REQ_TAB, REQ_HEADERS)
+        meta = self.run(self.api.get(spreadsheetId=SHEET_ID, fields="sheets.properties(sheetId,title)"))
+        sid = next(s["properties"]["sheetId"] for s in meta["sheets"] if s["properties"]["title"] == REQ_TAB)
+        self.run(self.api.batchUpdate(spreadsheetId=SHEET_ID, body={"requests": [{"setDataValidation": {
+            "range": {"sheetId": sid, "startRowIndex": 1, "endRowIndex": 1000, "startColumnIndex": 2, "endColumnIndex": 3},
+            "rule": {"condition": {"type": "ONE_OF_LIST", "values": [{"userEnteredValue": o} for o in MINUTE_OPTIONS]},
+                     "showCustomUi": True, "strict": False}}}]}))
+
+    def pending_requests(self):
+        self.ensure_requests()
         res = self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!A2:D"))
         return parse_requests(res.get("values", []))
 
@@ -187,6 +204,34 @@ class GoogleSheet:
         return int(re.search(r"![A-Z]+(\d+)", upd["updatedRange"]).group(1))
 
 
+def _mins(s):
+    """'5' -> 5.0, '1.30' -> 1.5 (project convention: m.ss = minutes.seconds)."""
+    m, _, sec = s.strip().partition(".")
+    return int(m) + (int((sec + "0")[:2]) / 60 if sec else 0)
+
+
+def describe_minutes(cell):
+    """Dropdown/typed Minutes cell -> plain-English length instruction. Bare number = maximum."""
+    s = (cell or "").strip().lower() or "1"
+    w = lambda m: int(round(m * WORDS_PER_MIN))
+    num = r"(\d+(?:\.\d+)?)"
+    if m := re.match(rf"up to {num}", s) or re.fullmatch(num, s):
+        v = _mins(m.group(1))
+        return f"UP TO {v:g} min = at most ~{w(v)} words. Never pad; if the topic has less, write the natural shorter length and say so in the note."
+    if m := re.match(rf"exact(?:ly)? {num}", s):
+        v = _mins(m.group(1))
+        return (f"EXACTLY ~{v:g} min = ~{w(v)} words (+-10%). If research is thin, add related angles that really belong to the topic "
+                "(history, side angles, FAQs, examples) and name them in the note.")
+    if m := re.match(rf"{num}\s*-\s*{num}", s):
+        lo, hi = _mins(m.group(1)), _mins(m.group(2))
+        return f"{lo:g}-{hi:g} min = {w(lo)}-{w(hi)} words. Stay inside the range; if the topic can't reach the low end, say so in the note."
+    if m := re.match(rf"{num}\+", s):
+        lo = _mins(m.group(1))
+        return (f"{lo:g}+ min = at least ~{w(lo)} words; longer is fine (up to ~{w(lo * 1.5)}) if the topic supports it. "
+                "If material is thin, write what is real and say so in the note.")
+    raise ValueError(f"Unknown Minutes value '{cell}'. Use a dropdown option or a plain number.")
+
+
 def parse_requests(values):
     """Sheet rows (A2:D) -> pending requests. Pending = topic filled and Status blank/'Pending'."""
     out = []
@@ -194,7 +239,7 @@ def parse_requests(values):
         r = [c.strip() for c in r] + [""] * (4 - len(r))
         if r[0] and r[3].lower() in ("", "pending"):
             out.append({"row": i, "kind": "SCRIPT (rewrite in our style)" if len(r[0]) > 300 else "TOPIC",
-                        "topic": r[0], "extra": r[1], "minutes": r[2] or "1"})
+                        "topic": r[0], "extra": r[1], "minutes": r[2] or "1", "length": describe_minutes(r[2])})
     return out
 
 
@@ -252,7 +297,7 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("requests")
-    x = sub.add_parser("request-done"); x.add_argument("row", type=int); x.add_argument("id")
+    x = sub.add_parser("request-done"); x.add_argument("row", type=int); x.add_argument("id"); x.add_argument("--note", default="")
     sub.add_parser("check"); sub.add_parser("sync"); sub.add_parser("list"); sub.add_parser("rules")
     a = sub.add_parser("add-original"); a.add_argument("file"); a.add_argument("--id")
     for name in ("add-revision", "add-changes", "add-feedback"):
@@ -277,13 +322,15 @@ def main(argv=None):
             print(f"--- row {r['row']} | {r['kind']} | {r['minutes']} min ---")
             print(f"TOPIC/SCRIPT: {r['topic']}")
             print(f"EXTRA DATA: {r['extra'] or '(none)'}")
+            print(f"LENGTH: {r['length']}")
         print(f"{len(reqs)} pending request(s)." if reqs else "No pending requests.")
         return
     if args.cmd == "request-done":
         if args.id not in db["records"]:
             sys.exit(f"No record '{args.id}' — save the original first.")
-        GoogleSheet().set_request_status(args.row, f"Done: {args.id}")
-        print(f"Row {args.row} marked Done: {args.id}")
+        status = f"Done: {args.id}" + (f" ({args.note})" if args.note else "")
+        GoogleSheet().set_request_status(args.row, status)
+        print(f"Row {args.row} -> {status}")
         return
     if args.cmd == "list":
         for rid, r in db["records"].items():

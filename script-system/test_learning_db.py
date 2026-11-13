@@ -87,6 +87,19 @@ def test():
     assert reqs[0]["kind"] == "TOPIC" and reqs[0]["minutes"] == "1.30"
     assert reqs[1]["kind"].startswith("SCRIPT") and reqs[1]["extra"] == "notes"
     assert L.parse_requests([["t"]])[0]["minutes"] == "1"  # default 1 min
+    # Minutes dropdown values -> length instructions (every dropdown option must parse)
+    for o in L.MINUTE_OPTIONS:
+        L.describe_minutes(o)
+    assert "at most ~750 words" in L.describe_minutes("Up to 5 min") and "at most ~750" in L.describe_minutes("5")
+    assert "at most ~225 words" in L.describe_minutes("1.30")  # 1.30 = 1 min 30 s
+    assert "1500-2250 words" in L.describe_minutes("10-15 min")
+    assert "at least ~1500 words" in L.describe_minutes("10+ min") and "~2250" in L.describe_minutes("10+ min")
+    assert "EXACTLY" in L.describe_minutes("Exact 10 min") and "~1500 words" in L.describe_minutes("Exact 10 min")
+    assert "at most ~150 words" in L.describe_minutes("")  # blank -> 1 min max
+    try:
+        L.describe_minutes("soon"); assert False
+    except ValueError:
+        pass
     print("all checks passed")
 
 

@@ -1,0 +1,3 @@
+script-system/credentials/
+script-system/*.tmp
+__pycache__/

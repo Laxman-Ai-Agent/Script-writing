@@ -35,7 +35,7 @@ Write `output/YYYY-MM-DD-<english-slug>/facts.md` BEFORE any Telugu:
 English bullets, short. From here on, write from these notes only — never from the article text — so the Telugu is re-told, not translated.
 
 ### 3. Load style
-Read `script-system/writing-dna.md` (whole file) and `script-system/history.json`. Do NOT open `sample script/`. Section 11 "Learned corrections" overrides everything else. §13 gold reference = target quality (style only — never reuse its facts).
+Read `script-system/writing-dna.md` (whole file) and `script-system/history.json`. Do NOT open `sample script/`. Section 11 "Learned corrections" overrides everything else. Also run `python script-system/learning_db.py rules` and apply every APPROVED rule (only approved ones; skip `[TOPIC]` rules that don't fit this topic). §13 gold reference = target quality (style only — never reuse its facts).
 
 ### 4. Plan
 - Target words from DNA §8 for the duration.
@@ -72,12 +72,20 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 
 ### 8. Deliver
 - Append to `history.json`: `{"date": "YYYY-MM-DD", "channel": "dark" | "health", "topic": "...", "duration": "...", "opening": "O#" | "H#", "structure": "S#", "ending": "E#", "file": "output/.../script.txt"}`. Opening-repeat checks compare only within the same channel.
+- Save the untouched original to the Script Learning Database: `python script-system/learning_db.py add-original output/.../script.txt` (do this BEFORE any user edits; it syncs to Google Sheets or reports PENDING — never claim it synced unless it printed SYNCED).
 - Show the full script in chat. One line after it: word count and file path. Nothing else unless something was uncertain in the facts — then one line naming it.
 
 ### 9. Learning from feedback
 When the user corrects style ("ఇలా రాయను", "this word is wrong", "too formal"), append a dated bullet to DNA §11 with the rule in one line; if they give word-level swaps, add rows to DNA §12 (keep it ≤ ~30 rows — merge or drop the least useful). If they supply a full rewritten script, it may replace §13 as the gold reference. If they report a real recorded duration, recompute words/min in §8.
 
 ---
+
+## Mode D: user sends a revised script / feedback (Script Learning Database)
+1. Find the record (`python script-system/learning_db.py list`). Save the user's complete revised script to `output/.../script.txt` AND `python script-system/learning_db.py add-revision <id> <file>` — full text, never shortened. Never touch the original.
+2. `python script-system/learning_db.py diff <id>` for the raw sentence diff, then write a detailed Changes Made analysis (added / removed / rewritten / word swaps / hook / storytelling / narration / Telugu grammar / English vocab / flow / facts / rearrangement — with the user's reason where given, "no reason given" otherwise) → `python script-system/learning_db.py add-changes <id> <file>`.
+3. User's explanation, verbatim, never invented → `python script-system/learning_db.py add-feedback <id> <file>`.
+4. Rules: rules the user states outright → `python script-system/learning_db.py add-rule <id> general|topic "<rule>" --approved`. Rules you infer → add without `--approved` (PROPOSED) and ask the user; on their yes → `python script-system/learning_db.py approve <id> <n>`. Don't turn every one-off edit into a rule. Approved general rules also go into DNA §11 (§9 learning step).
+5. Report SYNCED or PENDING exactly as the tool printed. `python script-system/learning_db.py sync` retries pending records.
 
 ## Mode B: `/script update`
 1. List `sample script/` with byte sizes. Compare to `script-system/manifest.json`.

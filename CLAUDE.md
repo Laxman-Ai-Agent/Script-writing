@@ -9,7 +9,7 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 
 ## How to use
 - `/script <topic> <duration>` — e.g. `/script కిడ్నీ ఎలా పనిచేస్తుంది 1.30`. Durations used: 40s, 50s, 1, 1.30, 2, 3, 5, 7, 8, 10, 12, 15, 20, 30 (min).
-- `/script run` - reads Pending rows from the Google Sheet tab "Script Requests" (S.No, Topic / Script, Extra Data, Minutes dropdown, ON/OFF, Status, Script ID; row 1 = RUN control). Only ON rows run, one at a time; Done rows are skipped, writes each script, saves the original to the Learning DB, marks the row Done.
+- `/script run` - reads Pending rows from the Google Sheet tab "Script Requests" (Script ID, Topic / Script, Extra Data, Minutes dropdown, ON/OFF, Status; row 1 = RUN control). Only ON rows run, one at a time; Done rows are skipped, writes each script, saves the original to the Learning DB, marks the row Done.
 - `/script update` — analyze only new files in `sample script/` and merge into the profile.
 - `/script reanalyze` — full rebuild (only on explicit request).
 
@@ -41,4 +41,5 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 - 2026-11-13: `/script run` + "Script Requests" tab added (learning_db.py `requests`, `request-done`).
 - 2026-11-13: ON/OFF + S.No + RUN control added; `watcher.py` built (tests + real-sheet idle check pass). NOT yet run end-to-end: the `claude` CLI login had expired (`claude auth login` needed).
 - 2026-11-13: Script IDs (S001...) + Title column: Learning DB is now 7 columns, Script Requests gets a Script ID column; old slug ids became aliases (Fable/Mythos = S001).
+- 2026-11-13: Script Requests: Script ID is column A (S.No removed); Status shows ⏳ Running (orange) -> ✅ (green) / ❌ Failed (red).
 - Open: words/min calibration (no recorded duration reported yet).

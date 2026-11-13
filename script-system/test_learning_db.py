@@ -103,19 +103,20 @@ def test():
     L.sync_pending(old, sheet_factory=lambda: legacy)
     assert len(legacy.rows) == 2 and legacy.rows[1][0] == "S001" and legacy.rows[1][2] == "Old title\nbody"
 
-    # request rows (A3:G): written only if topic + ON + Status not Done; blank toggle = OFF; failed/running are retried
+    # request rows (A3:F = Script ID | Topic | Extra | Minutes | ON/OFF | Status): written only if topic + ON + not done
     reqs, sk = L.parse_requests([
-        ["1", "కిడ్నీ ఎలా పనిచేస్తుంది", "", "1.30", "ON", ""],
-        ["2", "x" * 301, "notes", "5", "on", "Failed: net"],
-        ["3", "old topic", "", "2", "ON", "Done", "S009"],
-        ["4", "off topic", "", "2", "OFF", ""],
+        ["", "కిడ్నీ ఎలా పనిచేస్తుంది", "", "1.30", "ON", ""],
+        ["", "x" * 301, "notes", "5", "on", "❌ Failed: net"],
+        ["S009", "old topic", "", "2", "ON", "✅"],
+        ["", "off topic", "", "2", "OFF", ""],
         [], ["", "", "extra only"],
-        ["7", "forgot toggle", "", "5", "", ""],
-        ["8", "stale", "", "5", "ON", "Running"]])
-    assert [r["row"] for r in reqs] == [3, 4, 10] and sk == {"off": 2, "done": 1}
-    assert reqs[0]["kind"] == "TOPIC" and reqs[0]["minutes"] == "1.30" and reqs[0]["sno"] == "1"
+        ["", "forgot toggle", "", "5", "", ""],
+        ["", "stale", "", "5", "ON", "⏳ Running"],
+        ["S003", "legacy", "", "2", "ON", "Done (old style)"]])
+    assert [r["row"] for r in reqs] == [3, 4, 10] and sk == {"off": 2, "done": 2}
+    assert reqs[0]["kind"] == "TOPIC" and reqs[0]["minutes"] == "1.30"
     assert reqs[1]["kind"].startswith("SCRIPT") and reqs[1]["extra"] == "notes"
-    assert L.parse_requests([["1", "t", "", "", "ON", ""]])[0][0]["minutes"] == "1"  # default 1 min
+    assert L.parse_requests([["", "t", "", "", "ON", ""]])[0][0]["minutes"] == "1"  # default 1 min
 
     # Minutes dropdown values -> length instructions (every dropdown option must parse)
     for o in L.MINUTE_OPTIONS:

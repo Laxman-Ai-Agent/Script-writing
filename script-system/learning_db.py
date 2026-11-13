@@ -37,7 +37,7 @@ DB_PATH = HERE / "learning-db.json"
 SHEET_ID = "141B4qwm4Un9dXPzULWClZaUrjhcugjhoczSGrjik040"
 TAB = "Script Learning Database"
 REQ_TAB = "Script Requests"
-REQ_HEADERS = ["S.No", "Topic / Script", "Extra Data", "Minutes", "ON/OFF", "Status", "Script ID"]
+REQ_HEADERS = ["Script ID", "Topic / Script", "Extra Data", "Minutes", "ON/OFF", "Status"]
 RUN_STATES = ["Idle", "RUN NOW"]  # cell B1 of the requests tab; data rows start at 3
 WORDS_PER_MIN = 150  # same estimate as writing-dna.md section 8
 MINUTE_OPTIONS = (
@@ -214,25 +214,32 @@ class GoogleSheet:
         return next((s["properties"]["sheetId"] for s in meta["sheets"] if s["properties"]["title"] == tab), None)
 
     def ensure_requests(self):
-        """Row 1 = RUN control, row 2 = headers, data from row 3. Idempotent; adds dropdowns, S.No formulas, formatting."""
+        """Row 1 = RUN control, row 2 = headers, data from row 3: Script ID | Topic | Extra | Minutes | ON/OFF | Status.
+        Idempotent. Also upgrades the earlier 7-column layout (S.No first, Script ID last)."""
+        g = lambda rng, **kw: self.run(self.api.values().get(
+            spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!{rng}", **kw)).get("values", [])
         if self._sheet_id(REQ_TAB) is not None:
-            a2 = self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!A2")).get("values", [[""]])[0][0]
-            if a2 not in ("", "S.No"):
-                raise RuntimeError("Script Requests has rows in the old layout; move them down before upgrading.")
+            head = (g("A2:G2") or [[]])[0]
+            if head[:1] == ["S.No"]:  # upgrade: Script IDs move from column G to column A, S.No formulas go away
+                ids = g("G3:G1000")
+                self.run(self.api.values().clear(spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!A3:A1000"))
+                self.run(self.api.values().clear(spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!G2:G1000"))
+                if ids:
+                    self.run(self.api.values().update(
+                        spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!A3:A{2 + len(ids)}", valueInputOption="RAW",
+                        body={"values": [r[:1] or [""] for r in ids]}))
+            elif head and head[0] not in ("", "Script ID"):
+                raise RuntimeError("Script Requests has rows in an unknown layout; move them aside before upgrading.")
         self.ensure(REQ_TAB, REQ_HEADERS, row=2)
         sid = self._sheet_id(REQ_TAB)
-        top = self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!B1")).get("values", [[""]])[0][0]
+        top = (g("B1") or [[""]])[0][0]
         if top not in RUN_STATES:
             self.run(self.api.values().clear(spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!A1:F1"))
             self.run(self.api.values().update(
                 spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!A1:C1", valueInputOption="RAW",
-                body={"values": [["RUN", "Idle", "Set RUN NOW to start. Only ON rows are written; Done rows are skipped."]]}))
-        f = self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!A3",
-                                           valueRenderOption="FORMULA")).get("values", [[""]])[0][0]
-        if not str(f).startswith("=IF"):
-            self.run(self.api.values().update(
-                spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!A3:A1000", valueInputOption="USER_ENTERED",
-                body={"values": [[f'=IF(B{r}<>"",ROW()-2,"")'] for r in range(3, 1001)]}))
+                body={"values": [["RUN", "Idle", "Set RUN NOW to start. Only ON rows are written; done rows are skipped."]]}))
+        meta = self.run(self.api.get(spreadsheetId=SHEET_ID, fields="sheets(properties.sheetId,conditionalFormats)"))
+        n_rules = len(next(s for s in meta["sheets"] if s["properties"]["sheetId"] == sid).get("conditionalFormats", []))
         rng = lambda r0, r1, c0, c1: {"sheetId": sid, "startRowIndex": r0, "endRowIndex": r1,
                                       "startColumnIndex": c0, "endColumnIndex": c1}
         dv = lambda r, vals, strict: {"setDataValidation": {"range": r, "rule": {"condition": {
@@ -243,17 +250,29 @@ class GoogleSheet:
         wrap = {"repeatCell": {"range": rng(2, 1000, 1, 3), "cell": {"userEnteredFormat": {
             "wrapStrategy": "WRAP", "verticalAlignment": "TOP"}},
             "fields": "userEnteredFormat(wrapStrategy,verticalAlignment)"}}
+        runcell = {"repeatCell": {"range": rng(0, 1, 1, 2), "cell": {"userEnteredFormat": {
+            "textFormat": {"bold": True, "fontSize": 14}, "horizontalAlignment": "CENTER"}},
+            "fields": "userEnteredFormat(textFormat,horizontalAlignment)"}}
         width = lambda c, px: {"updateDimensionProperties": {"range": {
             "sheetId": sid, "dimension": "COLUMNS", "startIndex": c, "endIndex": c + 1},
             "properties": {"pixelSize": px}, "fields": "pixelSize"}}
+        GREEN, ORANGE, RED = (0.72, 0.88, 0.80), (1.0, 0.85, 0.55), (0.96, 0.78, 0.76)
+        colour = lambda r, kind, text, rgb: {"addConditionalFormatRule": {"index": 0, "rule": {"ranges": [r], "booleanRule": {
+            "condition": {"type": kind, "values": [{"userEnteredValue": text}]},
+            "format": {"backgroundColor": {"red": rgb[0], "green": rgb[1], "blue": rgb[2]}}}}}}
+        status = rng(2, 1000, 5, 6)
         self.run(self.api.batchUpdate(spreadsheetId=SHEET_ID, body={"requests": [
+            *[{"deleteConditionalFormatRule": {"sheetId": sid, "index": 0}} for _ in range(n_rules)],  # ours only; rebuilt below
+            colour(status, "TEXT_STARTS_WITH", "✅", GREEN), colour(status, "TEXT_STARTS_WITH", "⏳", ORANGE),
+            colour(status, "TEXT_STARTS_WITH", "❌", RED),
+            colour(rng(0, 1, 1, 2), "TEXT_EQ", "RUN NOW", ORANGE), colour(rng(0, 1, 1, 2), "TEXT_EQ", "Idle", GREEN),
             dv(rng(0, 1, 1, 2), RUN_STATES, True),
             dv(rng(2, 1000, 3, 4), MINUTE_OPTIONS, False),
             dv(rng(2, 1000, 4, 5), ["ON", "OFF"], True),
             {"updateSheetProperties": {"properties": {"sheetId": sid, "gridProperties": {"frozenRowCount": 2}},
                                        "fields": "gridProperties.frozenRowCount"}},
-            bold(rng(0, 1, 0, 1)), bold(rng(1, 2, 0, 7)), wrap,
-            *[width(c, px) for c, px in enumerate((60, 520, 300, 130, 80, 260, 90))]]}))
+            bold(rng(0, 1, 0, 1)), bold(rng(1, 2, 0, 6)), wrap, runcell,
+            *[width(c, px) for c, px in enumerate((90, 520, 300, 130, 80, 280))]]}))
 
     def pending_requests(self):
         """-> (ON rows still to write, {'off': n, 'done': n})"""
@@ -274,10 +293,11 @@ class GoogleSheet:
             raise RuntimeError("API did not confirm the status update")
 
     def set_request_done(self, row, status, script_id):
-        res = self.run(self.api.values().update(
-            spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!F{row}:G{row}", valueInputOption="RAW",
-            body={"values": [[status, script_id]]}))
-        if not res.get("updatedCells"):
+        res = self.run(self.api.values().batchUpdate(spreadsheetId=SHEET_ID, body={
+            "valueInputOption": "RAW", "data": [
+                {"range": f"'{REQ_TAB}'!A{row}", "values": [[script_id]]},
+                {"range": f"'{REQ_TAB}'!F{row}", "values": [[status]]}]}))
+        if res.get("totalUpdatedCells") != 2:
             raise RuntimeError("API did not confirm the status update")
 
     def set_run_state(self, flag, message):
@@ -336,20 +356,25 @@ def describe_minutes(cell):
     raise ValueError(f"Unknown Minutes value '{cell}'. Use a dropdown option or a plain number.")
 
 
+def is_done(status):
+    return "✅" in status or status.strip().lower().startswith("done")  # "done" = rows written before the tick icon
+
+
 def parse_requests(values):
-    """Rows from A3:F -> (to_run, skipped). Written only if topic filled, ON/OFF == ON and Status not 'Done...'.
-    Blank/Pending/Running/Failed statuses are retried; a blank ON/OFF counts as OFF (no accidental token spend)."""
+    """Rows from A3:F (Script ID | Topic | Extra | Minutes | ON/OFF | Status) -> (to_run, skipped).
+    Written only if topic filled, ON/OFF == ON and the row is not done (✅). Blank / ⏳ / ❌ rows are retried;
+    a blank ON/OFF counts as OFF (no accidental token spend)."""
     out, skipped = [], {"off": 0, "done": 0}
     for i, r in enumerate(values, start=3):
-        sno, topic, extra, mins, onoff, status = ([str(c).strip() for c in r] + [""] * 6)[:6]
+        sid, topic, extra, mins, onoff, status = ([str(c).strip() for c in r] + [""] * 6)[:6]
         if not topic:
             continue
-        if status.lower().startswith("done"):
+        if is_done(status):
             skipped["done"] += 1
         elif onoff.upper() != "ON":
             skipped["off"] += 1
         else:
-            out.append({"row": i, "sno": sno or str(i - 2), "topic": topic, "extra": extra, "minutes": mins or "1",
+            out.append({"row": i, "sid": sid, "topic": topic, "extra": extra, "minutes": mins or "1",
                         "kind": "SCRIPT (rewrite in our style)" if len(topic) > 300 else "TOPIC",
                         "length": describe_minutes(mins)})
     return out, skipped
@@ -447,19 +472,19 @@ def main(argv=None):
         sheet = GoogleSheet()
         reqs, skipped = sheet.pending_requests()
         for r in reqs:
-            print(f"--- #{r['sno']} (sheet row {r['row']}) | {r['kind']} | {r['minutes']} ---")
+            print(f"--- sheet row {r['row']} | {r['kind']} | {r['minutes']} ---")
             print(f"TOPIC/SCRIPT: {r['topic']}")
             print(f"EXTRA DATA: {r['extra'] or '(none)'}")
             print(f"LENGTH: {r['length']}")
         print(f"{len(reqs)} ON row(s) to write | skipped: {skipped['off']} OFF, {skipped['done']} Done | RUN cell: {sheet.run_flag()}")
         return
     if args.cmd == "request-start":
-        GoogleSheet().set_request_status(args.row, "Running")
+        GoogleSheet().set_request_status(args.row, "⏳ Running")
         print(f"Row {args.row} -> Running")
         return
     if args.cmd == "request-fail":
-        GoogleSheet().set_request_status(args.row, f"Failed: {args.reason}")
-        print(f"Row {args.row} -> Failed: {args.reason}")
+        GoogleSheet().set_request_status(args.row, f"❌ Failed: {args.reason}")
+        print(f"Row {args.row} -> ❌ Failed: {args.reason}")
         return
     if args.cmd == "run-finish":
         GoogleSheet().set_run_state("Idle", f"{datetime.datetime.now():%Y-%m-%d %H:%M} - {args.summary}")
@@ -467,7 +492,7 @@ def main(argv=None):
         return
     if args.cmd == "request-done":
         rid = resolve(db, args.id)  # the script must already be saved (add-original)
-        status = "Done" + (f" ({args.note})" if args.note else "")
+        status = "✅" + (f" ({args.note})" if args.note else "")
         GoogleSheet().set_request_done(args.row, status, rid)
         print(f"Row {args.row} -> {status} | Script ID {rid}")
         return

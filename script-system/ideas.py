@@ -34,7 +34,7 @@ DEFAULT_CATS = [["AI", "ON", "5", "latest models, tools, research, India angle"]
                 ["Technology", "ON", "5", ""], ["Science", "ON", "5", ""]]
 FIND_REST, FIND_START, FIND_RUN = "▶ FIND TOPICS", "▶ START FIND", "⏳ FINDING"
 FIND_STATES = [FIND_REST, FIND_START, FIND_RUN]
-USE, USE_SKIP, USE_DONE = "▶ USE", "✖ SKIP", "✅ USED"
+USE_NEW, USE, USE_SKIP, USE_DONE = "⬜ NEW", "▶ USE", "✖ SKIP", "✅ USED"
 WINDOW_DAYS = 7  # news must be this fresh
 
 STOP = {"the", "a", "an", "of", "to", "in", "on", "for", "and", "new", "is", "are", "with", "how", "why", "what", "by", "at", "from"}
@@ -124,7 +124,7 @@ def check(db, items, settings, known_titles, today=None):
 
 def idea_row(i):
     return [i["date"], i["category"], i["title"], i["hook"], "\n".join("• " + p for p in i["points"]),
-            "\n".join(f"{s['url']} ({s['date']})" for s in i["sources"]), i["news_date"], ""]
+            "\n".join(f"{s['url']} ({s['date']})" for s in i["sources"]), i["news_date"], USE_NEW]
 
 
 def request_extra(i):
@@ -184,7 +184,7 @@ class IdeasSheet(L.GoogleSheet):
                                       "startColumnIndex": c0, "endColumnIndex": c1}
         dv = lambda r, vals: {"setDataValidation": {"range": r, "rule": {"condition": {
             "type": "ONE_OF_LIST", "values": [{"userEnteredValue": v} for v in vals]}, "showCustomUi": True, "strict": True}}}
-        GREEN, ORANGE, AMBER, GREY = (0.72, 0.88, 0.80), (1.0, 0.85, 0.55), (1.0, 0.95, 0.62), (0.88, 0.88, 0.88)
+        GREEN, ORANGE, AMBER, GREY, BLUE = (0.72, 0.88, 0.80), (1.0, 0.85, 0.55), (1.0, 0.95, 0.62), (0.88, 0.88, 0.88), (0.85, 0.91, 0.98)
         colour = lambda text, rgb: {"addConditionalFormatRule": {"index": 0, "rule": {"ranges": [rng(0, 1000, 7, 8)], "booleanRule": {
             "condition": {"type": "TEXT_STARTS_WITH", "values": [{"userEnteredValue": text}]},
             "format": {"backgroundColor": {"red": rgb[0], "green": rgb[1], "blue": rgb[2]}}}}}}
@@ -193,8 +193,8 @@ class IdeasSheet(L.GoogleSheet):
         self.run(self.api.batchUpdate(spreadsheetId=L.SHEET_ID, body={"requests": [
             *[{"deleteConditionalFormatRule": {"sheetId": sid, "index": 0}} for _ in range(n_rules)],  # ours only
             colour("▶ FIND", GREEN), colour("▶ START", AMBER), colour("▶ USE", AMBER), colour("⏳", ORANGE),
-            colour("✅", GREEN), colour("✖", GREY),
-            dv(rng(0, 1, 7, 8), FIND_STATES), dv(rng(1, 1000, 7, 8), [USE, USE_SKIP, USE_DONE]),
+            colour("✅", GREEN), colour("✖", GREY), colour("⬜", BLUE),
+            dv(rng(0, 1, 7, 8), FIND_STATES), dv(rng(1, 1000, 7, 8), [USE_NEW, USE, USE_SKIP, USE_DONE]),
             {"repeatCell": {"range": rng(1, 1000, 2, 6), "cell": {"userEnteredFormat": {"wrapStrategy": "WRAP", "verticalAlignment": "TOP"}},
                             "fields": "userEnteredFormat(wrapStrategy,verticalAlignment)"}},
             {"repeatCell": {"range": rng(0, 1000, 7, 8), "cell": {"userEnteredFormat": {"textFormat": {"bold": True}, "horizontalAlignment": "CENTER"}},
@@ -236,6 +236,11 @@ class IdeasSheet(L.GoogleSheet):
 
     def mark(self, row, text):
         self._put([{"range": f"'{IDEAS_TAB}'!H{row}", "values": [[text]]}])
+
+    def fill_new(self, rows):
+        """Idea rows with an empty USE cell get the visible resting state ⬜ NEW."""
+        if rows:
+            self._put([{"range": f"'{IDEAS_TAB}'!H{r}", "values": [[USE_NEW]]} for r in rows])
 
     def set_find(self, text, note=None):
         self._put([{"range": f"'{IDEAS_TAB}'!H1", "values": [[text]]}])

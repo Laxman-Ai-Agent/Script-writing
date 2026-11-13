@@ -26,6 +26,7 @@ class FakeIdeas:
     def settings(self): return self.st
     def add_request(self, topic, extra): self.reqs.append((topic, extra)); return 2
     def mark(self, row, text): self.marks.append((row, text))
+    def fill_new(self, rows): self.filled = list(rows)
     def set_find(self, text, note=None): self.log.append((text, note))
 
     def get_idea_row(self, row):
@@ -60,7 +61,7 @@ def test():
     assert [i["title"] for i in o3] == ["Alpha chip one", "Beta robot two"] and "over the limit of 2" in b3[0][1]  # count per category
 
     row = I.idea_row(ok[0])
-    assert row[2] == "OpenAI ships GPT-9" and row[4].startswith("• a 1") and row[7] == "" and "Key points" in I.request_extra(ok[0])
+    assert row[2] == "OpenAI ships GPT-9" and row[4].startswith("• a 1") and row[7] == I.USE_NEW and "Key points" in I.request_extra(ok[0])
 
     # USE -> Script Requests row + tick; SKIP / hand-marked USED only change the local status; unknown titles are built from the sheet row
     db2 = {"ideas": [dict(ok[0]), {**ok[0], "title": "Other one", "status": "new"}]}
@@ -83,6 +84,8 @@ def test():
     assert W.tick_ideas(fi, okr, print, st, sv) == "empty" and len(calls) == 1 and "no category" in fi.log[-1][1]
     fi = FakeIdeas("▶ START FIND")
     assert W.tick_ideas(fi, lambda: (False, "timed out"), print, st, sv) == "failed" and "timed out" in fi.log[-1][1]
+    fi = FakeIdeas(rows=[(2, "Fresh row", ""), (3, "", "")])
+    assert W.tick_ideas(fi, okr, print, st, sv) == "idle" and fi.filled == [2]  # an empty USE cell becomes ⬜ NEW
     fi = FakeIdeas(rows=[(2, "OpenAI ships GPT-9", "▶ USE")])
     assert W.tick_ideas(fi, okr, print, lambda: {"ideas": [dict(ok[0])]}, sv) == "idle" and fi.marks == [(2, I.USE_DONE)] and saved
     print("ideas checks passed")

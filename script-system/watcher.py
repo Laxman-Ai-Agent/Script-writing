@@ -187,6 +187,9 @@ def tick_ideas(isheet, runner=None, say=log, load=None, save=None):
     if not isheet.has_tab(I.IDEAS_TAB):
         return "no tab"
     ctl = isheet.idea_controls()
+    blank = [r for r, t, h in ctl["rows"] if t and not h]
+    if blank:
+        isheet.fill_new(blank)
     db = (load or I.load)()
     if I.process_use(isheet, db, ctl, say):
         (save or I.save)(db)

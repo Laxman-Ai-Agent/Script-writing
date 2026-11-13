@@ -73,8 +73,8 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 
 ### 8. Deliver
 - Append to `history.json`: `{"date": "YYYY-MM-DD", "channel": "dark" | "health", "topic": "...", "duration": "...", "opening": "O#" | "H#", "structure": "S#", "ending": "E#", "file": "output/.../script.txt"}`. Opening-repeat checks compare only within the same channel.
-- Save the untouched original to the Script Learning Database: `python script-system/learning_db.py add-original output/.../script.txt` (do this BEFORE any user edits; it syncs to Google Sheets or reports PENDING — never claim it synced unless it printed SYNCED).
-- Show the full script in chat. One line after it: word count and file path. Nothing else unless something was uncertain in the facts — then one line naming it.
+- Save the untouched original to the Script Learning Database: `python script-system/learning_db.py add-original output/.../script.txt` (do this BEFORE any user edits; it syncs to Google Sheets or reports PENDING — never claim it synced unless it printed SYNCED). It also prints the **Script ID** (S001, S002, ...) and stores the Title (first line) - keep the ID for the delivery line and for Mode E.
+- Show the full script in chat. One line after it: Script ID, word count and file path. Nothing else unless something was uncertain in the facts — then one line naming it.
 
 ### 9. Learning from feedback
 When the user corrects style ("ఇలా రాయను", "this word is wrong", "too formal"), append a dated bullet to DNA §11 with the rule in one line; if they give word-level swaps, add rows to DNA §12 (keep it ≤ ~30 rows — merge or drop the least useful). If they supply a full rewritten script, it may replace §13 as the gold reference. If they report a real recorded duration, recompute words/min in §8.
@@ -83,20 +83,20 @@ When the user corrects style ("ఇలా రాయను", "this word is wrong",
 
 ## Mode E: `/script run` (requests from the Google Sheet)
 Tab "Script Requests": row 1 = RUN control (B1 dropdown `Idle` / `RUN NOW`, C1 = last-run message), row 2 = headers, data from row 3.
-Columns: S.No (auto) | Topic / Script | Extra Data | Minutes | ON/OFF | Status.
+Columns: S.No (auto) | Topic / Script | Extra Data | Minutes | ON/OFF | Status | Script ID (filled when the row is Done).
 - ON/OFF: only `ON` rows are written. Blank counts as OFF. Status starting with `Done` is always skipped (never regenerated; to redo a row the user clears its Status). Blank / Running / Failed are retried.
 - Minutes dropdown: `Up to N min` (maximum, never pad), `Exact N min` (add real related angles if material is thin), ranges like `10-15 min`, `N+ min` (at least N). A typed plain number counts as `Up to`.
 1. `python script-system/learning_db.py requests` -> prints every ON row still to write (S.No, sheet row, TOPIC or SCRIPT, extra data, LENGTH) and the skipped counts. "0 ON row(s)" -> tell the user and stop.
 2. Process rows ONE AT A TIME, top to bottom; finish one completely before starting the next:
    a. `python script-system/learning_db.py request-start <row>` (Status = Running).
-   b. Run Mode A: topic = Topic/Script, extra data = the user's own notes to include (still fact-check numbers), duration = the `LENGTH:` line (words target, ~150 words/min, what to do if material is short). Channel is not a column: health -> Health Decode, else The Dark World. If the kind is SCRIPT (full script pasted): keep its facts and flow, rewrite in our style with the approved rules, research only to verify numbers. Mode A step 8 saves the original to the Learning Database; use that record id.
-   c. `python script-system/learning_db.py request-done <row> <id>`; add `--note "6 min, material for 10 min not enough"` when the length differs from the request or related angles were added (Status reads `Done: <id> (note)`). On any failure: `python script-system/learning_db.py request-fail <row> "<reason>"`, then go on to the next row.
+   b. Run Mode A: topic = Topic/Script, extra data = the user's own notes to include (still fact-check numbers), duration = the `LENGTH:` line (words target, ~150 words/min, what to do if material is short). Channel is not a column: health -> Health Decode, else The Dark World. If the kind is SCRIPT (full script pasted): keep its facts and flow, rewrite in our style with the approved rules, research only to verify numbers. Mode A step 8 saves the original to the Learning Database; use the Script ID it printed (S###).
+   c. `python script-system/learning_db.py request-done <row> <id>`; add `--note "6 min, material for 10 min not enough"` when the length differs from the request or related angles were added (Status reads `Done (note)`; the Script ID goes into the Script ID column of that row). On any failure: `python script-system/learning_db.py request-fail <row> "<reason>"`, then go on to the next row.
 3. After the last row: `python script-system/learning_db.py run-finish "3 done, 1 failed"` (resets B1 to Idle and writes the summary into C1).
 4. Show every script in chat as in Mode A.
 Triggers: the user types `/script run` in Claude Code (runs regardless of the RUN cell), or `script-system/watcher.py` starts an unattended run when B1 = RUN NOW. In an unattended run you cannot ask questions: decide with defaults, never wait for input, and only touch output/, history.json and learning_db.py.
 
 ## Mode D: user sends a revised script / feedback (Script Learning Database)
-1. Find the record (`python script-system/learning_db.py list`). Save the user's complete revised script to `output/.../script.txt` AND `python script-system/learning_db.py add-revision <id> <file>` — full text, never shortened. Never touch the original.
+1. Find the script by its Script ID (the user may say "S002"; `python script-system/learning_db.py list` shows IDs and titles). Save the user's complete revised script to `output/.../script.txt` AND `python script-system/learning_db.py add-revision <id> <file>` — full text, never shortened. Never touch the original.
 2. `python script-system/learning_db.py diff <id>` for the raw sentence diff, then write a detailed Changes Made analysis (added / removed / rewritten / word swaps / hook / storytelling / narration / Telugu grammar / English vocab / flow / facts / rearrangement — with the user's reason where given, "no reason given" otherwise) → `python script-system/learning_db.py add-changes <id> <file>`.
 3. User's explanation, verbatim, never invented → `python script-system/learning_db.py add-feedback <id> <file>`.
 4. Rules: rules the user states outright → `python script-system/learning_db.py add-rule <id> general|topic "<rule>" --approved`. Rules you infer → add without `--approved` (PROPOSED) and ask the user; on their yes → `python script-system/learning_db.py approve <id> <n>`. Don't turn every one-off edit into a rule. Approved general rules also go into DNA §11 (§9 learning step).

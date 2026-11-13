@@ -3,15 +3,15 @@ import learning_db as L
 
 
 class FakeSheet:
-    def __init__(self):
-        self.rows = []
+    def __init__(self, rows=None):
+        self.rows = rows if rows is not None else []
 
     def ensure_tab(self):
         if not self.rows:
             self.rows.append(L.HEADERS)
 
-    def column_a(self):
-        return [r[0] for r in self.rows]
+    def first_cols(self):
+        return [r[:3] for r in self.rows]
 
     def write_row(self, row, values):
         self.rows[row - 1] = values
@@ -28,46 +28,52 @@ def down():
 
 def test():
     db = {"records": {}}
-    long_script = "తెలుగు narration line. " * 1500  # ~34k chars, a 30-min script
-    rec, new = L.add_original(db, "s1", long_script)
-    assert new and rec["original"] == long_script.strip("\n")
+    long_script = "TITLE of the long script\n\n" + "తెలుగు narration line. " * 1500  # ~34k chars, a 30-min script
+    rid, rec, new = L.add_original(db, None, long_script)
+    assert rid == "S001" and new and rec["original"] == long_script.strip("\n")
+    assert rec["title"] == "TITLE of the long script"
 
-    # duplicate original -> no-op; different original under same id -> refused
-    assert L.add_original(db, "s1", long_script)[1] is False
-    try:
-        L.add_original(db, "s1", "different"); assert False
-    except ValueError:
-        pass
+    # next script gets the next ID; same original again = same record (idempotent); bad / reused ids refused
+    assert L.add_original(db, None, "Second title\nbody")[0] == "S002"
+    assert L.add_original(db, None, long_script)[0::2] == ("S001", False)
+    for bad_id, text in (("x1", "other"), ("S001", "different"), ("S002", long_script)):
+        try:
+            L.add_original(db, bad_id, text); assert False, bad_id
+        except ValueError:
+            pass
+    assert L.new_id(db) == "S003"
 
     # API failure -> stays local + pending
     msg = L.sync_pending(db, sheet_factory=down)
     assert msg.startswith("PENDING") and not rec["synced"]
 
-    # recovery -> synced once, no duplicate rows on re-sync
+    # recovery -> both synced, one row each, no duplicate rows on re-sync, full text, 7 columns
     sheet = FakeSheet()
-    assert "row 2" in L.sync_pending(db, sheet_factory=lambda: sheet)
-    assert len(sheet.rows) == 2 and sheet.rows[1][0] == rec["original"]  # full text, not truncated
+    out = L.sync_pending(db, sheet_factory=lambda: sheet)
+    assert "S001 -> row 2" in out and "S002 -> row 3" in out
+    assert len(sheet.rows) == 3 and sheet.rows[1][:3] == ["S001", rec["title"], rec["original"]]
 
-    # revisions preserved, feedback/changes appended, same row updated
-    assert L.append_entry(rec, "revisions", "rev one")
-    assert L.append_entry(rec, "revisions", "rev two")
-    assert not L.append_entry(rec, "revisions", "rev two")  # duplicate skipped
+    # revisions preserved (newest first), title follows the latest revision, same row updated
+    assert L.append_entry(rec, "revisions", "New title\nrev one")
+    assert L.append_entry(rec, "revisions", "Newer title\nrev two")
+    assert not L.append_entry(rec, "revisions", "Newer title\nrev two")  # duplicate skipped
+    assert rec["title"] == "Newer title" and rec["original"].startswith("TITLE of the long script")
     L.append_entry(rec, "feedback", "my reason")
     L.append_entry(rec, "changes", "- a\n+ b", revision=2)
     rec["rules"].append({"date": "2026-11-13", "scope": "general", "text": "R1", "status": "proposed"})
     rec["rules"].append({"date": "2026-11-13", "scope": "topic", "text": "R2", "status": "approved"})
     L.sync_pending(db, sheet_factory=lambda: sheet)
     row = sheet.rows[1]
-    assert len(sheet.rows) == 2 and len(row) == 5
-    assert "rev one" in row[1] and "rev two" in row[1] and row[1].index("rev two") < row[1].index("rev one")
-    assert "my reason" in row[3] and "⏳ PROPOSED" in row[4] and "✅ APPROVED" in row[4]
+    assert len(sheet.rows) == 3 and len(row) == 7 and row[0] == "S001" and row[1] == "Newer title"
+    assert "rev one" in row[3] and "rev two" in row[3] and row[3].index("rev two") < row[3].index("rev one")
+    assert "my reason" in row[5] and "⏳ PROPOSED" in row[6] and "✅ APPROVED" in row[6]
 
     # only approved rules are retrieved
-    assert L.approved_rules(db) == ["[TOPIC] R2  (from s1)"]
+    assert L.approved_rules(db) == ["[TOPIC] R2  (from S001)"]
 
     # over-limit original is refused, never truncated
     try:
-        L.row_values({**rec, "original": "x" * 50001}); assert False
+        L.row_values("S001", {**rec, "original": "x" * 50001}); assert False
     except ValueError:
         pass
 
@@ -78,13 +84,30 @@ def test():
     # local store round-trip keeps Telugu intact
     import tempfile, pathlib
     p = pathlib.Path(tempfile.mkdtemp()) / "db.json"
+    db["schema"] = L.SCHEMA  # what save() persists after the first load
     L.save(db, p)
     assert L.load(p) == db
-    # request rows (A3:F): written only if topic + ON + Status not Done; blank toggle = OFF; failed/running are retried
+
+    # upgrade of the old format: slug id -> S001 (slug kept as alias), title filled, flagged for re-sync
+    old = {"records": {"2026-11-13-old-slug": {"created": "2026-11-13", "original": "Old title\nbody", "revisions": [],
+                                              "changes": [], "feedback": [], "rules": [], "synced": True}}}
+    L.normalize(old)
+    assert list(old["records"]) == ["S001"] and old["records"]["S001"]["slug"] == "2026-11-13-old-slug"
+    assert old["records"]["S001"]["title"] == "Old title" and old["records"]["S001"]["synced"] is False
+    assert L.resolve(old, "2026-11-13-old-slug") == "S001" and L.resolve(old, "s001") == "S001"
+    assert L.new_id(old) == "S002"
+
+    # a row written before IDs existed (original text in column A of the old 5-column layout) is updated in place
+    legacy = FakeSheet([["Original Script", "Revised", "Changes", "Feedback", "Rules"],
+                        ["Old title\nbody", "rev", "chg", "fb", "rules"]])
+    L.sync_pending(old, sheet_factory=lambda: legacy)
+    assert len(legacy.rows) == 2 and legacy.rows[1][0] == "S001" and legacy.rows[1][2] == "Old title\nbody"
+
+    # request rows (A3:G): written only if topic + ON + Status not Done; blank toggle = OFF; failed/running are retried
     reqs, sk = L.parse_requests([
         ["1", "కిడ్నీ ఎలా పనిచేస్తుంది", "", "1.30", "ON", ""],
         ["2", "x" * 301, "notes", "5", "on", "Failed: net"],
-        ["3", "old topic", "", "2", "ON", "Done: s1"],
+        ["3", "old topic", "", "2", "ON", "Done", "S009"],
         ["4", "off topic", "", "2", "OFF", ""],
         [], ["", "", "extra only"],
         ["7", "forgot toggle", "", "5", "", ""],
@@ -107,6 +130,7 @@ def test():
         L.describe_minutes("soon"); assert False
     except ValueError:
         pass
+
     # watcher: acts only on RUN NOW, only when ON rows exist, always reports back in the sheet
     import watcher as W
 

@@ -1,12 +1,12 @@
 """Script Learning Database: local store (learning-db.json) mirrored to one Google Sheet tab.
 
-Columns: Original Script | Revised / Updated Script | Changes Made | My Feedback | Learning Rules.
+Columns: Script ID | Title | Original Script | Revised / Updated Script | Changes Made | My Feedback | Learning Rules.
 Local JSON is the source of truth (keeps every revision/feedback); the sheet is a mirror.
-A row is identified by its Column 1 text (the original never changes) -> no extra id column.
+A row is identified by its Script ID (S001, S002, ... assigned when the script is written; column A).
 
 Usage (run from project root):
   python script-system/learning_db.py check
-  python script-system/learning_db.py add-original output/<dir>/script.txt [--id ID]
+  python script-system/learning_db.py add-original output/<dir>/script.txt   # assigns the next Script ID (S001, S002, ...)
   python script-system/learning_db.py add-revision <id> <file>
   python script-system/learning_db.py diff <id>                 # raw sentence diff, helps write Changes
   python script-system/learning_db.py add-changes <id> <file>
@@ -37,7 +37,7 @@ DB_PATH = HERE / "learning-db.json"
 SHEET_ID = "141B4qwm4Un9dXPzULWClZaUrjhcugjhoczSGrjik040"
 TAB = "Script Learning Database"
 REQ_TAB = "Script Requests"
-REQ_HEADERS = ["S.No", "Topic / Script", "Extra Data", "Minutes", "ON/OFF", "Status"]
+REQ_HEADERS = ["S.No", "Topic / Script", "Extra Data", "Minutes", "ON/OFF", "Status", "Script ID"]
 RUN_STATES = ["Idle", "RUN NOW"]  # cell B1 of the requests tab; data rows start at 3
 WORDS_PER_MIN = 150  # same estimate as writing-dna.md section 8
 MINUTE_OPTIONS = (
@@ -46,7 +46,11 @@ MINUTE_OPTIONS = (
     + ["5-7 min", "7-10 min", "10-15 min", "15-20 min", "20-30 min"]
     + [f"{n}+ min" for n in ("5", "10", "15", "20", "30")]
 )
-HEADERS = ["Original Script", "Revised / Updated Script", "Changes Made", "My Feedback", "Learning Rules"]
+HEADERS = ["Script ID", "Title", "Original Script", "Revised / Updated Script", "Changes Made", "My Feedback",
+           "Learning Rules"]
+LAST_COL = chr(64 + len(HEADERS))  # G
+ID_RE = re.compile(r"S[0-9]{3,}")
+SCHEMA = 2  # 2 = Script ID + Title columns
 CELL_LIMIT = 50000  # Google Sheets hard limit per cell
 
 
@@ -56,10 +60,36 @@ def today():
 
 # ---------- local store ----------
 
+def title_of(text):
+    return next((ln.strip() for ln in text.splitlines() if ln.strip()), "")
+
+
+def new_id(db):
+    n = max([int(k[1:]) for k in db["records"] if ID_RE.fullmatch(k)], default=0) + 1
+    return f"S{n:03d}"
+
+
+def normalize(db):
+    """Idempotent upgrade: old slug ids -> S001..., titles filled, everything re-synced once after a schema change."""
+    recs = db["records"]
+    n = max([int(k[1:]) for k in recs if ID_RE.fullmatch(k)], default=0)
+    for k in [k for k in recs if not ID_RE.fullmatch(k)]:
+        n += 1
+        rec = recs.pop(k)
+        rec.update(slug=k, synced=False)
+        recs[f"S{n:03d}"] = rec
+    for rec in recs.values():
+        rec.setdefault("title", title_of(rec["revisions"][-1]["text"] if rec["revisions"] else rec["original"]))
+        if db.get("schema") != SCHEMA:
+            rec["synced"] = False
+    db["schema"] = SCHEMA
+    db["records"] = dict(sorted(recs.items()))
+    return db
+
+
 def load(path=DB_PATH):
-    if not path.exists():
-        return {"records": {}}
-    return json.loads(path.read_text(encoding="utf-8"))
+    db = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"records": {}}
+    return normalize(db)
 
 
 def save(db, path=DB_PATH):
@@ -68,26 +98,41 @@ def save(db, path=DB_PATH):
     tmp.replace(path)  # atomic: never leave a half-written DB
 
 
+def resolve(db, rid):
+    """'S001', 's001' or an old slug -> the record's Script ID."""
+    recs = db["records"]
+    if rid in recs:
+        return rid
+    if rid.upper() in recs:
+        return rid.upper()
+    key = next((k for k, r in recs.items() if r.get("slug") == rid), None)
+    if key is None:
+        sys.exit(f"No script '{rid}'. Known: {', '.join(recs) or '(none)'}")
+    return key
+
+
 def get(db, rid):
-    if rid not in db["records"]:
-        sys.exit(f"No record '{rid}'. Known: {', '.join(db['records']) or '(none)'}")
-    return db["records"][rid]
+    return db["records"][resolve(db, rid)]
 
 
 def add_original(db, rid, text):
+    """-> (id, record, is_new). rid None = assign the next Script ID. Same original text again = existing record."""
     text = text.strip("\n")
-    rec = db["records"].get(rid)
-    if rec:
-        if rec["original"] == text:
-            return rec, False  # duplicate -> no-op
-        raise ValueError(f"Record '{rid}' already has a different original; originals are never overwritten.")
     for other_id, other in db["records"].items():
         if other["original"] == text:
-            raise ValueError(f"Same original already stored as '{other_id}'.")
-    rec = {"created": today(), "original": text, "revisions": [], "changes": [],
+            if rid not in (None, other_id):
+                raise ValueError(f"Same original already stored as '{other_id}'.")
+            return other_id, other, False
+    if rid is None:
+        rid = new_id(db)
+    elif not ID_RE.fullmatch(rid):
+        raise ValueError(f"Script ID must look like S001, got '{rid}'.")
+    elif rid in db["records"]:
+        raise ValueError(f"'{rid}' already has a different original; originals are never overwritten.")
+    rec = {"created": today(), "title": title_of(text), "original": text, "revisions": [], "changes": [],
            "feedback": [], "rules": [], "synced": False}
     db["records"][rid] = rec
-    return rec, True
+    return rid, rec, True
 
 
 def append_entry(rec, key, text, **extra):
@@ -95,6 +140,8 @@ def append_entry(rec, key, text, **extra):
     if any(e["text"] == text for e in rec[key]):
         return False  # duplicate entry
     rec[key].append({"date": today(), "text": text, **extra})
+    if key == "revisions":
+        rec["title"] = title_of(text)  # Title follows the latest revision; the Original Script cell never changes
     rec["synced"] = False
     return True
 
@@ -116,14 +163,12 @@ def render_rules(rules):
     return "\n".join(lines)
 
 
-def row_values(rec):
-    if len(rec["original"]) > CELL_LIMIT:
-        raise ValueError("Original script exceeds the 50,000-char cell limit; refusing to truncate.")
+def row_values(rid, rec):
     revised = stacked(rec["revisions"], "Revision")
     if len(revised) > CELL_LIMIT:
         # ponytail: older revisions then live only in learning-db.json; split across rows if this ever matters
         revised = stacked(rec["revisions"][-1:], "Revision") + "\n\n(older revisions kept in learning-db.json)"
-    cells = [rec["original"], revised, stacked(rec["changes"], "Changes for revision"),
+    cells = [rid, rec["title"], rec["original"], revised, stacked(rec["changes"], "Changes for revision"),
              stacked(rec["feedback"], "Feedback"), render_rules(rec["rules"])]
     for name, c in zip(HEADERS, cells):
         if len(c) > CELL_LIMIT:
@@ -207,8 +252,8 @@ class GoogleSheet:
             dv(rng(2, 1000, 4, 5), ["ON", "OFF"], True),
             {"updateSheetProperties": {"properties": {"sheetId": sid, "gridProperties": {"frozenRowCount": 2}},
                                        "fields": "gridProperties.frozenRowCount"}},
-            bold(rng(0, 1, 0, 1)), bold(rng(1, 2, 0, 6)), wrap,
-            *[width(c, px) for c, px in enumerate((60, 520, 300, 130, 80, 280))]]}))
+            bold(rng(0, 1, 0, 1)), bold(rng(1, 2, 0, 7)), wrap,
+            *[width(c, px) for c, px in enumerate((60, 520, 300, 130, 80, 260, 90))]]}))
 
     def pending_requests(self):
         """-> (ON rows still to write, {'off': n, 'done': n})"""
@@ -228,19 +273,26 @@ class GoogleSheet:
         if not res.get("updatedCells"):
             raise RuntimeError("API did not confirm the status update")
 
+    def set_request_done(self, row, status, script_id):
+        res = self.run(self.api.values().update(
+            spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!F{row}:G{row}", valueInputOption="RAW",
+            body={"values": [[status, script_id]]}))
+        if not res.get("updatedCells"):
+            raise RuntimeError("API did not confirm the status update")
+
     def set_run_state(self, flag, message):
         res = self.run(self.api.values().update(
             spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!B1:C1", valueInputOption="RAW", body={"values": [[flag, message]]}))
         if not res.get("updatedCells"):
             raise RuntimeError("API did not confirm the run-state update")
 
-    def column_a(self):
-        res = self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!A:A"))
-        return [r[0] if r else "" for r in res.get("values", [])]
+    def first_cols(self):
+        """Columns A:C of every row (Script ID, Title, Original Script) - used to find a record's row."""
+        return self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!A:C")).get("values", [])
 
     def write_row(self, row, values):
         res = self.run(self.api.values().update(
-            spreadsheetId=SHEET_ID, range=f"'{TAB}'!A{row}:E{row}",
+            spreadsheetId=SHEET_ID, range=f"'{TAB}'!A{row}:{LAST_COL}{row}",
             valueInputOption="RAW", body={"values": [values]}))
         if not res.get("updatedCells"):
             raise RuntimeError("API did not confirm the write")
@@ -248,7 +300,7 @@ class GoogleSheet:
 
     def append_row(self, values):
         res = self.run(self.api.values().append(
-            spreadsheetId=SHEET_ID, range=f"'{TAB}'!A:E", valueInputOption="RAW",
+            spreadsheetId=SHEET_ID, range=f"'{TAB}'!A:{LAST_COL}", valueInputOption="RAW",
             insertDataOption="INSERT_ROWS", body={"values": [values]}))
         upd = res.get("updates", {})
         if not upd.get("updatedCells"):
@@ -303,11 +355,22 @@ def parse_requests(values):
     return out, skipped
 
 
-def sync_record(sheet, rec):
-    """Upsert one record. Row found by exact Column 1 match -> no duplicates."""
-    values = row_values(rec)
-    col_a = sheet.column_a()
-    row = next((i + 1 for i, v in enumerate(col_a) if i > 0 and v == rec["original"]), None)
+def find_row(rows, rid, original):
+    """Row of this script: Script ID in column A, or (rows written before IDs existed) the original text."""
+    for i, r in enumerate(rows, start=1):
+        if i == 1:
+            continue  # header
+        a = r[0] if r else ""
+        c = r[2] if len(r) > 2 else ""
+        if a == rid or a == original or c == original:
+            return i
+    return None
+
+
+def sync_record(sheet, rid, rec):
+    """Upsert one record by Script ID -> no duplicate rows."""
+    values = row_values(rid, rec)
+    row = find_row(sheet.first_cols(), rid, rec["original"])
     row = sheet.write_row(row, values) if row else sheet.append_row(values)
     rec["synced"] = True
     return row
@@ -320,7 +383,7 @@ def sync_pending(db, sheet_factory=GoogleSheet):
     try:
         sheet = sheet_factory()
         sheet.ensure_tab()
-        out = [f"SYNCED {rid} -> row {sync_record(sheet, r)}" for rid, r in pending]
+        out = [f"SYNCED {rid} -> row {sync_record(sheet, rid, r)}" for rid, r in pending]
     except Exception as e:  # keep local data, report honestly
         left = [rid for rid, r in pending if not r["synced"]]
         return f"PENDING ({len(left)}: {', '.join(left)}) — sheet not updated: {e}"
@@ -376,10 +439,6 @@ def main(argv=None):
     db = load()
     read = lambda f: Path(f).read_text(encoding="utf-8")
 
-    if args.cmd == "check":
-        s = GoogleSheet(); s.ensure_tab()
-        print(f"OK: {s.email} can read/write '{TAB}' ({len(s.column_a())} rows incl. header)")
-        return
     if args.cmd == "words":  # narration word count (title line excluded), for the length check
         body = Path(args.file).read_text(encoding="utf-8").split(chr(10), 1)
         print(len(body[1].split()) if len(body) > 1 else 0)
@@ -407,15 +466,18 @@ def main(argv=None):
         print("Run finished; RUN cell reset to Idle.")
         return
     if args.cmd == "request-done":
-        if args.id not in db["records"]:
-            sys.exit(f"No record '{args.id}' - save the original first.")
-        status = f"Done: {args.id}" + (f" ({args.note})" if args.note else "")
-        GoogleSheet().set_request_status(args.row, status)
-        print(f"Row {args.row} -> {status}")
+        rid = resolve(db, args.id)  # the script must already be saved (add-original)
+        status = "Done" + (f" ({args.note})" if args.note else "")
+        GoogleSheet().set_request_done(args.row, status, rid)
+        print(f"Row {args.row} -> {status} | Script ID {rid}")
+        return
+    if args.cmd == "check":
+        s = GoogleSheet(); s.ensure_tab()
+        print(f"OK: {s.email} can read/write '{TAB}' ({len(s.first_cols())} rows incl. header)")
         return
     if args.cmd == "list":
         for rid, r in db["records"].items():
-            print(f"{rid}: {len(r['revisions'])} revisions, {len(r['feedback'])} feedback, "
+            print(f"{rid} | {r['title'][:60]} | {len(r['revisions'])} revisions, {len(r['feedback'])} feedback, "
                   f"{len(r['rules'])} rules, {'synced' if r['synced'] else 'PENDING'}")
         return
     if args.cmd == "rules":
@@ -432,15 +494,17 @@ def main(argv=None):
         return
 
     if args.cmd == "add-original":
-        f = Path(args.file)
-        rid = args.id or (f.parent.name if f.stem == "script" else f"{f.parent.name}-{f.stem.replace('script-', '')}")
-        _, new = add_original(db, rid, read(f))
-        print(f"{'Added' if new else 'Already stored'}: {rid}")
+        try:
+            rid, rec, new = add_original(db, args.id, read(args.file))
+        except ValueError as e:
+            sys.exit(str(e))
+        print(f"{'Added' if new else 'Already stored'} | Script ID: {rid} | Title: {rec['title']}")
     elif args.cmd in ("add-revision", "add-changes", "add-feedback"):
-        rec = get(db, args.id)
+        rid = resolve(db, args.id)
+        rec = db["records"][rid]
         key = {"add-revision": "revisions", "add-changes": "changes", "add-feedback": "feedback"}[args.cmd]
         extra = {"revision": len(rec["revisions"])} if key == "changes" else {}
-        print("Added." if append_entry(rec, key, read(args.file), **extra) else "Duplicate, skipped.")
+        print(f"Added to {rid}." if append_entry(rec, key, read(args.file), **extra) else "Duplicate, skipped.")
     elif args.cmd == "add-rule":
         rec = get(db, args.id)
         rec["rules"].append({"date": today(), "scope": args.scope, "text": args.text,
@@ -452,6 +516,8 @@ def main(argv=None):
         rec["rules"][args.n - 1]["status"] = "approved"
         rec["synced"] = False
         print(f"Rule {args.n} approved.")
+    elif args.cmd == "sync":
+        pass
 
     save(db)  # local first, so nothing is lost if the sheet is down
     print(sync_pending(db))

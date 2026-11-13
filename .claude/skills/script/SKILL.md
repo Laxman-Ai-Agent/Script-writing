@@ -67,7 +67,7 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 - Every number, name, date matches `facts.md`. Disputed claims are hedged or omitted. Nothing added that isn't in `facts.md`.
 - No calques, no గ్రాంథిక / newsreader phrasing, §9 "Never" list clean.
 - Paragraphs, not one-liners; no stretch of ~4 sentences of dry exposition without a question / example / turn.
-- Word count within ±10% of target (count by whitespace split).
+- Word count within ±10% of target (`python script-system/learning_db.py words <file>` counts the narration, title excluded).
 - Opening / structure / ending are not repeats from history.
 - Health Decode only: run the §14 7-point rubric; fix until every point is ✅. After the script, show the rubric as a one-line ✅ list (the user wants to see it).
 
@@ -82,13 +82,18 @@ When the user corrects style ("ఇలా రాయను", "this word is wrong",
 ---
 
 ## Mode E: `/script run` (requests from the Google Sheet)
-Tab "Script Requests", columns: Topic / Script | Extra Data | Minutes | Status. The user fills the first three; Status is blank until done. Minutes is a dropdown: `Up to N min` (maximum, never pad), `Exact N min` (add real related angles if material is thin), ranges like `10-15 min`, and `N+ min` (at least N, longer is fine). A plain typed number counts as `Up to`.
-1. `python script-system/learning_db.py requests` -> lists Pending rows (row number, TOPIC or SCRIPT, minutes, extra data). "No pending requests." -> tell the user and stop.
-2. For each row, run Mode A with: topic = Topic/Script column, duration = the `LENGTH:` line the tool prints (it turns the Minutes cell into a word target, ~150 words/min, and says what to do if material is short), extra data = user-supplied facts/points to include (treat as the user's own notes; still fact-check numbers). Channel is not a column - pick it by topic (health -> Health Decode, else The Dark World).
-   - If the kind is SCRIPT (a full script pasted): keep its facts and flow, rewrite it in our style using the approved rules; research only to verify numbers.
-   - Mode A step 8 already saves the original to the Learning Database; use that record id for step 3.
-3. `python script-system/learning_db.py request-done <row> <id>` marks the row "Done: <id>". If the script ended up shorter/longer than asked, or you added related angles, pass `--note "6 min, material for 10 min not enough"` so Status reads `Done: <id> (note)`. Do this only after the script is saved and add-original printed SYNCED or PENDING (PENDING is fine, it is stored locally).
-4. Show each script in chat as in Mode A. Process rows top to bottom; if one fails, leave its Status blank and say which.
+Tab "Script Requests": row 1 = RUN control (B1 dropdown `Idle` / `RUN NOW`, C1 = last-run message), row 2 = headers, data from row 3.
+Columns: S.No (auto) | Topic / Script | Extra Data | Minutes | ON/OFF | Status.
+- ON/OFF: only `ON` rows are written. Blank counts as OFF. Status starting with `Done` is always skipped (never regenerated; to redo a row the user clears its Status). Blank / Running / Failed are retried.
+- Minutes dropdown: `Up to N min` (maximum, never pad), `Exact N min` (add real related angles if material is thin), ranges like `10-15 min`, `N+ min` (at least N). A typed plain number counts as `Up to`.
+1. `python script-system/learning_db.py requests` -> prints every ON row still to write (S.No, sheet row, TOPIC or SCRIPT, extra data, LENGTH) and the skipped counts. "0 ON row(s)" -> tell the user and stop.
+2. Process rows ONE AT A TIME, top to bottom; finish one completely before starting the next:
+   a. `python script-system/learning_db.py request-start <row>` (Status = Running).
+   b. Run Mode A: topic = Topic/Script, extra data = the user's own notes to include (still fact-check numbers), duration = the `LENGTH:` line (words target, ~150 words/min, what to do if material is short). Channel is not a column: health -> Health Decode, else The Dark World. If the kind is SCRIPT (full script pasted): keep its facts and flow, rewrite in our style with the approved rules, research only to verify numbers. Mode A step 8 saves the original to the Learning Database; use that record id.
+   c. `python script-system/learning_db.py request-done <row> <id>`; add `--note "6 min, material for 10 min not enough"` when the length differs from the request or related angles were added (Status reads `Done: <id> (note)`). On any failure: `python script-system/learning_db.py request-fail <row> "<reason>"`, then go on to the next row.
+3. After the last row: `python script-system/learning_db.py run-finish "3 done, 1 failed"` (resets B1 to Idle and writes the summary into C1).
+4. Show every script in chat as in Mode A.
+Triggers: the user types `/script run` in Claude Code (runs regardless of the RUN cell), or `script-system/watcher.py` starts an unattended run when B1 = RUN NOW. In an unattended run you cannot ask questions: decide with defaults, never wait for input, and only touch output/, history.json and learning_db.py.
 
 ## Mode D: user sends a revised script / feedback (Script Learning Database)
 1. Find the record (`python script-system/learning_db.py list`). Save the user's complete revised script to `output/.../script.txt` AND `python script-system/learning_db.py add-revision <id> <file>` — full text, never shortened. Never touch the original.

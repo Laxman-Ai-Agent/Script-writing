@@ -9,7 +9,7 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 
 ## How to use
 - `/script <topic> <duration>` — e.g. `/script కిడ్నీ ఎలా పనిచేస్తుంది 1.30`. Durations used: 40s, 50s, 1, 1.30, 2, 3, 5, 7, 8, 10, 12, 15, 20, 30 (min).
-- `/script run` - reads Pending rows from the Google Sheet tab "Script Requests" (Topic / Script, Extra Data, Minutes dropdown: Up to N / Exact N / A-B range / N+, Status), writes each script, saves the original to the Learning DB, marks the row Done.
+- `/script run` - reads Pending rows from the Google Sheet tab "Script Requests" (S.No, Topic / Script, Extra Data, Minutes dropdown, ON/OFF, Status; row 1 = RUN control). Only ON rows run, one at a time; Done rows are skipped, writes each script, saves the original to the Learning DB, marks the row Done.
 - `/script update` — analyze only new files in `sample script/` and merge into the profile.
 - `/script reanalyze` — full rebuild (only on explicit request).
 
@@ -22,6 +22,7 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 | `script-system/history.json` | Openings/structures used per script, to avoid repeats | Auto, after each script |
 | `sample script/` | User's original samples (01–35 + Health-decode.txt). 21=22 duplicate, 36 empty, 34/35 vocab lists | User adds files |
 | `script-system/learning_db.py` | Script Learning Database CLI: local `learning-db.json` (source of truth: originals, all revisions, changes, feedback, rules) mirrored to Google Sheet tab "Script Learning Database" (5 columns). Self-check: `python script-system/test_learning_db.py` | Change the learning/sync logic |
+| `script-system/watcher.py` | Auto-run: polls the sheet's RUN cell (B1); on `RUN NOW` starts one unattended `claude -p` run of Mode E (dontAsk mode, writes only output/ + history.json, $10 cap). `--dry-run`, `--once`, `install-startup`. Needs `claude auth login` once. Log `watcher.log` (gitignored) | Change the auto-run behaviour |
 | `script-system/credentials/service-account.json` | Google service-account key (gitignored, never commit) | User sets up once |
 | `output/YYYY-MM-DD-<slug>/` | `facts.md` (claims + sources) and `script.txt` per script | Auto |
 
@@ -38,4 +39,5 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 - 2026-11-13: Claude Fable/Mythos 5.2 (Dark World, 5 min) — user rewrite saved; new rules: mandatory "ఈ video లో మనం…" intro paragraph before the hook, English words people say in English stay Latin (price, simple, powerful, daily). See DNA §4 note, §11, §12.
 - 2026-11-13: Script Learning Database built (learning_db.py). Fable/Mythos record backfilled (3 approved + 3 proposed rules). Google Sheets sync LIVE: GCP project `script-learning-514611`, service account `script-sync@script-learning-514611.iam.gserviceaccount.com` (Editor on the sheet), key in gitignored `script-system/credentials/`. Verified read/write, no-dup re-sync, full-length cells.
 - 2026-11-13: `/script run` + "Script Requests" tab added (learning_db.py `requests`, `request-done`).
+- 2026-11-13: ON/OFF + S.No + RUN control added; `watcher.py` built (tests + real-sheet idle check pass). NOT yet run end-to-end: the `claude` CLI login had expired (`claude auth login` needed).
 - Open: words/min calibration (no recorded duration reported yet).

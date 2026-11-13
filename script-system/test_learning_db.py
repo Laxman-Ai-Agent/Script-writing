@@ -80,13 +80,20 @@ def test():
     p = pathlib.Path(tempfile.mkdtemp()) / "db.json"
     L.save(db, p)
     assert L.load(p) == db
-    # request rows: pending = topic filled + status blank/Pending; done rows and empty rows skipped
-    reqs = L.parse_requests([["కిడ్నీ ఎలా పనిచేస్తుంది", "", "1.30"], ["x" * 301, "notes", "5", "Pending"],
-                             ["old topic", "", "2", "Done: s1"], [], ["", "extra only"]])
-    assert [r["row"] for r in reqs] == [2, 3]
-    assert reqs[0]["kind"] == "TOPIC" and reqs[0]["minutes"] == "1.30"
+    # request rows (A3:F): written only if topic + ON + Status not Done; blank toggle = OFF; failed/running are retried
+    reqs, sk = L.parse_requests([
+        ["1", "కిడ్నీ ఎలా పనిచేస్తుంది", "", "1.30", "ON", ""],
+        ["2", "x" * 301, "notes", "5", "on", "Failed: net"],
+        ["3", "old topic", "", "2", "ON", "Done: s1"],
+        ["4", "off topic", "", "2", "OFF", ""],
+        [], ["", "", "extra only"],
+        ["7", "forgot toggle", "", "5", "", ""],
+        ["8", "stale", "", "5", "ON", "Running"]])
+    assert [r["row"] for r in reqs] == [3, 4, 10] and sk == {"off": 2, "done": 1}
+    assert reqs[0]["kind"] == "TOPIC" and reqs[0]["minutes"] == "1.30" and reqs[0]["sno"] == "1"
     assert reqs[1]["kind"].startswith("SCRIPT") and reqs[1]["extra"] == "notes"
-    assert L.parse_requests([["t"]])[0]["minutes"] == "1"  # default 1 min
+    assert L.parse_requests([["1", "t", "", "", "ON", ""]])[0][0]["minutes"] == "1"  # default 1 min
+
     # Minutes dropdown values -> length instructions (every dropdown option must parse)
     for o in L.MINUTE_OPTIONS:
         L.describe_minutes(o)
@@ -100,6 +107,27 @@ def test():
         L.describe_minutes("soon"); assert False
     except ValueError:
         pass
+    # watcher: acts only on RUN NOW, only when ON rows exist, always reports back in the sheet
+    import watcher as W
+
+    class FS:
+        def __init__(s, flag, reqs):
+            s.flag, s.reqs, s.msg = flag, reqs, ""
+
+        def run_flag(s): return s.flag
+        def pending_requests(s): return s.reqs, {"off": 1, "done": 2}
+        def run_message(s): return s.msg
+
+        def set_run_state(s, f, m):
+            s.flag, s.msg = f, m
+
+    calls = []
+    ok = lambda: (calls.append(1) or True, "")
+    s = FS("Idle", [1]); assert W.tick(s, ok, print) == "idle" and not calls
+    s = FS("RUN NOW", []); assert W.tick(s, ok, print) == "empty" and not calls and s.flag == "Idle" and "no ON rows" in s.msg
+    s = FS("RUN NOW", [1, 2]); assert W.tick(s, ok, print) == "done" and len(calls) == 1 and s.flag == "Idle"
+    assert "finished" in s.msg  # claude never wrote run-finish -> watcher closes the message itself
+    s = FS("RUN NOW", [1]); assert W.tick(s, lambda: (False, "timed out"), print) == "failed" and "timed out" in s.msg and s.flag == "Idle"
     print("all checks passed")
 
 

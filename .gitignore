@@ -1,3 +1,5 @@
 script-system/credentials/
 script-system/*.tmp
 __pycache__/
+script-system/watcher.log
+script-system/watcher.lock

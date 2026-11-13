@@ -19,6 +19,7 @@ All system files live in `script-system/` (project root). Samples live in `sampl
 ## Mode A: write a script
 
 ### 1. Research (English sources)
+**Cost rule - steps 1-2 are delegated whenever the Agent tool exists (always in unattended `/script run`).** Start ONE subagent with the Agent tool (`subagent_type: general-purpose`, `model: sonnet`). Its prompt must contain: the topic; the target duration (research depth below); the channel (health: at least one WHO/NIH/CDC/ICMR/NHS/Mayo source + one why-it-matters number); the exact output path `output/YYYY-MM-DD-<english-slug>/facts.md`; the fact-sheet format of step 2; the rule "confirm recent-event facts in 2 independent sources"; and "reply in 3 lines: path written, number of sources, any disputed claims". When it returns, Read facts.md once and continue from step 3 - do NOT repeat the research yourself. Writing the Telugu stays with you. If the Agent tool is not available, do steps 1-2 yourself.
 - Use WebSearch (load via ToolSearch if deferred), then WebFetch the best pages. Prefer: encyclopedias, official/agency sites (NASA, NOAA, WHO, etc.), peer-reviewed or university sources, major news outlets for events. Avoid content farms and unsourced listicles.
 - Depth by length: ≤1 min → 2–3 sources; 1.5–5 min → 4–6; 7–15 min → 6–10; 20–30 min → 10+.
 - For recent events (news, AI releases), confirm key facts in at least 2 independent sources and note the date.

@@ -73,6 +73,26 @@
       "feedback": [],
       "rules": [],
       "synced": true
+    },
+    "S003": {
+      "created": "2026-11-13",
+      "title": "ChatGPT అసలు ఎలా పనిచేస్తుంది?",
+      "original": "ChatGPT అసలు ఎలా పనిచేస్తుంది?\n\nఈ video లో మనం OpenAI తయారుచేసిన ChatGPT గురించి తెలుసుకోబోతున్నాం. అసలు ఇది మన questions కి answers ఎలా ఇస్తుంది? దీనికి నిజంగా అన్నీ తెలుసా? అంతేకాదు, ఇది అప్పుడప్పుడు తప్పులు ఎందుకు చెప్తుందో ఈ video లో simple గా చూద్దాం.\n\nప్రతి వారం దాదాపు 900 million మంది వాడే ChatGPT అనగానే చాలామందికి అన్నీ తెలిసిన ఒక పెద్ద brain గుర్తొస్తుంది. కానీ మన phone keyboard లో type చేస్తుంటే next word suggest చేస్తుంది కదా... ChatGPT కూడా అదే పని చేస్తుంది, కాకపోతే చాలా పెద్ద level లో.\n\nముందుగా దీనికి Wikipedia, books, websites లాంటి కోట్లాది pages text చూపించారు. అదంతా చదువుతూ, ఒక sentence లో తర్వాత ఏ word వస్తుందో guess చేయడం నేర్చుకుంది. ఆ తర్వాత మనుషులు దీని answers కి ranks ఇచ్చారు... ఏది బాగుంది, ఏది బాలేదు అని. దాంతో మనతో మాట్లాడే పద్ధతి మెరుగైంది.\n\nమనం question అడగగానే, ఇది ఒక్కో word నీ అప్పటికప్పుడు guess చేసి జోడిస్తూ answer రాస్తుంది. అంటే ChatGPT ఎక్కడో దాచిపెట్టిన answers వెతకదు... ప్రతి answer నీ కొత్తగా రాస్తుంది. అందుకే అప్పుడప్పుడు తప్పులు కూడా చెప్పొచ్చు.\n\nఇది ముందే తెలుసా? తెలిసుంటే YES, తెలియకపోతే NO అని comment చేయండి!",
+      "revisions": [],
+      "changes": [],
+      "feedback": [],
+      "rules": [],
+      "synced": true
+    },
+    "S004": {
+      "created": "2026-11-13",
+      "title": "GPS అసలు ఎలా పనిచేస్తుంది?",
+      "original": "GPS అసలు ఎలా పనిచేస్తుంది?\n\nఈ video లో మనం phone లో రోజూ వాడే GPS గురించి తెలుసుకోబోతున్నాం. అసలు satellites మనం ఎక్కడున్నామో ఎలా కనిపెడతాయి? అంతేకాదు, Einstein theory లేకపోతే GPS ఎలా దారి తప్పుతుందో చూద్దాం.\n\nమీ phone satellite కి ఒక్క signal కూడా పంపదు. అయినా మీరు ఎక్కడున్నారో అది ఎలా చెప్పగలుగుతుంది?\n\nభూమికి సుమారు 20,200 km ఎత్తులో దాదాపు 30 GPS satellites తిరుగుతున్నాయి. ప్రతి దాంట్లో atomic clocks ఉంటాయి. అవి \"నేను ఇక్కడున్నాను, ఇప్పుడు time ఇది\" అని signal పంపుతూనే ఉంటాయి. ఆ signal phone కి చేరడానికి ఎంత time పట్టిందో phone లెక్కేస్తుంది. ఆ time ని light speed తో గుణిస్తే… satellite ఎంత దూరంలో ఉందో తెలుస్తుంది. మూడు satellites దూరాలతో మీ position దొరుకుతుంది, నాలుగోది phone clock లో చిన్న తేడాను సరిచేస్తుంది.\n\nకానీ ఇక్కడే ఒక twist ఉంది. అంత ఎత్తులో satellite clocks రోజుకు 38 microseconds ముందుకు వెళ్తాయి — Einstein relativity వల్ల. దీన్ని సరిచేయకపోతే రోజూ కొన్ని kilometers తప్పు వస్తుంది.\n\nచూశారా… phone లో కనిపించే ఆ చిన్న blue dot వెనుక space, clocks, Einstein అన్నీ కలిసి పనిచేస్తున్నాయి.\n\nముందే తెలుసా? తెలిసుంటే YES, లేకపోతే NO అని comment చేయండి!",
+      "revisions": [],
+      "changes": [],
+      "feedback": [],
+      "rules": [],
+      "synced": true
     }
   },
   "schema": 2

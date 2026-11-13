@@ -11,7 +11,9 @@ Safety: claude runs with --permission-mode dontAsk (anything not allow-listed is
 writes only under output/ + script-system/history.json, runs only learning_db.py via Bash, and stops itself at
 BUDGET_USD per run. Log: script-system/watcher.log
 """
+import csv
 import datetime
+import json
 import os
 import shutil
 import subprocess
@@ -28,11 +30,16 @@ POLL_SECONDS = 60
 RUN_TIMEOUT_MIN = 120
 BUDGET_USD = "10"  # claude stops itself at this spend per run
 LOG = HERE / "watcher.log"
+COSTS = HERE / "run-costs.csv"  # one line per run: tokens + cost (local only)
 LOCK = HERE / "watcher.lock"
 TASK = "ScriptWatcher"
 ALLOWED = ["Read", "Glob", "Grep", "WebSearch", "WebFetch", "Skill",
            "Write(output/**)", "Edit(output/**)", "Edit(script-system/history.json)",
-           "Bash(python script-system/learning_db.py:*)"]
+           "Bash(python script-system/learning_db.py:*)", "Agent"]
+MODEL = "opus"  # writes the Telugu; research is delegated to a Sonnet subagent by the skill (SKILL.md step 1)
+# Lean run: project settings only (no user plugins/hooks/MCP), fewer built-in tools -> ~18k instead of ~56k baseline tokens per step
+LEAN = ["--setting-sources", "project", "--strict-mcp-config", "--exclude-dynamic-system-prompt-sections",
+        "--tools", "Read,Write,Edit,Bash,WebSearch,WebFetch,Glob,Grep,Skill,Agent"]
 PROMPT = ("Invoke the Skill tool with skill 'script' and args 'run'. Follow its Mode E exactly for every ON row "
           "in the Google Sheet. Do nothing else.")
 
@@ -48,8 +55,31 @@ def stamp():
     return f"{datetime.datetime.now():%Y-%m-%d %H:%M}"
 
 
+def summarize(out):
+    """`claude -p --output-format json` output -> (result text, usage stats). Stats are {} if it is not JSON."""
+    try:
+        d = json.loads(out)
+    except ValueError:
+        return out, {}
+    u = d.get("usage") or {}
+    return d.get("result") or "", {
+        "turns": d.get("num_turns", 0), "seconds": round(d.get("duration_ms", 0) / 1000),
+        "models": ",".join((d.get("modelUsage") or {}).keys()),
+        "input": u.get("input_tokens", 0), "cache_write": u.get("cache_creation_input_tokens", 0),
+        "cache_read": u.get("cache_read_input_tokens", 0), "output": u.get("output_tokens", 0),
+        "cost": round(d.get("total_cost_usd", 0), 2), "error": bool(d.get("is_error"))}
+
+
+def stats_line(st):
+    k = lambda n: f"{n / 1000:.0f}k" if n >= 1000 else str(n)
+    return (f"{st['turns']} steps, {st['seconds'] // 60}m{st['seconds'] % 60:02d}s, {st['models']}: "
+            f"new in {k(st['input'] + st['cache_write'])} + cached {k(st['cache_read'])}, out {k(st['output'])}, "
+            f"~${st['cost']:.2f} list price")
+
+
 def run_claude():
-    """-> (ok, reason). Unattended headless run; ponytail: one run at a time, no resume of a half-finished run."""
+    """-> (ok, reason). On success `reason` is the usage line (tokens, cost). Unattended headless run;
+    ponytail: one run at a time, no resume of a half-finished run."""
     exe = shutil.which("claude")
     if not exe:
         return False, "claude CLI not found on PATH"
@@ -57,17 +87,30 @@ def run_claude():
     env = {**os.environ, "GATEGUARD_BASH_ROUTINE_DISABLED": "1",
            "GATEGUARD_EXEMPT_GLOBS": "output/**,script-system/history.json"}
     try:
-        p = subprocess.run([exe, "-p", PROMPT, "--permission-mode", "dontAsk", "--max-budget-usd", BUDGET_USD,
-                            "--no-session-persistence", "--allowedTools", *ALLOWED],  # variadic flag goes last
+        p = subprocess.run([exe, "-p", PROMPT, "--output-format", "json", "--permission-mode", "dontAsk",
+                            "--max-budget-usd", BUDGET_USD, "--no-session-persistence", "--model", MODEL, *LEAN,
+                            "--allowedTools", *ALLOWED],  # variadic flag goes last
                            cwd=ROOT, env=env, capture_output=True, text=True, encoding="utf-8",
                            timeout=RUN_TIMEOUT_MIN * 60)
     except subprocess.TimeoutExpired:
         return False, f"timed out after {RUN_TIMEOUT_MIN} min"
-    out = (p.stdout or "") + (p.stderr or "")
+    text, st = summarize(p.stdout or "")
+    out = text + (p.stderr or "") + (p.stdout if not st else "")
     log("claude output (tail):\n" + out[-2000:])
+    if st:
+        line = stats_line(st)
+        log("usage: " + line)
+        new = not COSTS.exists()
+        with open(COSTS, "a", newline="", encoding="utf-8") as f:
+            w = csv.writer(f)
+            if new:
+                w.writerow(["date", *st.keys()])
+            w.writerow([f"{datetime.datetime.now():%Y-%m-%d %H:%M}", *st.values()])
     if "Failed to authenticate" in out:
         return False, "Claude login expired - run `claude auth login` once in a terminal"
-    return (True, "") if p.returncode == 0 else (False, f"claude exited with code {p.returncode}")
+    if p.returncode != 0 or st.get("error"):
+        return False, f"claude exited with code {p.returncode}"
+    return True, stats_line(st) if st else ""
 
 
 def tick(sheet, runner=run_claude, say=log):
@@ -97,8 +140,13 @@ def tick(sheet, runner=run_claude, say=log):
         sheet.set_run_state("Idle", f"{stamp()} - Run stopped: {why}. Unfinished rows are marked Failed; click RUN again. See watcher.log")
         say(f"run failed: {why}")
         return "failed"
-    if "Running" in sheet.run_message():  # claude never wrote its own run-finish summary
-        sheet.set_run_state("Idle", f"{stamp()} - finished; see the Status column")
+    msg = sheet.run_message()
+    if "Running" in msg:  # claude never wrote its own run-finish summary
+        msg = f"{stamp()} - finished; see the Status column"
+    if why:  # on success `why` is the usage line
+        sheet.set_run_state("Idle", f"{msg} | {why}")
+    elif msg != sheet.run_message():
+        sheet.set_run_state("Idle", msg)
     say("run finished")
     return "done"
 

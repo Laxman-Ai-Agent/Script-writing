@@ -114,8 +114,9 @@ def run_claude():
 
 
 def tick(sheet, runner=run_claude, say=log):
-    """One poll. Keeps the RUN cells tidy; acts on RUN NOW / RUN ALL (every ON row) and on per-row START clicks.
-    The chosen rows are claimed (RUN cell = running) so `learning_db.py requests` hands claude exactly those."""
+    """One poll. Keeps the RUN cells tidy; acts on RUN ALL (every ON row) and on per-row START clicks.
+    The chosen rows are claimed (RUN cell = running) so `learning_db.py requests` hands claude exactly those.
+    The last run's summary lives in the hover note of the RUN ALL cell (G1)."""
     sc = L.scan(sheet.grid())
     if sc["fill"] or sc["clear"]:
         sheet.fill_run_cells(sc["fill"], sc["clear"])
@@ -123,31 +124,22 @@ def tick(sheet, runner=run_claude, say=log):
         return "idle"
     rows = sorted(set(sc["starts"]) | (set(sc["on_rows"]) if sc["run_all"] else set()))
     if not rows:
-        sheet.set_run_state("Idle", f"{stamp()} - nothing to run: no ON rows")
-        sheet.set_all_cell(L.ALL_REST)
+        sheet.set_all_cell(L.ALL_REST, f"{stamp()} - nothing to run: no ON rows")
         say("run requested but no rows to run")
         return "empty"
     sheet.claim(rows)
-    sheet.set_run_state("Idle", f"{stamp()} - Running {len(rows)} script(s)... please do not edit these rows")
-    sheet.set_all_cell(L.ALL_RUN)
+    sheet.set_all_cell(L.ALL_RUN, f"{stamp()} - running {len(rows)} script(s)")
     say(f"starting {len(rows)} row(s): {rows}")
     ok, why = runner()
     left = L.scan(sheet.grid())["claimed"]  # anything a stopped run did not finish
     if left:
         sheet.release(left)
-    sheet.set_all_cell(L.ALL_REST)
     if not ok:
-        sheet.set_run_state("Idle", f"{stamp()} - Run stopped: {why}. Unfinished rows are marked Failed; click RUN again. See watcher.log")
+        sheet.set_all_cell(L.ALL_REST, f"{stamp()} - run stopped: {why}. Unfinished rows are marked Failed; click RUN again. See watcher.log")
         say(f"run failed: {why}")
         return "failed"
-    msg = sheet.run_message()
-    if "Running" in msg:  # claude never wrote its own run-finish summary
-        msg = f"{stamp()} - finished; see the Status column"
-    if why:  # on success `why` is the usage line
-        sheet.set_run_state("Idle", f"{msg} | {why}")
-    elif msg != sheet.run_message():
-        sheet.set_run_state("Idle", msg)
-    say("run finished")
+    sheet.set_all_cell(L.ALL_REST, f"{stamp()} - finished" + (f" | {why}" if why else ""))  # why = usage line
+    say("run finished" + (f": {why}" if why else ""))
     return "done"
 
 

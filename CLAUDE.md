@@ -44,4 +44,5 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 - 2026-11-13: Script Requests: Script ID is column A (S.No removed); Status shows ⏳ Running (orange) -> ✅ (green) / ❌ Failed (red).
 - 2026-11-13: Script Requests column G = per-row RUN (▶ RUN / ▶ START / ⏳ RUNNING), G2 = RUN ALL; watcher claims the chosen rows. B1 RUN NOW still works. No Apps Script (an unused, unauthorized bound project "Untitled project" exists on the user's Drive).
 - 2026-11-13: Cost cut (watcher runs): lean flags (project settings only, no MCP, fewer tools: ~18k vs ~56k baseline tokens/step) + research/facts.md delegated to a Sonnet subagent (SKILL.md step 1), Opus writes the Telugu. Same-topic test: old $0.79 / 20 steps -> new $0.47 / 10 steps (list price), quality comparable. Per-run usage goes to run-costs.csv + sheet C1. Test outputs: output/_compare-old|new (not committed).
+- 2026-11-13: Script Requests top control row removed: row 1 = headers, data from row 2, RUN ALL = G1, last-run summary = hover note on G1 (B1 RUN NOW is gone).
 - Open: words/min calibration (no recorded duration reported yet).

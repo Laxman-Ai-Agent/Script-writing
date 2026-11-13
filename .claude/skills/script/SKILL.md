@@ -8,6 +8,7 @@ description: Research a topic in English and write a natural, human-sounding Tel
 Usage:
 - `/script <topic> <duration>` — e.g. `/script why is the sky blue 1.30`. Duration in minutes (`1.30` = 1 min 30 s) or seconds (`40s`). No duration → ask once, default 1 min.
 - Channel: health / body / disease / medicine topics → **Health Decode** (DNA §14). Everything else → **The Dark World**. User can force with `health` or `dark` anywhere in the request.
+- `/script run` - write scripts for every Pending row in the Google Sheet tab "Script Requests" (see Mode E).
 - `/script update` — analyze only new sample files and update the profile.
 - `/script reanalyze` — full re-analysis of every sample (only when the user explicitly asks).
 
@@ -79,6 +80,15 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 When the user corrects style ("ఇలా రాయను", "this word is wrong", "too formal"), append a dated bullet to DNA §11 with the rule in one line; if they give word-level swaps, add rows to DNA §12 (keep it ≤ ~30 rows — merge or drop the least useful). If they supply a full rewritten script, it may replace §13 as the gold reference. If they report a real recorded duration, recompute words/min in §8.
 
 ---
+
+## Mode E: `/script run` (requests from the Google Sheet)
+Tab "Script Requests", columns: Topic / Script | Extra Data | Minutes | Status. The user fills the first three; Status is blank until done.
+1. `python script-system/learning_db.py requests` -> lists Pending rows (row number, TOPIC or SCRIPT, minutes, extra data). "No pending requests." -> tell the user and stop.
+2. For each row, run Mode A with: topic = Topic/Script column, duration = Minutes (blank -> 1), extra data = user-supplied facts/points to include (treat as the user's own notes; still fact-check numbers). Channel is not a column - pick it by topic (health -> Health Decode, else The Dark World).
+   - If the kind is SCRIPT (a full script pasted): keep its facts and flow, rewrite it in our style using the approved rules; research only to verify numbers.
+   - Mode A step 8 already saves the original to the Learning Database; use that record id for step 3.
+3. `python script-system/learning_db.py request-done <row> <id>` marks the row "Done: <id>". Do this only after the script is saved and add-original printed SYNCED or PENDING (PENDING is fine, it is stored locally).
+4. Show each script in chat as in Mode A. Process rows top to bottom; if one fails, leave its Status blank and say which.
 
 ## Mode D: user sends a revised script / feedback (Script Learning Database)
 1. Find the record (`python script-system/learning_db.py list`). Save the user's complete revised script to `output/.../script.txt` AND `python script-system/learning_db.py add-revision <id> <file>` — full text, never shortened. Never touch the original.

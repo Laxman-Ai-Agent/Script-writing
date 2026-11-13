@@ -9,6 +9,7 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 
 ## How to use
 - `/script <topic> <duration>` — e.g. `/script కిడ్నీ ఎలా పనిచేస్తుంది 1.30`. Durations used: 40s, 50s, 1, 1.30, 2, 3, 5, 7, 8, 10, 12, 15, 20, 30 (min).
+- `/script run` - reads Pending rows from the Google Sheet tab "Script Requests" (Topic / Script, Extra Data, Minutes, Status), writes each script, saves the original to the Learning DB, marks the row Done.
 - `/script update` — analyze only new files in `sample script/` and merge into the profile.
 - `/script reanalyze` — full rebuild (only on explicit request).
 
@@ -36,4 +37,5 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 - Scripts done: onion (Dark World, rewritten by user → §13 gold), goosebumps (Dark World), anaemia (Health Decode, user approved "బాగుంది"), AI Doctor 5-min + 1-min (Health Decode, both rewritten by user → style rules in DNA §11).
 - 2026-11-13: Claude Fable/Mythos 5.2 (Dark World, 5 min) — user rewrite saved; new rules: mandatory "ఈ video లో మనం…" intro paragraph before the hook, English words people say in English stay Latin (price, simple, powerful, daily). See DNA §4 note, §11, §12.
 - 2026-11-13: Script Learning Database built (learning_db.py). Fable/Mythos record backfilled (3 approved + 3 proposed rules). Google Sheets sync LIVE: GCP project `script-learning-514611`, service account `script-sync@script-learning-514611.iam.gserviceaccount.com` (Editor on the sheet), key in gitignored `script-system/credentials/`. Verified read/write, no-dup re-sync, full-length cells.
+- 2026-11-13: `/script run` + "Script Requests" tab added (learning_db.py `requests`, `request-done`).
 - Open: words/min calibration (no recorded duration reported yet).

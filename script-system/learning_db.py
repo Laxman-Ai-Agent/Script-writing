@@ -15,6 +15,8 @@ Usage (run from project root):
   python script-system/learning_db.py approve <id> <rule-number>
   python script-system/learning_db.py rules                     # approved rules, read before writing
   python script-system/learning_db.py show <id> | list | sync
+  python script-system/learning_db.py requests                  # Pending rows of tab "Script Requests" (creates tab if missing)
+  python script-system/learning_db.py request-done <row> <id>   # mark that row Done: <id>
 
 Auth: service account JSON at $GOOGLE_APPLICATION_CREDENTIALS or script-system/credentials/service-account.json
 (gitignored). Share the sheet with the service account's client_email as Editor.
@@ -32,6 +34,8 @@ HERE = Path(__file__).resolve().parent
 DB_PATH = HERE / "learning-db.json"
 SHEET_ID = "141B4qwm4Un9dXPzULWClZaUrjhcugjhoczSGrjik040"
 TAB = "Script Learning Database"
+REQ_TAB = "Script Requests"
+REQ_HEADERS = ["Topic / Script", "Extra Data", "Minutes", "Status"]
 HEADERS = ["Original Script", "Revised / Updated Script", "Changes Made", "My Feedback", "Learning Rules"]
 CELL_LIMIT = 50000  # Google Sheets hard limit per cell
 
@@ -136,14 +140,30 @@ class GoogleSheet:
     def run(self, req):
         return req.execute(num_retries=5)  # exponential backoff on 429/5xx
 
-    def ensure_tab(self):
+    def ensure(self, tab, headers):
         meta = self.run(self.api.get(spreadsheetId=SHEET_ID, fields="sheets.properties.title"))
-        if TAB not in [s["properties"]["title"] for s in meta["sheets"]]:
+        if tab not in [s["properties"]["title"] for s in meta["sheets"]]:
             self.run(self.api.batchUpdate(spreadsheetId=SHEET_ID, body={
-                "requests": [{"addSheet": {"properties": {"title": TAB}}}]}))
-        head = self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!A1:E1")).get("values", [[]])
-        if head[0] != HEADERS:
-            self.write_row(1, HEADERS)
+                "requests": [{"addSheet": {"properties": {"title": tab}}}]}))
+        end = chr(64 + len(headers))
+        head = self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{tab}'!A1:{end}1")).get("values", [[]])
+        if head[0] != headers:
+            self.run(self.api.values().update(spreadsheetId=SHEET_ID, range=f"'{tab}'!A1:{end}1",
+                                              valueInputOption="RAW", body={"values": [headers]}))
+
+    def ensure_tab(self):
+        self.ensure(TAB, HEADERS)
+
+    def pending_requests(self):
+        self.ensure(REQ_TAB, REQ_HEADERS)
+        res = self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!A2:D"))
+        return parse_requests(res.get("values", []))
+
+    def set_request_status(self, row, text):
+        res = self.run(self.api.values().update(
+            spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!D{row}", valueInputOption="RAW", body={"values": [[text]]}))
+        if not res.get("updatedCells"):
+            raise RuntimeError("API did not confirm the status update")
 
     def column_a(self):
         res = self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!A:A"))
@@ -165,6 +185,17 @@ class GoogleSheet:
         if not upd.get("updatedCells"):
             raise RuntimeError("API did not confirm the append")
         return int(re.search(r"![A-Z]+(\d+)", upd["updatedRange"]).group(1))
+
+
+def parse_requests(values):
+    """Sheet rows (A2:D) -> pending requests. Pending = topic filled and Status blank/'Pending'."""
+    out = []
+    for i, r in enumerate(values, start=2):
+        r = [c.strip() for c in r] + [""] * (4 - len(r))
+        if r[0] and r[3].lower() in ("", "pending"):
+            out.append({"row": i, "kind": "SCRIPT (rewrite in our style)" if len(r[0]) > 300 else "TOPIC",
+                        "topic": r[0], "extra": r[1], "minutes": r[2] or "1"})
+    return out
 
 
 def sync_record(sheet, rec):
@@ -220,6 +251,8 @@ def sentence_diff(a, b):
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
+    sub.add_parser("requests")
+    x = sub.add_parser("request-done"); x.add_argument("row", type=int); x.add_argument("id")
     sub.add_parser("check"); sub.add_parser("sync"); sub.add_parser("list"); sub.add_parser("rules")
     a = sub.add_parser("add-original"); a.add_argument("file"); a.add_argument("--id")
     for name in ("add-revision", "add-changes", "add-feedback"):
@@ -237,6 +270,20 @@ def main(argv=None):
     if args.cmd == "check":
         s = GoogleSheet(); s.ensure_tab()
         print(f"OK: {s.email} can read/write '{TAB}' ({len(s.column_a())} rows incl. header)")
+        return
+    if args.cmd == "requests":
+        reqs = GoogleSheet().pending_requests()
+        for r in reqs:
+            print(f"--- row {r['row']} | {r['kind']} | {r['minutes']} min ---")
+            print(f"TOPIC/SCRIPT: {r['topic']}")
+            print(f"EXTRA DATA: {r['extra'] or '(none)'}")
+        print(f"{len(reqs)} pending request(s)." if reqs else "No pending requests.")
+        return
+    if args.cmd == "request-done":
+        if args.id not in db["records"]:
+            sys.exit(f"No record '{args.id}' — save the original first.")
+        GoogleSheet().set_request_status(args.row, f"Done: {args.id}")
+        print(f"Row {args.row} marked Done: {args.id}")
         return
     if args.cmd == "list":
         for rid, r in db["records"].items():

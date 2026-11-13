@@ -80,6 +80,13 @@ def test():
     p = pathlib.Path(tempfile.mkdtemp()) / "db.json"
     L.save(db, p)
     assert L.load(p) == db
+    # request rows: pending = topic filled + status blank/Pending; done rows and empty rows skipped
+    reqs = L.parse_requests([["కిడ్నీ ఎలా పనిచేస్తుంది", "", "1.30"], ["x" * 301, "notes", "5", "Pending"],
+                             ["old topic", "", "2", "Done: s1"], [], ["", "extra only"]])
+    assert [r["row"] for r in reqs] == [2, 3]
+    assert reqs[0]["kind"] == "TOPIC" and reqs[0]["minutes"] == "1.30"
+    assert reqs[1]["kind"].startswith("SCRIPT") and reqs[1]["extra"] == "notes"
+    assert L.parse_requests([["t"]])[0]["minutes"] == "1"  # default 1 min
     print("all checks passed")
 
 

@@ -25,6 +25,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
 import learning_db as L  # noqa: E402
+import ideas as I  # noqa: E402
 
 POLL_SECONDS = 60
 RUN_TIMEOUT_MIN = 120
@@ -35,11 +36,12 @@ LOCK = HERE / "watcher.lock"
 TASK = "ScriptWatcher"
 ALLOWED = ["Read", "Glob", "Grep", "WebSearch", "WebFetch", "Skill",
            "Write(output/**)", "Edit(output/**)", "Edit(script-system/history.json)",
-           "Bash(python script-system/learning_db.py:*)", "Agent"]
+           "Bash(python script-system/learning_db.py:*)", "Bash(python script-system/ideas.py:*)", "Agent"]
 MODEL = "opus"  # writes the Telugu; research is delegated to a Sonnet subagent by the skill (SKILL.md step 1)
 # Lean run: project settings only (no user plugins/hooks/MCP), fewer built-in tools -> ~18k instead of ~56k baseline tokens per step
 LEAN = ["--setting-sources", "project", "--strict-mcp-config", "--exclude-dynamic-system-prompt-sections",
         "--tools", "Read,Write,Edit,Bash,WebSearch,WebFetch,Glob,Grep,Skill,Agent"]
+PROMPT_TOPICS = ("Invoke the Skill tool with skill 'script' and args 'topics'. Follow its Mode G exactly. Do nothing else.")
 PROMPT_REVISE = ("Invoke the Skill tool with skill 'script' and args 'revise'. Follow its Mode F exactly for every claimed row in the "
                  "Script Learning Database sheet. Do nothing else.")
 PROMPT = ("Invoke the Skill tool with skill 'script' and args 'run'. Follow its Mode E exactly for every ON row "
@@ -178,6 +180,35 @@ def tick_ldb(sheet, runner=None, say=log, pending_rows=None):
     return "done"
 
 
+def tick_ideas(isheet, runner=None, say=log, load=None, save=None):
+    """Topic Ideas tab. USE / SKIP / USED clicks are handled right here (no claude, no tokens); START FIND (H1) runs one
+    finder pass (SKILL.md Mode G). Does nothing until the tab exists (python script-system/ideas.py setup)."""
+    runner = runner or (lambda: run_claude(PROMPT_TOPICS))
+    if not isheet.has_tab(I.IDEAS_TAB):
+        return "no tab"
+    ctl = isheet.idea_controls()
+    db = (load or I.load)()
+    if I.process_use(isheet, db, ctl, say):
+        (save or I.save)(db)
+    if ctl["h1"] != I.FIND_START:
+        return "idle"
+    cats = [c["category"] for c in isheet.settings() if c["on"]]
+    if not cats:
+        isheet.set_find(I.FIND_REST, f"{stamp()} - no category is ON in Topic Settings")
+        say("topics: no category is ON")
+        return "empty"
+    isheet.set_find(I.FIND_RUN, f"{stamp()} - finding topics: {', '.join(cats)}")
+    say(f"topics: finding for {cats}")
+    ok, why = runner()
+    if not ok:
+        isheet.set_find(I.FIND_REST, f"{stamp()} - run stopped: {why}. See watcher.log")
+        say(f"topics run failed: {why}")
+        return "failed"
+    isheet.set_find(I.FIND_REST, f"{stamp()} - finished" + (f" | {why}" if why else ""))
+    say("topics run finished" + (f": {why}" if why else ""))
+    return "done"
+
+
 def pid_alive(pid):
     if os.name == "nt":  # os.kill(pid, 0) would TERMINATE the process on Windows
         out = subprocess.run(["tasklist", "/FI", f"PID eq {pid}", "/NH"], capture_output=True, text=True).stdout
@@ -220,16 +251,18 @@ def main(argv=None):
             print(f"  #{r['sno']} (row {r['row']}) {r['kind']} | {r['minutes']} | {r['topic'][:60]}")
         return
     acquire_lock()
-    sheet = None
+    sheet = isheet = None
     try:
         while True:
             try:
                 sheet = sheet or L.GoogleSheet()
                 tick(sheet)
                 tick_ldb(sheet)
+                isheet = isheet or I.IdeasSheet()
+                tick_ideas(isheet)
             except Exception as e:  # network/API hiccup: retry on the next poll
                 log(f"error: {e}")
-                sheet = None
+                sheet = isheet = None
             if "--once" in args:
                 return
             time.sleep(POLL_SECONDS)

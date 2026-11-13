@@ -6,3 +6,4 @@ script-system/watcher.lock
 script-system/run-costs.csv
 output/_compare-*/
 output/_revise/
+output/_ideas/

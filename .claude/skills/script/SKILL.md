@@ -10,6 +10,7 @@ Usage:
 - Channel: health / body / disease / medicine topics → **Health Decode** (DNA §14). Everything else → **The Dark World**. User can force with `health` or `dark` anywhere in the request.
 - `/script run` - write scripts for every Pending row in the Google Sheet tab "Script Requests" (see Mode E).
 - `/script revise` - process updated scripts pasted in the Script Learning Database sheet (see Mode F).
+- `/script topics` - find fresh news topics per category into the "Topic Ideas" tab (see Mode G).
 - `/script update` — analyze only new sample files and update the profile.
 - `/script reanalyze` — full re-analysis of every sample (only when the user explicitly asks).
 
@@ -105,6 +106,15 @@ The user pastes an update into the **Revised** column (D) of the script's row - 
 4. `python script-system/learning_db.py add-revision <ID> output/_revise/<ID>/script.txt`, then `add-feedback` (skip if there are no reasons) and `add-changes`. Rules: ones the user states outright -> `add-rule <ID> general|topic "<rule>" --approved`; rules you infer -> without `--approved` (PROPOSED).
 5. `python script-system/learning_db.py revision-done <ID>` rewrites the row: D = the clean script only, E/F/G rebuilt, H = ✅ DONE. Any failure -> `revision-fail <ID> "<reason>"` (H = ❌ ASK, reason as hover note).
 6. After the last row: `python script-system/learning_db.py ldb-finish "<n> processed, <m> need you"`.
+
+## Mode G: `/script topics` (fresh topic ideas into the "Topic Ideas" tab)
+Triggered by START FIND (H1 of "Topic Ideas"). Unattended: never ask questions.
+1. `python script-system/ideas.py context` -> today's date, the categories that are ON (how many topics N, focus) and everything to avoid (ideas already suggested incl. skipped ones, scripts already made or requested).
+2. For EVERY ON category start one subagent (Agent tool, `subagent_type: general-purpose`, `model: sonnet`), all in the same message so they run in parallel. Prompt: the category, its focus, today's date; "find the N+3 most interesting NEWS items from the last 7 days in this category, suited to a Telugu explainer channel (science / tech / history / AI; health goes to Health Decode); for each give an English headline, 3-4 key points with the exact numbers, and 2 or more links from DIFFERENT sites, each with its publication date (YYYY-MM-DD); skip rumours, ads and anything on this avoid list: <the titles>; reply with JSON only".
+3. You choose the N best per category (surprising, explainable in 1-5 minutes, not overlapping the avoid list), and for each write a Telugu hook title in natural Tanglish (English words in Latin letters, one line, curiosity-driven, no hype the facts do not support). Write `output/_ideas/<date>.json` = a list of {"category", "title" (English headline), "hook", "points": [...], "sources": [{"url", "date"}]}. Never invent a source, a date or a number: use only what the subagents returned.
+4. `python script-system/ideas.py add output/_ideas/<date>.json` rejects unsafe items and prints why (too old, one source, duplicate, over the limit...). Fix what can be fixed once (e.g. take another candidate), otherwise drop it.
+5. `python script-system/ideas.py finish "<n> added, <m> rejected"`.
+The user then picks ideas in the sheet: USE sends one to "Script Requests" (and shows a tick), SKIP hides it for good.
 
 ## Mode D: user sends a revised script / feedback (Script Learning Database)
 1. Find the script by its Script ID (the user may say "S002"; `python script-system/learning_db.py list` shows IDs and titles). Save the user's complete revised script to `output/.../script.txt` AND `python script-system/learning_db.py add-revision <id> <file>` — full text, never shortened. Never touch the original.

@@ -1,0 +1,88 @@
+{
+  "ideas": [
+    {
+      "date": "2026-11-13",
+      "category": "AI",
+      "title": "Jensen Huang resigns as NVIDIA CEO with immediate effect; CFO Colette Kress becomes interim CEO",
+      "hook": "33 years NVIDIA ని నడిపిన Jensen Huang ఒక్కసారిగా ఎందుకు దిగిపోయారు? AI boom కి దీని అర్థం ఏంటి?",
+      "points": [
+        "Huang resigned as President, CEO and board member, effective immediately. NVIDIA's release cites his 33 years of leadership.",
+        "CFO Colette Kress, who joined NVIDIA in September 2013, is interim CEO and keeps her finance role. The board is searching for a permanent CEO, internal or external.",
+        "Harvey C. Jones, the former Synopsys CEO, is named NVIDIA's first-ever Board Chair.",
+        "Q3 fiscal 2027 results are due on 2026-11-17. CNBC reports that NVIDIA's $500B+ financing pact with Apollo, BlackRock and others has produced no deals so far."
+      ],
+      "sources": [
+        {
+          "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
+          "date": "2026-11-12"
+        },
+        {
+          "url": "https://www.cnbc.com/2026/11/12/nvidia-ceo-exit-ai-financing.html",
+          "date": "2026-11-12"
+        }
+      ],
+      "news_date": "2026-11-12",
+      "urls": [
+        "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
+        "https://www.cnbc.com/2026/11/12/nvidia-ceo-exit-ai-financing.html"
+      ],
+      "status": "new"
+    },
+    {
+      "date": "2026-11-13",
+      "category": "AI",
+      "title": "Google launches Gemini 4 Hydrogen, a cheap, fast 'daily driver' model for agentic coding and everyday tasks",
+      "hook": "Gemini 4 Hydrogen: తక్కువ price, 2.5x speed, coding test లో 18% నుంచి 57% కి jump. ఇంత cheap AI ఇంత powerful ఎలా?",
+      "points": [
+        "Price is $1.50 per million input tokens and $7.50 per million output tokens, flat across the full 1M-token context window.",
+        "Google says it scores 57% on Terminal-Bench 4.1, against 18.2% for Gemini 3.8 Flash. It also finishes tasks about 2.5x faster at the default 'high' thinking setting.",
+        "Google claims 5x fewer fabricated claims than 3.8 Flash. It ranks only #5 on Agent Arena (MarkTechPost). The benchmark figures are Google's own.",
+        "It is rolling out in the Gemini API, AI Studio, the Gemini app and Search."
+      ],
+      "sources": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+          "date": "2026-11-12"
+        },
+        {
+          "url": "https://www.marktechpost.com/2026/11/13/google-gemini-4-hydrogen/",
+          "date": "2026-11-13"
+        }
+      ],
+      "news_date": "2026-11-13",
+      "urls": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+        "https://www.marktechpost.com/2026/11/13/google-gemini-4-hydrogen/"
+      ],
+      "status": "new"
+    },
+    {
+      "date": "2026-11-13",
+      "category": "AI",
+      "title": "ElevenLabs launches Scribe v3 and Scribe v3 Live speech-to-text across 102 languages, with Hindi gains and an India data region",
+      "hook": "మనం మాట్లాడేది AI ఎంత correct గా రాయగలదు? 102 languages, Hindi లో 36% better: ElevenLabs Scribe v3 కథ",
+      "points": [
+        "Scribe v3 makes 27% fewer word errors than Scribe v2 across 102 languages. Another report puts overall WER at 12.4%, against 17.0% for v2 and 18.5% for Gemini 3.5 Transcribe.",
+        "Scribe v3 Live is the first realtime model from ElevenLabs with speaker labelling. Hindi improves 36% over Scribe v2 Realtime.",
+        "In ElevenLabs' earlier figures, Tamil errors fell 29% on the batch model.",
+        "Isolated India, EU and Singapore environments are available for enterprise customers. The benchmarks are all ElevenLabs' own."
+      ],
+      "sources": [
+        {
+          "url": "https://elevenlabs.io/blog/scribe-v3",
+          "date": "2026-11-10"
+        },
+        {
+          "url": "https://www.all-ai.de/news/news26top/elevenlabs-scribe-v3-live-start",
+          "date": "2026-11-10"
+        }
+      ],
+      "news_date": "2026-11-10",
+      "urls": [
+        "https://elevenlabs.io/blog/scribe-v3",
+        "https://www.all-ai.de/news/news26top/elevenlabs-scribe-v3-live-start"
+      ],
+      "status": "new"
+    }
+  ]
+}

@@ -83,6 +83,146 @@
         "https://www.all-ai.de/news/news26top/elevenlabs-scribe-v3-live-start"
       ],
       "status": "new"
+    },
+    {
+      "date": "2026-11-14",
+      "category": "Space",
+      "title": "SpaceX Starship Flight 15 launches with a planned double catch, but the booster catch is cancelled for safety",
+      "hook": "Starship Flight 15: Rocket ని tower తో పట్టుకోవాలనుకున్నారు, last minute లో ఎందుకు వదిలేశారు?",
+      "points": [
+        "Launched 4:47 p.m. CT (2247 GMT) on Nov 13 from Starbase, Texas",
+        "Super Heavy booster tower catch cancelled for safety; booster did an offshore splashdown (it had been caught 3 times before)",
+        "Ship 42 deployed 26 Starlink satellites, 3 with cameras to inspect the ship's heat shield",
+        "Plan: ship stays in orbit up to 22 hours, then a first-ever tower catch of the ship (result not confirmed by the finder); Starship is 124 m tall, ~17 million lbf thrust"
+      ],
+      "sources": [
+        {
+          "url": "https://www.universetoday.com/articles/spacex-launches-starship-but-passes-up-booster-catch-for-safetys-sake",
+          "date": "2026-11-13"
+        },
+        {
+          "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-flight-15-chopsticks-double-catch-super-heavy-ship",
+          "date": "2026-11-13"
+        }
+      ],
+      "news_date": "2026-11-13",
+      "urls": [
+        "https://www.universetoday.com/articles/spacex-launches-starship-but-passes-up-booster-catch-for-safetys-sake",
+        "https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-flight-15-chopsticks-double-catch-super-heavy-ship"
+      ],
+      "status": "new"
+    },
+    {
+      "date": "2026-11-14",
+      "category": "Space",
+      "title": "NASA unveils up to $10 billion in Moon Base delivery contracts, including a Blue Origin delivery of the PROMISE rover",
+      "hook": "చంద్రుడి మీద permanent base: NASA $10 billion plan లో అసలు ఏముంది?",
+      "points": [
+        "CLPS-2: 10-year contract vehicle with a $10 billion ceiling (a maximum, not money awarded); 8 companies eligible incl. SpaceX, Blue Origin, Firefly, Intuitive Machines",
+        "6 VADR task orders to Arrow Science and Technology, Blue Origin and Impulse Space, about $1.3 billion combined",
+        "Blue Origin's Mark 1 lander will deliver JPL's PROMISE rover to the lunar south pole: $94 million base + $140 million option",
+        "NASA expects the moon base to cost about $30 billion and aims to build it by 2032; announced Nov 7 at Kennedy Space Center"
+      ],
+      "sources": [
+        {
+          "url": "https://satellitetoday.com/government-military/2026/11/09/nasa-makes-major-contract-awards-for-moon-base-development",
+          "date": "2026-11-09"
+        },
+        {
+          "url": "https://www.space.com/space-exploration/artemis/nasa-unveils-usd10-billion-in-moon-base-contracts-new-lunar-missions-and-the-promise-of-a-nuclear-powered-rover",
+          "date": "2026-11-09"
+        }
+      ],
+      "news_date": "2026-11-09",
+      "urls": [
+        "https://satellitetoday.com/government-military/2026/11/09/nasa-makes-major-contract-awards-for-moon-base-development",
+        "https://www.space.com/space-exploration/artemis/nasa-unveils-usd10-billion-in-moon-base-contracts-new-lunar-missions-and-the-promise-of-a-nuclear-powered-rover"
+      ],
+      "status": "used"
+    },
+    {
+      "date": "2026-11-14",
+      "category": "Space",
+      "title": "Euclid space telescope releases its first big data set: 1,900 square degrees of sky and over 1 billion objects",
+      "hook": "Euclid telescope కొత్త map: 100 కోట్ల objects తో dark universe secret బయటపడుతుందా?",
+      "points": [
+        "DR1-Foundation release: about 13 months of observations, ~1,900 square degrees of sky (roughly 9,500 full Moons)",
+        "Light from more than 1 billion objects, about 14% of the sky Euclid will cover in its 6-year mission",
+        "600-megapixel camera; data include a new comet and the most ancient quasar known",
+        "Full DR1 with galaxy clustering and weak lensing products expected mid-2027"
+      ],
+      "sources": [
+        {
+          "url": "https://www.universetoday.com/articles/euclids-first-data-release-a-stepping-stone-to-its-3d-map-of-the-sky",
+          "date": "2026-11-12"
+        },
+        {
+          "url": "https://www.space.com/astronomy/dark-matter-breakthrough-coming-euclid-space-telescope-unveils-its-1st-look-into-the-dark-universe-video",
+          "date": "2026-11-12"
+        }
+      ],
+      "news_date": "2026-11-12",
+      "urls": [
+        "https://www.universetoday.com/articles/euclids-first-data-release-a-stepping-stone-to-its-3d-map-of-the-sky",
+        "https://www.space.com/astronomy/dark-matter-breakthrough-coming-euclid-space-telescope-unveils-its-1st-look-into-the-dark-universe-video"
+      ],
+      "status": "new"
+    },
+    {
+      "date": "2026-11-14",
+      "category": "Space",
+      "title": "A robot builds a structure autonomously in space for the first time (DARPA NOM4D)",
+      "hook": "Space లో మనిషి లేకుండా robot ఒక్కటే building కట్టింది: ఇది ఎందుకు పెద్ద విషయం?",
+      "points": [
+        "A gantry robot assembled a truss from individual Caltech-supplied parts, applying a thin reflective mesh like a space antenna",
+        "SpaceX launched the Caltech NOM4D payload in March 2026; idea to working prototype in orbit in 15 months",
+        "Goal: structures hundreds of meters to kilometers in size: big antennas, solar arrays, orbital stations, lunar habitats",
+        "Next: University of Illinois ISS test of composite material processing with a monomer resin"
+      ],
+      "sources": [
+        {
+          "url": "https://www.universetoday.com/articles/automated-assembly-in-space-is-the-future-and-nom4d-is-showing-the-way",
+          "date": "2026-11-10"
+        },
+        {
+          "url": "https://www.space.com/technology/a-robot-just-built-a-structure-autonomously-in-space-for-the-1st-time-ever",
+          "date": "2026-11-10"
+        }
+      ],
+      "news_date": "2026-11-10",
+      "urls": [
+        "https://www.universetoday.com/articles/automated-assembly-in-space-is-the-future-and-nom4d-is-showing-the-way",
+        "https://www.space.com/technology/a-robot-just-built-a-structure-autonomously-in-space-for-the-1st-time-ever"
+      ],
+      "status": "new"
+    },
+    {
+      "date": "2026-11-14",
+      "category": "Space",
+      "title": "A Pakistani astronaut will become the first foreign visitor to China's Tiangong space station",
+      "hook": "China space station లోకి మొదటి foreign astronaut: Pakistan కి ఈ chance ఎలా వచ్చింది?",
+      "points": [
+        "A Pakistani payload specialist (not yet named) will fly up on Shenzhou-24 and return on Shenzhou-23",
+        "Stay of several days to about a week; mission expected by end of 2026 (a Nov 25 date from a Pakistani official is not confirmed by China)",
+        "Comes from a February 2025 agreement; two Pakistani candidates selected in April 2026",
+        "First time China has helped a foreign nation select and train astronauts"
+      ],
+      "sources": [
+        {
+          "url": "https://chinaglobalsouth.com/2026/11/11/china-pakistan-first-foreign-astronaut-space-station/",
+          "date": "2026-11-11"
+        },
+        {
+          "url": "https://www.space.com/space-exploration/human-spaceflight/pakistani-astronaut-set-to-become-1st-international-visitor-to-chinas-tiangong-space-station-this-month",
+          "date": "2026-11-12"
+        }
+      ],
+      "news_date": "2026-11-12",
+      "urls": [
+        "https://chinaglobalsouth.com/2026/11/11/china-pakistan-first-foreign-astronaut-space-station/",
+        "https://www.space.com/space-exploration/human-spaceflight/pakistani-astronaut-set-to-become-1st-international-visitor-to-chinas-tiangong-space-station-this-month"
+      ],
+      "status": "new"
     }
   ]
 }

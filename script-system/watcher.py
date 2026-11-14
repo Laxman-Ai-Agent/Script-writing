@@ -197,16 +197,27 @@ def tick_ideas(isheet, runner=None, say=log, load=None, save=None):
     db = (load or I.load)()
     if I.process_use(isheet, db, ctl, say):
         (save or I.save)(db)
-    if ctl["h1"] != I.FIND_START:
+    st = isheet.settings()
+    # Topic Settings RUN cells: blank/stale ⏳ FINDING -> ▶ RUN (only one run at a time, so no run is live here)
+    isheet.set_cat_run({s["row"]: I.CAT_REST for s in st if "row" in s and s["run"] not in (I.CAT_REST, I.CAT_START)})
+    starts = [s for s in st if s.get("run") == I.CAT_START]
+    if ctl["h1"] != I.FIND_START and not starts:
         return "idle"
-    cats = [c["category"] for c in isheet.settings() if c["on"]]
+    if ctl["h1"] == I.FIND_START:  # FIND TOPICS = every ON category
+        cats = [c["category"] for c in st if c["on"]]
+    else:  # per-category START: claim those rows; the finder (ideas.py context/add) then sees only them as ON
+        isheet.set_cat_run({s["row"]: I.FIND_RUN for s in starts})
+        cats = [s["category"] for s in starts]
     if not cats:
         isheet.set_find(I.FIND_REST, f"{stamp()} - no category is ON in Topic Settings")
         say("topics: no category is ON")
         return "empty"
     isheet.set_find(I.FIND_RUN, f"{stamp()} - finding topics: {', '.join(cats)}")
     say(f"topics: finding for {cats}")
-    ok, why = runner()
+    try:
+        ok, why = runner()
+    finally:
+        isheet.set_cat_run({s["row"]: I.CAT_REST for s in starts})
     if not ok:
         isheet.set_find(I.FIND_REST, f"{stamp()} - run stopped: {why}. See watcher.log")
         say(f"topics run failed: {why}")

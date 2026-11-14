@@ -1,0 +1,21 @@
+⚡ Gemini 4 Hydrogen: ఇంత cheap AI ఇంత powerful ఎలా? | Price, Speed, Terminal-Bench Explained
+
+ఈ video లో మనం Google కొత్తగా release చేసిన Gemini 4 Hydrogen అనే AI model గురించి తెలుసుకోబోతున్నాం. అసలు ఇది ఏంటి? Google దీన్ని తన "daily driver" అని ఎందుకు పిలుస్తోంది? అంతేకాదు, తక్కువ price లో వచ్చిన ఈ చిన్న model, ఒక కష్టమైన coding test లో 18% నుంచి 57% కి ఎలా jump చేసిందో, అయినా ranking లో top లో ఎందుకు లేదో ఈ video లో వివరంగా చూద్దాం.
+
+ఒక్కసారి ఊహించుకోండి… మీరు ఒక software developer. రోజూ వందల చిన్న చిన్న పనులు ఉంటాయి. ఒక file లో bug వెతకాలి, ఒక command run చేయాలి, error వస్తే మళ్ళీ fix చేయాలి. ఈ ప్రతి చిన్న పనికీ పెద్ద, ఖరీదైన AI ని పిలిస్తే ఏమవుతుంది? పని అవుతుంది, కానీ bill చూస్తే గుండె ఆగినంత పని అవుతుంది. ప్రతి answer కోసం కాసేపు wait కూడా చేయాలి. సరిగ్గా ఈ problem కే Google ఇచ్చిన answer ఈ Hydrogen.
+
+చాలామంది కొత్త AI model వచ్చింది అనగానే, అదే ఆ company దగ్గర ఉన్న అత్యంత తెలివైన model అనుకుంటారు. కానీ Hydrogen విషయంలో అలా కాదు. Google దగ్గర Carbon, Argon అనే పెద్ద models ఉన్నాయి. అవి గంటల తరబడి లోతుగా ఆలోచించాల్సిన కష్టమైన పనుల కోసం. Hydrogen మాత్రం వేగంగా పని పూర్తి చేయడానికి తయారైంది. దీన్ని ఇలా అర్థం చేసుకోవచ్చు… weekend లో బయటకు తీసే sports car ఒకటి, రోజూ office కి వెళ్ళే bike ఒకటి. daily పనులన్నీ నడిచేది ఆ bike మీదే. Google "daily driver" అన్నది ఆ అర్థంలోనే.
+
+మరి ఇది నిజంగా cheap గా ఉందా? Google చెప్పిన ప్రకారం, ఒక million input tokens కి 1.50 dollars, ఒక million output tokens కి 7.50 dollars. Token అంటే simple గా చెప్పాలంటే, AI చదివే, రాసే text లోని చిన్న చిన్న ముక్కలు. ఇక్కడ ఇంకో interesting విషయం ఉంది. ఇది ఒకేసారి 1 million tokens వరకు చదవగలదు, అంటే ఒక పెద్ద project code మొత్తాన్ని ఒకేసారి ఇవ్వొచ్చు. అంత పెద్ద input ఇచ్చినా price మారదు, అదే flat rate. Carbon కి కొన్ని blogs ప్రకారం 2 dollars input, 10 dollars output ఉంది కాబట్టి, Hydrogen దానికంటే తక్కువ.
+
+ఇక అసలు హడావుడి అంతా ఒక number చుట్టూనే. Terminal-Bench అనే test లో ఈ model 57% score చేసిందని Google చెబుతోంది. ఇదే test లో పాత Gemini 3.8 Flash కి వచ్చింది కేవలం 18.2%. మరి ఈ Terminal-Bench అంటే ఏంటి? ఇది మామూలు quiz కాదు. Computer command line లో నిజమైన కష్టమైన పనులు ఇస్తారు. Source code నుంచి Linux build చేయడం, ఒక ML model ని train చేయడం, పాత systems ని configure చేయడం లాంటివి. పని సరిగ్గా అయిందో లేదో automatic tests చెక్ చేస్తాయి. చాలా పెద్ద models కూడా ఇందులో అన్ని tasks pass కాలేవు. అలాంటి test లో ఒక చిన్న, cheap model మూడు రెట్లకు పైగా ఎదగడం నిజంగా పెద్ద విషయమే.
+
+Speed విషయానికొస్తే, default "high" thinking setting లో 3.8 Flash కంటే దాదాపు 2.5 రెట్లు వేగంగా పని పూర్తి చేస్తుందని Google చెబుతోంది. ఈ model లో low, medium, high, xhigh అని నాలుగు thinking levels ఉన్నాయి. ఎంత ఎక్కువ ఆలోచిస్తే అంత quality, కానీ అంత time, అంత ఖర్చు. పని బట్టి ఈ level మనమే ఎంచుకోవచ్చు. Google తో కలిసి పనిచేసే కొన్ని companies కూడా తమ పనుల్లో 2 నుంచి 2.8 రెట్లు speed, 12 నుంచి 23% తక్కువ tokens వచ్చాయని చెప్పాయి.
+
+కానీ ఇక్కడే ఈ story కి మరో side ఉంది. ఇంత మంచి numbers ఉన్నా, Agent Arena అనే ranking లో Hydrogen ఉన్నది ఐదో స్థానంలో. అంటే ఇది అన్నిటికంటే best model కాదు. ఇంకో ముఖ్యమైన విషయం, ఈ benchmark numbers అన్నీ Google, దాని partners చెప్పినవే. ఇప్పటివరకు బయటి experts దీన్ని పూర్తిగా test చేసి చెప్పిన reviews ఇంకా రాలేదు. Google తన model 94% honesty rate తో పనిచేస్తుందని చెబుతోంది, కానీ అది కూడా వాళ్ళ సొంత test లోనే. కాబట్టి ఈ claims ని కొంచెం జాగ్రత్తగా చూడాలి.
+
+మరి Google ఎందుకు best కాని model ని ఇంత గర్వంగా launch చేసింది? దీని వెనుక ఉన్న plan ఆసక్తికరంగా ఉంటుంది. Antigravity అనే Google tool లో Orchestrator అనే feature ఉంది. ఒకే session లో కష్టమైన ఆలోచన అవసరమైనప్పుడు Carbon ని పిలుస్తుంది, మిగతా వేగంగా చేయాల్సిన పనులన్నీ Hydrogen కి ఇస్తుంది. ఒక పెద్ద hotel kitchen లో head chef menu plan చేస్తే, కూరగాయలు కోయడం, వండటం లాంటి పనులు assistants వేగంగా చేసేసినట్టు. ఈ model ఇప్పటికే Gemini API, AI Studio, Gemini app, Google Search లోకి వస్తోంది.
+
+అంటే simple గా చెప్పాలంటే… AI race లో గెలిచేది ఎప్పుడూ అత్యంత తెలివైన model మాత్రమే కాదు. రోజూ కోట్ల పనులు చేయాల్సి వచ్చినప్పుడు, సరిపడా తెలివి, ఎక్కువ speed, తక్కువ price ఉన్న model యే అసలు పని గుర్రం అవుతుంది. Hydrogen తో Google వేసిన bet అదే.
+
+మీరు మీ పనుల కోసం అత్యంత powerful AI వాడతారా, లేక వేగంగా, cheap గా ఉండే model చాలా? కింద comment లో చెప్పండి.

@@ -27,13 +27,15 @@ import learning_db as L  # noqa: E402
 IDEAS_TAB, SET_TAB = "Topic Ideas", "Topic Settings"
 DB_PATH = HERE / "ideas-db.json"
 IDEA_HEADERS = ["Date", "Category", "Title (English)", "Telugu hook", "Key points", "Sources", "News date"]  # H = USE
-SET_HEADERS = ["Category", "ON/OFF", "How many", "Focus"]
+SET_HEADERS = ["Category", "ON/OFF", "How many", "Focus", "RUN"]
 COUNTS = ["3", "5", "7", "10"]
 DEFAULT_CATS = [["AI", "ON", "5", "latest models, tools, research, India angle"], ["Space", "ON", "5", ""],
                 ["Health", "ON", "5", "for Health Decode; WHO / NIH / ICMR level sources"],
                 ["Technology", "ON", "5", ""], ["Science", "ON", "5", ""]]
 FIND_REST, FIND_START, FIND_RUN = "▶ FIND TOPICS", "▶ START FIND", "⏳ FINDING"
 FIND_STATES = [FIND_REST, FIND_START, FIND_RUN]
+CAT_REST, CAT_START = "▶ RUN", "▶ START"  # Topic Settings column E: find topics for just this category
+CAT_STATES = [CAT_REST, CAT_START, FIND_RUN]
 USE_NEW, USE, USE_SKIP, USE_DONE = "⬜ NEW", "▶ USE", "✖ SKIP", "✅ USED"
 WINDOW_DAYS = 7  # news must be this fresh
 
@@ -65,11 +67,17 @@ def similar(a, b):
 
 
 def parse_settings(rows):
+    """Rows of Topic Settings A:E. While any row's RUN cell is ⏳ FINDING (a per-category run), only those rows
+    count as ON, whatever ON/OFF says; otherwise ON/OFF decides."""
     out = []
-    for r in rows:
-        r = ([str(c).strip() for c in r] + [""] * 4)[:4]
+    for i, r in enumerate(rows):
+        r = ([str(c).strip() for c in r] + [""] * 5)[:5]
         if r[0]:
-            out.append({"category": r[0], "on": r[1].upper() == "ON", "count": int(r[2]) if r[2].isdigit() else 5, "focus": r[3]})
+            out.append({"category": r[0], "on": r[1].upper() == "ON", "count": int(r[2]) if r[2].isdigit() else 5,
+                        "focus": r[3], "run": r[4], "row": i + 2})
+    if any(s["run"] == FIND_RUN for s in out):
+        for s in out:
+            s["on"] = s["run"] == FIND_RUN
     return out
 
 
@@ -215,15 +223,23 @@ class IdeasSheet(L.GoogleSheet):
         dv = lambda r, vals: {"setDataValidation": {"range": r, "rule": {"condition": {
             "type": "ONE_OF_LIST", "values": [{"userEnteredValue": v} for v in vals]}, "showCustomUi": True, "strict": True}}}
         self.run(self.api.batchUpdate(spreadsheetId=L.SHEET_ID, body={"requests": [
-            dv(rng(1, 2), ["ON", "OFF"]), dv(rng(2, 3), COUNTS),
-            {"repeatCell": {"range": {"sheetId": sid, "startRowIndex": 0, "endRowIndex": 1, "startColumnIndex": 0, "endColumnIndex": 4},
+            dv(rng(1, 2), ["ON", "OFF"]), dv(rng(2, 3), COUNTS), dv(rng(4, 5), CAT_STATES),
+            {"repeatCell": {"range": {"sheetId": sid, "startRowIndex": 0, "endRowIndex": 1, "startColumnIndex": 0, "endColumnIndex": 5},
                             "cell": {"userEnteredFormat": {"textFormat": {"bold": True}}}, "fields": "userEnteredFormat.textFormat.bold"}},
+            {"repeatCell": {"range": rng(4, 5), "cell": {"userEnteredFormat": {"textFormat": {"bold": True}, "horizontalAlignment": "CENTER"}},
+                            "fields": "userEnteredFormat(textFormat,horizontalAlignment)"}},
             {"updateSheetProperties": {"properties": {"sheetId": sid, "gridProperties": {"frozenRowCount": 1}}, "fields": "gridProperties.frozenRowCount"}},
             *[{"updateDimensionProperties": {"range": {"sheetId": sid, "dimension": "COLUMNS", "startIndex": c, "endIndex": c + 1},
-                                              "properties": {"pixelSize": px}, "fields": "pixelSize"}} for c, px in enumerate((130, 80, 100, 520))]]}))
+                                              "properties": {"pixelSize": px}, "fields": "pixelSize"}} for c, px in enumerate((130, 80, 100, 520, 120))]]}))
+        self.set_cat_run({s["row"]: CAT_REST for s in self.settings() if s["run"] not in CAT_STATES})
 
     def settings(self):
-        return parse_settings(self.run(self.api.values().get(spreadsheetId=L.SHEET_ID, range=f"'{SET_TAB}'!A2:D50")).get("values", []))
+        return parse_settings(self.run(self.api.values().get(spreadsheetId=L.SHEET_ID, range=f"'{SET_TAB}'!A2:E50")).get("values", []))
+
+    def set_cat_run(self, states):
+        """{settings row: RUN cell text}"""
+        if states:
+            self._put([{"range": f"'{SET_TAB}'!E{r}", "values": [[t]]} for r, t in states.items()])
 
     def idea_controls(self):
         res = self.run(self.api.values().batchGet(spreadsheetId=L.SHEET_ID, ranges=[f"'{IDEAS_TAB}'!C1:C1000", f"'{IDEAS_TAB}'!H1:H1000"]))

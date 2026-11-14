@@ -28,6 +28,7 @@ class FakeIdeas:
     def mark(self, row, text): self.marks.append((row, text))
     def fill_new(self, rows): self.filled = list(rows)
     def set_find(self, text, note=None): self.log.append((text, note))
+    def set_cat_run(self, states): self.cat = getattr(self, "cat", []) + [dict(states)] if states else getattr(self, "cat", [])
 
     def get_idea_row(self, row):
         return ["d", "AI", "Typed by hand", "hook", "• p1\n• p2", "https://z.com (2026-11-10)", "2026-11-10", "▶ USE"]
@@ -35,6 +36,15 @@ class FakeIdeas:
 
 def test():
     assert [(s["category"], s["on"], s["count"]) for s in SET] == [("AI", True, 2), ("Space", False, 5), ("Health", True, 5)]
+    # a per-category run (⏳ FINDING) makes only that row ON, even if it is OFF
+    claimed = I.parse_settings([["AI", "ON", "5", "", I.CAT_REST], ["Space", "OFF", "5", "", I.FIND_RUN]])
+    assert [(s["category"], s["on"], s["row"]) for s in claimed] == [("AI", False, 2), ("Space", True, 3)]
+    # START on the OFF Space row: claims it, runs once for Space only, resets to ▶ RUN; FIND TOPICS untouched
+    st = I.parse_settings([["AI", "ON", "5", "", I.CAT_REST], ["Space", "OFF", "5", "", I.CAT_START], ["Health", "OFF", "5"]])
+    fi, ran = FakeIdeas(settings=st), []
+    assert W.tick_ideas(fi, lambda: ran.append(1) or (True, ""), print, lambda: {"ideas": []}, lambda db: None) == "done"
+    assert ran == [1] and "Space" in fi.log[0][1] and "AI" not in fi.log[0][1]
+    assert fi.cat == [{4: I.CAT_REST}, {3: I.FIND_RUN}, {3: I.CAT_REST}]  # blank Health cell filled, claim, release
     assert I.similar("OpenAI ships GPT-9 model", "OpenAI ships the GPT-9") and not I.similar("Mars rover finds water", "OpenAI ships GPT-9")
 
     # a good idea is accepted and stored with its freshest source date

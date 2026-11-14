@@ -8,5 +8,6 @@
   {"date": "2026-11-13", "channel": "health", "topic": "How the brain works", "duration": "1", "opening": "intro+H5", "structure": "stat-why-then-parts", "ending": "E6+YES/NO+share", "file": "output/2026-11-13-how-the-brain-works/script.txt"},
   {"date": "2026-11-13", "channel": "dark", "topic": "How ChatGPT works", "duration": "1", "opening": "intro+O5", "structure": "S9", "ending": "E1+YES/NO", "file": "output/2026-11-13-how-chatgpt-works/script.txt"},
   {"date": "2026-11-13", "channel": "dark", "topic": "How GPS works", "duration": "1", "opening": "intro+O2", "structure": "S2", "ending": "E6+YES/NO", "file": "output/2026-11-13-how-gps-works/script.txt"},
-  {"date": "2026-11-13", "channel": "dark", "topic": "Jensen Huang resigns as NVIDIA CEO", "duration": "up to 5", "opening": "intro+O6", "structure": "S5", "ending": "E5", "file": "output/2026-11-13-nvidia-jensen-huang-resigns/script.txt"}
+  {"date": "2026-11-13", "channel": "dark", "topic": "Jensen Huang resigns as NVIDIA CEO", "duration": "up to 5", "opening": "intro+O6", "structure": "S5", "ending": "E5", "file": "output/2026-11-13-nvidia-jensen-huang-resigns/script.txt"},
+  {"date": "2026-11-14", "channel": "dark", "topic": "Google Gemini 4 Hydrogen launch", "duration": "up to 5", "opening": "intro+O3", "structure": "S3", "ending": "E1", "file": "output/2026-11-14-gemini-4-hydrogen/script.txt"}
 ]

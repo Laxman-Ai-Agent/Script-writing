@@ -1,0 +1,23 @@
+💥 NVIDIA CEO పదవికి Jensen Huang ఒక్కసారిగా రాజీనామా! | Interim CEO, Board, AI Financing Explained
+
+ఈ video లో మనం NVIDIA CEO Jensen Huang ఒక్కసారిగా company నుంచి దిగిపోయిన విషయం గురించి తెలుసుకోబోతున్నాం. అసలు ఆయన ఎందుకు resign చేశారు? ఇప్పుడు NVIDIA ని ఎవరు నడిపిస్తారు? అంతేకాదు, ఒక్క మనిషి వెళ్ళిపోతే 500 billion dollars కంటే ఎక్కువ విలువైన AI plans ఎందుకు కదిలిపోతున్నాయో ఈ video లో వివరంగా చూద్దాం.
+
+33 ఏళ్లుగా NVIDIA ని నడిపిన మనిషి ఒక్క రోజులో ఎందుకు దిగిపోయారు? Company తన official ప్రకటనలో కారణం ఎందుకు చెప్పలేదు? కేవలం ఐదు రోజుల్లో results రాబోతున్న time లో ఇలా జరగడం దేనికి సంకేతం? ఇదంతా ఎలా జరిగిందో step by step చూద్దాం.
+
+ముందుగా కొంచెం background. Jensen Huang 1993 లో NVIDIA ని మొదలుపెట్టిన founders లో ఒకరు. అప్పటి నుంచి ఈ company కి ఆయనే ముఖం. ఈ రోజు మనం వాడే ChatGPT లాంటి AI tools వెనుక పనిచేసే chips లో చాలా వరకు NVIDIA వే. అంటే simple గా చెప్పాలంటే, AI boom మొత్తానికి engine తయారు చేసే company ఇది. ఆ company ని నడిపించే మనిషిగా Huang పేరు దాదాపు అందరికీ తెలుసు.
+
+కానీ ఈ నెల మొదట్లోనే కథ మారడం మొదలైంది. November 8, 9 తారీఖుల సమయంలో NVIDIA board ఒక investigation మొదలుపెట్టింది. Chinese intelligence Huang ని target చేసిందేమో అనే ఆరోపణల మీద ఈ విచారణ జరిగింది. అదే time లో Huang ఒక affair ఉందని ఒప్పుకున్నారని reports వచ్చాయి. అయితే company secrets కానీ, దేశ భద్రత కానీ దెబ్బతిన్నాయని అనుకోవడానికి కారణం లేదని board అప్పుడే చెప్పింది. US President Trump కూడా Huang ఒక honorable man అని, ఆయన కొనసాగాలని అన్నారు. అయినా ఆ రోజు NVIDIA share price కొంత పడిపోయింది.
+
+ఇక్కడి నుంచి కథ వేగంగా మారింది. November 11 న Huang resignation ని board accept చేసింది. మరుసటి రోజు, November 12 న company దీన్ని ప్రపంచానికి ప్రకటించింది. President, CEO పదవులతో పాటు board member పదవి నుంచి కూడా ఆయన తక్షణమే తప్పుకున్నారు.
+
+మరి కారణం ఏంటి? ఇక్కడే చాలామంది పొరబడుతున్నారు. NVIDIA release లో కానీ, US government కి ఇచ్చిన official filing లో కానీ ఎక్కడా కారణం లేదు. CNBC report ప్రకారం, Huang కి రెండు affairs ఉన్నాయని వచ్చిన reports తర్వాతే ఈ resignation జరిగింది. అందులో ఒకటి company employee తో, మరొకటి US intelligence Chinese spy అని భావిస్తున్న ఒక మహిళతో అని ఆ report చెబుతోంది. కానీ గుర్తుపెట్టుకోండి… ఇవి ఇప్పటికీ ఆరోపణలు మాత్రమే, ఎక్కడా prove కాలేదు.
+
+ఇప్పుడు NVIDIA ని ఎవరు నడిపిస్తారు అంటే… Colette Kress. 2013 నుంచి ఆమె NVIDIA CFO, అంటే company డబ్బు వ్యవహారాలన్నీ చూసే chief. ఇప్పుడు ఆమె interim CEO గా ఉంటారు, CFO పని కూడా ఆమే చూస్తారు. Interim అంటే permanent కాదు. Company లోపల నుంచి గానీ, బయట నుంచి గానీ కొత్త CEO కోసం board వెతుకుతోంది. దానితో పాటు 1993 నుంచి board లో ఉన్న Harvey C. Jones ని NVIDIA చరిత్రలోనే మొదటి Board Chair గా పెట్టారు. "Colette మీద, leadership team మీద board కి పూర్తి నమ్మకం ఉంది" అని ఆయన చెప్పారు.
+
+కానీ అసలు టెన్షన్ ఇక్కడ ఉంది. ఈ ఏడాది August లో NVIDIA Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, KKR లాంటి పెద్ద investment companies తో కలిసి 500 billion dollars కంటే ఎక్కువ డబ్బు సేకరించడానికి ఒప్పందాలు చేసుకుంది. ఈ డబ్బుతో data centers, chip factories కట్టాలని plan. ఇక్కడ NVIDIA chips నే guarantee గా పెడతారు. ఒక పెద్ద loan తీసుకునేటప్పుడు మన ఇల్లు గానీ బంగారం గానీ guarantee గా పెట్టినట్లు అనుకోండి. కానీ ఈ ఒప్పందాలు ఇంకా non-binding, అంటే final sign అవ్వలేదు.
+
+అందుకే resignation news రాగానే NVIDIA share ఒక దశలో 13% కంటే ఎక్కువ పడిపోయింది, తర్వాత కొంత కోలుకుంది. Raymond James కి చెందిన Sunaina Sinha Haldea ప్రకారం, ఈ కంపెనీలు terms ని మళ్ళీ చూసుకోవచ్చు, uncertainty కి ఎక్కువ return అడగొచ్చు, కానీ డబ్బు వెనక్కి పారిపోయే పరిస్థితి లేదు. Saxo కి చెందిన Charu Chanana కూడా ఇది financing crisis కాదని, కానీ AI risk ని Wall Street కొత్తగా లెక్కవేసుకునే సమయం కావొచ్చని అంటున్నారు.
+
+ఇప్పుడు అందరి కళ్ళూ November 17 మీదే ఉన్నాయి. ఆ రోజు NVIDIA తన Q3 results ప్రకటిస్తుంది. Huang లేకుండా వస్తున్న మొదటి results ఇవే. Company ఎంత బలంగా ఉందో, AI boom ఒక్క మనిషి మీద ఎంత ఆధారపడి ఉందో ఆ రోజు కొంతవరకు తెలుస్తుంది. Huang ఎందుకు వెళ్ళిపోయారు అనే ప్రశ్నకి మాత్రం company నుంచి ఇంకా official సమాధానం లేదు.
+
+మీ ఉద్దేశంలో Jensen Huang లేని NVIDIA ఇదే speed తో ముందుకు వెళ్తుందా? కింద comment లో చెప్పండి.

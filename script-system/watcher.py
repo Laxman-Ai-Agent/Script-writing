@@ -4,7 +4,7 @@
   python script-system/watcher.py                  # loop, Ctrl+C to stop (idle polling = 1 Sheets call/min, no tokens)
   python script-system/watcher.py --once           # check once; run if RUN NOW
   python script-system/watcher.py --dry-run        # show the RUN cell + rows that WOULD run; starts nothing
-  python script-system/watcher.py install-startup  # start at Windows logon (Task Scheduler)   [you run this]
+  python script-system/watcher.py install-startup  # start at Windows logon (Startup-folder shortcut, hidden)
   python script-system/watcher.py remove-startup
 
 Safety: claude runs with --permission-mode dontAsk (anything not allow-listed is denied, never prompted),
@@ -48,11 +48,15 @@ PROMPT = ("Invoke the Skill tool with skill 'script' and args 'run'. Follow its 
           "in the Google Sheet. Do nothing else.")
 
 
+if sys.stdout:  # Windows console is cp1252: printing Telugu crashed runs with 'charmap' errors
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 def log(msg):
     line = f"{datetime.datetime.now():%Y-%m-%d %H:%M:%S} {msg}"
-    print(line, flush=True)
     with open(LOG, "a", encoding="utf-8") as f:
         f.write(line + "\n")
+    print(line, flush=True)
 
 
 def stamp():
@@ -237,14 +241,17 @@ def acquire_lock():
 def main(argv=None):
     args = (argv if argv is not None else sys.argv[1:])
     if "install-startup" in args or "remove-startup" in args:
+        # Startup-folder shortcut: schtasks ONLOGON needs admin ("Access is denied")
+        lnk = Path(os.environ["APPDATA"]) / "Microsoft/Windows/Start Menu/Programs/Startup" / f"{TASK}.lnk"
         if "remove-startup" in args:
-            subprocess.run(["schtasks", "/Delete", "/TN", TASK, "/F"], check=True)
-            print("Startup task removed.")
+            lnk.unlink(missing_ok=True)
+            print("Startup shortcut removed.")
         else:
             pyw = Path(sys.executable).with_name("pythonw.exe")  # no console window
-            subprocess.run(["schtasks", "/Create", "/TN", TASK, "/TR", f'"{pyw}" "{Path(__file__).resolve()}"',
-                            "/SC", "ONLOGON", "/F"], check=True)
-            print(f"Startup task '{TASK}' created: watcher starts at every logon (log: {LOG}).")
+            ps = (f"$s=(New-Object -ComObject WScript.Shell).CreateShortcut('{lnk}');$s.TargetPath='{pyw}';"
+                  f"$s.Arguments='\"{Path(__file__).resolve()}\"';$s.WorkingDirectory='{ROOT}';$s.Save()")
+            subprocess.run(["powershell", "-NoProfile", "-Command", ps], check=True)
+            print(f"Startup shortcut created: watcher starts at every logon (log: {LOG}).")
         return
     if "--dry-run" in args:
         s = L.GoogleSheet()

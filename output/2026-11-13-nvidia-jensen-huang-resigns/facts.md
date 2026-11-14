@@ -1,0 +1,23 @@
+# Jensen Huang resigns as NVIDIA CEO; CFO Colette Kress interim CEO
+NOTE: Resignation confirmed by CNBC (independent) + NVIDIA release + SEC 8-K (both company primary, same origin). Company docs give NO reason; the reason below is from CNBC reporting only (allegations, not proven).
+- Huang resigned as President, CEO and Board member, effective immediately (announced 2026-11-12; 8-K says Board accepted it 2026-11-11) — https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition ; https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvda-20261111.htm ; https://www.cnbc.com/2026/11/12/nvidia-ceo-exit-ai-financing.html — high
+- "33 years of leadership" wording in NVIDIA release — not seen in fetched summary (NVIDIA founded 1993, so 33 yrs is arithmetically consistent) — https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition — medium
+- Colette Kress (age 59, EVP and CFO since 2013) is interim CEO, keeps CFO role; Board searching for permanent CEO, internal and external candidates — https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvda-20261111.htm ; NVIDIA release; CNBC — high
+- Kress joined Sept 2013 — 8-K says "since 2013"; exact month not verified — SEC 8-K — medium
+- Harvey C. Jones (age 73, on Board since 1993, Square Wave Ventures managing partner since 2004) named first-ever Chair of the Board — SEC 8-K + NVIDIA release — high
+- Jones was "former Synopsys CEO" — not in fetched sources (he co-founded Daisy Systems/Synopsys-era EDA exec, from background knowledge) — medium
+- Jones quote: "The Board has full confidence in Colette and the leadership team." Kress: "Our focus remains on serving our customers, partners, developers and shareholders." — NVIDIA release — high
+- Q3 fiscal 2027 results Tuesday 2026-11-17, ~1:20 pm PT release, 2 pm PT call — NVIDIA release — high
+- Stated reason: NONE in NVIDIA release or 8-K (no disagreement statement either) — SEC 8-K — high
+- CNBC reports resignation followed reports Huang had two extramarital affairs, one with an employee and one with a woman US intelligence believes is a Chinese spy — https://www.cnbc.com/2026/11/12/nvidia-ceo-exit-ai-financing.html — medium (allegations, single source for the "two affairs/employee" detail; do not state as proven cause)
+- Earlier: board opened investigation ~2026-11-08/09 into allegations of Chinese intelligence targeting Huang; Huang reportedly admitted an affair; board said no reason to believe national security or company secrets compromised; Trump called Huang "honorable man", said he should stay — https://www.aljazeera.com/economy/2026/11/9/nvidia-shares-slump-amid-investigation-into-ceo-jensen-huang ; https://abc30.com/story/nvidia-stock-falls-company-opens-probe-ceo-jensen-huang-alleged-affair-chinese-spy/20026775/ — medium (search-snippet level, not fully fetched)
+- Stock: fell >13% initially after resignation news, then pared losses — CNBC — medium (single source, exact close unknown)
+- Stock on 2026-11-09 after probe news: fell ~4-9% intraday (reports vary; ~$175.92, prior close $186.64) — Al Jazeera / Fool / Reuters-syndicated — medium
+- $500B+ AI financing: in August NVIDIA signed non-binding MOUs with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, KKR to raise >$500B for data centers/chip factories, using NVIDIA chips as collateral (like securitizations of toll roads) — CNBC — high
+- "Produced no deals so far" — CNBC fetch says deals remain non-binding pending final agreements (consistent, but exact "no deals" phrasing not seen) — CNBC — medium
+- Analysts: Sunaina Sinha Haldea (Raymond James): firms may revisit terms, lenders may demand more pay for uncertainty, no capital flight expected. Charu Chanana (Saxo): partnerships unlikely to unravel but Wall Street more cautious; possible catalyst for repricing AI risk, not a financing crisis yet — CNBC — high
+- BlackRock and Goldman declined comment — CNBC — high
+- Background (from general knowledge, NOT verified this session): co-founded NVIDIA 1993 with Chris Malachowsky and Curtis Priem at a Denny's in San Jose; GeForce GPU 1999; CUDA 2006; AI boom from ~2012 AlexNet; market cap passed $1T (2023), $5T (2025) — medium (verify before stating figures)
+## Angle
+- Twist: the man who built the AI boom's core company is gone days before earnings, and the company's own filings give no reason; the story is as much about a $500B chip-collateral financing web that depends on one face as about one person.
+- Misconception to correct: "he was fired/resigned for X" — officially NO reason given; the affair/spy link is press reporting of allegations, and the board said no national-security compromise. Also, interim CEO Kress is a finance person, not a permanent successor.

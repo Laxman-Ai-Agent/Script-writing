@@ -39,7 +39,7 @@ Write `output/YYYY-MM-DD-<english-slug>/facts.md` BEFORE any Telugu:
 English bullets, short. From here on, write from these notes only — never from the article text — so the Telugu is re-told, not translated.
 
 ### 3. Load style
-Read `script-system/writing-dna.md` (whole file) and `script-system/history.json`. Do NOT open `sample script/`. Section 11 "Learned corrections" overrides everything else. Also run `python script-system/learning_db.py rules` and apply every APPROVED rule (only approved ones; skip `[TOPIC]` rules that don't fit this topic). §13 gold reference = target quality (style only — never reuse its facts).
+Read `script-system/writing-dna.md` (whole file) and `script-system/history.json`. Do NOT open `sample script/`. Section 11 "Learned corrections" overrides everything else. Also run `python script-system/learning_db.py rules` and apply every APPROVED rule (only approved ones; skip `[TOPIC]` rules that don't fit this topic). Rules are listed oldest → newest; if two conflict, the newer one (later Script ID) wins. §13 gold reference = target quality (style only — never reuse its facts).
 
 ### 4. Plan
 - Target words from DNA §8 for the duration.
@@ -103,7 +103,7 @@ The user pastes an update into the **Revised** column (D) of the script's row - 
 1. `python script-system/learning_db.py revisions-pending` -> for every row: Script ID, ORIGINAL SCRIPT, D raw, F raw, NEW INPUT / NO NEW INPUT.
 2. Per row, find the updated script inside D: the part under a heading like UPDATED / NEW / REVISED SCRIPT (కొత్త SCRIPT, "new script", ...) - or all of D if it holds only a script. Ignore OLD / ORIGINAL SCRIPT parts. Everything else (comparison, reasons, rules / guidelines) is explanation. If you cannot tell which text is the updated script, or the row says NO NEW INPUT: `python script-system/learning_db.py revision-fail <ID> "<what is unclear>"` and go on to the next row. Never guess, never invent feedback.
 3. Write files under `output/_revise/<ID>/`: `script.txt` = the updated script exactly as pasted (title line + narration, nothing else); `feedback.txt` = the user's reasons VERBATIM (what they typed in F + the why-parts of the paste), nothing added; `changes.txt` = detailed Changes Made as in Mode D step 2 (run `add-revision` first, then `diff <ID>`; user's reason where given, "no reason given" otherwise).
-4. `python script-system/learning_db.py add-revision <ID> output/_revise/<ID>/script.txt`, then `add-feedback` (skip if there are no reasons) and `add-changes`. Rules: ones the user states outright -> `add-rule <ID> general|topic "<rule>" --approved`; rules you infer -> without `--approved` (PROPOSED).
+4. `python script-system/learning_db.py add-revision <ID> output/_revise/<ID>/script.txt`, then `add-feedback` (skip if there are no reasons) and `add-changes`. Rules: the user's updated script is FINAL, so every rule from it (stated outright or inferred from their edits) -> `add-rule <ID> general|topic "<rule>" --approved`. Never PROPOSED.
 5. `python script-system/learning_db.py revision-done <ID>` rewrites the row: D = the clean script only, E/F/G rebuilt, H = ✅ DONE. Any failure -> `revision-fail <ID> "<reason>"` (H = ❌ ASK, reason as hover note).
 6. After the last row: `python script-system/learning_db.py ldb-finish "<n> processed, <m> need you"`.
 
@@ -120,7 +120,7 @@ The user then picks ideas in the sheet: USE sends one to "Script Requests" (and 
 1. Find the script by its Script ID (the user may say "S002"; `python script-system/learning_db.py list` shows IDs and titles). Save the user's complete revised script to `output/.../script.txt` AND `python script-system/learning_db.py add-revision <id> <file>` — full text, never shortened. Never touch the original.
 2. `python script-system/learning_db.py diff <id>` for the raw sentence diff, then write a detailed Changes Made analysis (added / removed / rewritten / word swaps / hook / storytelling / narration / Telugu grammar / English vocab / flow / facts / rearrangement — with the user's reason where given, "no reason given" otherwise) → `python script-system/learning_db.py add-changes <id> <file>`.
 3. User's explanation, verbatim, never invented → `python script-system/learning_db.py add-feedback <id> <file>`.
-4. Rules: rules the user states outright → `python script-system/learning_db.py add-rule <id> general|topic "<rule>" --approved`. Rules you infer → add without `--approved` (PROPOSED) and ask the user; on their yes → `python script-system/learning_db.py approve <id> <n>`. Don't turn every one-off edit into a rule. Approved general rules also go into DNA §11 (§9 learning step).
+4. Rules: the user's revised script is FINAL — every rule from it (stated or inferred from their edits) → `python script-system/learning_db.py add-rule <id> general|topic "<rule>" --approved`. Never PROPOSED. Don't turn every one-off edit into a rule. Approved general rules also go into DNA §11 (§9 learning step).
 5. Report SYNCED or PENDING exactly as the tool printed. `python script-system/learning_db.py sync` retries pending records.
 
 ## Mode B: `/script update`

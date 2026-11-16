@@ -223,6 +223,146 @@
         "https://www.space.com/space-exploration/human-spaceflight/pakistani-astronaut-set-to-become-1st-international-visitor-to-chinas-tiangong-space-station-this-month"
       ],
       "status": "new"
+    },
+    {
+      "date": "2026-11-16",
+      "category": "Trending",
+      "title": "France blames Iran-linked hackers for a cyberattack that overheated supermarket fridges at about 700 stores",
+      "hook": "🧊 Hackers supermarket fridges ని వేడెక్కించారు: 700 stores, 15 fires ఎలా జరిగాయి?",
+      "points": [
+        "France attributed the 2026-10-11/12 overnight attacks to Shahid Kaveh, a cyber unit linked to Iran's IRGC; announced 2026-11-09. Iran called it 'baseless and malicious' on 2026-11-10.",
+        "Hackers compromised Danfoss refrigeration controllers and remotely raised the defrost settings to high temperatures. About 700 retail locations targeted (earlier estimate 250-350); at least 15 fires and tens of millions of euros in food losses.",
+        "Retailers named: Leclerc, Intermarche, Carrefour, Coopérative U, Casino, Metro. Small hydroelectric sites (Schneider Electric equipment) also hit; France's blood service reported changed settings at three blood storage sites.",
+        "France will summon Iran's ambassador and propose new EU sanctions; Paris prosecutor seeking international arrest warrants. A November wave hit 115+ stores in six European countries, not attributed to Iran."
+      ],
+      "sources": [
+        {
+          "url": "https://bleepingcomputer.com/news/security/france-blames-iranian-hackers-for-supermarket-attacks-that-sparked-fires",
+          "date": "2026-11-09"
+        },
+        {
+          "url": "https://www.stlpr.org/npr/2026-11-09/france-accuses-iran-of-cyber-sabotage-in-fridge-attacks",
+          "date": "2026-11-09"
+        }
+      ],
+      "news_date": "2026-11-09",
+      "urls": [
+        "https://bleepingcomputer.com/news/security/france-blames-iranian-hackers-for-supermarket-attacks-that-sparked-fires",
+        "https://www.stlpr.org/npr/2026-11-09/france-accuses-iran-of-cyber-sabotage-in-fridge-attacks"
+      ],
+      "status": "new"
+    },
+    {
+      "date": "2026-11-16",
+      "category": "Trending",
+      "title": "NVIDIA GR00T 2: robot model that learns from human video",
+      "hook": "🤖 మనుషుల videos చూసి robots పని నేర్చుకుంటున్నాయి: NVIDIA GR00T 2 ఎలా పనిచేస్తుంది?",
+      "points": [
+        "Unveiled 2026-11-09 at the Conference on Robot Learning in Austin; an open 'world action model' that predicts future video and robot movement together.",
+        "Trained on ~402,730 hours of first-person human video, 10,184 hours of handheld-gripper demos and 23,500 hours of robot teleoperation; 100,000 hours of human video released publicly.",
+        "No task-specific training: 40% average success across 50 tasks. After 5 demos per task and a 30-minute fine-tune on one RTX 5090: 95%. Five-fingered robot: 65% on a funnel task learned only from human demonstration.",
+        "Caveat: tested tasks were chosen from ones the model could already learn well; Foxconn, Siemens and Nexuni are testing, none confirmed production use."
+      ],
+      "sources": [
+        {
+          "url": "https://thenextweb.com/news/nvidia-gr00t-2-robots-human-video-corl",
+          "date": "2026-11-09"
+        },
+        {
+          "url": "https://interestingengineering.com/ai-robotics/nvidia-groot-2-human-robot-skill-transfer",
+          "date": "2026-11-09"
+        }
+      ],
+      "news_date": "2026-11-09",
+      "urls": [
+        "https://thenextweb.com/news/nvidia-gr00t-2-robots-human-video-corl",
+        "https://interestingengineering.com/ai-robotics/nvidia-groot-2-human-robot-skill-transfer"
+      ],
+      "status": "new"
+    },
+    {
+      "date": "2026-11-16",
+      "category": "Trending",
+      "title": "Anthropic launches IPO roadshow: 825 million shares at $70-$78 on Nasdaq under 'ANT'",
+      "hook": "📈 Claude company Anthropic stock market లోకి: $64 billion IPO లో అసలు ఏముంది?",
+      "points": [
+        "Roadshow began 2026-11-10: 825,000,000 Class A shares at $70-$78 each, about $64.35B at the top price; underwriters have an option for up to 123,750,000 more shares.",
+        "Listing on Nasdaq Global Select Market under ticker ANT; pricing expected 2026-11-18 (SiliconANGLE).",
+        "SiliconANGLE: Q3 revenue $17B with a $536M operating loss; first nine months of 2026 revenue about 7x full-year 2025.",
+        "Seven suppliers (Nvidia, AMD, Broadcom, Google, Micron, Microsoft, TSMC) will buy $26B of non-voting shares in a private placement."
+      ],
+      "sources": [
+        {
+          "url": "https://anthropic.com/news/roadshow-launch",
+          "date": "2026-11-10"
+        },
+        {
+          "url": "https://siliconangle.com/?p=853744",
+          "date": "2026-11-10"
+        }
+      ],
+      "news_date": "2026-11-10",
+      "urls": [
+        "https://anthropic.com/news/roadshow-launch",
+        "https://siliconangle.com/?p=853744"
+      ],
+      "status": "used"
+    },
+    {
+      "date": "2026-11-16",
+      "category": "Trending",
+      "title": "COP31 opens in Antalya, Turkey, amid a finance fight and warnings that the 1.5°C goal is slipping",
+      "hook": "🌡️ 1.5°C limit దాటిపోయిందా? COP31 లో దాదాపు 200 దేశాలు ఏం decide చేస్తున్నాయి?",
+      "points": [
+        "COP31 opened 2026-11-09 in Antalya: two weeks, about 100,000 attendees, 90+ heads of state, delegations from nearly 200 countries.",
+        "UNEP concluded the chance of holding warming to 1.5°C 'has been lost'; WMO says January-September 2026 averaged about 1.47°C above pre-industrial levels.",
+        "Opening delayed about 90 minutes by a fight over climate-finance agenda items; tripling adaptation finance gets no separate agenda item. The US sent no officials.",
+        "Turkey proposes a voluntary pledge to raise electricity's share of global energy demand from about 20% to 35% by 2035."
+      ],
+      "sources": [
+        {
+          "url": "https://healthpolicy-watch.news/declarations-do-not-protect-people-cop31-opens-under-pressure-to-deliver-results-over-words/",
+          "date": "2026-11-09"
+        },
+        {
+          "url": "https://www.khaleejtimes.com/world/cop31-opens-leaders-pressure-tackle-climate-crisis",
+          "date": "2026-11-09"
+        }
+      ],
+      "news_date": "2026-11-09",
+      "urls": [
+        "https://healthpolicy-watch.news/declarations-do-not-protect-people-cop31-opens-under-pressure-to-deliver-results-over-words/",
+        "https://www.khaleejtimes.com/world/cop31-opens-leaders-pressure-tackle-climate-crisis"
+      ],
+      "status": "new"
+    },
+    {
+      "date": "2026-11-16",
+      "category": "Trending",
+      "title": "Paris Call for AI Safety and Security: 6 countries and 10 AI companies sign, but the US, Google, Meta and China do not",
+      "hook": "🛑 AI కి shutdown button: Paris Call లో OpenAI, Anthropic sign చేశాయి, Google, Meta ఎందుకు చేయలేదు?",
+      "points": [
+        "Agreed 2026-11-09 at a Macron-hosted meeting at the Elysee Palace; about 50 people incl. Sam Altman, Dario Amodei, Brad Smith.",
+        "Signed by France, Canada, Finland, Norway, the Netherlands, Bahrain, and 10 companies incl. OpenAI, Anthropic, Microsoft, Mistral, Hugging Face, Cohere.",
+        "Commitments: shutdown mechanisms, independent expert testing where appropriate, publishing non-sensitive test results, sharing early warnings of serious incidents, whistleblower channels.",
+        "Critic CeSIA (a signer) says there are no common risk thresholds or deadlines; on 2026-11-10 Macron called for pre-certification of AI before it reaches young users."
+      ],
+      "sources": [
+        {
+          "url": "https://thenextweb.com/news/paris-call-ai-safety-openai-anthropic-cesia",
+          "date": "2026-11-10"
+        },
+        {
+          "url": "https://openthemagazine.com/world/macron-sets-out-three-ai-safety-priorities-warns-of-real-risks-to-security",
+          "date": "2026-11-10"
+        }
+      ],
+      "news_date": "2026-11-10",
+      "urls": [
+        "https://thenextweb.com/news/paris-call-ai-safety-openai-anthropic-cesia",
+        "https://openthemagazine.com/world/macron-sets-out-three-ai-safety-priorities-warns-of-real-risks-to-security"
+      ],
+      "status": "new"
     }
   ]
 }

@@ -72,7 +72,7 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 - Paragraphs, not one-liners; no stretch of ~4 sentences of dry exposition without a question / example / turn.
 - Word count within ±10% of target (`python script-system/learning_db.py words <file>` counts the narration, title excluded).
 - Opening / structure / ending are not repeats from history.
-- Health Decode only: run the §14 7-point rubric; fix until every point is ✅. After the script, show the rubric as a one-line ✅ list (the user wants to see it).
+- Health Decode only: run the §14 8-point rubric (point 8 = HEALTHCARE CONTENT SAFETY RULE: no medicines/doses/treatment instructions/cure claims, warning signs + "Doctor decides treatment" included; this rule beats any research finding or older sample); fix until every point is ✅. After the script, show the rubric as a one-line ✅ list (the user wants to see it).
 
 ### 8. Deliver
 - Append to `history.json`: `{"date": "YYYY-MM-DD", "channel": "dark" | "health", "topic": "...", "duration": "...", "opening": "O#" | "H#", "structure": "S#", "ending": "E#", "file": "output/.../script.txt"}`. Opening-repeat checks compare only within the same channel.

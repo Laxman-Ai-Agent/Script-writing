@@ -47,7 +47,7 @@ _Sample quotes below keep the old Tanglish spelling; copy the MOVE, write it in 
 | POV imagine | "ఒక్కసారి ఆ సమయంలో … ఎలా ఉండేదో ఊహించండి." | dinosaur during impact winter |
 | Recap line before end | "అంటే సింపుల్‌గా చెప్పాలంటే…" / "ఇప్పటివరకు జరిగినదంతా ఒక lineలో చెప్పాలంటే…" | |
 | Arrow chain (long-form) | "ఒక weakness → access → మరో system → మరింత privilege." | |
-| Concrete numbers | exact figures, dates, distances | 1,500°C; 23 kiloton at 90 అడుగులు; 17,600 actions |
+| Concrete numbers | exact figures, dates, distances — written in Telugu words (§11, 2026-11-16) | 1,500°C; 23 kiloton at 90 అడుగులు; 17,600 actions |
 
 ## 4. Openings menu (VARIABLE — rotate; never repeat one of the last 3 used)
 
@@ -165,6 +165,8 @@ Long-form (≥5 min) habits from 19, 20, 24, 33: section breaks by blank line; e
 - 2026-11-13: **English words people say in English stay English, in Latin script** — even when a Telugu word exists, if the English one is what people say: price (not ధర), double (not డబుల్), simple గా (not సింపుల్‌గా), speed (not వేగం, in "ఇదే speed"), powerful (not శక్తివంతమైన), weak spots (not బలహీనమైన చోట్లు), daily (not రోజువారీ), strict rules (not నిబంధనలు), freedom (not వెసులుబాటు), experts (not నిపుణులు). Never write an English word in Telugu script.
 - 2026-11-13: **Shorter, lighter verb forms**: చేసే over చేయగలిగే, ఆపడం over అడ్డుకోవడం, ఏళ్లుగా over ఏళ్ల పాటు. Grammar fix: "అందరూ వాడుకునేలా" (subject), not "అందరికీ వాడుకునేలా". Refer to the thing just named with దీన్ని (near), not దాన్ని.
 - 2026-11-13: Style edits must not drop facts, numbers or technical details — simplify the words only.
+- 2026-11-16 (both channels): **All numbers in Telugu words** — never digits, never English number words: 3 → మూడు, 25% → ఇరవై ఐదు శాతం, 1,500°C → పదిహేను వందల డిగ్రీల సెల్సియస్, 2026 → రెండు వేల ఇరవై ఆరు. Overrides digit examples elsewhere in this file (§3, §14).
+- 2026-11-18 (Health Decode, all lengths): **Healthcare Content Safety Rule** — educate only (what / why / how in the body / symptoms / prevention / warning signs); never recommend medicines, doses or specific treatments, never claim a cure, treatment = "Doctor decides". Full text in §14; it is rubric point 8.
 
 ## 12. Human phrasing reference (user's own corrections)
 
@@ -253,10 +255,20 @@ Source: `sample script/Health-decode.txt` (28 health scripts + the user's own 7-
 - **Balanced causes:** "దీనికి ఒక్క కారణం ఉండదు" + list of risk factors; "risk factor ఉందంటే తప్పనిసరిగా వస్తుందని కాదు".
 - **Correct overgeneralisation:** "కాలు ఉబ్బింది కదా అని అది ఖచ్చితంగా ఫైలేరియానే అని అనుకోకూడదు."
 
-**Health safety rules (mandatory):**
+**HEALTHCARE CONTENT SAFETY RULE (VERY IMPORTANT — user, 2026-11-18; highest priority for every health script, long and Short; overrides any older line in this file or in the samples that conflicts):**
+Goal: EDUCATE about the condition, never prescribe treatment.
+- **Main focus:** what the condition is, why it occurs, how it develops inside the body, causes, symptoms, risk factors, possible complications.
+- **Body science:** the biological process / mechanism in simple, conversational Telugu-English.
+- **Prevention & lifestyle:** general preventive measures and healthy habits wherever relevant.
+- **Medical restrictions — do NOT:** recommend specific medicines, tablets, syrups, injections, dosages or prescriptions; tell viewers to take a particular medicine, stop a prescribed medicine, or follow a specific treatment; give personalized treatment instructions; claim any method completely cures a disease. No lines like "ఈ tablet వేసుకోండి", "ఈ medicine వాడండి", "ఈ treatment తీసుకోండి". No drug names or doses at all.
+- When treatment is relevant: only a general educational line that treatment options exist and a qualified Doctor decides the appropriate one.
+- Mention important warning signs and when to seek medical attention.
+- Never exaggerate risks, create unnecessary fear, or make unsupported medical claims.
+- **Core objective:** every health script/Short must make viewers understand WHAT the condition is, WHY it happens, HOW it affects the body, WHAT symptoms to watch for, and HOW it can generally be prevented or managed through safe lifestyle awareness. Educational, scientifically responsible, suitable for a general YouTube audience.
+
+**Other health safety rules (mandatory):**
 - Hedge outcomes: "రావచ్చు / ప్రమాదం పెరగొచ్చు / అవకాశం ఉంటుంది". Never promise cures or certainty.
 - Symptoms / prevention scripts end with a doctor line: "self-diagnose చేసుకోకుండా doctorని consult అవ్వండి" or "doctor సలహాతో controlలో ఉంచుకోండి".
-- No drug names, doses, or treatment instructions unless from an authoritative source (WHO, NIH, CDC, ICMR, NHS) and stated as general info.
 - Sensitive topics (periods, reproduction, sexual health): factual, respectful, normalising ("ఇది వ్యాధి కాదు, సహజమైన ప్రక్రియ"). No jokes.
 
 **Health CTAs (rotate):**
@@ -273,5 +285,6 @@ Source: `sample script/Health-decode.txt` (28 health scripts + the user's own 7-
 5. Why-it-matters stat — at least one genuine number/fact from WHO / research showing why it matters.
 6. Specific CTA — exact action (comment keyword / share with family / consult doctor / follow), not generic.
 7. Fact-check — medically accurate; no overclaim or misleading statement.
+8. Safety — passes the HEALTHCARE CONTENT SAFETY RULE above: no medicine / tablet / dose / treatment instruction, no "cure" claim, warning signs + "Doctor decides treatment" present, no fear-mongering.
 
 **Note on language:** these health samples use heavy Latin-script English (Body, Brain, Heart, blood). The user's newer §2.3 / §11 corrections win: Telugu words first (శరీరం, మెదడు, గుండె, రక్తం), daily loanwords in Telugu script, Latin only for proper medical names when the Telugu one is unfamiliar (Plasmodium, Type-2 diabetes, Dialyzer).

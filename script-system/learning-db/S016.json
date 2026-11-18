@@ -21,7 +21,8 @@
       "date": "2026-11-18",
       "scope": "general",
       "text": "Write numbers, years, amounts and decimals as digits (17 billion, 2021, 825 million, 1.4 trillion, November 10); small counts like seven times / seven companies can stay as words",
-      "status": "approved"
+      "status": "superseded",
+      "superseded_by": "user 2026-11-18: numbers in Telugu words (DNA §11)"
     },
     {
       "date": "2026-11-18",

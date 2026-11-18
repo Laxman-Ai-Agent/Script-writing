@@ -160,7 +160,7 @@ Long-form (≥5 min) habits from 19, 20, 24, 33: section breaks by blank line; e
 - 2026-11-13: **Shorter, lighter verb forms**: చేసే over చేయగలిగే, ఆపడం over అడ్డుకోవడం, ఏళ్లుగా over ఏళ్ల పాటు. Grammar fix: "అందరూ వాడుకునేలా" (subject), not "అందరికీ వాడుకునేలా". Refer to the thing just named with దీన్ని (near), not దాన్ని.
 - 2026-11-13: Style edits must not drop facts, numbers or technical details — simplify the words only.
 - 2026-11-18 (user choice): **Keep connected paragraphs with a blank line between them** — the line-by-line layout rule (S016) is dropped.
-- 2026-11-18 (both channels, replaces the 2026-11-16 Telugu-words and the older English-words rules): **Numbers as digits** — 4 crore, 93%, 2021, 1.4 trillion, 6 నుంచి 8 weeks; small counts with Telugu units may stay Telugu words (మూడు గంటలకు).
+- 2026-11-18 (user, LATEST — both channels, replaces every older digits / English-number-words rule): **Every number in Telugu words, in Telugu script — never digits.** The unit goes Telugu too: 50 → యాభై, 1970 → పంతొమ్మిది వందల డెబ్బై, 2005 → రెండు వేల ఐదు, 10 crores → పది కోట్లు, 10 hours → పది గంటలు, 25% → ఇరవై ఐదు శాతం. **Decimals are the exception: English words in Latin script** — 0.05 → zero point zero five, 1.5 → one point five. Names/codes that contain a number stay as they are (GPT-5, T3, Falcon 9).
 - 2026-11-18 (Health Decode, all lengths): **Healthcare Content Safety Rule** — educate only (what / why / how in the body / symptoms / prevention / warning signs); never recommend medicines, doses or specific treatments, never claim a cure, treatment = "Doctor decides". Full text in §14; it is rubric point 8.
 
 ## 12. Human phrasing reference (user's own corrections)

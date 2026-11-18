@@ -27,7 +27,8 @@
       "date": "2026-11-18",
       "scope": "general",
       "text": "Write numbers, years and percentages as digits (4 crore, T3, T4, 60, 1962, 93%, 6 నుంచి 8 weeks) - replaces the older spelled-out-English-numbers TTS rule",
-      "status": "approved"
+      "status": "superseded",
+      "superseded_by": "user 2026-11-18: numbers in Telugu words (DNA §11)"
     },
     {
       "date": "2026-11-18",

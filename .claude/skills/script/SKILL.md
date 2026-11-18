@@ -67,6 +67,7 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 - Changing words must never change facts. If a natural phrasing would distort a fact, keep the accurate phrasing.
 
 ### 7. Final validation (fix in place, don't report the checklist)
+- No digits in the narration (DNA §11 numbers rule): whole numbers in Telugu words (యాభై, పది కోట్లు, పది గంటలు), decimals in English words (zero point zero five); digits only inside names/codes (GPT-5, T3).
 - Every number, name, date matches `facts.md`. Disputed claims are hedged or omitted. Nothing added that isn't in `facts.md`.
 - No calques, no గ్రాంథిక / newsreader phrasing, §9 "Never" list clean.
 - Paragraphs, not one-liners; no stretch of ~4 sentences of dry exposition without a question / example / turn.

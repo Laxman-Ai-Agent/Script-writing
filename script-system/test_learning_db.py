@@ -92,7 +92,7 @@ def test():
 
     # local store round-trip keeps Telugu intact
     import tempfile, pathlib
-    p = pathlib.Path(tempfile.mkdtemp()) / "db.json"
+    p = pathlib.Path(tempfile.mkdtemp()) / "db"
     db["schema"] = L.SCHEMA  # what save() persists after the first load
     L.save(db, p)
     assert L.load(p) == db

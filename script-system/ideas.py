@@ -7,7 +7,7 @@
   python script-system/ideas.py use               # handle USE / SKIP / USED clicks now (the watcher does it every minute)
   python script-system/ideas.py list [category]
 
-Local copy: ideas-db.json (append-only: every idea ever suggested, so nothing is suggested twice, even after a row is
+Local copy: ideas-db/YYYY-MM.json (append-only: every idea ever suggested, so nothing is suggested twice, even after a row is
 deleted in the sheet). Sheet columns: Date | Category | Title (English) | Telugu hook | Key points | Sources | News date | USE
 (H1 = the FIND TOPICS control). USE cell: pick ▶ USE -> the idea becomes a row in "Script Requests" and the cell shows ✅ USED;
 ✖ SKIP = never show this idea again; ✅ USED picked by hand = mark only.
@@ -25,7 +25,8 @@ sys.path.insert(0, str(HERE))
 import learning_db as L  # noqa: E402
 
 IDEAS_TAB, SET_TAB = "Topic Ideas", "Topic Settings"
-DB_PATH = HERE / "ideas-db.json"
+DB_DIR = HERE / "ideas-db"  # one file per month
+OLD_DB = HERE / "ideas-db.json"  # pre-2026-11-18 single file, migrated by save()
 IDEA_HEADERS = ["Date", "Category", "Title (English)", "Telugu hook", "Key points", "Sources", "News date"]  # H = USE
 SET_HEADERS = ["Category", "ON/OFF", "How many", "Focus", "RUN"]
 COUNTS = ["3", "5", "7", "10"]
@@ -44,14 +45,28 @@ STOP = {"the", "a", "an", "of", "to", "in", "on", "for", "and", "new", "is", "ar
 
 # ---------- local store + checks (pure) ----------
 
-def load(path=DB_PATH):
-    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"ideas": []}
+def load(path=DB_DIR):
+    """ideas-db/YYYY-MM.json, one idea per line (keeps every file far below 450 lines). Reads the old single file once."""
+    if path.is_dir():
+        return {"ideas": [i for f in sorted(path.glob("*.json")) for i in json.loads(f.read_text(encoding="utf-8"))["ideas"]]}
+    if path == DB_DIR and OLD_DB.exists():
+        return json.loads(OLD_DB.read_text(encoding="utf-8"))
+    return {"ideas": []}
 
 
-def save(db, path=DB_PATH):
-    tmp = path.with_suffix(".tmp")
-    tmp.write_text(json.dumps(db, ensure_ascii=False, indent=2), encoding="utf-8")
-    tmp.replace(path)
+def save(db, path=DB_DIR):
+    # ponytail: one file per month; split per week if a month ever passes ~450 ideas
+    path.mkdir(exist_ok=True)
+    months = {}
+    for i in db["ideas"]:
+        months.setdefault(str(i.get("date", "undated"))[:7], []).append(i)
+    for m, items in months.items():
+        tmp = path / f"{m}.tmp"
+        tmp.write_text('{"ideas": [\n' + ",\n".join(json.dumps(i, ensure_ascii=False) for i in items) + "\n]}\n",
+                       encoding="utf-8")
+        tmp.replace(path / f"{m}.json")
+    if path == DB_DIR and OLD_DB.exists():
+        OLD_DB.unlink()  # migrated
 
 
 def words(text):

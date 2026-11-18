@@ -237,6 +237,15 @@ def test():
     assert txt == "hi" and st["cost"] == 1.23 and st["output"] == 15000
     assert W.stats_line(st) == "3 steps, 2m05s, claude-opus-5-5: new in 30k + cached 200k, out 15k, ~$1.23 list price"
     assert W.summarize("not json")[1] == {}
+    # usage limit on account 1 -> same run on account 2; any other failure does not switch accounts
+    acc, W.accounts = W.accounts, lambda: [None, "acct2"]
+    seen = []
+    lim = lambda p, c: (seen.append(c) or (c == "acct2", "ok" if c == "acct2" else "hit your weekly limit"))
+    assert W.run_claude("p", lim) == (True, "ok") and seen == [None, "acct2"]
+    seen.clear()
+    assert W.run_claude("p", lambda p, c: (seen.append(c) or False, "timed out")) == (False, "timed out") and seen == [None]
+    assert "all accounts" in W.run_claude("p", lambda p, c: (False, "hit your weekly limit"))[1]
+    W.accounts = acc
     print("all checks passed")
 
 

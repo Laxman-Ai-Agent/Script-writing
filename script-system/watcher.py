@@ -38,7 +38,8 @@ TASK = "ScriptWatcher"
 ALLOWED = ["Read", "Glob", "Grep", "WebSearch", "WebFetch", "Skill",
            "Write(output/**)", "Edit(output/**)", "Edit(script-system/history.json)",
            "Bash(python script-system/learning_db.py:*)", "Bash(python script-system/ideas.py:*)", "Agent"]
-MODEL = "opus"  # writes the Telugu; research is delegated to a Sonnet subagent by the skill (SKILL.md step 1)
+ACCOUNT_DIRS = [Path.home() / ".claude-account2"]  # fallback logins: CLAUDE_CONFIG_DIR=<dir> claude auth login
+MODEL = "sonnet"  # writes the Telugu (was opus until 2026-11-18: switched to stretch the Pro weekly limit)
 # Lean run: project settings only (no user plugins/hooks/MCP), fewer built-in tools -> ~18k instead of ~56k baseline tokens per step
 LEAN = ["--setting-sources", "project", "--strict-mcp-config", "--exclude-dynamic-system-prompt-sections",
         "--tools", "Read,Write,Edit,Bash,WebSearch,WebFetch,Glob,Grep,Skill,Agent"]
@@ -86,8 +87,24 @@ def stats_line(st):
             f"~${st['cost']:.2f} list price")
 
 
-def run_claude(prompt=PROMPT):
-    """-> (ok, reason). On success `reason` is the usage line (tokens, cost). Unattended headless run;
+def accounts():
+    """Claude logins to try, in order: the normal one, then each ACCOUNT_DIRS folder that has been logged in."""
+    return [None] + [d for d in ACCOUNT_DIRS if (d / ".credentials.json").exists()]
+
+
+def run_claude(prompt=PROMPT, attempt=None):
+    """-> (ok, reason). Tries each logged-in account; moves to the next only when one says its usage limit is hit."""
+    attempt = attempt or run_claude_as
+    for i, cfg in enumerate(accounts(), start=1):
+        ok, why = attempt(prompt, cfg)
+        if ok or not why.startswith("hit your"):
+            return ok, why
+        log(f"account {i}: {why}")
+    return ok, why + (" (all accounts)" if i > 1 else "")
+
+
+def run_claude_as(prompt, config_dir=None):
+    """One unattended headless run with one account. On success `reason` is the usage line (tokens, cost).
     ponytail: one run at a time, no resume of a half-finished run."""
     exe = shutil.which("claude")
     if not exe:
@@ -95,6 +112,8 @@ def run_claude(prompt=PROMPT):
     # narrow, documented recovery switches of the project's fact-forcing hook: it would only stall an unattended run
     env = {**os.environ, "GATEGUARD_BASH_ROUTINE_DISABLED": "1",
            "GATEGUARD_EXEMPT_GLOBS": "output/**,script-system/history.json"}
+    if config_dir:
+        env["CLAUDE_CONFIG_DIR"] = str(config_dir)  # second account's own login folder
     try:
         p = subprocess.run([exe, "-p", prompt, "--output-format", "json", "--permission-mode", "dontAsk",
                             "--max-budget-usd", BUDGET_USD, "--no-session-persistence", "--model", MODEL, *LEAN,

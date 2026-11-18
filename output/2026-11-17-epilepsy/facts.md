@@ -1,0 +1,31 @@
+# Epilepsy (మూర్ఛ)
+- Epilepsy = chronic brain disease with recurrent seizures; a single seizure is not epilepsy; diagnosis needs 2+ unprovoked seizures — https://www.who.int/news-room/fact-sheets/detail/epilepsy — high
+- Clinical definition also counts 1 unprovoked seizure with high recurrence risk (~60%+); ILAE definition, not fetched directly — https://www.epilepsy.com — medium
+- Seizure = sudden abnormal burst of electrical activity in the brain; causes stiffness/jerking, loss of awareness, odd sensations — https://www.nhs.uk/conditions/epilepsy/ — high
+- ~50 million people worldwide have epilepsy; ~5 million newly diagnosed each year; ~80% live in low/middle-income countries — https://www.who.int/news-room/fact-sheets/detail/epilepsy — high
+- Up to 70% could be seizure-free with proper anti-seizure medicines — https://www.who.int/news-room/fact-sheets/detail/epilepsy ; https://www.dtnext.in/lifestyle/wellbeing/early-diagnosis-treatment-can-help-70pc-of-epilepsy-patients-lead-normal-lives-experts-813445 — high
+- ~3/4 of people with epilepsy in low-income countries get no treatment; generic medicine availability in public sector of LMICs <50% — https://www.who.int/news-room/fact-sheets/detail/epilepsy — high
+- India: ~10-12 million people with epilepsy (~1/6 of global burden); prevalence 3.0-11.9 per 1,000 — https://pmc.ncbi.nlm.nih.gov/articles/PMC4564458 — medium (older data, no recent national survey)
+- India treatment gap very large in rural areas (up to ~90%); only ~10% rural vs ~60% urban consult a doctor after a seizure — https://worldneurologyonline.com/article/overcoming-untreated-epilepsy-in-the-developing-world-the-way-forward/ ; https://thehansindia.com/posts/index/Hans/2015-11-17/Overcoming-the-Disease/187104 — medium
+- India: monthly cost of one generic anti-seizure drug ~$2-5 — https://worldneurologyonline.com/article/overcoming-untreated-epilepsy-in-the-developing-world-the-way-forward/ — medium
+- Cause unknown in ~50% of cases — https://www.who.int/news-room/fact-sheets/detail/epilepsy — high
+- Known causes: prenatal/birth injury, head injury, stroke, brain infections (meningitis, neurocysticercosis), genetic syndromes, brain tumours — https://www.who.int/news-room/fact-sheets/detail/epilepsy ; https://www.nhs.uk/conditions/epilepsy/ — high
+- Neurocysticercosis (pork tapeworm larvae in brain) is a major cause in India; a 2024 news piece says ~30% of epilepsy cases — https://www.dtnext.in/lifestyle/wellbeing/early-diagnosis-treatment-can-help-70pc-of-epilepsy-patients-lead-normal-lives-experts-813445 ; https://ghdx.healthdata.org/print/124499 — medium (30% figure single source; rare in Kerala)
+- Seizure types: tonic-clonic (loss of consciousness, stiffening, shaking), absence (brief blank loss of awareness), focal (unusual sensations/movements), tonic, atonic, myoclonic (jerks) — https://www.nhs.uk/conditions/epilepsy/ — high
+- Triggers: tiredness/sleep loss, stress, periods, flashing lights (some people), certain foods/drinks, heavy alcohol; diary helps — https://www.nhs.uk/conditions/epilepsy/ — high
+- Managing fever in children helps prevention (WHO); missed medicines are a top trigger (clinical consensus) — https://www.who.int/news-room/fact-sheets/detail/epilepsy — medium
+- First aid DO: stay calm, clear nearby objects, roll onto side, cushion head, loosen neck clothing, time the seizure, stay until alert — https://www.cdc.gov/epilepsy/first-aid-for-seizures/index.html — high
+- First aid DON'T: don't hold person down, don't put anything in mouth, no mouth-to-mouth, no food/water until fully alert — https://www.cdc.gov/epilepsy/first-aid-for-seizures/index.html — high
+- Call emergency if: seizure >5 min, another soon after, trouble breathing/not waking, injury, in water, first seizure, pregnant (NHS also: 3+ seizures in 24h) — https://www.cdc.gov/epilepsy/first-aid-for-seizures/index.html ; https://www.nhs.uk/conditions/epilepsy/ — high
+- Treatment: anti-seizure medicines main; surgery occasionally; vagus nerve stimulation (VNS) device; ketogenic diet in some; stop meds only under specialist, usually after 2 seizure-free years — https://www.nhs.uk/conditions/epilepsy/ — high
+- ~25% of cases potentially preventable: prevent head injury, good perinatal care, manage childhood fevers, control CV risk factors, reduce neurocysticercosis/CNS infections — https://www.who.int/news-room/fact-sheets/detail/epilepsy — high
+- Risk of premature death up to 3x general population; many deaths preventable (falls, drowning, burns, prolonged seizures) — https://www.who.int/news-room/fact-sheets/detail/epilepsy — high
+- SUDEP is rare; effective treatment lowers risk — https://www.nhs.uk/conditions/epilepsy/ — high
+- Not contagious; stigma limits education, driving, employment, insurance, and discourages treatment — https://www.who.int/news-room/fact-sheets/detail/epilepsy — high
+- Cannot be cured currently but often well controlled — https://www.nhs.uk/conditions/epilepsy/ — high
+- Keys/shoe-to-smell remedy has no medical benefit (CDC first aid lists nothing like it; implied by absence, not explicit) — https://www.cdc.gov/epilepsy/first-aid-for-seizures/index.html — medium
+
+## Angle
+- Twist: epilepsy is usually a treatable, controllable condition (up to 70% seizure-free with cheap generic pills, ~$2-5/month), yet in low-income settings ~3 of 4 get no treatment. The real danger is myths and delay, not the brain itself.
+- India twist: pork tapeworm / unwashed vegetables (neurocysticercosis) can cause seizures, so part of epilepsy is preventable through hygiene.
+- Misconception: keys/shoe in hand or holding the person down helps. It does not; turn on side, cushion head, time it, nothing in mouth. Also: epilepsy is not contagious, not possession or madness; people can study, work, marry and have children.

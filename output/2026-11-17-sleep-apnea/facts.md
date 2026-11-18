@@ -1,0 +1,35 @@
+# Sleep Apnea
+- Sleep apnea = breathing repeatedly stops and restarts during sleep, so not enough oxygen reaches the body — https://www.nhlbi.nih.gov/health/sleep-apnea — high
+- Two main types: obstructive (OSA, upper airway repeatedly blocked; most common) and central (brain does not send breathing signals) — https://www.nhlbi.nih.gov/health/sleep-apnea — high
+- Normally, throat muscles relax in sleep; in OSA the airway narrows/collapses, breathing stops, oxygen falls, brain briefly wakes the person (gasp/snort), cycle repeats many times a night — https://www.nhs.uk/conditions/sleep-apnoea/ — high
+- Apnea event is conventionally a pause of >=10 seconds (standard clinical definition; not confirmed from a fetched page, taught in standard sleep medicine) — https://pmc.ncbi.nlm.nih.gov/articles/PMC11172971/ — medium
+- AHI (apneas+hypopneas per hour of sleep) severity: mild 5-14, moderate 15-29, severe 30+ (sources differ slightly at edges, e.g. 5-15/15-30) — https://pmc.ncbi.nlm.nih.gov/articles/PMC12562078/ — medium
+- Global: ~936 million adults aged 30-69 have OSA (AHI>=5); ~425 million moderate-to-severe (AHI>=15) — https://pubmed.ncbi.nlm.nih.gov/31300334/ — high (Lancet Resp Med 2019, Benjafield; ResMed-funded; model-based, only 16 countries had data; also reported by https://www.healio.com/news/pulmonology/20190729/osa-may-affect-nearly-1-billion-adults-worldwide)
+- India ranks 4th in number affected (after China, USA, Brazil) in the Benjafield estimate — https://pubmed.ncbi.nlm.nih.gov/31300334/ — medium (from secondary summary)
+- India: AIIMS Delhi meta-analysis (Sleep Medicine Reviews 2023, 8 studies, 11,009 people): 11% of adults overall (13% men, 5% women), 5% moderate-severe; ~10.4 crore (104 million) working-age Indians, ~4.7 crore moderate-severe — https://medicaldialogues.in/news/health/hospital-diagnostics/massive-burden-of-osa-in-india-aiims-study-reveals-104-crore-indians-suffer-from-obstructive-sleep-apnea-118512 — medium (high heterogeneity between studies; also https://www.dtnext.in/lifestyle/wellbeing/104-cr-indians-may-be-suffering-from-obstructive-sleep-apnea-aiims-study-740613)
+- Most people with OSA are undiagnosed (widely stated; not verified in fetched pages) — https://www.nhlbi.nih.gov/health/sleep-apnea — medium
+- Risk factors: obesity, large neck, older age (but young adults/children too), family history, alcohol, smoking, large tonsils/adenoids, sleeping on back, COPD — https://www.nhs.uk/conditions/sleep-apnoea/ — high
+- NHLBI: obesity, large tonsils, hormone changes can narrow airway — https://www.nhlbi.nih.gov/health/sleep-apnea — high
+- Male sex raises risk (India meta-analysis 13% men vs 5% women) — https://medicaldialogues.in/news/health/hospital-diagnostics/massive-burden-of-osa-in-india-aiims-study-reveals-104-crore-indians-suffer-from-obstructive-sleep-apnea-118512 — medium
+- Alcohol and sleeping pills (sedatives) relax throat muscles; avoid before bed, don't take sleeping pills unless doctor advises — https://www.nhs.uk/conditions/sleep-apnoea/ — high
+- Symptoms: loud snoring, gasping/snorting/choking at night, breathing pauses (often noticed by partner), morning headache, daytime tiredness, poor concentration, mood swings — https://www.nhs.uk/conditions/sleep-apnoea/ — high
+- Night urination (nocturia) is a common OSA symptom (not in fetched pages; standard clinical knowledge) — https://pmc.ncbi.nlm.nih.gov/articles/PMC12562078/ — medium
+- Complications if untreated: high BP, heart disease, stroke, type 2 diabetes, depression, tiredness-related/driving accidents, poor concentration, relationship strain — https://www.nhs.uk/conditions/sleep-apnoea/ — high
+- NHLBI: untreated raises risk of stroke and heart attack, trouble concentrating/decisions/memory — https://www.nhlbi.nih.gov/health/sleep-apnea — high
+- OSA raises risk of new atrial fibrillation (odds ratio ~1.71), risk rises with severity — https://pmc.ncbi.nlm.nih.gov/articles/PMC11172971/ — medium (observational)
+- Untreated severe OSA: ~2.5x stroke risk over ~6 years vs AHI<30 (one review) — https://pmc.ncbi.nlm.nih.gov/articles/PMC12562078/ — medium (observational; causality not fully proven)
+- BP elevation relates to OSA severity — https://pmc.ncbi.nlm.nih.gov/articles/PMC12562078/ — medium
+- Diagnosis: sleep study (polysomnography in lab, or home sleep test) ordered by a doctor — https://www.nhlbi.nih.gov/health/sleep-apnea — high
+- Treatment: CPAP (works best used every night), lifestyle change (weight loss, quit smoking, less alcohol), mandibular advancement device, surgery (e.g., tonsil removal), mouth/facial muscle exercises, hypoglossal nerve stimulation — https://www.nhs.uk/conditions/sleep-apnoea/ — high
+- Self-help: sleep on side (e.g. bed wedge), regular exercise, healthy weight, consistent sleep schedule, no smoking/heavy drinking before bed — https://www.nhs.uk/conditions/sleep-apnoea/ — high
+- Tirzepatide (Zepbound) FDA-approved Dec 20, 2024 for moderate-severe OSA in adults with obesity, first prescription drug for OSA; used with diet + exercise — https://www.webmd.com/sleep-disorders/sleep-apnea/news/20241223/cm/fda-approves-zepbound-obstructive-sleep-apnea — high (also https://www.pharmacist.com/Blogs/CEO-Blog/fda-approves-zepbound-for-obstructive-sleep-apnea)
+- SURMOUNT-OSA: AHI fell by 25.3 events/hour on tirzepatide vs 5.3 on placebo at 52 weeks; boxed warning thyroid C-cell tumours; nausea, vomiting, diarrhea common — https://www.webmd.com/sleep-disorders/sleep-apnea/news/20241223/cm/fda-approves-zepbound-obstructive-sleep-apnea — medium (secondary coverage; FDA page not fetched). Availability/cost in India not verified.
+- See doctor if: breathing stops/starts in sleep, gasping/choking at night, very tired in daytime — https://www.nhs.uk/conditions/sleep-apnoea/ — high
+- Red flag: nodding off while driving or at work, high BP not controlled, morning headaches, witnessed pauses — https://www.nhs.uk/conditions/sleep-apnoea/ — medium
+- Children can get OSA; large tonsils/adenoids are a key cause, tonsil removal is a treatment — https://www.nhs.uk/conditions/sleep-apnoea/ — high
+- Not only overweight people: NHS lists age, family history, tonsils, alcohol etc.; India meta-analysis cohorts had mean age 35-48, i.e. working-age — https://www.nhs.uk/conditions/sleep-apnoea/ — medium
+- Central sleep apnea relates to brain/heart/neurological conditions rather than blocked airway — https://www.nhlbi.nih.gov/health/sleep-apnea — medium
+
+## Angle
+- Core twist: "snoring is not deep sleep, it is your body fighting for air" — the person often remembers nothing, the partner notices; a silent oxygen-drop that repeats dozens of times a night and quietly strains heart, BP and brain. Hook with India number: ~10 crore Indians, most never diagnosed.
+- Misconception to correct: "snoring = deep, healthy sleep", "only fat/old men get it", "children don't get it". Facts: pauses + gasping are the danger sign; thin people, women, kids (tonsils) can get it; 5-8 hours in bed but still tired = clue.

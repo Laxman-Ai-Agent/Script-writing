@@ -1,0 +1,9 @@
+🤖 మనుషుల videos చూసి robots పని నేర్చుకుంటున్నాయి: NVIDIA GR00T 2 ఎలా పనిచేస్తుంది?
+
+మనుషుల videos చూసి పని నేర్చుకునే robot AI ని NVIDIA release చేసింది, పేరు GR00T 2. ఇది ఎలా నేర్చుకుంటుంది? Results ఎలా ఉన్నాయి? ఈ విషయాలన్నీ ఇప్పుడు in detail గా ఈ video లో చూద్దాం.
+
+అమ్మ వంట చేస్తుంటే పక్కన నిలబడి చూసే పిల్లలు, అలా చూస్తూనే వంట నేర్చుకుంటారు కదా. GR00T 2 కూడా అంతే. మనుషులు తల మీద camera పెట్టుకుని record చేసిన roughly four lakh hours videos చూసింది. ఇప్పుడు next ఏం జరుగుతుందో, చెయ్యి ఎలా కదపాలో, రెండూ ఒకేసారి predict చేస్తుంది.
+
+మరి results? ఏ training లేకుండా fifty tasks మీద average forty percent success. కానీ ఒక్కో task కి five demos చూపించి, ఒక్క RTX fifty ninety మీద thirty minutes train చేస్తే, ninety five percent కి వెళ్ళింది.
+
+కానీ ఇవన్నీ NVIDIA సొంత tests, tasks కూడా model కి easy గా వచ్చేవే ఎంచుకున్నారు. Foxconn, Siemens test చేస్తున్నాయి, కానీ factories లో ఇంకా వాడటం లేదు. Robots మనలా చూసి నేర్చుకునే రోజు దగ్గరకి వచ్చింది, కానీ ఇంకా పూర్తిగా రాలేదు. మీ ఇంట్లో robot పని చేస్తే మీరు ఒప్పుకుంటారా? Comment లో చెప్పండి.

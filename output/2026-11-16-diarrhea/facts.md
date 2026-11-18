@@ -1,0 +1,45 @@
+# Diarrhea
+- Diarrhoea = loose/watery stools 3+ times a day or more than normal for you — https://www.niddk.nih.gov/health-information/digestive-diseases/diarrhea/symptoms-causes — high
+- Diarrhoeal disease is the 3rd leading cause of death in children under 5 — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- Kills about 443,832 children under 5 per year (+ ~50,851 aged 5-9) (WHO, March 2024 fact sheet) — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- Nearly 1.7 billion childhood cases per year; under-3s in low-income countries average ~3 episodes/year — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- 780 million people lack improved drinking water, 2.5 billion lack improved sanitation (WHO) — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- India burden: ~55,309 under-5 diarrhoea deaths in 2019 (GBD 2019), rate 47/100,000 — https://bmcpublichealth.biomedcentral.com/track/pdf/10.1186/s12889-022-12515-3 — medium (modelled estimate)
+- India under-5 diarrhoea death rate fell from 147/100,000 (1990) to ~35/100,000 (2021, GBD 2021 Lancet Infect Dis) — https://health.medicaldialogues.in/health/study-shows-decline-in-diarrhoeal-disease-deaths-among-children-under-5-in-india-140165 — medium (news report of study)
+- Viral causes: rotavirus, norovirus, adenovirus, astrovirus — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- Bacterial causes: E. coli, Salmonella, Shigella, Campylobacter; cholera = Vibrio cholerae — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- Parasites: Cryptosporidium, Giardia, Entamoeba — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- Spread via contaminated water/food and person-to-person with poor hygiene — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- Malnutrition raises risk of diarrhoea, and each episode worsens malnutrition (vicious cycle) — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- Non-infectious causes: medicines (antibiotics, magnesium antacids, some cancer drugs, sugar alcohols), lactose/fructose intolerance, celiac, IBD, IBS — https://www.niddk.nih.gov/health-information/digestive-diseases/diarrhea/symptoms-causes — high
+- Antibiotics can disturb gut flora and raise C. difficile risk — https://www.niddk.nih.gov/health-information/digestive-diseases/diarrhea/symptoms-causes — high
+- Cholera: rapid fluid loss leads to dehydration and shock; treat with rehydration, antibiotics, zinc for children — https://www.cdc.gov/cholera/about/index.html — high
+- Gut mechanism: small intestine absorbs most fluid, colon the rest; toxins (e.g., cholera, ETEC) open chloride channels so water floods lumen (secretory); unabsorbed sugars pull water (osmotic, e.g., lactose); invasive germs damage lining (inflammatory, bloody) — general physiology, not on fetched pages — medium (no URL fetched; verify before claiming specifics like "chloride channels")
+- NHS: diarrhoea usually lasts 5-7 days; vomiting 1-2 days — https://www.nhs.uk/conditions/diarrhoea-and-vomiting/ — high
+- Dehydration signs adults: extreme thirst/dry mouth, less/dark urine, tired, dizzy, skin pinch slow to flatten, sunken eyes/cheeks — https://www.niddk.nih.gov/health-information/digestive-diseases/diarrhea/symptoms-causes — high
+- Dehydration signs infants/children: no wet diaper 3+ hours, no tears, sunken soft spot, drowsiness — https://www.niddk.nih.gov/health-information/digestive-diseases/diarrhea/symptoms-causes — high
+- NIDDK: "A child with symptoms of dehydration can die within a day if left untreated" — https://www.niddk.nih.gov/health-information/digestive-diseases/diarrhea/symptoms-causes — high
+- See doctor: adults diarrhoea >2 days, high fever, 6+ loose stools/day; children >1 day; black/tarry/bloody/pus stools; severe abdominal pain; mental change; frequent vomiting — https://www.niddk.nih.gov/health-information/digestive-diseases/diarrhea/symptoms-causes — high
+- NHS: urgent help if blood in stool, can't keep fluids down, child under 5 with dehydration signs, baby under 12 months worry, confusion, blue/grey skin — https://www.nhs.uk/conditions/diarrhoea-and-vomiting/ — high
+- Higher risk: infants under 12 months, premature babies, pregnant, over 65, weak immunity — https://www.niddk.nih.gov/health-information/digestive-diseases/diarrhea/symptoms-causes — high
+- ORS (clean water, salt, sugar) is the main treatment, costs only a few cents per dose — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- WHO/UNICEF low-osmolarity ORS (since 2002): glucose 75 mmol/L, sodium 75 mmol/L, total 245 mOsm/L (older 311 mOsm/L formula superseded); sachet ~2.6 g NaCl/L + glucose, potassium 20, citrate 10 mmol/L — https://rehydrate.org/ors/who-unicef-statement.html — high
+- ORS works via sodium-glucose co-transport in the small intestine pulling water in even during diarrhoea — standard physiology, not explicit in fetched pages — medium
+- Zinc 20 mg/day for 10-14 days in children shortens episodes ~25%, reduces stool volume ~30% — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- Zinc 20 mg/day regimen with continued breastfeeding — https://news.un.org/en/story/2006/03/173122 — high
+- IV fluids needed for severe dehydration or shock — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- Keep feeding, including breast milk; continue breastfeeding/formula in babies — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- Don't dilute baby formula; use usual strength — https://www.nhs.uk/conditions/diarrhoea-and-vomiting/ — high
+- Avoid fruit juice and fizzy drinks (can worsen diarrhoea); avoid fatty/spicy food — https://www.nhs.uk/conditions/diarrhoea-and-vomiting/ — high
+- Anti-diarrhoea medicine (loperamide) not for children under 12 (NHS); only a few hours' relief — https://www.nhs.uk/conditions/diarrhoea-and-vomiting/ — high
+- No antibiotics needed for most; used only for specific causes (cholera, Shigella/bloody) — WHO page silent on antibiotics; CDC cholera lists them — https://www.cdc.gov/cholera/about/index.html — medium
+- Antimotility drugs unsafe in bloody diarrhoea — general guidance, not on fetched pages (NHS: blood = seek help) — medium
+- Prevention: safe water, sanitation, handwashing with soap, exclusive breastfeeding 6 months, food hygiene, rotavirus vaccine — https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease — high
+- Complications: dehydration, malabsorption, weight loss/poor weight gain in children; shock in cholera — https://www.niddk.nih.gov/health-information/digestive-diseases/diarrhea/symptoms-causes — high
+- Kidney injury / electrolyte imbalance as complications — general medical knowledge, not on fetched pages — medium
+- Sugar-only water/cola is not a substitute for ORS (no balanced sodium; NHS says fizzy drinks can worsen) — https://www.nhs.uk/conditions/diarrhoea-and-vomiting/ — medium
+
+## Angle
+- Core insight: diarrhoea itself doesn't kill, the lost water and salt does; a few-cent sachet of salt + sugar (ORS), working through sodium-glucose co-transport, beats most expensive medicines. Diarrhoea is the body flushing out germs, so stopping it with tablets is often the wrong goal.
+- Why it matters: ~4.4 lakh children under 5 die yearly worldwide (WHO); India ~55,000 in 2019 (GBD), though falling.
+- Misconceptions to correct: (1) stop food/milk/breastfeeding — wrong, keep feeding; (2) antibiotics always needed — no, only specific causes; (3) cola/juice/glucose water is enough — no, can worsen; use ORS; (4) stop the motions with tablets — not for kids or bloody stool.

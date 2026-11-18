@@ -1,0 +1,39 @@
+# Asthma
+- ~363 million people had asthma in 2023 — https://www.who.int/news-room/fact-sheets/detail/asthma — high
+- ~442,000 asthma deaths in 2023, most in low/lower-middle-income countries — https://www.who.int/news-room/fact-sheets/detail/asthma — high
+- GBD 2019 estimate 461,070 deaths (earlier GBD 2015 ~0.4 million), so ~0.4-0.46 million/yr is consistent across 2 sources — https://pubmed.ncbi.nlm.nih.gov/30219316/ (via search summary) — medium
+- India had ~37.9 million asthma cases in 2016; DALYs per case 2.4x global average — Lancet Global Health 2018, https://pubmed.ncbi.nlm.nih.gov/30219316/ — high
+- India ~42% of global asthma deaths (secondary/advocacy sources, year unclear, primary GBD table not verified) — https://globalasthmanetwork.org/advocacy/abstract.php?abstract=8 — disputed
+- Most common chronic disease in children; often underdiagnosed/undertreated in LMICs — https://www.who.int/news-room/fact-sheets/detail/asthma — high
+- No cure, but can be controlled — WHO, NHLBI https://www.nhlbi.nih.gov/health/asthma, NHS https://www.nhs.uk/conditions/asthma/ — high
+- Exact cause unknown; usually starts in childhood, can start in adulthood — NHLBI https://www.nhlbi.nih.gov/health/asthma/causes — high
+- Risk factors: family history (parent/sibling), allergies/eczema/hay fever, obesity, prematurity/low birth weight, early tobacco smoke, viral infections, urbanization, workplace dust/chemicals, air pollution — WHO + NHLBI causes — high
+- Triggers: dust mites, mould, pet dander, pollen, smoke, fumes, strong perfumes/soaps, cold air, exercise, colds/flu/COVID, stress, weather change — WHO, NHLBI, NHS — high
+- Some medicines can trigger: aspirin, ibuprofen, beta blockers — https://www.nhs.uk/conditions/asthma/ — high
+- Inside airways: immune system overreacts to inhaled substance -> inflammation/swelling; airway muscles tighten; extra mucus; airway narrows, so air is hard to breathe out -> wheeze — NHLBI causes, NHLBI main, CDC https://www.cdc.gov/asthma/about/index.html — high
+- Over time airway walls can thicken (remodeling) — https://www.nhlbi.nih.gov/health/asthma/causes — medium (no detail on irreversibility/lung function in fetched pages)
+- Symptoms: cough (often night/early morning), wheeze, breathlessness, chest tightness; come and go; worse at night/exercise — WHO, NHS, CDC — high
+- NHS severe attack: getting worse, no relief after max reliever dose, or no inhaler -> call emergency (999); don't drive yourself — https://www.nhs.uk/conditions/asthma/ — high
+- NHS attack steps: sit up, stay calm, blue reliever 1 puff every 30-60 s up to 10 puffs (or AIR/MART 1 puff every 1-3 min up to 6); repeat after 10 min if ambulance not arrived — https://www.nhs.uk/conditions/asthma/ — high
+- Hospital care for severe attacks: oxygen, nebuliser, steroids — https://www.nhs.uk/conditions/asthma/ — high
+- Blue lips / can't speak full sentences as red flags: standard clinical teaching, NOT confirmed in fetched pages (NHLBI attack page 404) — medium
+- Reliever (bronchodilator e.g. salbutamol) opens airways fast; controller/preventer (inhaled corticosteroid e.g. beclometasone) reduces inflammation, lowers risk of severe attacks and death; combination inhalers exist — WHO, CDC, NHS — high
+- Needing reliever more often = see doctor for different/stronger controller — https://www.cdc.gov/asthma/about/index.html — high
+- Spacer makes inhaler easier, esp. children; homemade 500 ml plastic-bottle spacer can work as well as commercial — https://www.who.int/news-room/fact-sheets/detail/asthma — high
+- Other treatment: montelukast tablets, biological injections for severe asthma — https://www.nhs.uk/conditions/asthma/ — high
+- Personal asthma action plan: monitor symptoms, avoid triggers, take medicines — https://www.nhlbi.nih.gov/health/asthma — high
+- GINA: SABA-alone not recommended for any patient since 2019; preferred Track 1 = low-dose ICS-formoterol as reliever (AIR/MART) — https://practicenurse.co.uk/guidelines/guidelines-in-a-nutshell-gina-2024-how-to-improve-long-term-outcomes-for-people-with-asthma , https://pubmed.ncbi.nlm.nih.gov/39421468/ (secondary summaries; GINA PDF not retrievable) — medium
+- As-needed ICS-formoterol cut severe exacerbations by ~60%+ vs SABA alone in mild asthma — review via search summary (https://pmc.ncbi.nlm.nih.gov/articles/PMC8865583) — medium
+- Access gap: in 2023 bronchodilators in public primary care in <2/3 of LMICs; steroid inhalers in <1/2 — https://www.who.int/news-room/fact-sheets/detail/asthma — high
+- Inhaled steroids are safe, not habit-forming, tiny dose vs oral steroids — https://www.aaaai.org/tools-for-the-public/conditions-library/asthma/asthma-myths-debunked — high
+- Regular inhaled steroids in children do not significantly affect adult height — https://cumming.ucalgary.ca/research/icancontrolasthma/resources/frequently-asked-questions — medium
+- Well-controlled asthma: can exercise normally; pre-exercise reliever may be advised; cold dry air triggers more — AAAAI, https://asthmafoundation.org.nz/stories/busting-common-asthma-myths — high
+- "Children outgrow asthma": symptoms may improve by puberty but often return/persist; estimates vary (one clinician 8/10 outgrow; ACAAI says most do not) — AAAAI, https://cm.healio.com/news/pulmonology/20190531/acaai-president-busts-common-asthma-myths — disputed
+- Asthma is not contagious (colds trigger attacks, but asthma itself is not infectious) — general medical consensus, not explicit in fetched pages — medium
+- Diet: no evidence-backed diet cure in fetched sources; obesity is a risk factor so weight control helps; skip diet claims — https://www.who.int/news-room/fact-sheets/detail/asthma — medium
+- Home remedies (steam, honey, herbal) are not substitutes for inhalers — general consensus; no fetched source states this — medium
+
+## Angle
+- Core twist: asthma isn't "weak lungs"; it's an airway that looks normal but is overly sensitive. The real danger is invisible inflammation between attacks, and the quick-relief puff only fixes the muscle squeeze, not the swelling. Relying only on the reliever is the risky pattern (GINA moved away from it); the "steroid" preventer is the lifesaver.
+- Why it matters: ~363M people, ~442k deaths in 2023, mostly in LMICs where inhalers are scarce; India carries a large share (~38M cases in 2016; 42% death-share unverified).
+- Misconception to correct: "inhalers are addictive / steroids are dangerous, so avoid them". Fear of the inhaler drives undertreatment and deaths. Also "asthma only matters when wheezing" and "exercise must be avoided".

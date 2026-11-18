@@ -1,0 +1,46 @@
+# Constipation
+- NIDDK definition: fewer than 3 bowel movements/week, or hard/dry/lumpy stool, hard or painful to pass, or feeling of incomplete emptying — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/definition-facts — high
+- It is a symptom, not a disease; can be short or long term — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/definition-facts — high
+- "Only you know what's normal for you" (bowel patterns vary; commonly quoted normal range 3/day to 3/week) — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/definition-facts — medium (3/day upper end is common knowledge, not stated on page)
+- WHY IT MATTERS: about 16 in 100 US adults have constipation symptoms; about 33 in 100 aged 60+ — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/definition-facts — high
+- WHY IT MATTERS: global prevalence 11.7% (Rome IV, Rome Foundation study); earlier estimate 14%; range 9-20% — https://www.worldgastroenterology.org/guidelines/constipation/constipation-english — high
+- Twice as common in women as men — https://www.worldgastroenterology.org/guidelines/constipation/constipation-english — high
+- Only ~20% of people with chronic constipation seek medical care (partly stigma) — https://www.worldgastroenterology.org/guidelines/constipation/constipation-english — medium
+- India: community estimates vary widely (about 8.6% to 25% in different surveys; Rome Asia study reported 1.8% for India). Indian consensus says define by stool form and patient perception, not frequency — https://pmc.ncbi.nlm.nih.gov/articles/PMC6339668 and https://link.springer.com/article/10.1007/s12664-018-0894-1 — disputed (no single Indian figure; use "roughly 1 in 4 in some Indian surveys", hedge)
+- Rome IV functional constipation key symptoms: straining, hard stools, sense of anorectal blockage, reduced frequency — https://www.worldgastroenterology.org/guidelines/constipation/constipation-english — high
+- Types: normal transit, slow transit, defecatory disorder (pelvic floor, paradoxical anal contraction) — https://www.worldgastroenterology.org/guidelines/constipation/constipation-english — high
+- Mechanism (colon absorbs water from stool; slower transit = more water absorbed = hard dry stool = straining) — general physiology, consistent with WGO "colonic motility" framing — https://www.worldgastroenterology.org/guidelines/constipation/constipation-english — medium (page did not spell out water absorption; textbook fact; stool is ~75% water when normal, commonly cited)
+- Causes: low fibre, dehydration, inactivity, ignoring the urge, stress/anxiety, routine change — https://www.nhs.uk/conditions/constipation/ — high
+- Medicines causing it: opioids/narcotics, iron, aluminium/calcium antacids, anticholinergics, calcium channel blockers, diuretics, some antidepressants — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/symptoms-causes — high
+- Medical causes: hypothyroidism, diabetes, IBS, celiac, pelvic floor disorders, nerve/spinal disorders, blockage — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/symptoms-causes — high
+- Common in pregnancy, after birth, and over 65 — https://www.nhs.uk/conditions/constipation/ — high
+- Symptoms: hard lumpy stool, straining, pain, incomplete emptying, bloating, stomach ache, feeling sick — https://www.nhs.uk/conditions/constipation/ — high
+- Elderly/dementia: confusion or behaviour change can be a sign — https://www.nhs.uk/conditions/constipation/ — high
+- See doctor RIGHT AWAY if with: rectal bleeding/blood in stool, constant abdominal pain, cannot pass gas, vomiting, fever, lower back pain, unexplained weight loss — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/symptoms-causes — high
+- See doctor also if not improving with self-care or family history of colon/rectal cancer — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/symptoms-causes — high
+- NHS: see GP if blood in poo, unexplained weight loss, tired all the time, sudden bowel habit change, regular constipation/bloating — https://www.nhs.uk/conditions/constipation/ — high
+- "New change after 50" and "lasting >3 weeks" thresholds: commonly used clinical rule of thumb, not stated on the fetched pages — https://www.nhs.uk/conditions/constipation/ (sudden change only) — disputed/medium (state softly: "new change, especially in older age, or not settling")
+- Fibre target: adults 22-34 g/day by age and sex; add gradually — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/eating-diet-nutrition — high
+- WGO fibre target 20-30 g/day, increase over weeks; avoid fibre supplements in defecatory disorders — https://www.worldgastroenterology.org/guidelines/constipation/constipation-english — high
+- Fluids: drink plenty (water, clear soups, fruit/veg juices) to help fibre work; avoid alcohol (NHS) — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/eating-diet-nutrition — high
+- Diet do: whole grains, oats, bran, lentils/beans/chickpeas, fruit with skin, vegetables, nuts; sorbitol fruits (apple, grapes, berries) — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/eating-diet-nutrition — high
+- Diet limit: chips, fast food, processed/frozen foods, lots of meat (low fibre) — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/eating-diet-nutrition — high
+- Toilet habit: try going 15-45 min after breakfast, same time daily; don't delay urge — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/treatment — high
+- Footstool: rest feet on low stool, knees above hips — https://www.nhs.uk/conditions/constipation/ — high
+- Daily walk/regular exercise helps — https://www.nhs.uk/conditions/constipation/ — high
+- Improvement may take a few days to several weeks — https://www.nhs.uk/conditions/constipation/ — high
+- Treatments: fibre supplements, osmotic agents, stool softeners, lubricants, stimulants; laxatives short term — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/treatment — high
+- Stimulant laxatives reserved for severe cases / when others fail; rescue use (bisacodyl) to limit cramps and electrolyte imbalance — https://www.worldgastroenterology.org/guidelines/constipation/constipation-english — high
+- Osmotic laxatives (PEG, lactulose) first-line drugs; lactulose more gas/GI side effects — https://www.worldgastroenterology.org/guidelines/constipation/constipation-english — high
+- After long laxative use, ask doctor to taper; colon should resume normal movement over time — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/treatment — medium (NIDDK wording; "laxative dependence" debated)
+- Biofeedback retrains pelvic floor/abdominal muscles for defecatory disorders (pelvic floor dyssynergia) — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/treatment — high
+- Don't start/stop medicines without doctor advice — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/treatment — high
+- Complication: faecal impaction (hard stool stuck in rectum; sign = watery leakage around it); needs professional treatment, don't self-remove — https://www.nhs.uk/conditions/constipation/ — high
+- Complications also: haemorrhoids, anal fissure, rectal prolapse (from chronic straining) — not on fetched pages (Mayo page blocked); standard clinical knowledge, check Mayo https://www.mayoclinic.org/diseases-conditions/constipation/symptoms-causes/syc-20354253 — medium
+- NHS: serious causes like bowel cancer are rare — https://www.nhs.uk/conditions/constipation/ — high
+- Myth "must go every day": normal varies, up to 3/week can be normal — https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/definition-facts — medium
+- Myth "toxins build up from constipation": no source found supporting; treat as unsupported — no source — medium (say "no good evidence"; avoid strong claim)
+## Angle
+- Core twist: constipation is mostly not about "how often" but about stool being too dry and hard because it sat too long in the colon, which keeps absorbing water. Fix the water/fibre/timing/posture, not just "take a laxative".
+- Why it matters: roughly 1 in 8 to 1 in 7 people worldwide (11.7-14%), 1 in 3 elderly, yet only ~20% see a doctor.
+- Misconception to correct: "No motion today = constipation" and "daily laxative is harmless / toxins build up". Reality: normal range is wide; stimulant laxatives are for short-term/rescue use; red flags (blood, weight loss, vomiting, no gas) need a doctor.

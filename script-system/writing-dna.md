@@ -16,14 +16,9 @@ Load THIS file for every script. Do not re-read the sample folder.
 
 1. **Spoken Telugu (వ్యావహారికం)**, never గ్రాంథికం. "చేస్తారు", "వస్తుంది", "అనుకోండి" — not "చేయబడును", "వచ్చుచున్నది".
 2. **Connected paragraphs, not one-liners.** (User correction 2026-11-09 — supersedes the old one-idea-per-line habit.) Group 3–6 sentences that belong to one beat into a paragraph; blank line between paragraphs. Mix short, medium and longer sentences. The script must read like one person talking continuously, not a list of separate statements.
-3. ⚠️ **SUPERSEDED for script choice (2026-11-09, see §11 "LATEST" bullet):** both channels, all lengths now use natural Tanglish with English words in Latin script. The points below still hold for avoiding bookish Telugu and describing instead of labelling. **Telugu first, English only when Telugu speakers really say it in English.** (User correction 2026-11-09 — supersedes the sample-era heavy Tanglish.)
-   - Use the everyday Telugu word whenever one exists: సున్నితమైన నరాలు (not sensitive nerves), స్పందిస్తాయి (not alert అవుతాయి), సంకేతం (not order/signal), వాయువు (not gas), పదునైన కత్తి (not sharp కత్తి), ద్రవ బిందువులు (not droplets), పరిశోధకులు (not scientists), కాసేపట్లోనే (not కొన్ని secondsలోనే), ఆసక్తికరమైన (not interesting).
-   - Borrowed words that Telugu speakers use daily are written **in Telugu script**: సల్ఫర్, ఎంజైమ్‌లు, కార్నియా, హై-స్పీడ్ కెమెరా, కామెంట్.
-   - **Latin script only** for proper names, brand/product names, scientific compound names and on-screen codes: Cornell University, Syn-Propanethial-S-oxide, Bluetooth, GPS, YES/NO.
-   - Hybrid "English verb + చేస్తుంది/అవుతుంది" (decide చేస్తుంది, detect అవుతుంది) only when no natural Telugu verb exists. Prefer the Telugu verb.
-   - Prefer plain spoken Telugu over sophisticated/Sanskritized words. "తాకనే తాకదు" beats both "touch చేయదు" and a bookish synonym.
+3. **Natural spoken Tanglish (both channels, all lengths).** Pick the word a Telugu person actually says. If that word is English, write it in **Latin script** (doctor, hospital, price, simple గా, daily); never an English word in Telugu script. If people say it in Telugu, write Telugu (పల్లెటూళ్లు, అలసట). Avoid bookish / Sanskritized Telugu ("తాకనే తాకదు" beats a bookish synonym). Describe instead of labelling jargon. Exceptions and per-channel word choices come from §11 and the Learning DB rules (newest wins).
 4. **Inclusive "మనం"** for exploring together: "ఇప్పుడు చూద్దాం", "మనం రోజూ చూసే…". **"మీరు"** for addressing the viewer. Occasional intimate "విను / చూడు" only in playful hooks.
-5. **Ellipsis "…" is the pause.** Used before reveals, after questions, in suspense. Em dash "—" for asides and punchy reveals.
+5. **No "…" pauses** (user rule 2026-11-18, TTS): make the pause a full stop or a complete sentence. Sample quotes in this file that still show "…" are pattern placeholders, not output style.
 6. **Hedge uncertain science honestly:** "scientists భావిస్తున్నారు", "అయి ఉండొచ్చు", "science దగ్గర ఇప్పటికీ పూర్తి answer లేదు".
 7. **Cite sources in-voice, never as footnotes:** "OpenAI తర్వాత చెప్పిన ప్రకారం…", "Hugging Face forensic investigation ప్రకారం…", "scientists అంచనా ప్రకారం…".
 
@@ -145,27 +140,27 @@ Long-form (≥5 min) habits from 19, 20, 24, 33: section breaks by blank line; e
 ## 11. Learned corrections (from user feedback — highest priority)
 
 - 2026-11-09: Write connected paragraphs with mixed sentence lengths, not one-sentence lines (§2.2).
-- 2026-11-09: Telugu words first; borrowed common words in Telugu script; Latin only for names/compounds (§2.3).
 - 2026-11-09: Don't overuse నిజానికి / అయితే / దాంతో / అందుకే / మరి; vary sentence openings.
 - 2026-11-09: Calm, natural tone over dramatic words; match hedging to the evidence.
 - 2026-11-09: Priority order — natural human narration > fancy vocabulary > artificial storytelling.
 - 2026-11-09: Use a key noun (e.g. వ్యవస్థ) only where it's really needed. On repeats, refer back with అది / ఇదే or name the specific thing (నరం, కండరం) instead of reusing the general word.
-- 2026-11-09 (AI Doctor 1-min rewrite): **Write the way people talk, not the way they read.** Pick the word a Telugu person would actually say. If that is an English word, write it in Telugu script (హాస్పిటల్, గవర్నమెంట్, సిటీ, పేషెంట్, టెస్ట్, ఎమర్జెన్సీ, షుగర్, ఫ్యామిలీ, ఫ్రెండ్స్, కామెంట్స్, చెక్ చేయడం, ట్రీట్మెంట్, బ్రెస్ట్ క్యాన్సర్). If a warm Telugu word is what people say, use it (పల్లెటూళ్లు, ఆడవాళ్లు, అలుపు, పసిగట్టు). This refines §2.3: "natural spoken" beats "Telugu at any cost". Avoid bookish forms: ప్రభుత్వం, ఆసుపత్రి, పరిశీలన, పట్టణం, మహిళలు, మధుమేహం, స్థానం. Latin script still only for names/codes (AI, YES).
-- 2026-11-09: Voice the viewer's own thought and pull them in: "…ఏదో రోబో వచ్చి ట్రీట్మెంట్ ఇస్తుందేమో అనుకుంటారు", "అసలు ఇది మనకెందుకు అవసరం?", "కానీ గుర్తుపెట్టుకోండి…". A question that opens a new beat starts its own paragraph. "అసలు" is NOT a fixed opener: whether it fits depends on the previous paragraph. Use it when the previous paragraph has described WHAT something is and the new question steps back to the root WHY/basic point (e.g. after "AI డాక్టర్ అంటే ఏంటి" → "అసలు ఇది మనకెందుకు అవసరం?"). Where the flow just continues, leave it out; pick the word the context calls for (అసలు / ఇంతకీ / మరి / none).
+- 2026-11-09 (AI Doctor 1-min rewrite): **Write the way people talk, not the way they read.** If a warm Telugu word is what people say, use it (పల్లెటూళ్లు, అలుపు, పసిగట్టు); English words people say go in Latin script (§2.3). "Natural spoken" beats "Telugu at any cost".
+- 2026-11-09: Voice the viewer's own thought and pull them in: "ఏదో robot వచ్చి treatment ఇస్తుందేమో అనుకుంటారు", "అసలు ఇది మనకెందుకు అవసరం?", "కానీ గుర్తుపెట్టుకోండి…". A question that opens a new beat starts its own paragraph. "అసలు" is NOT a fixed opener: whether it fits depends on the previous paragraph. Use it when the previous paragraph has described WHAT something is and the new question steps back to the root WHY/basic point (e.g. after "AI డాక్టర్ అంటే ఏంటి" → "అసలు ఇది మనకెందుకు అవసరం?"). Where the flow just continues, leave it out; pick the word the context calls for (అసలు / ఇంతకీ / మరి / none).
 - 2026-11-09: Prefer vivid everyday words/images over neutral description: చేదోడువాదోడు, అలుపు ఉండదు, క్షణాల్లో, పసిగట్టే, "ఒక విషయం తేలింది", "ఫోన్లో యాప్‌లు చూస్తూ కూర్చోకుండా".
-- 2026-11-09: Safety and CTA lines in plain spoken warning style, addressed straight to the viewer: "మీరంతట మీరే సొంత వైద్యం చేసుకోకుండా నేరుగా డాక్టర్‌నే కలవండి". CTA = "ఫ్రెండ్స్, ఫ్యామిలీకి షేర్ చేయండి" + a direct question ("…ఎప్పుడైనా ఇబ్బంది పడ్డారా? కింద కామెంట్స్‌లో చెప్పండి").
+- 2026-11-09: Safety lines in plain spoken warning style, addressed straight to the viewer: "మీరంతట మీరే సొంత వైద్యం చేసుకోకుండా నేరుగా doctor నే కలవండి". Exact CTA wording: newest Learning DB rule.
 - 2026-11-09: Spoken rewriting must not add claims beyond `facts.md` (e.g. MASAI showed more cancers found, not earlier detection) and should keep hedges like "అంచనా".
-- 2026-11-09 (AI Doctor 5-min rewrite — LATEST, overrides §2.3 script rule and the 1-min bullet above where they clash): **Health Decode long-form = natural Tanglish, English words in Latin script.** Write English words exactly as people mix them in speech, in Latin letters: chest pain, doctor, hospital, traffic, queue lines, tension, problem, cities, scan, detect, alert, support, proofs, challenges, golden opportunity, share. Telugu only for grammar, verbs-endings, idioms and words people really say in Telugu (పల్లెటూళ్లు, అలసట, అర్ధరాత్రి, పెద్దాయన). Applies to shorts too — user confirmed 2026-11-09 ("అవును, English లో"). Applies to **The Dark World** channel too — user confirmed 2026-11-09 ("అవును, అదే"). The Telugu-script loanword examples in the 1-min bullet above are superseded on this point.
+- 2026-11-09 (AI Doctor 5-min rewrite): **Health Decode long-form = natural Tanglish, English words in Latin script.** Write English words exactly as people mix them in speech, in Latin letters: chest pain, doctor, hospital, traffic, queue lines, tension, problem, cities, scan, detect, alert, support, proofs, challenges, golden opportunity, share. Telugu only for grammar, verbs-endings, idioms and words people really say in Telugu (పల్లెటూళ్లు, అలసట, అర్ధరాత్రి, పెద్దాయన). Applies to shorts too — user confirmed 2026-11-09 ("అవును, English లో"). Applies to **The Dark World** channel too — user confirmed 2026-11-09 ("అవును, అదే").
 - 2026-11-09: **Fewer, fuller paragraphs.** 5 min ≈ 8 paragraphs of 5–7 sentences; merge related proofs (Google + Sweden in one, Microsoft + India in one). Cut side topics that don't serve the core (drug-discovery para was dropped).
 - 2026-11-09: **Open with a step-by-step real-life scene**, each obstacle in a short clause: "ఊర్లో doctor ఉండరు, city కి వెళ్దామంటే traffic, తీరా hospital కి వెళ్ళాక queue lines…" then an idiom for feeling ("family పడే tension అంతా ఇంతా కాదు") then "సరిగ్గా ఇలాంటి gap ని fill చేయడానికే…".
 - 2026-11-09: **Section openers the user likes:** "ముందుగా … అసలు problem ఏంటో చూద్దాం", "మరి … నిజంగానే use అవుతుందా అంటే కొన్ని proofs చూద్దాం", "మన India విషయానికే వస్తే", "ఇప్పుడు ఒక practical scenario ఊహించుకోండి", "అయితే … కొన్ని major challenges ఉన్నాయి", "అయినప్పటికీ మన India కి ఇదొక golden opportunity". Close with "సో చూశారు కదా, …" + a strong image ("lifeline లా మారబోతోంది") + "ఏది ఏమైనా …" safety line. Scenario character = unnamed relatable person (ఊర్లో ఉండే ఒక పెద్దాయన, వాళ్లబ్బాయి), not a named one.
 - 2026-11-09: Keep caveats short instead of whole sentences — but keep at least a few words of hedge on study results (e.g. "పాత cases మీద test లో") so the fact-check rubric point stays ✅.
 
-- 2026-11-13 (Fable/Mythos 5.2 rewrite): **Straight intro first** — every script opens with the 3–4 line "ఈ video లో మనం … తెలుసుకోబోతున్నాం. అవే … అసలు …? …? అంతేకాదు, … ఈ video లో వివరంగా చూద్దాం." paragraph, then the hook (§4 note). The curiosity hook teases the most surprising fact in plain words ("test చేస్తున్న experts నే ఇది ఎలా మోసం చేసిందో").
+- 2026-11-13 (Fable/Mythos 5.2 rewrite): **Straight intro first** — every script opens with a short intro paragraph (topic / payoff, then short questions, then a closing "… ఈ video లో వివరంగా తెలుసుకుందాం."), then the hook (§4 note). Never "తెలుసుకోబోతున్నాం" or "ఒక్కసారి ఊహించుకోండి" (banned 2026-11-14). The curiosity hook teases the most surprising fact in plain words ("test చేస్తున్న experts నే ఇది ఎలా మోసం చేసిందో").
 - 2026-11-13: **English words people say in English stay English, in Latin script** — even when a Telugu word exists, if the English one is what people say: price (not ధర), double (not డబుల్), simple గా (not సింపుల్‌గా), speed (not వేగం, in "ఇదే speed"), powerful (not శక్తివంతమైన), weak spots (not బలహీనమైన చోట్లు), daily (not రోజువారీ), strict rules (not నిబంధనలు), freedom (not వెసులుబాటు), experts (not నిపుణులు). Never write an English word in Telugu script.
 - 2026-11-13: **Shorter, lighter verb forms**: చేసే over చేయగలిగే, ఆపడం over అడ్డుకోవడం, ఏళ్లుగా over ఏళ్ల పాటు. Grammar fix: "అందరూ వాడుకునేలా" (subject), not "అందరికీ వాడుకునేలా". Refer to the thing just named with దీన్ని (near), not దాన్ని.
 - 2026-11-13: Style edits must not drop facts, numbers or technical details — simplify the words only.
-- 2026-11-16 (both channels): **All numbers in Telugu words** — never digits, never English number words: 3 → మూడు, 25% → ఇరవై ఐదు శాతం, 1,500°C → పదిహేను వందల డిగ్రీల సెల్సియస్, 2026 → రెండు వేల ఇరవై ఆరు. Overrides digit examples elsewhere in this file (§3, §14).
+- 2026-11-18 (user choice): **Keep connected paragraphs with a blank line between them** — the line-by-line layout rule (S016) is dropped.
+- 2026-11-18 (both channels, replaces the 2026-11-16 Telugu-words and the older English-words rules): **Numbers as digits** — 4 crore, 93%, 2021, 1.4 trillion, 6 నుంచి 8 weeks; small counts with Telugu units may stay Telugu words (మూడు గంటలకు).
 - 2026-11-18 (Health Decode, all lengths): **Healthcare Content Safety Rule** — educate only (what / why / how in the body / symptoms / prevention / warning signs); never recommend medicines, doses or specific treatments, never claim a cure, treatment = "Doctor decides". Full text in §14; it is rubric point 8.
 
 ## 12. Human phrasing reference (user's own corrections)
@@ -184,17 +179,17 @@ Examples of the *direction* of change — understand why, don't search-and-repla
 | ఏకంగా సెకనుకు 40 మీటర్ల వేగం వరకు | సెకనుకు 40 మీటర్ల వేగంతో కూడా | less hype |
 | చాలావరకు తగ్గుతాయి | కళ్లలో నీళ్లు రావడం కూడా కొంతవరకు తగ్గవచ్చు | hedge matches evidence |
 | దీని వెనుక మన చర్మంలో దాగి ఉన్న ఒక చిన్న ఏర్పాటు ఉంది | దీని వెనుక మన చర్మం కింద ఒక చిన్న వ్యవస్థ పనిచేస్తుంది | active verb ("పనిచేస్తుంది") over static "ఉంది"; వ్యవస్థ over ఏర్పాటు |
-| ప్రభుత్వం అంచనా | గవర్నమెంట్ లెక్కల ప్రకారం | the way people say it |
-| గ్రామాల్లో / మహిళలు / మధుమేహం | పల్లెటూళ్లలో / ఆడవాళ్లు / షుగర్ | warm spoken words |
-| చాలామంది AI డాక్టర్ అంటే రోబో అనుకుంటారు | …అంటే ఏదో రోబో వచ్చి ట్రీట్మెంట్ ఇస్తుందేమో అనుకుంటారు | voice the viewer's own picture |
+| ప్రభుత్వం అంచనా | government లెక్కల ప్రకారం | the way people say it |
+| గ్రామాల్లో / మహిళలు / మధుమేహం | పల్లెటూళ్లలో / ఆడవాళ్లు / sugar | warm spoken words |
+| చాలామంది AI డాక్టర్ అంటే రోబో అనుకుంటారు | …అంటే ఏదో robot వచ్చి treatment ఇస్తుందేమో అనుకుంటారు | voice the viewer's own picture |
 | ఇది ఎందుకు అవసరం? | (new paragraph) అసలు ఇది మనకెందుకు అవసరం? | pull the viewer in; "అసలు" fits here because the previous para said WHAT it is and this steps back to WHY — context-dependent, not a fixed opener |
-| డాక్టర్ స్థానంలో కాకుండా, రెండో జత కళ్లలా | డాక్టర్ స్థానాన్ని లాక్కోదు, చేదోడువాదోడుగా సహాయం చేస్తుంది | vivid everyday image |
-| అలసిపోదు, ఎన్నో స్కాన్‌లను చూడగలదు | అలుపు ఉండదు, ఎన్నో స్కాన్లను క్షణాల్లో చెక్ చేయగలదు | spoken words |
-| జరిగిన పరిశీలనలో … గుర్తించే | చేసిన టెస్టుల్లో ఒక విషయం తేలింది … పసిగట్టే | spoken reveal |
+| డాక్టర్ స్థానంలో కాకుండా, రెండో జత కళ్లలా | doctor స్థానాన్ని లాక్కోదు, చేదోడువాదోడుగా సహాయం చేస్తుంది | vivid everyday image |
+| అలసిపోదు, ఎన్నో స్కాన్‌లను చూడగలదు | అలుపు ఉండదు, ఎన్నో scans ని క్షణాల్లో check చేయగలదు | spoken words |
+| జరిగిన పరిశీలనలో … గుర్తించే | చేసిన tests లో ఒక విషయం తేలింది … పసిగట్టే | spoken reveal |
 | అయితే AI కూడా తప్పు చేయగలదు | కానీ గుర్తుపెట్టుకోండి, AI కూడా అప్పుడప్పుడు తప్పులు చేయొచ్చు | direct warning to viewer |
-| self-diagnose చేసుకోకుండా డాక్టర్‌ని కలవండి | మీరంతట మీరే సొంత వైద్యం చేసుకోకుండా నేరుగా డాక్టర్‌నే కలవండి | Telugu idiom, emphasis |
-| యాప్ కోసం ఆగకుండా | ఫోన్లో యాప్‌లు చూస్తూ కూర్చోకుండా | picture of the action |
-| ఇంట్లో వాళ్లకు షేర్ చేయండి… అనుభవం ఉంటే commentలో చెప్పండి | ఫ్రెండ్స్, ఫ్యామిలీకి షేర్ చేయండి… ఎప్పుడైనా ఇబ్బంది పడ్డారా? కింద కామెంట్స్‌లో చెప్పండి | CTA as a direct question |
+| self-diagnose చేసుకోకుండా డాక్టర్‌ని కలవండి | మీరంతట మీరే సొంత వైద్యం చేసుకోకుండా నేరుగా doctor నే కలవండి | Telugu idiom, emphasis |
+| యాప్ కోసం ఆగకుండా | phone లో apps చూస్తూ కూర్చోకుండా | picture of the action |
+| ఇంట్లో వాళ్లకు షేర్ చేయండి… అనుభవం ఉంటే commentలో చెప్పండి | friends, family కి share చేయండి. ఎప్పుడైనా ఇబ్బంది పడ్డారా? కింద comments లో చెప్పండి | CTA as a direct question |
 | ఆ క్షణంలో ఇంట్లో వాళ్లు ఏమీ చేయలేక చూస్తూ ఉండిపోతారు | ఆ time లో family పడే tension అంతా ఇంతా కాదు | spoken idiom for feeling |
 | ఇలాంటి ఖాళీని నింపడానికి ఒక కొత్త సాధనం వస్తోంది | సరిగ్గా ఇలాంటి gap ని fill చేయడానికే ఒక కొత్త technology వస్తోంది | how people actually say it |
 | కొన్ని పరిశోధనలు చూద్దాం | కొన్ని proofs చూద్దాం | conversational |

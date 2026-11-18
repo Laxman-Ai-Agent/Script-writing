@@ -117,7 +117,7 @@ def test():
     L.append_entry(rec2, "revisions", "T2\nnew body")
     assert L.row_values("S7", rec2)[3] == "T2\nnew body"
     assert not L.pending_input(["S7", "T2", "Orig", "T2\nnew body"], rec2)  # processed
-    assert not L.pending_input(["S7", "T2", "Orig", "=== Revision 1 (2026-11-13) ===\nT2\nnew body"], rec2)  # old stacked format
+    assert not L.pending_input(["S7", "T2", "Orig", f"=== Revision 1 ({rec2['revisions'][0]['date']}) ===\nT2\nnew body"], rec2)  # old stacked format
     assert L.pending_input(["S7", "T2", "Orig", "NEW SCRIPT blob + reasons"], rec2)  # fresh paste
     assert L.pending_input(["S7", "T2", "Orig", "T2\nnew body", "", "my reasons"], rec2)  # typed feedback
     assert not L.pending_input(["S7", "T2", "Orig"], {**rec2, "revisions": []})  # nothing typed
@@ -193,7 +193,7 @@ def test():
 
     H = lambda g1: ["Script ID", "Topic / Script", "Extra", "Minutes", "ON/OFF", "Status", g1]
     calls = []
-    ok = lambda: (calls.append(1) or True, "")
+    ok = lambda row=None: (calls.append(row) or True, "")
     s = FS([H("▶ RUN ALL"), ["", "t1", "", "1", "ON", "", ""]])
     assert W.tick(s, ok, print) == "idle" and not calls and ("fill", [2], []) in s.log  # tidy only
     s = FS([H("▶ START ALL"), ["", "t1", "", "1", "ON", "", "▶ RUN"], ["", "t2", "", "1", "OFF", "", "▶ RUN"]])
@@ -205,10 +205,16 @@ def test():
     n = len(calls)
     assert W.tick(s, ok, print) == "empty" and len(calls) == n and "no ON rows" in s.log[-1][2]
     s = FS([H("▶ START ALL"), ["", "t1", "", "1", "ON", "", "▶ RUN"]])
-    assert W.tick(s, lambda: (True, "3 steps, ~$1.23"), print) == "done" and "3 steps, ~$1.23" in s.log[-1][2]
+    assert W.tick(s, lambda row: (True, "3 steps, ~$1.23"), print) == "done" and "3 steps, ~$1.23" in s.log[-1][2]
     s = FS([H("▶ START ALL"), ["", "t1", "", "1", "ON", "⏳ RUNNING", "⏳ RUNNING"]])
-    assert W.tick(s, lambda: (False, "timed out"), print) == "failed" and "timed out" in s.log[-1][2]
+    assert W.tick(s, lambda row: (False, "timed out"), print) == "failed" and "timed out" in s.log[-1][2]
     assert ("release", [2]) in s.log and s.log[-1][:2] == ("all", L.ALL_REST)  # stopped run frees its rows
+    calls.clear()  # one claude run per row; a failure stops the remaining rows
+    s = FS([H("▶ START ALL"), ["", "t1", "", "1", "ON", "", "▶ RUN"], ["", "t2", "", "1", "ON", "", "▶ RUN"]])
+    assert W.tick(s, ok, print) == "done" and calls == [2, 3]
+    tried = []
+    s = FS([H("▶ START ALL"), ["", "t1", "", "1", "ON", "", "▶ RUN"], ["", "t2", "", "1", "ON", "", "▶ RUN"]])
+    assert W.tick(s, lambda row: (tried.append(row) or False, "hit your limit"), print) == "failed" and tried == [2]
     class FL:
         def __init__(s, ctl):
             s.ctl, s.log = ctl, []

@@ -1,5 +1,6 @@
-"""Watcher: polls the RUN cell (B1) of the "Script Requests" tab. When it is RUN NOW, starts ONE unattended
-`claude -p` run that writes every ON row (see SKILL.md Mode E), then goes back to polling.
+"""Watcher: polls the RUN cells of the "Script Requests" tab (G1 = RUN ALL, G2.. = per-row START). For the chosen
+rows it starts one unattended `claude -p` run PER ROW (SKILL.md Mode E), then goes back to polling.
+Also handles the Script Learning Database RUN column (Mode F) and the Topic Ideas tab (Mode G).
 
   python script-system/watcher.py                  # loop, Ctrl+C to stop (idle polling = 1 Sheets call/min, no tokens)
   python script-system/watcher.py --once           # check once; run if RUN NOW
@@ -48,6 +49,9 @@ PROMPT_REVISE = ("Invoke the Skill tool with skill 'script' and args 'revise'. F
                  "Script Learning Database sheet. Do nothing else.")
 PROMPT = ("Invoke the Skill tool with skill 'script' and args 'run'. Follow its Mode E exactly for every ON row "
           "in the Google Sheet. Do nothing else.")
+PROMPT_ROW = ("Invoke the Skill tool with skill 'script' and args 'run'. Follow its Mode E exactly, but ONLY for sheet row "
+              "{row} (ignore every other row `requests` lists, and skip step 3 run-finish: the watcher does it). "
+              "This is an unattended run. Do nothing else.")
 
 
 if sys.stdout:  # Windows console is cp1252: printing Telugu crashed runs with 'charmap' errors
@@ -143,7 +147,11 @@ def run_claude_as(prompt, config_dir=None):
     return True, stats_line(st) if st else ""
 
 
-def tick(sheet, runner=run_claude, say=log):
+def run_row(row):
+    return run_claude(PROMPT_ROW.format(row=row))
+
+
+def tick(sheet, runner=run_row, say=log):
     """One poll. Keeps the RUN cells tidy; acts on RUN ALL (every ON row) and on per-row START clicks.
     The chosen rows are claimed (RUN cell = running) so `learning_db.py requests` hands claude exactly those.
     The last run's summary lives in the hover note of the RUN ALL cell (G1)."""
@@ -158,9 +166,16 @@ def tick(sheet, runner=run_claude, say=log):
         say("run requested but no rows to run")
         return "empty"
     sheet.claim(rows)
-    sheet.set_all_cell(L.ALL_RUN, f"{stamp()} - running {len(rows)} script(s)")
     say(f"starting {len(rows)} row(s): {rows}")
-    ok, why = runner()
+    # one fresh claude run per row: a shared context would re-read every earlier script's DNA/facts on each later step
+    ok, whys = True, []
+    for i, row in enumerate(rows, 1):
+        sheet.set_all_cell(L.ALL_RUN, f"{stamp()} - running script {i} of {len(rows)} (row {row})")
+        ok, why = runner(row)
+        whys.append(f"row {row}: {why}" if why else "")
+        if not ok:
+            break  # e.g. usage limit: the rest would fail the same way
+    why = why if not ok else " ; ".join(w for w in whys if w)
     left = L.scan(sheet.grid())["claimed"]  # anything a stopped run did not finish
     if left:
         sheet.release(left)
@@ -289,9 +304,9 @@ def main(argv=None):
     if "--dry-run" in args:
         s = L.GoogleSheet()
         reqs, sk = s.pending_requests()
-        print(f"RUN cell: {s.run_flag()} | would write {len(reqs)} row(s) | skipped {sk['off']} OFF, {sk['done']} Done")
+        print(f"RUN ALL cell (G1): {s.run_flag()} | would write {len(reqs)} row(s) | skipped {sk['off']} OFF, {sk['done']} Done")
         for r in reqs:
-            print(f"  #{r['sno']} (row {r['row']}) {r['kind']} | {r['minutes']} | {r['topic'][:60]}")
+            print(f"  row {r['row']}: {r['kind']} | {r['minutes']} | {r['topic'][:60]}")
         return
     acquire_lock()
     sheet = isheet = None

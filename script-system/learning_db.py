@@ -163,7 +163,7 @@ def stacked(entries, label):
 def render_rules(rules):
     lines = []
     for i, r in enumerate(rules, 1):
-        mark = "✅ APPROVED" if r["status"] == "approved" else "⏳ PROPOSED"
+        mark = {"approved": "✅ APPROVED", "superseded": "⛔ SUPERSEDED"}.get(r["status"], "⏳ PROPOSED")
         lines.append(f"{i}. [{mark}] [{r['scope'].upper()}] {r['text']}")
     return "\n".join(lines)
 
@@ -650,6 +650,8 @@ def main(argv=None):
     x = sub.add_parser("add-rule"); x.add_argument("id"); x.add_argument("scope", choices=["general", "topic"])
     x.add_argument("text"); x.add_argument("--approved", action="store_true")
     x = sub.add_parser("approve"); x.add_argument("id"); x.add_argument("n", type=int)
+    x = sub.add_parser("supersede"); x.add_argument("id"); x.add_argument("n", type=int); x.add_argument("by")
+    x = sub.add_parser("history-last"); x.add_argument("channel", choices=["dark", "health"]); x.add_argument("--n", type=int, default=3)
     sub.add_parser("diff").add_argument("id")
     sub.add_parser("show").add_argument("id")
     args = p.parse_args(argv)
@@ -660,6 +662,13 @@ def main(argv=None):
     if args.cmd == "words":  # narration word count (title line excluded), for the length check
         body = Path(args.file).read_text(encoding="utf-8").split(chr(10), 1)
         print(len(body[1].split()) if len(body) > 1 else 0)
+        return
+    if args.cmd == "history-last":  # only what the no-repeat check needs, instead of reading all of history.json
+        hist = json.loads((Path(__file__).parent / "history.json").read_text(encoding="utf-8"))
+        mine = [h for h in hist if h.get("channel", "dark") == args.channel][-args.n:]
+        for h in mine:
+            print(f"{h['date']} | opening {h['opening']} | structure {h['structure']} | ending {h['ending']} | {h['topic'][:60]}")
+        print(f"({len(mine)} most recent {args.channel} scripts; append new entries to script-system/history.json)")
         return
     if args.cmd == "requests":
         sheet = GoogleSheet()
@@ -774,6 +783,12 @@ def main(argv=None):
         rec["rules"][args.n - 1]["status"] = "approved"
         rec["synced"] = False
         print(f"Rule {args.n} approved.")
+    elif args.cmd == "supersede":  # kept for history, no longer printed by `rules`
+        rec = get(db, args.id)
+        r = rec["rules"][args.n - 1]
+        r["status"], r["superseded_by"] = "superseded", args.by
+        rec["synced"] = False
+        print(f"Rule {args.n} superseded by {args.by}.")
     elif args.cmd == "sync":
         pass
 

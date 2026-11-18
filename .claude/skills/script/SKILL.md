@@ -39,17 +39,17 @@ Write `output/YYYY-MM-DD-<english-slug>/facts.md` BEFORE any Telugu:
 English bullets, short. From here on, write from these notes only — never from the article text — so the Telugu is re-told, not translated.
 
 ### 3. Load style
-Read `script-system/writing-dna.md` (whole file) and `script-system/history.json`. Do NOT open `sample script/`. Section 11 "Learned corrections" overrides everything else. Also run `python script-system/learning_db.py rules` and apply every APPROVED rule (only approved ones; skip `[TOPIC]` rules that don't fit this topic). Rules are listed oldest → newest; if two conflict, the newer one (later Script ID) wins. §13 gold reference = target quality (style only — never reuse its facts).
+Read `script-system/writing-dna.md`: Health Decode → whole file; The Dark World → only up to the line before `## 14` (Grep `^## 14` for the line number, then Read with that limit). Run `python script-system/learning_db.py history-last dark|health` instead of reading `history.json`. Do NOT open `sample script/`. Section 11 "Learned corrections" overrides everything else. Also run `python script-system/learning_db.py rules` and apply every APPROVED rule (only approved ones; skip `[TOPIC]` rules that don't fit this topic). Rules are listed oldest → newest; if two conflict, the newer one (later Script ID) wins. §13 gold reference = target quality (style only — never reuse its facts).
 
 ### 4. Plan
 - Target words from DNA §8 for the duration.
 - Health Decode: research must include at least one authoritative health source (WHO, NIH, CDC, ICMR, NHS, Mayo Clinic) and one why-it-matters number for rubric point 5. Use §14 openings (H1–H6), "normal body first, then what goes wrong" structure, §14 CTAs and safety rules.
-- Pick one opening (§4), one structure (§5), one ending (§6). None of them may match any of the last 3 entries in `history.json`. Choose what fits the topic, not at random.
+- Pick one opening (§4), one structure (§5), one ending (§6). None of them may match the entries `history-last` printed. Choose what fits the topic, not at random.
 - Pick 1 everyday analogy and 1 concrete example to carry through (if the topic allows).
 - Durations ≥10 min: outline chapters first (each ~400–600 words, each opening with a bridge question).
 
 ### 5. Write
-- Telugu narration following DNA §2 (fixed voice) and §3 (signature moves). Title line first (§7), then the mandatory straight intro paragraph (DNA §4 note: "ఈ video లో మనం … తెలుసుకోబోతున్నాం …"), then the chosen hook and narration in connected paragraphs (blank line between paragraphs), then CTA (§6).
+- Telugu narration following DNA §2 (fixed voice) and §3 (signature moves). Title line first (§7) — it is file metadata for the Learning DB / word count, not narrated, so keep it even though rules say "no title inside the spoken script" — then the mandatory straight intro paragraph (DNA §4 note / §11; never "తెలుసుకోబోతున్నాం"), then the chosen hook and narration in connected paragraphs (blank line between paragraphs), then CTA (§6).
 - Explain in your own Telugu, as if telling a friend at home — understand the fact first, then say it. Never translate a sentence from the sources.
 - ≤8 min: write in one pass into `output/.../script.txt`.
 - ≥10 min: write chapter by chapter, appending to `script.txt`; re-read only the previous chapter's last ~10 lines before writing the next, to keep continuity without bloating context.
@@ -57,7 +57,7 @@ Read `script-system/writing-dna.md` (whole file) and `script-system/history.json
 
 ### 6. Human narration refinement (rewrite pass on the draft — fix in place)
 Go paragraph by paragraph and ask "would a Telugu person say this out loud to a friend?". Rewrite anything that fails:
-- **English → Telugu:** every English word that has a common spoken Telugu equivalent gets replaced (DNA §2.3, §12). Daily-use loanwords → Telugu script. Latin script only for names / compounds / YES-NO.
+- **Spoken word choice (DNA §2.3, §12):** use the word people actually say. English words people say → Latin script, never Telugu script. Bookish Telugu → spoken Telugu or the everyday English word. Channel-specific word lists in the rules win.
 - **Labels → descriptions:** jargon labels ("chain reaction", "self-defense system") become plain explanations ("ఒకదాని తర్వాత ఒకటి మార్పులు జరుగుతూ", "తనను తాను కాపాడుకునే పద్ధతి").
 - **Rhythm:** merge choppy one-liners into flowing paragraphs; vary sentence length; no two consecutive sentences with the same opening word.
 - **Connector budget:** నిజానికి / అయితే / దాంతో / అందుకే / మరి — at most ~2 each per 300 words.
@@ -77,7 +77,7 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 ### 8. Deliver
 - Append to `history.json`: `{"date": "YYYY-MM-DD", "channel": "dark" | "health", "topic": "...", "duration": "...", "opening": "O#" | "H#", "structure": "S#", "ending": "E#", "file": "output/.../script.txt"}`. Opening-repeat checks compare only within the same channel.
 - Save the untouched original to the Script Learning Database: `python script-system/learning_db.py add-original output/.../script.txt` (do this BEFORE any user edits; it syncs to Google Sheets or reports PENDING — never claim it synced unless it printed SYNCED). It also prints the **Script ID** (S001, S002, ...) and stores the Title (first line) - keep the ID for the delivery line and for Mode E.
-- Show the full script in chat. One line after it: Script ID, word count and file path. Nothing else unless something was uncertain in the facts — then one line naming it.
+- Interactive: show the full script in chat. Unattended (watcher / `claude -p`): do NOT print the script (it is in script.txt and the sheet) — only one line. That line: Script ID, word count and file path. Nothing else unless something was uncertain in the facts — then one line naming it.
 
 ### 9. Learning from feedback
 When the user corrects style ("ఇలా రాయను", "this word is wrong", "too formal"), append a dated bullet to DNA §11 with the rule in one line; if they give word-level swaps, add rows to DNA §12 (keep it ≤ ~30 rows — merge or drop the least useful). If they supply a full rewritten script, it may replace §13 as the gold reference. If they report a real recorded duration, recompute words/min in §8.
@@ -95,7 +95,7 @@ Columns: Script ID (filled when the row is done) | Topic / Script | Extra Data |
    b. Run Mode A: topic = Topic/Script, extra data = the user's own notes to include (still fact-check numbers), duration = the `LENGTH:` line (words target, ~150 words/min, what to do if material is short). Channel is not a column: health -> Health Decode, else The Dark World. If the kind is SCRIPT (full script pasted): keep its facts and flow, rewrite in our style with the approved rules, research only to verify numbers. Mode A step 8 saves the original to the Learning Database; use the Script ID it printed (S###).
    c. `python script-system/learning_db.py request-done <row> <id>`; add `--note "6 min, material for 10 min not enough"` when the length differs from the request or related angles were added (Status becomes ✅, or `✅ (note)`; the Script ID goes into column A of that row). On any failure: `python script-system/learning_db.py request-fail <row> "<reason>"`, then go on to the next row.
 3. After the last row: `python script-system/learning_db.py run-finish "3 done, 1 failed"` (resets the RUN ALL cell G1 and stores the summary as its hover note).
-4. Show every script in chat as in Mode A.
+4. Interactive run: show every script in chat as in Mode A. Unattended: one line per row (Script ID, words, path), no script text.
 Triggers: the user types `/script run` in Claude Code (runs regardless of the RUN cell), or `script-system/watcher.py` starts an unattended run when RUN ALL (G1) = START ALL or a row's RUN cell = START. In an unattended run you cannot ask questions: decide with defaults, never wait for input, and only touch output/, history.json and learning_db.py.
 
 ## Mode F: `/script revise` (updated scripts pasted in the Script Learning Database sheet)

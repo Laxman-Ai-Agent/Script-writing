@@ -27,7 +27,8 @@
           "date": "2026-11-13",
           "scope": "general",
           "text": "Start every video script with a 3-4 line straight intro: ఈ video లో మనం [Company] కొత్తగా release చేసిన [Topic] గురించి తెలుసుకోబోతున్నాం. అవే [Names]. అసలు [Q1]? [Q2]? అంతేకాదు [curiosity hook] ఈ video లో వివరంగా చూద్దాం. Then the hook.",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "S006-1 + S008-3 intro"
         },
         {
           "date": "2026-11-13",
@@ -143,7 +144,8 @@
           "date": "2026-11-14",
           "scope": "general",
           "text": "Write all numbers, decimals, percentages and versions as English words (fifty seven percent, three point eight) for ElevenLabs TTS",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "S014-2/S016-1 digits"
         },
         {
           "date": "2026-11-14",
@@ -155,7 +157,8 @@
           "date": "2026-11-14",
           "scope": "general",
           "text": "Add a like/share/subscribe CTA mid-script after a value section, plus comment + like at the end",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "S025-4 dark CTA"
         }
       ],
       "synced": true
@@ -188,7 +191,8 @@
           "date": "2026-11-15",
           "scope": "general",
           "text": "TTS (ElevenLabs) ready: write every number, year, amount and model number as spoken English words (ten billion dollars, twenty twenty eight, CLPS-two, Falcon nine, ten lakhs)",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "S014-2/S016-1 digits"
         },
         {
           "date": "2026-11-15",
@@ -206,7 +210,8 @@
           "date": "2026-11-15",
           "scope": "general",
           "text": "Add a natural mid-script CTA (like, share, subscribe to The Dark World) around the middle, and end with the comment question plus 'ఈ video కి ఒక like కొట్టండి' in the last paragraph",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "S025-4 dark CTA"
         }
       ],
       "synced": true
@@ -239,7 +244,8 @@
           "date": "2026-11-15",
           "scope": "general",
           "text": "For ElevenLabs TTS, write every number, percentage and alphanumeric code as English words in Latin script (ten crore, eighty six percent, Type two, GLUT-four, HbA-one-c, three months); no digits.",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "S014-2/S016-1 digits"
         },
         {
           "date": "2026-11-15",
@@ -425,7 +431,8 @@
           "date": "2026-11-18",
           "scope": "general",
           "text": "Line-by-line layout: 1-3 short sentences per line, no blank lines between paragraphs; put the bridge sentence (ఇప్పుడు అసలు news కి వద్దాం.) at the end of the previous line",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "user 2026-11-18: keep connected paragraphs"
         }
       ],
       "synced": true
@@ -459,7 +466,8 @@
           "date": "2026-11-18",
           "scope": "general",
           "text": "Mid-video CTA = one bridge sentence into the next section: 'మరి X వచ్చినప్పుడు ఏం చేయాలో తెలుసుకునే ముందు ఈ video useful అనిపిస్తే like కొట్టి Health Decode ని subscribe చేయండి.' No separate teaser question or filler like 'ఇక్కడే అసలు important విషయం ఉంది'.",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "S021-6 health CTA"
         },
         {
           "date": "2026-11-18",
@@ -517,7 +525,8 @@
           "date": "2026-11-18",
           "scope": "general",
           "text": "Health Decode: write వీడియో in Telugu script (not video); intro closes with '<topic> గురించి మనకు వచ్చే ఇలాంటి ఎన్నో సందేహాలకు సమాధానాలు ఇప్పుడు ఈ వీడియోలో వివరంగా చూద్దాం' (overrides the 'in detail గా ఈ video లో చూద్దాం' rule)",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "S020-1/S021-5 intro closer"
         },
         {
           "date": "2026-11-18",
@@ -529,7 +538,8 @@
           "date": "2026-11-18",
           "scope": "general",
           "text": "Mid-video CTA: restate the coming question(s) then 'ఈ విషయాల వెనుక ఉన్న అసలు నిజం తెలుసుకునే ముందు ఈ వీడియో మీకు నచ్చితే Like కొట్టి Health Decode ఛానల్ ని Subscribe చేయండి.'; end CTA 'అయితే మీ అభిప్రాయాన్ని కింద Comments లో చెప్పండి. వీడియో నచ్చితే ఒక Like చేయండి.'; recap opens 'So ఇప్పుడు మీకు అర్థమైంది కదా?'",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "S021-6 health CTA"
         },
         {
           "date": "2026-11-18",
@@ -605,7 +615,8 @@
           "date": "2026-11-18",
           "scope": "general",
           "text": "Mid CTA bridge: 'ఈ విషయం తెలుసుకునే ముందు ఈ information మీకు useful అనిపిస్తే ఇప్పుడే Health Decode ని subscribe చేసి ఒక like కొట్టండి.'; final line 'అలాగే ఈ video మీకు useful అనిపిస్తే ఒక like కొట్టండి.'",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "S021-6 health CTA"
         }
       ],
       "synced": true
@@ -633,7 +644,8 @@
           "date": "2026-11-18",
           "scope": "general",
           "text": "Write numbers as digits (10 కోట్ల, 13%, 2024, type 2), not spelled-out English words (ten crore, thirteen percent, twenty twenty four).",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "S016-1 same rule"
         },
         {
           "date": "2026-11-18",
@@ -697,7 +709,8 @@
           "date": "2026-11-18",
           "scope": "general",
           "text": "Write numbers as digits (1.5, 103 crore, 10 నుంచి 20 centimeters), never spelled-out English number words.",
-          "status": "approved"
+          "status": "superseded",
+          "superseded_by": "S016-1 same rule"
         },
         {
           "date": "2026-11-18",
@@ -738,12 +751,54 @@
     },
     "S025": {
       "created": "2026-11-18",
-      "title": "🌀 Cyclone Akwan: మూడు వారాల్లో మూడో తుఫాను | ఎప్పుడు, ఎక్కడ, ఎంత ప్రమాదం?",
+      "title": "Bay of Bengal లో మరో తుఫాను బలాన్ని పెంచుకుంటూ Andhra Coast వైపు దూసుకొస్తోంది. దీని పేరు Akwan.",
       "original": "🌀 Cyclone Akwan: మూడు వారాల్లో మూడో తుఫాను | ఎప్పుడు, ఎక్కడ, ఎంత ప్రమాదం?\n\nBay of Bengal లో మరో తుఫాను బలం పెంచుకుంటూ Andhra coast వైపు వస్తోంది, దాని పేరు Akwan. ఇది ఎప్పుడు తీరం దాటొచ్చు? అసలు ఇది ఎలా పుట్టింది? ఎంత బలంగా ఉండొచ్చు? ఏ జిల్లాల మీద ఎక్కువ effect ఉంటుంది? Government ఏం ready చేసింది, మనం ఏం జాగ్రత్తలు తీసుకోవాలి? అంతేకాదు, ఒకే coast మీదకి మూడు వారాల్లో మూడు తుఫాన్లు ఎందుకు వస్తున్నాయి? ఈ విషయాలన్నీ ఇప్పుడు in detail గా ఈ video లో చూద్దాం.\n\nమీరు coast దగ్గర ఒక చిన్న ఊర్లో ఉండే fisherman అనుకోండి. October twenty eight న Arnab తుఫాను వచ్చింది. ఇల్లు సర్దుకుని, వలలు బాగుచేసుకునేలోపే November three న Murasu వచ్చి Ongole దగ్గర తీరం దాటింది. Murasu ఒక్కటే Andhra లో two thousand four hundred eighty four crore rupees damage చేసిందని అంచనా వేశారు. ఇంకా పూర్తిగా కోలుకోకముందే మళ్ళీ అదే warning, సముద్రంలోకి వెళ్లొద్దు అని. ఎందుకంటే మూడో తుఫాను Akwan కూడా అదే coast వైపు వస్తోంది.\n\nముందుగా ఇది ఎలా మొదలైందో చూద్దాం. South Andaman సముద్రం పైన, గాల్లో ఎత్తులో ఒక సుడి లాంటి circulation ఏర్పడింది. అది కిందకి దిగి low pressure area గా మారింది, November fifteen కి depression అయింది. Depression అంటే simple గా చెప్పాలంటే, గాలి speed గంటకు thirty one నుంచి sixty one km మధ్య ఉండే stage. IMD forecast ప్రకారం November sixteen కి cyclonic storm, seventeen కి severe cyclonic storm గా మారి, తర్వాత very severe cyclone గా బలపడే అవకాశం ఉంది. November sixteen నాటికి ఇది Visakhapatnam కి దాదాపు nine hundred sixty km, Chennai కి eight hundred km దూరంలో ఉండి, గంటకు fifteen km speed తో north-north-west వైపు కదులుతోంది.\n\nమరి సముద్రం మీద ఇలాంటి తుఫాను అసలు ఎలా పుడుతుంది? సముద్రం నీళ్లు twenty six point five degrees Celsius కంటే ఎక్కువ వేడిగా ఉన్నప్పుడు, ఆ నీళ్ల మీద గాలి వేడెక్కి, తేమతో కలిసి పైకి లేస్తుంది. దాంతో కింద గాలి తగ్గి low pressure ఏర్పడుతుంది. చుట్టుపక్కల గాలి ఆ ఖాళీలోకి దూసుకొస్తుంది, భూమి తిరుగుతూ ఉండటం వల్ల ఆ గాలి గుండ్రంగా తిరగడం start అవుతుంది. Bike కి petrol ఎలాగో, తుఫానుకి వేడి సముద్రం అలా. Fuel ఉన్నంతసేపు అది బలం పెంచుకుంటూనే ఉంటుంది.\n\nకానీ ఇక్కడే అసలు interesting విషయం ఉంది. ఈ information మీకు useful అనిపిస్తే, ఈ video కి ఒక like కొట్టి, The Dark World channel ని subscribe చేయండి.\n\nఒకదాని తర్వాత ఒకటి మూడు తుఫాన్లు ఎందుకు? ఈ సారి monsoon తర్వాత కూడా Bay of Bengal నీళ్లు వేడిగానే ఉన్నాయి, atmosphere కూడా తుఫాన్లకు అనుకూలంగా ఉంది. అందుకే ఈ season మామూలు కంటే చాలా active గా ఉందని experts అంటున్నారు. ఇంకో విషయం, Akwan అనే పేరు Iran ఇచ్చింది. Persian కథల పుస్తకం Shahnameh లో Akvan అనే ఒక రాక్షసుడు ఉంటాడు. పేరు భయంకరంగా ఉంది కదా అని తుఫాను కూడా ఎక్కువ ప్రమాదం అనుకోకండి. Thirteen దేశాలు ముందే ఒక list ఇస్తాయి, ఆ order ప్రకారం వరుసగా పేర్లు పెడతారు. పేరుకీ, తుఫాను బలానికీ ఏ సంబంధం లేదు.\n\nఇప్పుడు అసలు ప్రశ్న, ఇది ఎప్పుడు, ఎక్కడ తీరం దాటుతుంది? తాజా reports ప్రకారం November twenty న, Nellore నుంచి Visakhapatnam మధ్య ఎక్కడైనా Andhra, Yanam coast ని దాటొచ్చు. కానీ గుర్తుపెట్టుకోండి, ఈ point ఇప్పటికే చాలాసార్లు మారింది. మొదట Machilipatnam వైపు అన్నారు, తర్వాత Bapatla, ఇప్పుడు Nellore నుంచి Vizag వరకు అంటున్నారు. తీరం దాటే time లో గాలి speed గంటకు one hundred ten నుంచి one hundred thirty km మధ్య ఉండొచ్చని వేర్వేరు అంచనాలు ఉన్నాయి.\n\nReports ప్రకారం Kakinada, Konaseema, East Godavari, West Godavari, Eluru, Krishna, Bapatla, ఈ seven జిల్లాలకు red alert ఇచ్చారు. Visakhapatnam, Vizianagaram కి November twenty న orange alert, Yanam లో అక్కడక్కడ అతి భారీ వర్షాలు పడొచ్చు. Odisha లో Ganjam, Gajapati, Puri, Tamil Nadu లో Chennai, Tiruvallur, Chengalpattu లో కూడా భారీ వర్షాలు ఉండొచ్చు. Telangana తో కలిపి దాదాపు ten states కి rain alert ఉంది. దీని వల్ల రోడ్ల మీద నీళ్లు నిలవడం, కోతకు వచ్చిన పంటలు దెబ్బతినడం, November twenty వరకు సముద్రం అల్లకల్లోలంగా ఉండటంతో fishermen కి పని లేకపోవడం లాంటి problems రావచ్చు.\n\nమరి government ఏం చేస్తోంది? Kalingapatnam తప్ప Andhra లోని అన్ని ports లో number one signal పెట్టారు, November nineteen వరకు fishermen ని సముద్రంలోకి వెళ్లొద్దని చెప్పారు. Coast ప్రాంతాల్లో ముందు జాగ్రత్తలు తీసుకోవాలని CM Chandrababu Naidu orders ఇచ్చారు. Odisha seventy four rescue teams ని దింపి, ప్రమాదం ఉన్న ప్రాంతాల వాళ్లను ముందుగానే తరలిస్తోంది. Twenty four hours control rooms పెట్టి, cyclone shelters లో food, నీళ్లు, light, గర్భిణీలు, పశువుల కోసం ఏర్పాట్లు check చేస్తున్నారు. Andaman లో Army, Navy, Air Force కూడా alert లో ఉన్నాయి.\n\nఇక మనం చేయాల్సింది simple. IMD, local అధికారులు ఇచ్చే updates మాత్రమే నమ్మండి, WhatsApp లో వచ్చే fake messages ని forward చేయకండి. Torch, power bank, మంచి నీళ్లు ముందే ready పెట్టుకోండి. గాలి ఎక్కువగా ఉన్నప్పుడు బయటకు వెళ్లకండి, చెట్లు, hoardings, current poles కి దూరంగా ఉండండి. నీళ్లు పారుతున్న రోడ్లు దాటే risk తీసుకోకండి. Shelter కి వెళ్లమని చెప్తే ఆలస్యం చేయకుండా వెళ్లండి. రైతులు అయితే వీలైతే వర్షం రాకముందే పంట కోసుకోండి.\n\nఅంటే Akwan ని ప్రమాదంగా మార్చేది దాని పేరు కాదు, ఇంకా వేడిగానే ఉన్న మన Bay of Bengal. అదే వేడి మూడు వారాల్లో మూడు తుఫాన్లను Andhra coast వైపు పంపింది. మీ ఊర్లో ఇప్పుడు వాతావరణం ఎలా ఉంది? కింద comment లో చెప్పండి, ఈ video ని మీ family, friends కి share చేసి, ఒక like కొట్టండి.",
-      "revisions": [],
-      "changes": [],
+      "revisions": [
+        {
+          "date": "2026-11-18",
+          "text": "Bay of Bengal లో మరో తుఫాను బలాన్ని పెంచుకుంటూ Andhra Coast వైపు దూసుకొస్తోంది. దీని పేరు Akwan.\nఅసలు ఇది ఎప్పుడు తీరం దాటే అవకాశం ఉంది? ఎలా ఏర్పడింది?\nఎంత బలంగా ఉండబోతోంది? ఏ జిల్లాలపై ఎక్కువ ప్రభావం చూపించొచ్చు?\nGovernment ఎలాంటి ఏర్పాట్లు చేస్తోంది? మనం ఎలాంటి జాగ్రత్తలు తీసుకోవాలి?\nఅంతేకాదు, కేవలం మూడు వారాల్లో ఒకే Coast మీదకు వరుసగా మూడు తుఫాన్లు ఎందుకు వస్తున్నాయి?\nఈ ప్రశ్నలన్నింటికీ సమాధానాలను ఇప్పుడు ఈ Video లో వివరంగా తెలుసుకుందాం.\nమీరు Coast దగ్గర ఉన్న ఒక చిన్న ఊర్లో నివసించే Fisherman అనుకోండి.\nOctober 28 న Arnab తుఫాన్ వచ్చింది.\nఇల్లు సర్దుకొని వలలు బాగు చేసుకునే లోపే November 3 న Murasu వచ్చి Ongole దగ్గర తీరం దాటింది.\nఈ Murasu తుఫాన్ వల్ల ఒక్క Andhra లోనే 2,484 కోట్ల రూపాయలు నష్టం జరిగిందని అంచనా వేశారు.\nఆ నష్టం నుంచి ఇంకా పూర్తిగా కోలుకోక ముందే మళ్లీ అదే Warning.\nసముద్రంలోకి చేపల వేటకు వెళ్లొద్దని హెచ్చరికలు. ఎందుకంటే మూడో తుఫాను Akwan కూడా అదే Coast వైపు దూసుకొస్తోంది.\nముందుగా ఈ తుఫాను ఎలా మొదలైందో చూద్దాం.\nSouth Andaman Sea పైన వాతావరణంలో ఒక సుడిగాలి లాంటి Circulation ఏర్పడింది.\nఅది క్రమంగా బలపడి Low Pressure Area గా మారింది. November 15 నాటికి Depression Stage కి చేరుకుంది.\nDepression అంటే Simple గా చెప్పాలంటే గాలి వేగం గంటకు 31 నుంచి 61 Kilometers మధ్య ఉండే దశ.\nIMD Forecast ప్రకారం November 16 నాటికి ఇది Cyclonic Storm గా, November 17 నాటికి Severe Cyclonic Storm గా మారి, ఆ తర్వాత Very Severe Cyclone గా బలపడే అవకాశం ఉంది.\nNovember 16 నాటికి ఈ తుఫాను విశాఖపట్నంకి దాదాపు 960 Kilometers, Chennai కి 800 Kilometers దూరంలో ఉంది.\nగంటకు 15 Kilometers వేగంతో North Northwest దిశగా కదులుతోంది.\nమరి సముద్రం మీద ఇలాంటి తుఫాను అసలు ఎలా ఏర్పడుతుంది?\nసముద్రం నీటి ఉష్ణోగ్రత 26.5 డిగ్రీల Celsius కంటే ఎక్కువగా ఉన్నప్పుడు, ఆ నీటి మీద ఉన్న గాలి వేడెక్కి తేమను తీసుకొని పైకి లేస్తుంది.\nదాంతో సముద్ర ఉపరితలం దగ్గర Low Pressure ఏర్పడుతుంది. చుట్టుపక్కల ఉన్న గాలి ఆ Low Pressure వైపు వేగంగా దూసుకొస్తుంది.\nభూమి తన చుట్టూ తిరుగుతూ ఉండటం వల్ల ఆ గాలి కూడా గుండ్రంగా తిరగడం మొదలవుతుంది.\nBike నడవడానికి Petrol ఎంత అవసరమో, తుఫాను బలపడడానికి వేడిగా ఉన్న సముద్రం అంత అవసరం.\nసముద్రం నుంచి వేడి, తేమ అందుతున్నంత సేపు తుఫాను మరింత బలపడుతుంది.\nకానీ ఇక్కడే అసలు Interesting విషయం ఉంది. ఈ Information మీకు Useful అనిపిస్తే Video కి ఒక Like కొట్టండి.\nఇలాంటి మరిన్ని Interesting Updates కోసం The Dark World Channel ని Subscribe చేయండి.\nమరి ఒకదాని తర్వాత ఒకటి ఇలా మూడు తుఫాన్లు ఎందుకు వస్తున్నాయి?\nఈసారి Monsoon తర్వాత కూడా Bay of Bengal సముద్రపు నీళ్లు వేడిగానే ఉన్నాయి.\nAtmosphere కూడా తుఫాన్లు ఏర్పడడానికి అనుకూలంగా ఉంది. అందుకే ఈ Season మామూలు కంటే చాలా Active గా ఉందని Experts చెప్తున్నారు.\nఇంకో Interesting విషయం ఏంటంటే Akwan అనే పేరును Iran ఇచ్చింది.\nPersian కథల పుస్తకం Shahnameh లో Akwan అనే ఒక రాక్షసుడి పేరు ఉంటుంది. పేరు వినడానికి భయంకరంగా ఉంది కదా?\nఅయితే పేరు చూసి తుఫాన్ కూడా చాలా ప్రమాదకరంగా ఉంటుందని అనుకోకండి.\nఎందుకంటే 13 దేశాలు ముందుగానే Cyclone Names List తయారు చేస్తాయి. ఆ List లోని Order ప్రకారం తుఫాన్లకు పేర్లు పెడతారు.\nకాబట్టి తుఫాను పేరుకి దాని తీవ్రతకి ఎలాంటి సంబంధం లేదు.\nఇప్పుడు అసలు ప్రశ్న ఏంటంటే ఈ తుఫాను ఎప్పుడు, ఎక్కడ తీరం దాటే అవకాశం ఉంది?\nతాజా Reports ప్రకారం November 20 న నెల్లూరు నుంచి విశాఖపట్నం మధ్యలో ఎక్కడైనా Andhra Yanam Coast ని దాటే అవకాశం ఉంది.\nకానీ ఒక విషయం గుర్తుపెట్టుకోండి. ఈ Landfall Point ఇప్పటికే చాలా సార్లు మారింది.\nమొదట మచిలీపట్నం వైపు దాటుతుందని చెప్పారు. ఆ తర్వాత బాపట్ల అన్నారు.\nఇప్పుడు నెల్లూరు నుంచి విశాఖపట్నం వరకు ఉండొచ్చని అంచనా వేస్తున్నారు.\nతుఫాను తీరం దాటే సమయంలో గాలి వేగం గంటకు 110 నుంచి 130 Kilometers వరకు ఉండొచ్చని వేర్వేరు అంచనాలు ఉన్నాయి.\nReports ప్రకారం కాకినాడ, కోనసీమ, East Godavari, West Godavari, ఏలూరు, కృష్ణా, బాపట్ల జిల్లాలకు Red Alert జారీ చేశారు.\nవిశాఖపట్నం, విజయనగరం జిల్లాలకు నవంబర్ 20 న Orange Alert ఉంది. Yanam లో కూడా భారీ వర్షాలు పడే అవకాశం ఉంది.\nఒడిశాలో Ganjam, Gajapati, Puri, తమిళనాడులో Chennai, Tiruvallur, Chengalpattu ప్రాంతాలకు కూడా భారీ వర్షాల హెచ్చరికలు ఉన్నాయి.\nతెలంగాణతో కలిపి దాదాపు 10 States కి Rain Alert జారీ చేశారు.\nదీనివల్ల రోడ్లపై వరద నీరు చేరడం, పంటలు దెబ్బతినడం వంటి సమస్యలు రావచ్చు.\nసముద్రం అల్లకల్లోలంగా ఉండటంతో Fishermen చేపల వేటకు వెళ్లలేని పరిస్థితి ఏర్పడొచ్చు.\nమరి Government ఏం చేస్తోంది? కళింగపట్నం మినహా ఆంధ్రప్రదేశ్‌లోని అన్ని Ports లో Number One Warning Signal జారీ చేశారు.\nNovember 19 వరకు Fishermen సముద్రంలోకి వెళ్లొద్దని హెచ్చరించారు.\nCoastal ప్రాంతాల్లో ముందస్తు జాగ్రత్తలు తీసుకోవాలని CM చంద్రబాబు నాయుడు ఆదేశించారు.\nఒడిశాలో 74 Rescue Teams రంగంలోకి దిగాయి. ప్రమాద ప్రాంతాల ప్రజలను సురక్షిత ప్రాంతాలకు తరలిస్తున్నారు.\n24 Hours Control Rooms ఏర్పాటు చేసి Cyclone Shelters లో Food, Drinking Water, Electricity ఏర్పాట్లను పరిశీలిస్తున్నారు.\nగర్భిణీలు, పశువుల కోసం కూడా ప్రత్యేక ఏర్పాట్లు చేస్తున్నారు. అండమాన్‌లో Army, Navy, Air Force అప్రమత్తంగా ఉన్నాయి.\nమనము IMD, Local Authorities ఇచ్చే Updates మాత్రమే నమ్మాలి. WhatsApp Fake Messages ని Forward చేయకండి.\nTorch, Power Bank, Drinking Water సిద్ధంగా పెట్టుకోండి. బలమైన గాలుల సమయంలో బయటకు వెళ్లకండి.\nచెట్లు, Hoardings, Current Poles కి దూరంగా ఉండండి. వరద నీరు ఉన్న రోడ్లు దాటకండి.\nShelter కి వెళ్లమంటే వెంటనే వెళ్లండి. రైతులు వీలైతే వర్షాలకు ముందే పంట కోసుకోవాలి.\nAkwan ప్రమాదం దాని పేరు వల్ల కాదు, వేడిగా ఉన్న Bay of Bengal వల్ల.\nమీ ప్రాంతంలో వాతావరణం ఎలా ఉందో Comments లో చెప్పండి. ఈ Video ను Family, Friends కి Share చేసి Like చేయండి."
+        }
+      ],
+      "changes": [
+        {
+          "date": "2026-11-18",
+          "text": "CHANGES MADE - S025 Cyclone Akwan (user's update; no reasons given for any change)\n\n1. Layout / rhythm\n- Paragraphs broken into short lines: one or two short sentences per line. Long comma-chained sentences split into separate sentences (e.g. \"దాని పేరు Akwan\" -> own sentence \"దీని పేరు Akwan.\"; the location + speed sentence split in two; \"low pressure ... దూసుకొస్తుంది, భూమి తిరుగుతూ...\" split in three). No reason given.\n- Title line not included in the pasted update. No reason given.\n\n2. Numbers\n- All numbers written as digits instead of spelled-out English words: October 28, November 3, 2,484 కోట్ల రూపాయలు, 31 నుంచి 61, 960, 800, 15, 26.5, 13, 110 నుంచి 130, 10 States, 74, 24 Hours, November 19/20. No reason given.\n- \"km\" -> \"Kilometers\" written in full. No reason given.\n\n3. Intro paragraph\n- Questions rewritten more fully and paired: \"ఇది ఎప్పుడు తీరం దాటొచ్చు?\" -> \"అసలు ఇది ఎప్పుడు తీరం దాటే అవకాశం ఉంది?\"; \"ఎలా పుట్టింది?\" -> \"ఎలా ఏర్పడింది?\"; \"ఎంత బలంగా ఉండొచ్చు?\" -> \"ఎంత బలంగా ఉండబోతోంది?\"; \"ఎక్కువ effect ఉంటుంది\" -> \"ఎక్కువ ప్రభావం చూపించొచ్చు\"; \"Government ఏం ready చేసింది\" -> \"Government ఎలాంటి ఏర్పాట్లు చేస్తోంది?\"; added \"కేవలం ... వరుసగా\".\n- Closing line: \"ఈ విషయాలన్నీ ఇప్పుడు in detail గా ఈ video లో చూద్దాం\" -> \"ఈ ప్రశ్నలన్నింటికీ సమాధానాలను ఇప్పుడు ఈ Video లో వివరంగా తెలుసుకుందాం.\"\n- \"వస్తోంది\" -> \"దూసుకొస్తోంది\" (stronger verb, used twice).\n\n4. Hook (fisherman story)\n- \"ఉండే fisherman\" -> \"నివసించే Fisherman\"; \"Murasu ఒక్కటే Andhra లో ... crore rupees damage చేసిందని\" -> \"ఈ Murasu తుఫాన్ వల్ల ఒక్క Andhra లోనే 2,484 కోట్ల రూపాయలు నష్టం జరిగిందని\".\n- \"ఇంకా పూర్తిగా కోలుకోకముందే\" -> \"ఆ నష్టం నుంచి ఇంకా పూర్తిగా కోలుకోక ముందే\"; \"సముద్రంలోకి వెళ్లొద్దు అని\" -> \"సముద్రంలోకి చేపల వేటకు వెళ్లొద్దని హెచ్చరికలు.\"\n\n5. Word swaps (English -> Telugu, everyday -> standard/news Telugu)\n- effect -> ప్రభావం; speed -> వేగం; stage -> దశ; time -> సమయం; damage -> నష్టం; start అవుతుంది -> మొదలవుతుంది; పుడుతుంది -> ఏర్పడుతుంది; ready పెట్టుకోండి -> సిద్ధంగా పెట్టుకోండి; మంచి నీళ్లు -> Drinking Water; light -> Electricity; check చేస్తున్నారు -> పరిశీలిస్తున్నారు; తప్ప -> మినహా; ముందు జాగ్రత్తలు -> ముందస్తు జాగ్రత్తలు; orders ఇచ్చారు -> ఆదేశించారు; red alert ఇచ్చారు / signal పెట్టారు -> జారీ చేశారు; వెళ్లొద్దని చెప్పారు -> హెచ్చరించారు; alert లో ఉన్నాయి -> అప్రమత్తంగా ఉన్నాయి; బలానికీ -> తీవ్రతకి; దింపి -> రంగంలోకి దిగాయి; వాళ్లను -> ప్రజలను సురక్షిత ప్రాంతాలకు; కింద గాలి తగ్గి -> సముద్ర ఉపరితలం దగ్గర; నీళ్లు ... వేడిగా -> నీటి ఉష్ణోగ్రత ... డిగ్రీల; Coast -> Coastal ప్రాంతాల్లో; point -> Landfall Point; list ఇస్తాయి -> Cyclone Names List తయారు చేస్తాయి.\n- English words in Latin script are capitalised: Coast, Video, Warning, Circulation, Low Pressure Area, Depression Stage, Forecast, Reports, Red Alert, Like, Subscribe, Comments, Share...\n- Place / person names switched to Telugu script for Andhra and neighbour states: నెల్లూరు, విశాఖపట్నం, మచిలీపట్నం, బాపట్ల, కాకినాడ, కోనసీమ, ఏలూరు, కృష్ణా, విజయనగరం, కళింగపట్నం, ఆంధ్రప్రదేశ్, ఒడిశా, తమిళనాడు, తెలంగాణ, అండమాన్, చంద్రబాబు నాయుడు, నవంబర్ (once). Others stay Latin (Ongole, Chennai, Ganjam, East/West Godavari, Andhra, Yanam). \"Vizag\" -> విశాఖపట్నం. \"South Andaman సముద్రం\" -> \"South Andaman Sea\".\n\n6. Explanation / analogy\n- Analogy completed: \"Bike కి petrol ఎలాగో, తుఫానుకి వేడి సముద్రం అలా. Fuel ఉన్నంతసేపు...\" -> \"Bike నడవడానికి Petrol ఎంత అవసరమో, తుఫాను బలపడడానికి వేడిగా ఉన్న సముద్రం అంత అవసరం. సముద్రం నుంచి వేడి, తేమ అందుతున్నంత సేపు తుఫాను మరింత బలపడుతుంది.\"\n- Formation: \"గాల్లో ఎత్తులో ఒక సుడి లాంటి circulation\" -> \"వాతావరణంలో ఒక సుడిగాలి లాంటి Circulation\"; \"కిందకి దిగి\" -> \"క్రమంగా బలపడి\"; \"తేమతో కలిసి\" -> \"తేమను తీసుకొని\"; \"ఆ ఖాళీలోకి\" -> \"ఆ Low Pressure వైపు వేగంగా\"; \"భూమి తిరుగుతూ\" -> \"భూమి తన చుట్టూ తిరుగుతూ\".\n- Name section: \"ఇంకో విషయం\" -> \"ఇంకో Interesting విషయం ఏంటంటే\"; \"పేరు భయంకరంగా ఉంది కదా అని...\" split into a question \"పేరు వినడానికి భయంకరంగా ఉంది కదా?\" + \"అయితే పేరు చూసి ... అనుకోకండి.\"; added \"ఎందుకంటే\" and \"కాబట్టి\" to link the reasoning. Spelling \"Akvan\" -> \"Akwan\".\n- \"ఇప్పుడు అసలు ప్రశ్న,\" -> \"ఇప్పుడు అసలు ప్రశ్న ఏంటంటే\".\n\n7. CTA\n- Mid CTA split into two lines and expanded: \"ఈ Information మీకు Useful అనిపిస్తే Video కి ఒక Like కొట్టండి. ఇలాంటి మరిన్ని Interesting Updates కోసం The Dark World Channel ని Subscribe చేయండి.\"\n- Bridge after CTA: \"ఒకదాని తర్వాత ఒకటి మూడు తుఫాన్లు ఎందుకు?\" -> \"మరి ఒకదాని తర్వాత ఒకటి ఇలా మూడు తుఫాన్లు ఎందుకు వస్తున్నాయి?\"\n- End CTA: \"మీ ఊర్లో ఇప్పుడు వాతావరణం ఎలా ఉంది? కింద comment లో చెప్పండి\" -> \"మీ ప్రాంతంలో వాతావరణం ఎలా ఉందో Comments లో చెప్పండి.\"; \"ఒక like కొట్టండి\" -> \"Like చేయండి\".\n\n8. Removed / shortened\n- Removed \"ఇక మనం చేయాల్సింది simple.\"\n- Ending shortened: \"అంటే Akwan ని ప్రమాదంగా మార్చేది దాని పేరు కాదు, ఇంకా వేడిగానే ఉన్న మన Bay of Bengal. అదే వేడి మూడు వారాల్లో మూడు తుఫాన్లను Andhra coast వైపు పంపింది.\" -> one line \"Akwan ప్రమాదం దాని పేరు వల్ల కాదు, వేడిగా ఉన్న Bay of Bengal వల్ల.\"\n- Safety tips: \"నమ్మండి\" -> \"మనము ... నమ్మాలి\"; \"నీళ్లు పారుతున్న రోడ్లు దాటే risk తీసుకోకండి\" -> \"వరద నీరు ఉన్న రోడ్లు దాటకండి\"; \"ఆలస్యం చేయకుండా\" -> \"వెంటనే\"; farmers \"కోసుకోండి\" -> \"కోసుకోవాలి\".\n\n9. Facts\n- \"ఈ seven జిల్లాలకు\" -> count dropped (same 7 districts listed).\n- Yanam: \"అక్కడక్కడ అతి భారీ వర్షాలు\" -> \"కూడా భారీ వర్షాలు\".\n- \"కోతకు వచ్చిన పంటలు\" -> \"పంటలు\"; \"November twenty వరకు సముద్రం అల్లకల్లోలంగా\" -> date dropped.\n- \"Andhra, Yanam coast\" -> \"Andhra Yanam Coast\"; \"number one signal\" -> \"Number One Warning Signal\".\n- Pregnant women / cattle arrangements moved to their own sentence \"ప్రత్యేక ఏర్పాట్లు\".\n- All other numbers, dates and names unchanged.",
+          "revision": 1
+        }
+      ],
       "feedback": [],
-      "rules": [],
+      "rules": [
+        {
+          "date": "2026-11-18",
+          "scope": "general",
+          "text": "Dark World news: use standard news Telugu verbs and nouns for official actions and core terms: జారీ చేశారు, హెచ్చరించారు, ఆదేశించారు, ఏర్పాటు చేసి, పరిశీలిస్తున్నారు, అప్రమత్తంగా, మినహా, ముందస్తు, ప్రభావం (not effect), వేగం (not speed), దశ (not stage), సమయం (not time), నష్టం (not damage), సిద్ధంగా (not ready), మొదలవుతుంది (not start అవుతుంది)",
+          "status": "approved"
+        },
+        {
+          "date": "2026-11-18",
+          "scope": "general",
+          "text": "Andhra / Telugu-region and neighbour-state place names and Telugu leaders' names may go in Telugu script (నెల్లూరు, విశాఖపట్నం, మచిలీపట్నం, బాపట్ల, కాకినాడ, ఒడిశా, తమిళనాడు, తెలంగాణ, చంద్రబాబు నాయుడు); say విశాఖపట్నం, not Vizag; units in full (Kilometers, not km)",
+          "status": "approved"
+        },
+        {
+          "date": "2026-11-18",
+          "scope": "general",
+          "text": "State analogies completely, not as shorthand: 'Bike నడవడానికి Petrol ఎంత అవసరమో, తుఫాను బలపడడానికి వేడిగా ఉన్న సముద్రం అంత అవసరం.' (not 'Bike కి petrol ఎలాగో, తుఫానుకి వేడి సముద్రం అలా.')",
+          "status": "approved"
+        },
+        {
+          "date": "2026-11-18",
+          "scope": "general",
+          "text": "Dark World mid CTA as two lines: 'ఈ Information మీకు Useful అనిపిస్తే Video కి ఒక Like కొట్టండి. ఇలాంటి మరిన్ని Interesting Updates కోసం The Dark World Channel ని Subscribe చేయండి.'; end CTA: 'మీ ప్రాంతంలో ... ఎలా ఉందో Comments లో చెప్పండి. ఈ Video ను Family, Friends కి Share చేసి Like చేయండి.'; final recap in one short line",
+          "status": "approved"
+        },
+        {
+          "date": "2026-11-18",
+          "scope": "topic",
+          "text": "Cyclone / disaster news: say Landfall Point, తీవ్రత, హెచ్చరికలు, వరద నీరు, సురక్షిత ప్రాంతాలకు తరలిస్తున్నారు; safety tips as short one-action sentences, general advice in duty form (మనము IMD ... Updates మాత్రమే నమ్మాలి, రైతులు ... కోసుకోవాలి); no filler like 'ఇక మనం చేయాల్సింది simple'",
+          "status": "approved"
+        }
+      ],
       "synced": true
     }
   },

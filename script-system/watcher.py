@@ -15,6 +15,7 @@ import csv
 import datetime
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -116,6 +117,8 @@ def run_claude(prompt=PROMPT):
             w.writerow([f"{datetime.datetime.now():%Y-%m-%d %H:%M}", *st.values()])
     if "Failed to authenticate" in out:
         return False, "Claude login expired - run `claude auth login` once in a terminal"
+    if m := re.search(r"hit your.*limit.*", out):  # e.g. "You've hit your weekly limit · resets Nov 20, 10:30pm"
+        return False, m.group(0).strip()
     if p.returncode != 0 or st.get("error"):
         return False, f"claude exited with code {p.returncode}"
     return True, stats_line(st) if st else ""
@@ -174,7 +177,7 @@ def tick_ldb(sheet, runner=None, say=log, pending_rows=None):
     ok, why = runner()
     left = L.ldb_scan(sheet.ldb_controls())["claimed"]  # anything a stopped run did not finish
     if left:
-        sheet.ldb_release(left)
+        sheet.ldb_release(left, why)
     if not ok:
         sheet.ldb_set_all(L.ALL_REST, f"{stamp()} - run stopped: {why}. Click START again. See watcher.log")
         say(f"learning db run failed: {why}")

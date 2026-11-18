@@ -216,7 +216,7 @@ def test():
         def ldb_controls(s): return s.ctl
         def ldb_fill(s, fill, clear=()): s.log.append(("fill", list(fill), list(clear)))
         def ldb_claim(s, rows): s.log.append(("claim", list(rows)))
-        def ldb_release(s, rows): s.log.append(("release", list(rows)))
+        def ldb_release(s, rows, why=""): s.log.append(("release", list(rows)))
         def ldb_set_all(s, text, note=None): s.log.append(("all", text, note))
 
     n = len(calls)

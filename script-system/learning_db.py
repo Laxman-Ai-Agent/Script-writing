@@ -422,9 +422,10 @@ class GoogleSheet:
     def ldb_claim(self, rows):
         self._put([{"range": f"'{TAB}'!H{r}", "values": [[G_RUN]]} for r in rows])
 
-    def ldb_release(self, rows):
+    def ldb_release(self, rows, why="run stopped"):
+        """Rows a stopped run did not reach: back to RUN (not ASK - nothing is wrong with the row), reason in the note."""
         for r in rows:
-            self.ldb_mark(r, ASK_CELL, "The run stopped before this row was processed. Click START again.")
+            self.ldb_mark(r, G_REST, f"Not processed: {why}. Click START again.")
 
     def ldb_set_all(self, text, note=None):
         self._put([{"range": f"'{TAB}'!H1", "values": [[text]]}])

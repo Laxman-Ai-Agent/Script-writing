@@ -44,7 +44,7 @@ Read `script-system/writing-dna.md`: Health Decode → whole file; The Dark Worl
 ### 4. Plan
 - Target words from DNA §8 for the duration.
 - Health Decode: research must include at least one authoritative health source (WHO, NIH, CDC, ICMR, NHS, Mayo Clinic) and one why-it-matters number for rubric point 5. Use §14 openings (H1–H6), "normal body first, then what goes wrong" structure, §14 CTAs and safety rules.
-- Pick one opening (§4), one structure (§5), one ending (§6). None of them may match the entries `history-last` printed. Choose what fits the topic, not at random.
+- Pick one opening (§4), one structure (§5), one ending (§6). None of them may match the entries `history-last` printed, and the new first sentence, intro closer, CTA lines and last line must not reuse the wording it shows (DNA §11 "No fixed template"). Exact sentences in rules are tone examples: rephrase them for this topic. Choose what fits the topic, not at random.
 - Pick 1 everyday analogy and 1 concrete example to carry through (if the topic allows).
 - Durations ≥10 min: outline chapters first (each ~400–600 words, each opening with a bridge question).
 
@@ -61,6 +61,7 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 - **Labels → descriptions:** jargon labels ("chain reaction", "self-defense system") become plain explanations ("ఒకదాని తర్వాత ఒకటి మార్పులు జరుగుతూ", "తనను తాను కాపాడుకునే పద్ధతి").
 - **Rhythm:** merge choppy one-liners into flowing paragraphs; vary sentence length; no two consecutive sentences with the same opening word.
 - **Connector budget:** నిజానికి / అయితే / దాంతో / అందుకే / మరి — at most ~2 each per 300 words.
+- **Viewer questions + light CTA (DNA §11):** a direct question to the viewer every 2–3 paragraphs, fitting that moment; mid subscribe = one short line in the flow, never a pitch that stops the story.
 - **Tone:** remove drama the facts don't support (ఆయుధం, షాక్, ఏకంగా); keep suspense only where the content really turns.
 - **Hedging:** certainty words match `facts.md` confidence ("తగ్గవచ్చు" vs "తగ్గుతాయి").
 - **Speakability:** no sentence that needs a breath in an awkward place; no stacked suffixes that trip the tongue.
@@ -72,7 +73,7 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 - No calques, no గ్రాంథిక / newsreader phrasing, §9 "Never" list clean.
 - Paragraphs, not one-liners; no stretch of ~4 sentences of dry exposition without a question / example / turn.
 - Word count within ±10% of target (`python script-system/learning_db.py words <file>` counts the narration, title excluded).
-- Opening / structure / ending are not repeats from history.
+- Opening / structure / ending are not repeats from history, and the first sentence, intro closer, CTAs and last line are not copies of the `history-last` wording or of a rule's example sentence.
 - Health Decode only: run the §14 8-point rubric (point 8 = HEALTHCARE CONTENT SAFETY RULE: no medicines/doses/treatment instructions/cure claims, warning signs + "Doctor decides treatment" included; this rule beats any research finding or older sample); fix until every point is ✅. After the script, show the rubric as a one-line ✅ list (the user wants to see it).
 
 ### 8. Deliver

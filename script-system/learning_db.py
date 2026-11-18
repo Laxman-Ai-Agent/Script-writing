@@ -78,7 +78,12 @@ def main(argv=None):
         mine = [h for h in hist if h.get("channel", "dark") == args.channel][-args.n:]
         for h in mine:
             print(f"{h['date']} | opening {h['opening']} | structure {h['structure']} | ending {h['ending']} | {h['topic'][:60]}")
-        print(f"({len(mine)} most recent {args.channel} scripts; append new entries to script-system/history.json)")
+            f = Path(__file__).resolve().parent.parent / h.get("file", "")
+            if f.is_file():  # the actual wording, so the new script can avoid reusing it (not just the type codes)
+                paras = [p.strip() for p in f.read_text(encoding="utf-8").split("\n")[1:] if p.strip()]
+                if paras:
+                    print(f"   starts: {paras[0][:110]}\n   intro ends: ...{paras[0][-90:]}\n   ends: ...{paras[-1][-140:]}")
+        print(f"({len(mine)} most recent {args.channel} scripts; do NOT reuse their wording; append new entries to script-system/history.json)")
         return
     if args.cmd == "requests":
         sheet = GoogleSheet()

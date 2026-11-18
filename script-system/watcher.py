@@ -39,7 +39,7 @@ ALLOWED = ["Read", "Glob", "Grep", "WebSearch", "WebFetch", "Skill",
            "Write(output/**)", "Edit(output/**)", "Edit(script-system/history.json)",
            "Bash(python script-system/learning_db.py:*)", "Bash(python script-system/ideas.py:*)", "Agent"]
 ACCOUNT_DIRS = [Path.home() / ".claude-account2"]  # fallback logins: CLAUDE_CONFIG_DIR=<dir> claude auth login
-MODEL = "sonnet"  # writes the Telugu (was opus until 2026-11-18: switched to stretch the Pro weekly limit)
+MODEL = "opus"  # writes the Telugu; research is delegated to a Sonnet subagent by the skill (SKILL.md step 1)
 # Lean run: project settings only (no user plugins/hooks/MCP), fewer built-in tools -> ~18k instead of ~56k baseline tokens per step
 LEAN = ["--setting-sources", "project", "--strict-mcp-config", "--exclude-dynamic-system-prompt-sections",
         "--tools", "Read,Write,Edit,Bash,WebSearch,WebFetch,Glob,Grep,Skill,Agent"]

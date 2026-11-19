@@ -1,8 +1,8 @@
 {
   "created": "2026-11-19",
-  "title": "Zumba = Dance మాత్రమేనా?",
+  "title": "Zumba అంటే కేవలం Dance నేనా? లేక Full Body Workout ఆ?",
   "category": "Zumba Fitness",
-  "original": "Zumba అంటే కేవలం Dance నేనా? లేక Full Body Workout ఆ?\n\nZumba అంటే పాటకి Steps వేయడమేనా? లేక Heart కి కూడా గట్టి Workout జరుగుతోందా? ఒక Study లో Record చేసిన Heart Rate లెక్కలతో చూద్దాం.\n\nబయట నుంచి చూస్తే Zumba లో Music, Dance మాత్రమే కనిపిస్తాయి. కానీ ACE Study లో పందొమ్మిది మంది మహిళల Heart Rate సగటున Maximum లో దాదాపు ఎనభై శాతం దాకా వెళ్ళింది. అది ఒకసారి పైకి, ఒకసారి కిందకి మారుతూ Interval Workout లా కనిపించింది. CDC లెక్కల ప్రకారం ఇది బాగా కష్టపడే Vigorous Exercise కిందకి వస్తుంది. ఇలాంటివి నచ్చితే Health Decode ని Subscribe చేయండి.\n\nఅయితే Zumba అంటే అచ్చం HIIT అని అనుకోవడం పొరపాటు. ఎందుకంటే HIIT లో దాదాపు పూర్తి శక్తితో చేసే Bursts ఉంటాయి. Zumba మాత్రం Interval లాంటి Cardio.\n\nChest Pain, తల తిరగడం, ఊపిరి అందకపోవడం అనిపిస్తే వెంటనే ఆపి Doctor ని సంప్రదించాలి. Heart సమస్య, Knee నొప్పి, Pregnancy ఉంటే ముందే Doctor సలహా తీసుకోవాలి.\n\nఇది సాధారణ అవగాహన కోసం మాత్రమే. మీకు ఏది సరైనదో Doctor మాత్రమే చెప్పగలరు.\n\nమీరు Zumba ప్రయత్నించారా? కింద రాయండి. చూడడానికి Dance లా ఉన్నా, Heart కి ఇది నిజమైన Cardio.",
+  "original": "Zumba అంటే కేవలం Dance నేనా? లేక Full Body Workout ఆ?\n\nZumba అంటే కేవలం పాటలకు Dance చేయడమేనా? లేక ఇది నిజంగా Full Body Workout ఆ? బయటకు చూస్తే Music, Dance మాత్రమే కనిపిస్తాయి. కానీ Zumba చేస్తున్నప్పుడు మన Heart ఎంత వేగంగా పనిచేస్తుందో ఒక Study ద్వారా తెలుసుకోవచ్చు.\n\nACE Study లో పంతొమ్మిది మంది మహిళల Heart Rate ను పరిశీలించారు. అందులో వారి Heart Rate సగటున Maximum స్థాయిలో దాదాపు ఎనభై శాతం వరకు చేరుకుంది. అంతేకాదు, Heart Rate ఒకసారి పెరిగి, మరోసారి తగ్గుతూ ఉండటం వల్ల ఇది Interval Workout లాంటి Cardio Exercise గా కనిపించింది. CDC లెక్కల ప్రకారం, ఈ స్థాయి శ్రమ Vigorous Exercise కిందకు వస్తుంది.\n\nఅయితే Zumba ను అచ్చంగా HIIT Workout అని అనుకోకూడదు. ఎందుకంటే HIIT లో తక్కువ సమయంలో దాదాపు పూర్తి శక్తితో చేసే Exercise Bursts ఉంటాయి. Zumba లో మాత్రం Dance Movements ద్వారా Heart Rate పెరుగుతూ, తగ్గుతూ ఉంటుంది. అంటే ఇది Interval లాంటి Cardio Workout.\n\nఅయితే Zumba చేస్తున్నప్పుడు Chest Pain, తల తిరగడం లేదా ఊపిరి అందకపోవడం లాంటి లక్షణాలు కనిపిస్తే వెంటనే ఆపి Doctor ను సంప్రదించాలి. Heart సమస్యలు, Knee నొప్పి లేదా Pregnancy ఉన్నవాళ్లు ముందుగానే Doctor సలహా తీసుకోవాలి.\n\nఈ వీడియో సాధారణ అవగాహన కోసం మాత్రమే. మీ ఆరోగ్య పరిస్థితికి ఏ Exercise సరైనదో Doctor మాత్రమే సూచించగలరు.\n\nమీరు ఎప్పుడైనా Zumba ప్రయత్నించారా? మీ అనుభవాన్ని Comment చేయండి. చూడటానికి Dance లా కనిపించినా, Zumba మన Heart కు మంచి Cardio Workout అవుతుంది.",
   "revisions": [
     {
       "date": "2026-11-19",
@@ -23,47 +23,102 @@
       "scope": "general",
       "text": "Zumba Fitness format (overrides \"narration only\" for this category): a short reel in timed blocks Hook, Proof, Twist, Safety, CTA (35-40 sec: 0-3, 3-15, 15-27, 27-33, 33-40). Each block = a Visual line + a short Text on screen (4-7 words + one emoji) + the VO. End with a Caption: one-line disclaimer + hashtags.",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "superseded",
+      "superseded_by": "S030 example 2026-11-19 (plain narration, flowing sentences)"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba hook: no intro paragraph. The first VO is a direct question to the viewer + ONE short payoff tease sentence; the very next block goes straight to the study.",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "superseded",
+      "superseded_by": "S030 example 2026-11-19 (plain narration, flowing sentences)"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba sentence formation: one clause per sentence (about 6-12 words), pauses only with a comma. Split a stat into three sentences: who/what the study was, then the number result with an exclamation, then the source verdict (\"CDC ప్రకారం ఇది ...\").",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "superseded",
+      "superseded_by": "S030 example 2026-11-19 (plain narration, flowing sentences)"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba myth correction pattern: \"కానీ ఇది పూర్తిగా X కాదు.\" then ONE sentence on how it really works, then a closing \"అంటే ...\" sentence that names it plainly. No long \"ఎందుకంటే\" reason chain.",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "superseded",
+      "superseded_by": "S030 example 2026-11-19 (plain narration, flowing sentences)"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba safety block: two direct-command sentences (symptoms -> \"వెంటనే ఆపండి\"; conditions -> \"ముందే Doctor సలహా తీసుకోండి\"), not the formal \"...ఆపి సంప్రదించాలి\". The spoken 2-sentence disclaimer is dropped; the disclaimer goes in the caption only.",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "superseded",
+      "superseded_by": "S030 example 2026-11-19 (plain narration, flowing sentences)"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba CTA order: payoff line first (looks like dance, but real cardio), then the viewer question, then \"Comment లో చెప్పండి\", then share to a Zumba friend. Never mention or subscribe-pitch Health Decode in a Zumba script.",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "superseded",
+      "superseded_by": "S030 example 2026-11-19 (plain narration, flowing sentences)"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba numbers and English words follow the old rules: whole numbers in Telugu words (పందొమ్మిది మంది, ఎనభై శాతం), decimals in English words; English words people say stay in Latin script (dance, try, share, friend, Comment). Never digits, never Telugu-script English, in VO and Text on screen. (User decision, S030 paste used digits and Telugu script but is NOT the model for this.)",
+      "category": "Zumba Fitness",
+      "status": "approved"
+    },
+    {
+      "date": "2026-11-19",
+      "scope": "general",
+      "text": "Zumba Fitness = narration only: no headings, bullets, labels, emoji, timestamps, Visual / Text on screen lines or caption. Connected paragraphs with a blank line between them. Start directly with the hook; never an intro line like \"ఈ video లో వివరంగా తెలుసుకుందాం\".",
+      "category": "Zumba Fitness",
+      "status": "approved"
+    },
+    {
+      "date": "2026-11-19",
+      "scope": "general",
+      "text": "Zumba opening: the topic as a question + \"లేక ...?\" alternative, then \"బయటకు చూస్తే ... కానీ ...\" leading to the study. No separate payoff-tease line with \"!\".",
+      "category": "Zumba Fitness",
+      "status": "approved"
+    },
+    {
+      "date": "2026-11-19",
+      "scope": "general",
+      "text": "Zumba sentence formation: full flowing sentences joined by connectors (అంతేకాదు, అయితే, ఎందుకంటే, అంటే, కానీ). Stat paragraph = who/what study, then the number, then the verdict: \"CDC లెక్కల ప్రకారం, ఈ స్థాయి శ్రమ Vigorous Exercise కిందకు వస్తుంది.\" (comma after ప్రకారం).",
+      "category": "Zumba Fitness",
+      "status": "approved"
+    },
+    {
+      "date": "2026-11-19",
+      "scope": "general",
+      "text": "Zumba myth correction: \"అయితే X ని అచ్చంగా Y అని అనుకోకూడదు. ఎందుకంటే Y లో ... X లో మాత్రం ... అంటే ఇది ...\" - reason with ఎందుకంటే, then a closing \"అంటే\" sentence.",
+      "category": "Zumba Fitness",
+      "status": "approved"
+    },
+    {
+      "date": "2026-11-19",
+      "scope": "general",
+      "text": "Zumba safety in duty form: \"...కనిపిస్తే వెంటనే ఆపి Doctor ను సంప్రదించాలి\", \"...ఉన్నవాళ్లు ముందుగానే Doctor సలహా తీసుకోవాలి\" (Doctor ను, not ని). Then a separate spoken disclaimer paragraph: \"ఈ వీడియో సాధారణ అవగాహన కోసం మాత్రమే. మీ ఆరోగ్య పరిస్థితికి ఏ Exercise సరైనదో Doctor మాత్రమే సూచించగలరు.\"",
+      "category": "Zumba Fitness",
+      "status": "approved"
+    },
+    {
+      "date": "2026-11-19",
+      "scope": "general",
+      "text": "Zumba ending order: viewer question, then \"మీ అనుభవాన్ని Comment చేయండి.\", then ONE closing payoff line (చూడటానికి Dance లా కనిపించినా, Zumba మన Heart కు మంచి Cardio Workout అవుతుంది). No share line, no subscribe, never mention Health Decode.",
+      "category": "Zumba Fitness",
+      "status": "approved"
+    },
+    {
+      "date": "2026-11-19",
+      "scope": "general",
+      "text": "Zumba word forms (user example): \"వీడియో\" in Telugu script, పంతొమ్మిది, లెక్కల ప్రకారం, Heart కు, ను endings (Heart Rate ను, Doctor ను); other English words stay Latin with a capital (Dance, Study, Workout, Exercise, Comment).",
       "category": "Zumba Fitness",
       "status": "approved"
     }

@@ -189,7 +189,7 @@ def tick(sheet, runner=run_row, say=log):
 
 
 def tick_ldb(sheet, runner=None, say=log, pending_rows=None):
-    """Same idea for the Script Learning Database tab: START in a row's RUN cell (H), or RUN ALL (H1), starts one
+    """Same idea for the Script Learning Database tab: START in a row's RUN cell (I), or RUN ALL (I1), starts one
     unattended run of SKILL.md Mode F that splits a pasted update into clean script / reasons / changes / rules."""
     runner = runner or (lambda: run_claude(PROMPT_REVISE))
     sc = L.ldb_scan(sheet.ldb_controls())

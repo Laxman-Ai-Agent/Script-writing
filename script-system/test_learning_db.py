@@ -27,6 +27,10 @@ class FakeSheet:
         self.rows.append(values)
         return len(self.rows)
 
+    def set_category(self, row, cat):
+        self.cats = getattr(self, "cats", {})
+        self.cats.setdefault(row, cat)
+
     def ldb_mark(self, row, text, note=None):
         self.marks.append((row, text, note))
 
@@ -35,7 +39,15 @@ def down():
     raise RuntimeError("network down")
 
 
+def test_category():
+    assert L.category_of("థైరాయిడ్ సమస్యలు ఎందుకు వస్తాయి? | Thyroid Causes, Symptoms") == "Health Decode"
+    assert L.category_of("మలబద్ధకం అసలు ఎందుకు వస్తుంది?") == "Health Decode"
+    assert L.category_of("Gemini 4 Hydrogen: ఇంత cheap AI | Price, Speed") == "Dark World"
+    assert L.category_of("మనిషి 150 ఏళ్లు బ్రతకగలడా? | AI, Gene Editing") == "Dark World"
+
+
 def test():
+    test_category()
     db = {"records": {}}
     long_script = "TITLE of the long script\n\n" + "తెలుగు narration line. " * 1500  # ~34k chars, a 30-min script
     rid, rec, new = L.add_original(db, None, long_script)

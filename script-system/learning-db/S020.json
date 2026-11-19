@@ -67,5 +67,6 @@
       "superseded_by": "S021-6 health CTA"
     }
   ],
-  "synced": true
+  "synced": true,
+  "category": "Health Decode"
 }

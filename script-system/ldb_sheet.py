@@ -43,35 +43,56 @@ class GoogleSheet:
                                               valueInputOption="RAW", body={"values": [headers]}))
 
     def ensure_tab(self):
-        """Learning DB tab: headers + the RUN column H (H1 = RUN ALL). Formatting is rebuilt only when it is missing."""
+        """Learning DB tab: headers + the RUN column I (I1 = RUN ALL). Formatting is rebuilt only when it is missing."""
         self.ensure(TAB, HEADERS)
         sid = self._sheet_id(TAB)
-        h1 = (self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!H1")).get("values") or [[""]])[0][0]
+        h1 = (self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!I1")).get("values") or [[""]])[0][0]
         meta = self.run(self.api.get(spreadsheetId=SHEET_ID, fields="sheets(properties.sheetId,conditionalFormats)"))
         n_rules = len(next(s for s in meta["sheets"] if s["properties"]["sheetId"] == sid).get("conditionalFormats", []))
         if h1 not in ALL_STATES or n_rules != 5:
-            self._put([{"range": f"'{TAB}'!H1", "values": [[h1 if h1 in ALL_STATES else ALL_REST]]}])
+            self._put([{"range": f"'{TAB}'!I1", "values": [[h1 if h1 in ALL_STATES else ALL_REST]]}])
             rng = lambda r0, r1, c0, c1: {"sheetId": sid, "startRowIndex": r0, "endRowIndex": r1,
                                           "startColumnIndex": c0, "endColumnIndex": c1}
             dv = lambda r, vals: {"setDataValidation": {"range": r, "rule": {"condition": {
                 "type": "ONE_OF_LIST", "values": [{"userEnteredValue": v} for v in vals]},
                 "showCustomUi": True, "strict": True}}}
             GREEN, ORANGE, RED, AMBER = (0.72, 0.88, 0.80), (1.0, 0.85, 0.55), (0.96, 0.78, 0.76), (1.0, 0.95, 0.62)
-            colour = lambda text, rgb: {"addConditionalFormatRule": {"index": 0, "rule": {"ranges": [rng(0, 1000, 7, 8)], "booleanRule": {
+            colour = lambda text, rgb: {"addConditionalFormatRule": {"index": 0, "rule": {"ranges": [rng(0, 1000, 8, 9)], "booleanRule": {
                 "condition": {"type": "TEXT_STARTS_WITH", "values": [{"userEnteredValue": text}]},
                 "format": {"backgroundColor": {"red": rgb[0], "green": rgb[1], "blue": rgb[2]}}}}}}
             self.run(self.api.batchUpdate(spreadsheetId=SHEET_ID, body={"requests": [
                 *[{"deleteConditionalFormatRule": {"sheetId": sid, "index": 0}} for _ in range(n_rules)],  # ours only
                 colour("▶ RUN", GREEN), colour("▶ START", AMBER), colour("⏳", ORANGE), colour("✅", GREEN), colour("❌", RED),
-                dv(rng(0, 1, 7, 8), ALL_STATES),
-                dv(rng(1, 1000, 7, 8), [G_REST, G_START, G_RUN, DONE_CELL, ASK_CELL]),
-                {"repeatCell": {"range": rng(0, 1000, 7, 8), "cell": {"userEnteredFormat": {
+                dv(rng(0, 1, 8, 9), ALL_STATES),
+                dv(rng(1, 1000, 8, 9), [G_REST, G_START, G_RUN, DONE_CELL, ASK_CELL]),
+                {"repeatCell": {"range": rng(0, 1000, 8, 9), "cell": {"userEnteredFormat": {
                     "textFormat": {"bold": True}, "horizontalAlignment": "CENTER"}},
                     "fields": "userEnteredFormat(textFormat,horizontalAlignment)"}},
-                {"updateDimensionProperties": {"range": {"sheetId": sid, "dimension": "COLUMNS", "startIndex": 7, "endIndex": 8},
+                {"updateDimensionProperties": {"range": {"sheetId": sid, "dimension": "COLUMNS", "startIndex": 8, "endIndex": 9},
                                                "properties": {"pixelSize": 130}, "fields": "pixelSize"}}]}))
+        self._ensure_category()
         sc = ldb_scan(self.ldb_controls())
         self.ldb_fill(sc["fill"], sc["clear"])
+
+    def _ensure_category(self):
+        """Header I1 + a Dark World / Health Decode dropdown on I2:I1000 (set once)."""
+        i1 = (self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!{CAT_COL}1")).get("values") or [[""]])[0][0]
+        if i1 == "Category":
+            return
+        self._put([{"range": f"'{TAB}'!{CAT_COL}1", "values": [["Category"]]}])
+        self.run(self.api.batchUpdate(spreadsheetId=SHEET_ID, body={"requests": [{"setDataValidation": {
+            "range": {"sheetId": self._sheet_id(TAB), "startRowIndex": 1, "endRowIndex": 1000, "startColumnIndex": 7, "endColumnIndex": 8},
+            "rule": {"condition": {"type": "ONE_OF_LIST", "values": [{"userEnteredValue": v} for v in CATEGORIES]},
+                     "showCustomUi": True, "strict": True}}},
+            # filter on the Category column only (one-column range = a filter button only there; it still hides whole rows)
+            {"setBasicFilter": {"filter": {"range": {"sheetId": self._sheet_id(TAB), "startRowIndex": 0, "endRowIndex": 1000,
+                                                     "startColumnIndex": 7, "endColumnIndex": 8}}}}]}))
+
+    def set_category(self, row, cat):
+        """Fill the Category cell only when empty, so a value the user picked in the sheet is never overwritten."""
+        cur = self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!{CAT_COL}{row}")).get("values")
+        if not cur or not cur[0] or not cur[0][0].strip():
+            self._put([{"range": f"'{TAB}'!{CAT_COL}{row}", "values": [[cat]]}])
 
     def _sheet_id(self, tab):
         meta = self.run(self.api.get(spreadsheetId=SHEET_ID, fields="sheets.properties(sheetId,title)"))
@@ -193,7 +214,7 @@ class GoogleSheet:
         return self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!A:C")).get("values", [])
 
     def get_row(self, row):
-        return (self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!A{row}:H{row}")).get("values") or [[]])[0]
+        return (self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!A{row}:I{row}")).get("values") or [[]])[0]
 
     def write_row(self, row, values, skip=()):
         """Write the row's cells A..G; indexes in `skip` (typed/pasted input) are left untouched."""
@@ -221,15 +242,15 @@ class GoogleSheet:
             raise RuntimeError("API did not confirm the append")
         return int(re.search(r"![A-Z]+(\d+)", upd["updatedRange"]).group(1))
 
-    # ---- Learning DB RUN column (H): only columns A and H are polled, the big script cells are not
+    # ---- Learning DB RUN column (I): only columns A and H are polled, the big script cells are not
     def ldb_controls(self):
-        res = self.run(self.api.values().batchGet(spreadsheetId=SHEET_ID, ranges=[f"'{TAB}'!A1:A1000", f"'{TAB}'!H1:H1000"]))
+        res = self.run(self.api.values().batchGet(spreadsheetId=SHEET_ID, ranges=[f"'{TAB}'!A1:A1000", f"'{TAB}'!I1:I1000"]))
         a, h = [vr.get("values", []) for vr in res["valueRanges"]]
         cell = lambda col, i: (col[i][0].strip() if i < len(col) and col[i] else "")
         return {"h1": cell(h, 0), "rows": [(i + 1, cell(a, i), cell(h, i)) for i in range(1, max(len(a), len(h)))]}
 
     def ldb_all(self):
-        return self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!A1:H1000")).get("values", [])
+        return self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!A1:I1000")).get("values", [])
 
     def ldb_note(self, row, col, text):
         self.run(self.api.batchUpdate(spreadsheetId=SHEET_ID, body={"requests": [{"updateCells": {
@@ -238,18 +259,18 @@ class GoogleSheet:
             "rows": [{"values": [{"note": text}]}], "fields": "note"}}]}))
 
     def ldb_mark(self, row, text, note=None):
-        self._put([{"range": f"'{TAB}'!H{row}", "values": [[text]]}])
+        self._put([{"range": f"'{TAB}'!I{row}", "values": [[text]]}])
         if note is not None:
-            self.ldb_note(row, 7, note)
+            self.ldb_note(row, 8, note)
 
     def ldb_fill(self, fill, clear=()):
         if fill:
-            self._put([{"range": f"'{TAB}'!H{r}", "values": [[G_REST]]} for r in fill])
+            self._put([{"range": f"'{TAB}'!I{r}", "values": [[G_REST]]} for r in fill])
         if clear:
-            self.run(self.api.values().batchClear(spreadsheetId=SHEET_ID, body={"ranges": [f"'{TAB}'!H{r}" for r in clear]}))
+            self.run(self.api.values().batchClear(spreadsheetId=SHEET_ID, body={"ranges": [f"'{TAB}'!I{r}" for r in clear]}))
 
     def ldb_claim(self, rows):
-        self._put([{"range": f"'{TAB}'!H{r}", "values": [[G_RUN]]} for r in rows])
+        self._put([{"range": f"'{TAB}'!I{r}", "values": [[G_RUN]]} for r in rows])
 
     def ldb_release(self, rows, why="run stopped"):
         """Rows a stopped run did not reach: back to RUN (not ASK - nothing is wrong with the row), reason in the note."""
@@ -257,9 +278,9 @@ class GoogleSheet:
             self.ldb_mark(r, G_REST, f"Not processed: {why}. Click START again.")
 
     def ldb_set_all(self, text, note=None):
-        self._put([{"range": f"'{TAB}'!H1", "values": [[text]]}])
+        self._put([{"range": f"'{TAB}'!I1", "values": [[text]]}])
         if note is not None:
-            self.ldb_note(1, 7, note)
+            self.ldb_note(1, 8, note)
 
 
 def sync_record(sheet, rid, rec):
@@ -270,6 +291,7 @@ def sync_record(sheet, rid, rec):
         row = sheet.append_row(values)
     else:
         row = sheet.write_row(row, values, skip=(3, 5) if pending_input(sheet.get_row(row), rec) else ())
+    sheet.set_category(row, rec["category"])
     rec["synced"] = True
     return row
 

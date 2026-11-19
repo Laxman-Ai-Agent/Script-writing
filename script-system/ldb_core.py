@@ -31,7 +31,14 @@ HEADERS = ["Script ID", "Title", "Original Script", "Revised / Updated Script", 
            "Learning Rules"]
 LAST_COL = chr(64 + len(HEADERS))  # G
 ID_RE = re.compile(r"S[0-9]{3,}")
-SCHEMA = 2  # 2 = Script ID + Title columns
+SCHEMA = 3  # 3 = Category column I (2 = Script ID + Title columns)
+CATEGORIES = ["Dark World", "Health Decode"]
+CAT_COL = "H"  # Category = column H, the RUN buttons are the last column (I)
+RUN_COL = "I"
+_HEALTH = re.compile(
+    r"symptom|treatment|disease|health|doctor|cancer|insulin|diabet|thyroid|asthma|epilep|apnea|acidity|diarrh|ORS"
+    r"|first aid|inhaler|blood pressure|kidney|an[a]?emia|vitamin|మలబద్ధ|విరేచన|ఆరోగ్య|వ్యాధి|క్యాన్సర్|మూర్ఛ|ఆస్తమా|షుగర్"
+    r"|మధుమేహ|థైరాయిడ్|కిడ్నీ|డాక్టర్|వైద్య", re.I)
 CELL_LIMIT = 50000  # Google Sheets hard limit per cell
 
 
@@ -43,6 +50,11 @@ def today():
 
 def title_of(text):
     return next((ln.strip() for ln in text.splitlines() if ln.strip()), "")
+
+
+def category_of(title):
+    """Health / body / disease / medicine topic -> Health Decode, everything else -> Dark World (same rule as SKILL.md)."""
+    return CATEGORIES[1] if _HEALTH.search(title) else CATEGORIES[0]
 
 
 def new_id(db):
@@ -61,6 +73,7 @@ def normalize(db):
         recs[f"S{n:03d}"] = rec
     for rec in recs.values():
         rec.setdefault("title", title_of(rec["revisions"][-1]["text"] if rec["revisions"] else rec["original"]))
+        rec.setdefault("category", category_of(rec["title"]))
         if db.get("schema") != SCHEMA:
             rec["synced"] = False
     db["schema"] = SCHEMA
@@ -130,7 +143,7 @@ def add_original(db, rid, text):
         raise ValueError(f"Script ID must look like S001, got '{rid}'.")
     elif rid in db["records"]:
         raise ValueError(f"'{rid}' already has a different original; originals are never overwritten.")
-    rec = {"created": today(), "title": title_of(text), "original": text, "revisions": [], "changes": [],
+    rec = {"created": today(), "title": title_of(text), "category": category_of(title_of(text)), "original": text, "revisions": [], "changes": [],
            "feedback": [], "rules": [], "synced": False}
     db["records"][rid] = rec
     return rid, rec, True
@@ -297,7 +310,7 @@ def pending_rows(db, rows):
 
 
 def ldb_scan(ctl):
-    """Controls of the Learning DB tab ({'h1': ..., 'rows': [(row, script id, H cell)]}) -> what the watcher must do."""
+    """Controls of the Learning DB tab ({'h1': ..., 'rows': [(row, script id, RUN cell)]}) -> what the watcher must do."""
     out = {"run_all": ctl["h1"] == ALL_START, "starts": [], "claimed": [], "fill": [], "clear": []}
     for row, rid, h in ctl["rows"]:
         if not rid:

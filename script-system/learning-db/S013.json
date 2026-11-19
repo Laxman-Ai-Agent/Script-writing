@@ -42,5 +42,6 @@
       "status": "approved"
     }
   ],
-  "synced": true
+  "synced": true,
+  "category": "Health Decode"
 }

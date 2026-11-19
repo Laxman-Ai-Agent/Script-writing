@@ -166,6 +166,7 @@ Long-form (≥5 min) habits from 19, 20, 24, 33: section breaks by blank line; e
 - 2026-11-18 (Health Decode, all lengths): **Healthcare Content Safety Rule** — educate only (what / why / how in the body / symptoms / prevention / warning signs); never recommend medicines, doses or specific treatments, never claim a cure, treatment = "Doctor decides". Full text in §14; it is rubric point 8.
 
 - 2026-11-19 (user, Health Decode — all health scripts): follow the **Health content checklist** in §14 (8 parts with reasons, approved sources only, no cure claims, medicine only as a general category with no dosage, separate danger-signs section, no fear words, spoken 2-sentence disclaimer, 5 hook ideas + description sources in facts.md). Rubric point 9.
+- 2026-11-19 (user rewrite, Health Decode — LATEST, replaces the "అపోహ: … వాస్తవం: …" label format): **Myth vs fact = one flowing 3-sentence paragraph, no labels.** (1) the myth as "…అని అనుకోవడం పొరపాటు", (2) the reason with "ఎందుకంటే …", (3) the risk with "కానీ ఈ పరిస్థితిని నిర్లక్ష్యం చేస్తే, భవిష్యత్తులో …" + a source line "CDC గణాంకాల ప్రకారం, …" (comma after ప్రకారం). Use the full term ("Blood Sugar", not just "Sugar"), "ఎక్కువ కష్టపడి", "నిర్లక్ష్యం చేస్తే" (not "పట్టించుకోకపోతే"), "లేదా" between options (not a comma list). **A number inside an English term = English word in Latin script: "Type two Diabetes" (not "Type 2", not "టైప్ టూ")**; plain numbers still go in Telugu words ("నాలుగు కోట్లు"). Gold sample: "Sugar Report Normal గా ఉంటే ఎలాంటి సమస్యా లేనట్టే అని అనుకోవడం పొరపాటు. ఎందుకంటే Pancreas ఎక్కువ కష్టపడి పనిచేస్తున్నంత కాలం Blood Sugar Normal గానే కనిపించవచ్చు. కానీ ఈ పరిస్థితిని నిర్లక్ష్యం చేస్తే, భవిష్యత్తులో Prediabetes లేదా Type two Diabetes వచ్చే అవకాశం ఉంటుంది. CDC గణాంకాల ప్రకారం, అమెరికాలోనే సుమారు నాలుగు కోట్ల మందికి Diabetes ఉంది."
 
 ## 12. Human phrasing reference (user's own corrections)
 
@@ -285,7 +286,7 @@ The channel educates; it never diagnoses or prescribes. Every script covers thes
 5. Lifestyle and food tips — general information only.
 6. Types of medical treatment that exist (general description only) and when to see a Doctor.
 7. Complications if it is ignored.
-8. Myths vs facts — spoken as "అపోహ: … వాస్తవం: …" pairs; the same pairs go in facts.md as ✅/❌ lines.
+8. Myths vs facts — spoken as flowing paragraphs, NOT "అపోహ:/వాస్తవం:" labels (see §11, 2026-11-19); the same pairs go in facts.md as ✅/❌ lines.
 - **Sources:** only WHO, CDC, NIH, NHS, ICMR, AIIMS, GINA, Mayo Clinic (and similar top bodies). Never invent a study, statistic or organisation. Not sure → mark it "ధృవీకరించుకోవాలి" in facts.md and leave it out of the narration.
 - **No cure claims:** no food, home tip or supplement "నయం చేస్తుంది" or "మందులు అవసరం లేదు". Say home tips do not replace medical treatment.
 - **Medicines:** only the general category (e.g. reliever inhaler, controller inhaler). Never dosage, how much to take, or stopping a medicine. (This replaces "No drug names at all" above.)

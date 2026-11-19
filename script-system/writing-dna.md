@@ -169,6 +169,7 @@ Long-form (≥5 min) habits from 19, 20, 24, 33: section breaks by blank line; e
 
 - [HD] 2026-11-19 (user, Health Decode — all health scripts): follow the **Health content checklist** in §14 (8 parts with reasons, approved sources only, no cure claims, medicine only as a general category with no dosage, separate danger-signs section, no fear words, spoken 2-sentence disclaimer, 5 hook ideas + description sources in facts.md). Rubric point 9.
 - [HD] 2026-11-19 (user rewrite, Health Decode — LATEST, replaces the "అపోహ: … వాస్తవం: …" label format): **Myth vs fact = one flowing 3-sentence paragraph, no labels.** (1) the myth as "…అని అనుకోవడం పొరపాటు", (2) the reason with "ఎందుకంటే …", (3) the risk with "కానీ ఈ పరిస్థితిని నిర్లక్ష్యం చేస్తే, భవిష్యత్తులో …" + a source line "CDC గణాంకాల ప్రకారం, …" (comma after ప్రకారం). Use the full term ("Blood Sugar", not just "Sugar"), "ఎక్కువ కష్టపడి", "నిర్లక్ష్యం చేస్తే" (not "పట్టించుకోకపోతే"), "లేదా" between options (not a comma list). **A number inside an English term = English word in Latin script: "Type two Diabetes" (not "Type 2", not "టైప్ టూ")**; plain numbers still go in Telugu words ("నాలుగు కోట్లు"). Gold sample: "Sugar Report Normal గా ఉంటే ఎలాంటి సమస్యా లేనట్టే అని అనుకోవడం పొరపాటు. ఎందుకంటే Pancreas ఎక్కువ కష్టపడి పనిచేస్తున్నంత కాలం Blood Sugar Normal గానే కనిపించవచ్చు. కానీ ఈ పరిస్థితిని నిర్లక్ష్యం చేస్తే, భవిష్యత్తులో Prediabetes లేదా Type two Diabetes వచ్చే అవకాశం ఉంటుంది. CDC గణాంకాల ప్రకారం, అమెరికాలోనే సుమారు నాలుగు కోట్ల మందికి Diabetes ఉంది."
+- [ZF] 2026-11-19 (user, S030 update, Zumba Fitness only): Zumba scripts are short reels in timed Hook/Proof/Twist/Safety/CTA blocks with Visual + Text on screen + VO + Caption, short one-clause sentences, direct-command safety lines, CTA = payoff → question → comment → share. Full list in §15.
 
 ## 12. Human phrasing reference (user's own corrections)
 
@@ -314,4 +315,13 @@ The channel educates; it never diagnoses or prescribes. Every script covers thes
 
 Use §1–§13 (the general voice) + the `[ALL]` and `[ZF]` bullets in §11 + the Learning DB rules of category Zumba Fitness. Never apply `[DW]`/`[HD]` bullets or §14 (the Health content checklist) here.
 
-Channel-specific rules start empty and grow only from the user's own corrections of Zumba Fitness scripts (a Learning DB row with Category = Zumba Fitness, or a direct correction): add them to §11 tagged `[ZF]`. Scripts so far: S028, S029, S030.
+Channel-specific rules grow only from the user's own corrections of Zumba Fitness scripts (a Learning DB row with Category = Zumba Fitness, or a direct correction); newest also in §11 tagged `[ZF]`. Scripts so far: S028, S029, S030.
+
+**Reel format (S030 update, 2026-11-19 — overrides "narration only, no cues/timestamps" for this category only):**
+- A short reel in timed blocks **Hook → Proof → Twist → Safety → CTA** (35–40 s example: 0–3, 3–15, 15–27, 27–33, 33–40 సె). Each block = *Visual* line + **Text on screen** (4–7 words + one emoji) + **VO**. Ends with a **Caption**: one-line disclaimer + hashtags.
+- **Hook:** no intro paragraph; direct viewer question + ONE short payoff tease; the next block goes straight to the study.
+- **Sentence formation:** one clause per sentence (≈6–12 words), comma only for pauses; a stat = who/what → number result with "!" → source verdict ("CDC ప్రకారం ఇది …").
+- **Myth correction:** "కానీ ఇది పూర్తిగా X కాదు." → one sentence on how it really works → closing "అంటే …" sentence naming it plainly.
+- **Safety:** two direct-command sentences ("…వెంటనే ఆపండి", "…ముందే Doctor సలహా తీసుకోండి"); the spoken disclaimer is dropped, the disclaimer lives in the caption.
+- **CTA order:** payoff line → viewer question → "Comment లో చెప్పండి" → share to a Zumba friend. Never mention or pitch Health Decode.
+- **Numbers and English words (user decision, 2026-11-19): same as the old rules.** Whole numbers in Telugu words (పందొమ్మిది మంది, ఎనభై శాతం), decimals in English words; English words people say in English stay in Latin script (Zumba, Heart Rate, Cardio, Doctor, Comment, dance, try, share, friend) — never digits and never Telugu-script English (not డాన్స్ / ట్రై / షేర్) even though S030's paste used them. This applies to the VO and to Text on screen.

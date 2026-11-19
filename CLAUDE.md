@@ -17,7 +17,7 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 | Path | What it is | When to change |
 |---|---|---|
 | `.claude/skills/script/SKILL.md` | The workflow: research → fact sheet → plan → write → human-narration refinement → validation → deliver | Change the *process* |
-| `script-system/writing-dna.md` | Style profile. §1–10 Dark World voice, §11 user corrections (highest priority), §12 phrase table, §13 gold reference script, §14 Health Decode mode + 7-point rubric | Change the *style* |
+| `script-system/writing-dna.md` | Style profile. §1–10 Dark World voice, §11 user corrections (highest priority), §12 phrase table, §13 gold reference script, §14 Health Decode mode + content checklist + 9-point rubric | Change the *style* |
 | `script-system/manifest.json` | Which sample files were analyzed (name + bytes) | Auto, by `/script update` |
 | `script-system/history.json` | Openings/structures used per script, to avoid repeats | Auto, after each script |
 | `sample script/` | User's original samples (01–35 + Health-decode.txt). 21=22 duplicate, 36 empty, 34/35 vocab lists | User adds files |
@@ -51,4 +51,5 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 - 2026-11-14: Topic Ideas built (ideas.py, SKILL.md Mode G). H1 = ▶ FIND TOPICS: the watcher runs a finder pass (Sonnet subagents search, Opus picks + writes Telugu hooks); results are added on top, nothing is deleted. No daily timer: runs only when clicked.
 - 2026-11-18: Token/quality cleanup: watcher runs one `claude -p` per row; unattended runs don't echo the script; Dark World loads DNA §1-13 only; `history-last` replaces reading history.json; overridden Learning DB rules marked `superseded` (`learning_db.py supersede <ID> <n> "<by>"`, hidden from `rules`); DNA §2.3/§2.5/§11/§12 conflicts removed (Latin-script English, no "…", numbers as digits).
 - 2026-11-19: Learning DB sheet got a Category column H, before the RUN column I; filter on Category only (Dark World / Health Decode dropdown, auto-set from the title by `category_of`; a value picked in the sheet is never overwritten).
+- 2026-11-19: Health Decode content checklist added (DNA §14, rubric point 9): 8 parts with reasons, approved sources only, medicine only as a general category, separate danger signs, spoken disclaimer, hook ideas + sources in facts.md.
 - Open: words/min calibration (no recorded duration reported yet).

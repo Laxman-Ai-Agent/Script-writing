@@ -36,14 +36,14 @@ Write `output/YYYY-MM-DD-<english-slug>/facts.md` BEFORE any Telugu:
 - the surprising core insight / twist this script is built around
 - common misconception to correct (if any)
 ```
-English bullets, short. From here on, write from these notes only — never from the article text — so the Telugu is re-told, not translated.
+Health Decode adds three sections to facts.md: `## Myths vs facts` (✅/❌ lines), `## Hook ideas` (5, accurate, not scary, no cure claim), `## Description sources` (approved bodies only, with URLs). English bullets, short. From here on, write from these notes only — never from the article text — so the Telugu is re-told, not translated.
 
 ### 3. Load style
 Read `script-system/writing-dna.md`: Health Decode → whole file; The Dark World → only up to the line before `## 14` (Grep `^## 14` for the line number, then Read with that limit). Run `python script-system/learning_db.py history-last dark|health` instead of reading `history.json`. Do NOT open `sample script/`. Section 11 "Learned corrections" overrides everything else. Also run `python script-system/learning_db.py rules` and apply every APPROVED rule (only approved ones; skip `[TOPIC]` rules that don't fit this topic). Rules are listed oldest → newest; if two conflict, the newer one (later Script ID) wins. §13 gold reference = target quality (style only — never reuse its facts).
 
 ### 4. Plan
 - Target words from DNA §8 for the duration.
-- Health Decode: research must include at least one authoritative health source (WHO, NIH, CDC, ICMR, NHS, Mayo Clinic) and one why-it-matters number for rubric point 5. Use §14 openings (H1–H6), "normal body first, then what goes wrong" structure, §14 CTAs and safety rules.
+- Health Decode: research must include at least one authoritative health source (only WHO, CDC, NIH, NHS, ICMR, AIIMS, GINA, Mayo Clinic or similar top bodies; never invent a study or number; unsure = "ధృవీకరించుకోవాలి" in facts.md, left out of the script) and one why-it-matters number for rubric point 5. Cover all 8 parts of the §14 Health content checklist. Use §14 openings (H1–H6), "normal body first, then what goes wrong" structure, §14 CTAs and safety rules.
 - Pick one opening (§4), one structure (§5), one ending (§6). None of them may match the entries `history-last` printed, and the new first sentence, intro closer, CTA lines and last line must not reuse the wording it shows (DNA §11 "No fixed template"). Exact sentences in rules are tone examples: rephrase them for this topic. Choose what fits the topic, not at random.
 - Pick 1 everyday analogy and 1 concrete example to carry through (if the topic allows).
 - Durations ≥10 min: outline chapters first (each ~400–600 words, each opening with a bridge question).
@@ -74,7 +74,7 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 - Paragraphs, not one-liners; no stretch of ~4 sentences of dry exposition without a question / example / turn.
 - Word count within ±10% of target (`python script-system/learning_db.py words <file>` counts the narration, title excluded).
 - Opening / structure / ending are not repeats from history, and the first sentence, intro closer, CTAs and last line are not copies of the `history-last` wording or of a rule's example sentence.
-- Health Decode only: run the §14 8-point rubric (point 8 = HEALTHCARE CONTENT SAFETY RULE: no medicines/doses/treatment instructions/cure claims, warning signs + "Doctor decides treatment" included; this rule beats any research finding or older sample); fix until every point is ✅. After the script, show the rubric as a one-line ✅ list (the user wants to see it).
+- Health Decode only: run the §14 9-point rubric (point 9 = Health content checklist: 8 parts with reasons, separate danger-signs paragraph, spoken 2-sentence disclaimer; point 8 = HEALTHCARE CONTENT SAFETY RULE: no medicines/doses/treatment instructions/cure claims, warning signs + "Doctor decides treatment" included; this rule beats any research finding or older sample); fix until every point is ✅. After the script, show the rubric as a one-line ✅ list (the user wants to see it).
 
 ### 8. Deliver
 - Append to `history.json`: `{"date": "YYYY-MM-DD", "channel": "dark" | "health", "topic": "...", "duration": "...", "opening": "O#" | "H#", "structure": "S#", "ending": "E#", "file": "output/.../script.txt"}`. Opening-repeat checks compare only within the same channel.

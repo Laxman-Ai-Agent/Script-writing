@@ -165,6 +165,8 @@ Long-form (≥5 min) habits from 19, 20, 24, 33: section breaks by blank line; e
 - 2026-11-18 (user, LATEST — both channels, replaces every older digits / English-number-words rule): **Every number in Telugu words, in Telugu script — never digits.** The unit goes Telugu too: 50 → యాభై, 1970 → పంతొమ్మిది వందల డెబ్బై, 2005 → రెండు వేల ఐదు, 10 crores → పది కోట్లు, 10 hours → పది గంటలు, 25% → ఇరవై ఐదు శాతం. **Decimals are the exception: English words in Latin script** — 0.05 → zero point zero five, 1.5 → one point five. Names/codes that contain a number stay as they are (GPT-5, T3, Falcon 9).
 - 2026-11-18 (Health Decode, all lengths): **Healthcare Content Safety Rule** — educate only (what / why / how in the body / symptoms / prevention / warning signs); never recommend medicines, doses or specific treatments, never claim a cure, treatment = "Doctor decides". Full text in §14; it is rubric point 8.
 
+- 2026-11-19 (user, Health Decode — all health scripts): follow the **Health content checklist** in §14 (8 parts with reasons, approved sources only, no cure claims, medicine only as a general category with no dosage, separate danger-signs section, no fear words, spoken 2-sentence disclaimer, 5 hook ideas + description sources in facts.md). Rubric point 9.
+
 ## 12. Human phrasing reference (user's own corrections)
 
 Examples of the *direction* of change — understand why, don't search-and-replace.
@@ -230,7 +232,7 @@ Read this before writing. Notice: paragraphs, varied sentence length, "ఎలా
 
 ## 14. Health mode — "Health Decode" channel
 
-Source: `sample script/Health-decode.txt` (28 health scripts + the user's own 7-point rubric). Use this section **in addition to** §1–§13 when the topic is health / body / disease / medicine. §2 voice rules and §11 corrections still apply (they are newer than these samples).
+Source: `sample script/Health-decode.txt` (28 health scripts + the user's own rubric, now 9 points). Use this section **in addition to** §1–§13 when the topic is health / body / disease / medicine. §2 voice rules and §11 corrections still apply (they are newer than these samples).
 
 **Identity:** channel "Health Decode". Optional persona "AI డాక్టర్" ("హాయ్… నేను AI డాక్టర్‌ని…"). Explains how the body works and why diseases happen, for ordinary families. Calm, caring, never scary.
 
@@ -274,6 +276,24 @@ Goal: EDUCATE about the condition, never prescribe treatment.
 - Share-to-protect: "మీ ఇంట్లో ఎవరికైనా BP, Sugar ఉంటే… ఈ వీడియోను వాళ్లతో షేర్ చేయండి. ఒక్కసారి తెలుసుకోవడం… ఒక ప్రాణాన్ని కాపాడొచ్చు."
 - Experience / topic request: "మీకు ఏ topic కావాలో comment చేయండి."
 
+**Health content checklist (user, 2026-11-19 — every health script, long and Short; wins over any older line in this section):**
+The channel educates; it never diagnoses or prescribes. Every script covers these 8 parts, and every point says WHY (its reason), in simple Telugu:
+1. Causes and risk factors.
+2. The organ affected and what happens inside, step by step (the biological process).
+3. Early symptoms and severe symptoms.
+4. Prevention.
+5. Lifestyle and food tips — general information only.
+6. Types of medical treatment that exist (general description only) and when to see a Doctor.
+7. Complications if it is ignored.
+8. Myths vs facts — spoken as "అపోహ: … వాస్తవం: …" pairs; the same pairs go in facts.md as ✅/❌ lines.
+- **Sources:** only WHO, CDC, NIH, NHS, ICMR, AIIMS, GINA, Mayo Clinic (and similar top bodies). Never invent a study, statistic or organisation. Not sure → mark it "ధృవీకరించుకోవాలి" in facts.md and leave it out of the narration.
+- **No cure claims:** no food, home tip or supplement "నయం చేస్తుంది" or "మందులు అవసరం లేదు". Say home tips do not replace medical treatment.
+- **Medicines:** only the general category (e.g. reliever inhaler, controller inhaler). Never dosage, how much to take, or stopping a medicine. (This replaces "No drug names at all" above.)
+- **Danger signs / emergency:** a clearly separate section (its own paragraph) — when to get urgent medical help.
+- **No fear or hype words:** చనిపోతారు, షాకింగ్, "డాక్టర్లు దాచే నిజం" and the like.
+- **Visuals** (only if visuals are mentioned anywhere): 2D/3D animation of body organs only; no blood, surgery or scary scenes. script.txt itself stays narration only.
+- **At the end:** (a) a Medical Disclaimer of 2 Telugu sentences, spoken in the video before the final CTA; (b) 5 hook ideas in facts.md — curious but accurate, not scary, no cure/guarantee; (c) a sources list for the video description in facts.md.
+
 **Health rubric (user's own — run in Final validation for health scripts; every point must be ✅):**
 1. Hook — first 2–3 lines grab with a question or striking fact (not a weak observation).
 2. Simplicity — everyday Telugu words.
@@ -283,5 +303,6 @@ Goal: EDUCATE about the condition, never prescribe treatment.
 6. Specific CTA — exact action (comment keyword / share with family / consult doctor / follow), not generic.
 7. Fact-check — medically accurate; no overclaim or misleading statement.
 8. Safety — passes the HEALTHCARE CONTENT SAFETY RULE above: no medicine / tablet / dose / treatment instruction, no "cure" claim, warning signs + "Doctor decides treatment" present, no fear-mongering.
+9. Content checklist — all 8 parts of the Health content checklist below are present, each with its reason; danger signs are their own section; the 2-sentence disclaimer is spoken; facts only from the approved sources; facts.md has the 5 hook ideas, ✅/❌ myths and description sources.
 
 **Note on language:** these health samples use heavy Latin-script English (Body, Brain, Heart, blood). The user's newer §2.3 / §11 corrections win: Telugu words first (శరీరం, మెదడు, గుండె, రక్తం), daily loanwords in Telugu script, Latin only for proper medical names when the Telugu one is unfamiliar (Plasmodium, Type-2 diabetes, Dialyzer).

@@ -53,7 +53,8 @@ def main(argv=None):
     sub.add_parser("request-start").add_argument("row", type=int)
     x = sub.add_parser("request-fail"); x.add_argument("row", type=int); x.add_argument("reason")
     sub.add_parser("run-finish").add_argument("summary")
-    sub.add_parser("check"); sub.add_parser("sync"); sub.add_parser("list"); sub.add_parser("rules")
+    sub.add_parser("check"); sub.add_parser("sync"); sub.add_parser("list")
+    sub.add_parser("rules").add_argument("category", nargs="?", choices=CATEGORIES)
     a = sub.add_parser("add-original"); a.add_argument("file"); a.add_argument("--id")
     for name in ("add-revision", "add-changes", "add-feedback"):
         x = sub.add_parser(name); x.add_argument("id"); x.add_argument("file")
@@ -61,7 +62,7 @@ def main(argv=None):
     x.add_argument("text"); x.add_argument("--approved", action="store_true")
     x = sub.add_parser("approve"); x.add_argument("id"); x.add_argument("n", type=int)
     x = sub.add_parser("supersede"); x.add_argument("id"); x.add_argument("n", type=int); x.add_argument("by")
-    x = sub.add_parser("history-last"); x.add_argument("channel", choices=["dark", "health"]); x.add_argument("--n", type=int, default=3)
+    x = sub.add_parser("history-last"); x.add_argument("channel", choices=["dark", "health", "zumba"]); x.add_argument("--n", type=int, default=3)
     sub.add_parser("diff").add_argument("id")
     sub.add_parser("show").add_argument("id")
     args = p.parse_args(argv)
@@ -108,7 +109,10 @@ def main(argv=None):
                 print(f"=== sheet row {r}: unknown Script ID '{rid}' - skip it ===")
                 continue
             fresh = pending_input(cur, rec)
-            print(f"=== {rid} (sheet row {r}) | title: {rec['title']} | {'NEW INPUT' if fresh else 'NO NEW INPUT'} ===")
+            if cell(cur, 7).strip() in CATEGORIES and rec.get("category") != cell(cur, 7).strip():
+                rec["category"] = cell(cur, 7).strip()  # the Category the user picked in the sheet decides which rules this update feeds
+                save(db)
+            print(f"=== {rid} (sheet row {r}) | title: {rec['title']} | CATEGORY: {rec['category']} | {'NEW INPUT' if fresh else 'NO NEW INPUT'} ===")
             print("--- ORIGINAL SCRIPT ---")
             print(rec["original"])
             print("--- D: Revised column, raw (the pasted update; may also hold reasons / comparison / rules) ---")
@@ -162,8 +166,9 @@ def main(argv=None):
             print(f"{rid} | {r['title'][:60]} | {len(r['revisions'])} revisions, {len(r['feedback'])} feedback, "
                   f"{len(r['rules'])} rules, {'synced' if r['synced'] else 'PENDING'}")
         return
-    if args.cmd == "rules":
-        print("\n".join(approved_rules(db)) or "(no approved rules yet)")
+    if args.cmd == "rules":  # one category = only its rules; no argument = every category, each under its own heading
+        for cat in ([args.category] if args.category else CATEGORIES):
+            print(f"## {cat}\n" + ("\n".join(approved_rules(db, cat)) or "(no approved rules yet)"))
         return
     if args.cmd == "show":
         print(json.dumps(get(db, args.id), ensure_ascii=False, indent=2))
@@ -189,7 +194,7 @@ def main(argv=None):
         print(f"Added to {rid}." if append_entry(rec, key, read(args.file), **extra) else "Duplicate, skipped.")
     elif args.cmd == "add-rule":
         rec = get(db, args.id)
-        rec["rules"].append({"date": today(), "scope": args.scope, "text": args.text,
+        rec["rules"].append({"date": today(), "scope": args.scope, "text": args.text, "category": rule_category(rec, {}),
                              "status": "approved" if args.approved else "proposed"})
         rec["synced"] = False
         print(f"Rule {len(rec['rules'])} added ({'approved' if args.approved else 'proposed'}).")

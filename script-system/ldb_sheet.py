@@ -74,19 +74,28 @@ class GoogleSheet:
         sc = ldb_scan(self.ldb_controls())
         self.ldb_fill(sc["fill"], sc["clear"])
 
-    def _ensure_category(self):
-        """Header I1 + a Dark World / Health Decode dropdown on I2:I1000 (set once)."""
-        i1 = (self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{TAB}'!{CAT_COL}1")).get("values") or [[""]])[0][0]
-        if i1 == "Category":
-            return
-        self._put([{"range": f"'{TAB}'!{CAT_COL}1", "values": [["Category"]]}])
-        self.run(self.api.batchUpdate(spreadsheetId=SHEET_ID, body={"requests": [{"setDataValidation": {
-            "range": {"sheetId": self._sheet_id(TAB), "startRowIndex": 1, "endRowIndex": 1000, "startColumnIndex": 7, "endColumnIndex": 8},
-            "rule": {"condition": {"type": "ONE_OF_LIST", "values": [{"userEnteredValue": v} for v in CATEGORIES]},
-                     "showCustomUi": True, "strict": True}}},
-            # filter on the Category column only (one-column range = a filter button only there; it still hides whole rows)
-            {"setBasicFilter": {"filter": {"range": {"sheetId": self._sheet_id(TAB), "startRowIndex": 0, "endRowIndex": 1000,
-                                                     "startColumnIndex": 7, "endColumnIndex": 8}}}}]}))
+    def _ensure_category(self, tab=TAB, col=CAT_COL):
+        """Category column on `tab`: header + dropdown of CATEGORIES (re-applied every time, so a new category shows up)
+        + a filter on this one column (set once: a one-column range = a filter button only there; it still hides whole rows)."""
+        c, sid = ord(col) - 65, self._sheet_id(tab)
+        rng = lambda r0: {"sheetId": sid, "startRowIndex": r0, "endRowIndex": 1000, "startColumnIndex": c, "endColumnIndex": c + 1}
+        reqs = [{"setDataValidation": {"range": rng(1), "rule": {"condition": {
+            "type": "ONE_OF_LIST", "values": [{"userEnteredValue": v} for v in CATEGORIES]},
+            "showCustomUi": True, "strict": True}}}]
+        head = (self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{tab}'!{col}1")).get("values") or [[""]])[0][0]
+        if head != "Category":
+            self._put([{"range": f"'{tab}'!{col}1", "values": [["Category"]]}])
+            reqs.append({"setBasicFilter": {"filter": {"range": rng(0)}}})
+        self.run(self.api.batchUpdate(spreadsheetId=SHEET_ID, body={"requests": reqs}))
+
+    def _fill_req_category(self):
+        """Script Requests column H: guess the category of every topic row whose Category cell is empty."""
+        col = lambda c: self.run(self.api.values().get(spreadsheetId=SHEET_ID, range=f"'{REQ_TAB}'!{c}2:{c}1000")).get("values", [])
+        topics, cats = col("B"), col("H")
+        data = [{"range": f"'{REQ_TAB}'!H{i + 2}", "values": [[category_of(t[0])]]} for i, t in enumerate(topics)
+                if t and t[0].strip() and not (i < len(cats) and cats[i] and cats[i][0].strip())]
+        if data:
+            self._put(data)
 
     def set_category(self, row, cat):
         """Fill the Category cell only when empty, so a value the user picked in the sheet is never overwritten."""
@@ -155,6 +164,8 @@ class GoogleSheet:
                                        "fields": "gridProperties.frozenRowCount"}},
             bold(rng(0, 1, 0, 6)), wrap, runcol,
             *[width(c, px) for c, px in enumerate((90, 520, 300, 130, 80, 280, 130))]]}))
+        self._ensure_category(REQ_TAB, "H")
+        self._fill_req_category()
         sc = scan(self.grid())
         self.fill_run_cells(sc["fill"], sc["clear"])
 

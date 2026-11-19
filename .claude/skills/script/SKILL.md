@@ -18,6 +18,11 @@ All system files live in `script-system/` (project root). Samples live in `sampl
 
 ---
 
+## Categories - rules never mix (user rule 2026-11-19)
+Three separate categories: **Dark World**, **Health Decode**, **Zumba Fitness**. Every script, Learning DB row and Script Requests row has one (Category column H in both tabs; a value the user picked there is final, otherwise `category_of` guesses from the title). Before writing a script OR saving a rule, decide the category first:
+- Writing: apply DNA §1-13 + `[ALL]` bullets + only the bullets tagged with THIS category (§11 tags `[DW]` `[HD]` `[ZF]`; Health also §14, Zumba also §15) and `learning_db.py rules "<category>"`. Never apply another category's rules.
+- Saving a rule from a sheet update or a user correction: it goes ONLY to that row's category - `add-rule` stores the row's category automatically; the DNA §11 bullet gets that category's tag (`[ALL]` only if the user says it is for every channel). A rule from a Health row never changes how Dark World or Zumba scripts are written, and vice versa.
+
 ## Mode A: write a script
 
 ### 1. Research (English sources)
@@ -39,7 +44,7 @@ Write `output/YYYY-MM-DD-<english-slug>/facts.md` BEFORE any Telugu:
 Health Decode adds three sections to facts.md: `## Myths vs facts` (✅/❌ lines), `## Hook ideas` (5, accurate, not scary, no cure claim), `## Description sources` (approved bodies only, with URLs). English bullets, short. From here on, write from these notes only — never from the article text — so the Telugu is re-told, not translated.
 
 ### 3. Load style
-Read `script-system/writing-dna.md`: Health Decode → whole file; The Dark World → only up to the line before `## 14` (Grep `^## 14` for the line number, then Read with that limit). Run `python script-system/learning_db.py history-last dark|health` instead of reading `history.json`. Do NOT open `sample script/`. Section 11 "Learned corrections" overrides everything else. Also run `python script-system/learning_db.py rules` and apply every APPROVED rule (only approved ones; skip `[TOPIC]` rules that don't fit this topic). Rules are listed oldest → newest; if two conflict, the newer one (later Script ID) wins. §13 gold reference = target quality (style only — never reuse its facts).
+Read `script-system/writing-dna.md`: Health Decode → whole file except §15; Zumba Fitness → §1-13 + §15 (stop before `## 14`, then Read `## 15`); The Dark World → only up to the line before `## 14` (Grep `^## 14` / `^## 15` for the line numbers, then Read with limits). In §11/§12 skip every bullet tagged for another category. Run `python script-system/learning_db.py history-last dark|health|zumba` instead of reading `history.json`. Do NOT open `sample script/`. Section 11 "Learned corrections" overrides everything else. Also run `python script-system/learning_db.py rules "<Dark World|Health Decode|Zumba Fitness>"` (this script's category only) and apply every APPROVED rule (only approved ones; skip `[TOPIC]` rules that don't fit this topic). Rules are listed oldest → newest; if two conflict, the newer one (later Script ID) wins. §13 gold reference = target quality (style only — never reuse its facts).
 
 ### 4. Plan
 - Target words from DNA §8 for the duration.
@@ -82,7 +87,7 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 - Interactive: show the full script in chat. Unattended (watcher / `claude -p`): do NOT print the script (it is in script.txt and the sheet) — only one line. That line: Script ID, word count and file path. Nothing else unless something was uncertain in the facts — then one line naming it.
 
 ### 9. Learning from feedback
-When the user corrects style ("ఇలా రాయను", "this word is wrong", "too formal"), append a dated bullet to DNA §11 with the rule in one line; if they give word-level swaps, add rows to DNA §12 (keep it ≤ ~30 rows — merge or drop the least useful). If they supply a full rewritten script, it may replace §13 as the gold reference. If they report a real recorded duration, recompute words/min in §8.
+When the user corrects style ("ఇలా రాయను", "this word is wrong", "too formal"), append a dated bullet to DNA §11 with the rule in one line, starting with the category tag (`[DW]` / `[HD]` / `[ZF]`, or `[ALL]` only if the user says it is for every channel) - decide the category first (the script being discussed); if they give word-level swaps, add rows to DNA §12 (keep it ≤ ~30 rows — merge or drop the least useful). If they supply a full rewritten script, it may replace §13 as the gold reference. If they report a real recorded duration, recompute words/min in §8.
 
 ---
 
@@ -94,7 +99,7 @@ Columns: Script ID (filled when the row is done) | Topic / Script | Extra Data |
 1. `python script-system/learning_db.py requests` -> prints every ON row still to write (sheet row, TOPIC or SCRIPT, extra data, LENGTH) and the skipped counts. "0 ON row(s)" -> tell the user and stop.
 2. Process rows ONE AT A TIME, top to bottom; finish one completely before starting the next:
    a. `python script-system/learning_db.py request-start <row>` (Status and RUN cell = ⏳ RUNNING).
-   b. Run Mode A: topic = Topic/Script, extra data = the user's own notes to include (still fact-check numbers), duration = the `LENGTH:` line (words target, ~150 words/min, what to do if material is short). Channel is not a column: health -> Health Decode, else The Dark World. If the kind is SCRIPT (full script pasted): keep its facts and flow, rewrite in our style with the approved rules, research only to verify numbers. Mode A step 8 saves the original to the Learning Database; use the Script ID it printed (S###).
+   b. Run Mode A: topic = Topic/Script, extra data = the user's own notes to include (still fact-check numbers), duration = the `LENGTH:` line (words target, ~150 words/min, what to do if material is short). Channel = the row's Category (column H of Script Requests; empty -> `category_of` guess: Zumba -> Zumba Fitness, health -> Health Decode, else Dark World). If the kind is SCRIPT (full script pasted): keep its facts and flow, rewrite in our style with the approved rules, research only to verify numbers. Mode A step 8 saves the original to the Learning Database; use the Script ID it printed (S###).
    c. `python script-system/learning_db.py request-done <row> <id>`; add `--note "6 min, material for 10 min not enough"` when the length differs from the request or related angles were added (Status becomes ✅, or `✅ (note)`; the Script ID goes into column A of that row). On any failure: `python script-system/learning_db.py request-fail <row> "<reason>"`, then go on to the next row.
 3. After the last row: `python script-system/learning_db.py run-finish "3 done, 1 failed"` (resets the RUN ALL cell G1 and stores the summary as its hover note).
 4. Interactive run: show every script in chat as in Mode A. Unattended: one line per row (Script ID, words, path), no script text.
@@ -122,7 +127,7 @@ The user then picks ideas in the sheet: USE sends one to "Script Requests" (and 
 1. Find the script by its Script ID (the user may say "S002"; `python script-system/learning_db.py list` shows IDs and titles). Save the user's complete revised script to `output/.../script.txt` AND `python script-system/learning_db.py add-revision <id> <file>` — full text, never shortened. Never touch the original.
 2. `python script-system/learning_db.py diff <id>` for the raw sentence diff, then write a detailed Changes Made analysis (added / removed / rewritten / word swaps / hook / storytelling / narration / Telugu grammar / English vocab / flow / facts / rearrangement — with the user's reason where given, "no reason given" otherwise) → `python script-system/learning_db.py add-changes <id> <file>`.
 3. User's explanation, verbatim, never invented → `python script-system/learning_db.py add-feedback <id> <file>`.
-4. Rules: the user's revised script is FINAL — every rule from it (stated or inferred from their edits) → `python script-system/learning_db.py add-rule <id> general|topic "<rule>" --approved`. Never PROPOSED. Don't turn every one-off edit into a rule. Approved general rules also go into DNA §11 (§9 learning step).
+4. Rules: the user's revised script is FINAL — every rule from it (stated or inferred from their edits) → `python script-system/learning_db.py add-rule <id> general|topic "<rule>" --approved`. Never PROPOSED. Don't turn every one-off edit into a rule. The row's CATEGORY (printed by `revisions-pending`, taken from column H) decides everything: `add-rule` stores it with the rule, and approved general rules also go into DNA §11 as a bullet tagged for THAT category only (§9 learning step).
 5. Report SYNCED or PENDING exactly as the tool printed. `python script-system/learning_db.py sync` retries pending records.
 
 ## Mode B: `/script update`

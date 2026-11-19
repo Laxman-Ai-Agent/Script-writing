@@ -32,7 +32,7 @@ HEADERS = ["Script ID", "Title", "Original Script", "Revised / Updated Script", 
 LAST_COL = chr(64 + len(HEADERS))  # G
 ID_RE = re.compile(r"S[0-9]{3,}")
 SCHEMA = 3  # 3 = Category column I (2 = Script ID + Title columns)
-CATEGORIES = ["Dark World", "Health Decode"]
+CATEGORIES = ["Dark World", "Health Decode", "Zumba Fitness"]
 CAT_COL = "H"  # Category = column H, the RUN buttons are the last column (I)
 RUN_COL = "I"
 _HEALTH = re.compile(
@@ -53,7 +53,10 @@ def title_of(text):
 
 
 def category_of(title):
-    """Health / body / disease / medicine topic -> Health Decode, everything else -> Dark World (same rule as SKILL.md)."""
+    """Zumba -> Zumba Fitness; health / body / disease / medicine topic -> Health Decode; everything else -> Dark World.
+    A guess only: the Category cell in the sheet can be changed by hand and is never overwritten."""
+    if re.search(r"zumba|జుంబా", title, re.I):
+        return CATEGORIES[2]
     return CATEGORIES[1] if _HEALTH.search(title) else CATEGORIES[0]
 
 
@@ -326,11 +329,17 @@ def ldb_scan(ctl):
     return out
 
 
-def approved_rules(db):
+def rule_category(rec, r):
+    """A rule belongs to the category of the script it came from (old rules: the record's category)."""
+    return r.get("category") or rec.get("category") or category_of(rec["title"])
+
+
+def approved_rules(db, category=None):
+    """Approved rules; with `category` only that channel's rules: a rule never leaks into another category."""
     out = []
     for rid, rec in db["records"].items():
         for r in rec["rules"]:
-            if r["status"] == "approved":
+            if r["status"] == "approved" and (category is None or rule_category(rec, r) == category):
                 out.append(f"[{r['scope'].upper()}] {r['text']}" + (f"  (from {rid})" if r["scope"] == "topic" else ""))
     return out
 

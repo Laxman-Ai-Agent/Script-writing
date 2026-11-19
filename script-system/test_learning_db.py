@@ -44,6 +44,7 @@ def test_category():
     assert L.category_of("మలబద్ధకం అసలు ఎందుకు వస్తుంది?") == "Health Decode"
     assert L.category_of("Gemini 4 Hydrogen: ఇంత cheap AI | Price, Speed") == "Dark World"
     assert L.category_of("మనిషి 150 ఏళ్లు బ్రతకగలడా? | AI, Gene Editing") == "Dark World"
+    assert L.category_of("1 గంట Walking vs 1 గంట Zumba: calories & heart health") == "Zumba Fitness"
 
 
 def test():
@@ -91,6 +92,11 @@ def test():
 
     # only approved rules are retrieved
     assert L.approved_rules(db) == ["[TOPIC] R2  (from S001)"]
+    # rules never mix: S001 is Dark World, so the other categories get none of its rules
+    assert L.approved_rules(db, rec["category"]) == ["[TOPIC] R2  (from S001)"]
+    assert L.approved_rules(db, "Zumba Fitness") == [] and L.approved_rules(db, "Health Decode") == []
+    rec["category"] = "Zumba Fitness"  # the user re-picked the category in the sheet: old rules follow the row
+    assert L.approved_rules(db, "Zumba Fitness") == ["[TOPIC] R2  (from S001)"] and L.approved_rules(db, "Dark World") == []
 
     # over-limit original is refused, never truncated
     try:

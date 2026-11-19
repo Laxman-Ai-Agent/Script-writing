@@ -23,6 +23,14 @@ Three separate categories: **Dark World**, **Health Decode**, **Zumba Fitness**.
 - Writing: apply DNA §1-13 + `[ALL]` bullets + only the bullets tagged with THIS category (§11 tags `[DW]` `[HD]` `[ZF]`; Health also §14, Zumba also §15) and `learning_db.py rules "<category>"`. Never apply another category's rules.
 - Saving a rule from a sheet update or a user correction: it goes ONLY to that row's category - `add-rule` stores the row's category automatically; the DNA §11 bullet gets that category's tag (`[ALL]` only if the user says it is for every channel). A rule from a Health row never changes how Dark World or Zumba scripts are written, and vice versa.
 
+## Reading the user's update: sentence formation first, words second (user rule 2026-11-19, MAIN)
+When the user gives updated content (Mode D, Mode F, a pasted rewrite in chat), do NOT stop at word swaps. For every changed sentence ask how it was BUILT and what the user did to it:
+- order: what moved to the front or the end; reasons / source / number placed where;
+- merging and splitting: sentences joined into one or one broken into two; length and rhythm;
+- linking: the connectors and pattern (e.g. claim → "ఎందుకంటే" reason → "కానీ" risk), question vs statement;
+- verb and ending forms, tense, politeness; commas and pause points; how the subject is named.
+Then write the rule about the PATTERN ("state the myth, give the reason with ఎందుకంటే, then the risk in one sentence"), with one sentence of the user's as a model (tone example, not text to copy), plus the word-level swaps only as secondary rows (DNA §12). The Changes Made text must include a "sentence formation" line whenever sentences were restructured. A rule built from words alone is incomplete - check the structure before `add-rule`.
+
 ## Mode A: write a script
 
 ### 1. Research (English sources)
@@ -125,7 +133,7 @@ The user then picks ideas in the sheet: USE sends one to "Script Requests" (and 
 
 ## Mode D: user sends a revised script / feedback (Script Learning Database)
 1. Find the script by its Script ID (the user may say "S002"; `python script-system/learning_db.py list` shows IDs and titles). Save the user's complete revised script to `output/.../script.txt` AND `python script-system/learning_db.py add-revision <id> <file>` — full text, never shortened. Never touch the original.
-2. `python script-system/learning_db.py diff <id>` for the raw sentence diff, then write a detailed Changes Made analysis (added / removed / rewritten / word swaps / hook / storytelling / narration / Telugu grammar / English vocab / flow / facts / rearrangement — with the user's reason where given, "no reason given" otherwise) → `python script-system/learning_db.py add-changes <id> <file>`.
+2. `python script-system/learning_db.py diff <id>` for the raw sentence diff, then write a detailed Changes Made analysis (added / removed / rewritten / sentence formation (order, merging/splitting, connectors, endings) / word swaps / hook / storytelling / narration / Telugu grammar / English vocab / flow / facts / rearrangement — with the user's reason where given, "no reason given" otherwise) → `python script-system/learning_db.py add-changes <id> <file>`.
 3. User's explanation, verbatim, never invented → `python script-system/learning_db.py add-feedback <id> <file>`.
 4. Rules: the user's revised script is FINAL — every rule from it (stated or inferred from their edits) → `python script-system/learning_db.py add-rule <id> general|topic "<rule>" --approved`. Never PROPOSED. Don't turn every one-off edit into a rule. The row's CATEGORY (printed by `revisions-pending`, taken from column H) decides everything: `add-rule` stores it with the rule, and approved general rules also go into DNA §11 as a bullet tagged for THAT category only (§9 learning step).
 5. Report SYNCED or PENDING exactly as the tool printed. `python script-system/learning_db.py sync` retries pending records.

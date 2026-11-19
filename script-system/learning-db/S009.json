@@ -15,7 +15,12 @@
       "revision": 1
     }
   ],
-  "feedback": [],
+  "feedback": [
+    {
+      "date": "2026-11-19",
+      "text": "Feedback applied in this revision (written from the revision notes):\nBoth scripts covered the same topic, so they were merged into one: the stronger hook and the honest caveats from the short version, the full evidence from the long one."
+    }
+  ],
   "rules": [],
   "synced": true,
   "category": "Dark World"

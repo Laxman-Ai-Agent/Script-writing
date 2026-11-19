@@ -15,7 +15,12 @@
       "revision": 1
     }
   ],
-  "feedback": [],
+  "feedback": [
+    {
+      "date": "2026-11-19",
+      "text": "Feedback in this revision (the user gave no written reasons; summarised from the corrections the revision shows):\n1. No '…' pauses anywhere: join the pause into one sentence (simple గా చెప్పాలంటే shares అమ్మే ముందు ...) or end with a full stop; no comma after the subject or around a list of names (seven companies Nvidia, AMD, ... TSMC కలిసి)"
+    }
+  ],
   "rules": [
     {
       "date": "2026-11-18",

@@ -15,7 +15,12 @@
       "revision": 1
     }
   ],
-  "feedback": [],
+  "feedback": [
+    {
+      "date": "2026-11-19",
+      "text": "Feedback in this revision (the user gave no written reasons; summarised from the corrections the revision shows):\n1. Dark World news: use standard news Telugu verbs and nouns for official actions and core terms: జారీ చేశారు, హెచ్చరించారు, ఆదేశించారు, ఏర్పాటు చేసి, పరిశీలిస్తున్నారు, అప్రమత్తంగా, మినహా, ముందస్తు, ప్రభావం (not effect), వేగం (not speed), దశ (not stage), సమయం (not time), నష్టం (not damage), సిద్ధంగా (not ready), మొదలవుతుంది (not start అవుతుంది)\n2. Andhra / Telugu-region and neighbour-state place names and Telugu leaders' names may go in Telugu script (నెల్లూరు, విశాఖపట్నం, మచిలీపట్నం, బాపట్ల, కాకినాడ, ఒడిశా, తమిళనాడు, తెలంగాణ, చంద్రబాబు నాయుడు); say విశాఖపట్నం, not Vizag; units in full (Kilometers, not km)\n3. State analogies completely, not as shorthand: 'Bike నడవడానికి Petrol ఎంత అవసరమో, తుఫాను బలపడడానికి వేడిగా ఉన్న సముద్రం అంత అవసరం.' (not 'Bike కి petrol ఎలాగో, తుఫానుకి వేడి సముద్రం అలా.')\n4. Dark World mid CTA as two lines: 'ఈ Information మీకు Useful అనిపిస్తే Video కి ఒక Like కొట్టండి. ఇలాంటి మరిన్ని Interesting Updates కోసం The Dark World Channel ని Subscribe చేయండి.'; end CTA: 'మీ ప్రాంతంలో ... ఎలా ఉందో Comments లో చెప్పండి. ఈ Video ను Family, Friends కి Share చేసి Like చేయండి.'; final recap in one short line\n5. Cyclone / disaster news: say Landfall Point, తీవ్రత, హెచ్చరికలు, వరద నీరు, సురక్షిత ప్రాంతాలకు తరలిస్తున్నారు; safety tips as short one-action sentences, general advice in duty form (మనము IMD ... Updates మాత్రమే నమ్మాలి, రైతులు ... కోసుకోవాలి); no filler like 'ఇక మనం చేయాల్సింది simple'"
+    }
+  ],
   "rules": [
     {
       "date": "2026-11-18",

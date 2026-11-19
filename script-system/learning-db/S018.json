@@ -15,7 +15,12 @@
       "revision": 1
     }
   ],
-  "feedback": [],
+  "feedback": [
+    {
+      "date": "2026-11-19",
+      "text": "Feedback in this revision (the user gave no written reasons; summarised from the corrections the revision shows):\n1. Health Decode intro: ask science-first questions about what happens in the body (అసలు brain లో ఏం జరుగుతుంది? electrical signals లో మార్పుల వల్లేనా? body ఎలా react అవుతుంది?), not superstition guesses like దెయ్యం పట్టిందా? గాలి సోకిందా?\n2. Hospital word: 'hospital కి తీసుకెళ్లాలి' (Latin) in the intro, 'ఆస్పత్రికి' (not ఆసుపత్రికి) in the narration; say the helper takes the patient (తీసుకెళ్లాలి), not వెళ్ళాలి. Overrides the older 'ఆసుపత్రి (not hospital)' intro rule.\n3. Spoken word forms: చెయ్యి కదపాలన్నా (not చేయి), గాయమైనా (not గాయం అయినా), పక్కనున్న వాళ్ళు, కలిసే వాళ్లు, చాలా మంది, అంటు వ్యాధి (separate words); in Telugu sentences prefer the Telugu disease name (మూర్ఛ వ్యాధి) over the English one where it reads naturally.\n4. No comma after opening phrases (WHO ప్రకారం, WHO అంచనా ప్రకారం, ఆశ్చర్యం ఏంటంటే, ఏది ఏమైనా, Current సరిగ్గా) or before the main clause after a condition (వస్తుంటే ఈ video ని...); first-aid / do-don't steps as short separate command sentences, one action each."
+    }
+  ],
   "rules": [
     {
       "date": "2026-11-18",

@@ -15,7 +15,12 @@
       "revision": 1
     }
   ],
-  "feedback": [],
+  "feedback": [
+    {
+      "date": "2026-11-19",
+      "text": "Feedback in this revision (the user gave no written reasons; summarised from the corrections the revision shows):\n1. Health Decode intro: open with the title question itself plus 2-3 short 'is it X? or Y?' guess-questions (e.g. ఆహారం వల్లనా? నీళ్ల వల్లనా?), not a provocative counter-claim like 'X doesn't kill you'\n2. In the intro paragraph, list what the video covers as short separate questions (one idea each, each ending in ?) and close with 'ఈ విషయాలన్నీ ఇప్పుడు in detail గా ఈ video లో చూద్దాం'; split the intro into short lines (questions / why it matters / what we will see)\n3. Intro stays mostly pure Telugu: లవణాలు (not salts), ఆసుపత్రి (not hospital), ఆహారం, క్రిములు; state danger as a hedged fact + consequence (తిరిగి అందించకపోతే ప్రాణాపాయం కూడా రావచ్చు)\n4. Small everyday words in Telugu: మంచి నీళ్లు (not safe నీళ్లు); small numbers with Telugu units can be said in Telugu (మూడు గంటలకు, not three గంటలకు)"
+    }
+  ],
   "rules": [
     {
       "date": "2026-11-16",

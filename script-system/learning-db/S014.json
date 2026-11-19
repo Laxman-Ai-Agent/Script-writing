@@ -15,7 +15,12 @@
       "revision": 1
     }
   ],
-  "feedback": [],
+  "feedback": [
+    {
+      "date": "2026-11-19",
+      "text": "Feedback in this revision (the user gave no written reasons; summarised from the corrections the revision shows):\n1. Write disease/body-part words people say in English in Latin script (thyroid, cabbage, cauliflower, Simple), never in Telugu script (not థైరాయిడ్, క్యాబేజీ)\n2. No trailing '...' ellipses; drop unneeded commas (after subject before verb, after 'opposite', 'most common reason'); no quote marks around reported speech\n3. Spoken verb forms: చెప్తారు/చెప్తుంది (not చెబుతారు), ఉండడం (not ఉండటం), అనుకొని (not అనుకుని), అవ్వగానే, ఇళ్లల్లో; write 'పని చేయడం', 'సరి చేయడం', 'అంతే కాదు' as separate words\n4. Split long comma-joined statements into short separate sentences; end CTA with 'ఈ video కి ఒక like వేయండి'"
+    }
+  ],
   "rules": [
     {
       "date": "2026-11-18",

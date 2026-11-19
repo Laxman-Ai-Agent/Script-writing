@@ -15,7 +15,12 @@
       "revision": 1
     }
   ],
-  "feedback": [],
+  "feedback": [
+    {
+      "date": "2026-11-19",
+      "text": "Feedback in this revision (the user gave no written reasons; summarised from the corrections the revision shows):\n1. Health Decode intro closes with 'ఈ విషయాలన్నీ ఇప్పుడు ఈ video లో వివరంగా తెలుసుకుందాం'; make the last intro question specific (అసలు ఏ లక్షణాలు కనిపిస్తే వెంటనే doctor ని కలవాలి?)\n2. Name the subject explicitly in each section opener and key line (మరి lung cancer ఎందుకు వస్తుంది?, ఇక lung cancer లక్షణాల విషయానికొస్తే, lung cancer వచ్చే risk ని పెంచుతాయి) instead of leaving it implied\n3. Complete every list or fragment into a full sentence with its verb (వాటి నుంచి వచ్చే పొగ ప్రమాదకరమే, ఇలా రకరకాల treatment options అందుబాటులో ఉన్నాయి, అది వచ్చే అవకాశాన్ని మాత్రమే పెంచుతుంది); no 'అదే పొగ.' or 'అంతే.' endings\n4. Health Decode facts and statistics in clear standard Telugu: గణాంకాల ప్రకారం, జీవించి ఉంటారు, గుర్తిస్తే, నిర్ధారించడానికి, ప్రయోజనం, సంవత్సరాల్లో, మహిళల్లో, మరణించారు, తొలగించడం (not లెక్కల, బతికి, పట్టుకుంటే, తేల్చేది, లాభం, ఆడవాళ్లు, చనిపోయారు, తీసేయడం)\n5. Explain English medical process words in plain Telugu where it reads better (అసలు వ్యాధిని గుర్తించడంలో ఆలస్యం, not diagnosis ఆలస్యమైంది); keep Cigarette, smoking, tumor (US spelling), tissue sample, myths in English\n6. Flag key safety advice with 'ముఖ్యంగా గుర్తుంచుకోండి.' or 'అయితే ఒక విషయం గుర్తుంచుకోండి.' and state a myth clearly as 'ఇది సాధారణంగా ఒక అపోహ మాత్రమే.'\n7. Lung cancer: say non-smokers are also a large group (ఎప్పుడూ cigarette ముట్టని వాళ్ళు కూడా ఉన్నారు, ముఖ్యంగా మహిళల్లో), not that most patients are non-smokers"
+    }
+  ],
   "rules": [
     {
       "date": "2026-11-18",

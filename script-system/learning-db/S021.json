@@ -15,7 +15,12 @@
       "revision": 1
     }
   ],
-  "feedback": [],
+  "feedback": [
+    {
+      "date": "2026-11-19",
+      "text": "Feedback in this revision (the user gave no written reasons; summarised from the corrections the revision shows):\n1. For liquor say 'alcohol' (alcohol తీసుకున్నా), never 'మందు తాగినా' - మందు also means medicine.\n2. Use full, complete sentences with explicit section transitions ('ఇక దీని లక్షణాల గురించి చూద్దాం', 'ఇక treatment విషయానికి వస్తే', 'ఇక ... అపోహలు కూడా తెలుసుకుందాం'), not clipped fragments like 'ఇక లక్షణాలు.' or 'ఇక కొన్ని myths.'\n3. Prefer Telugu for these words: problem -> సమస్య, concentration -> ఏకాగ్రత, urine -> మూత్రం, accidents -> ప్రమాదాలు, myths -> అపోహలు; men/women in stats -> పురుషులు / మహిళలు.\n4. Intro paragraph closes with 'ఈ విషయాలన్నిటిని ఇప్పుడు ఈ video లో వివరంగా తెలుసుకుందాం.' (not 'in detail గా ... చూద్దాం').\n5. Health Decode mid-video CTA: 'మరిన్ని ఆసక్తికరమైన health విషయాలు తెలుసుకోవాలంటే Health Decode channel ని subscribe చేయండి. Video నచ్చితే ఒక like కూడా ఇవ్వండి.' End CTA: 'మీ అభిప్రాయాన్ని కింద comments లో చెప్పండి.' then last line 'Video నచ్చితే ఒక like కొట్టడం మర్చిపోకండి.'\n6. Soften drama and hedge claims: 'గాలి కోసం పోరాడుతోంది' -> 'గాలి కోసం ఇబ్బంది పడుతోంది', 'signal' -> 'warning signal ... కావచ్చు'; doctor CTA uses 'doctor ని సంప్రదించండి'."
+    }
+  ],
   "rules": [
     {
       "date": "2026-11-18",

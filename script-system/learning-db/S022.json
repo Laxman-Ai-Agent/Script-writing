@@ -15,7 +15,12 @@
       "revision": 1
     }
   ],
-  "feedback": [],
+  "feedback": [
+    {
+      "date": "2026-11-19",
+      "text": "Feedback in this revision (the user gave no written reasons; summarised from the corrections the revision shows):\n1. Write acronyms letter by letter with spaces so they are read as letters: G E R D, L E S, P P I s.\n2. Health Decode: prefer Telugu for weak/risk/danger/help/decide/in detail/roughly/tight (బలహీనపడటం, అవకాశం/ప్రమాదం, సహాయపడతాయి, నిర్ణయించాలి, వివరంగా, సుమారుగా, బిగుతుగా) and సమస్య over problem for the condition.\n3. Complete the sentence instead of bare predicates or '...' pauses: 'acid చాలా strong గా ఉంటుంది', 'one-way door లాగా పనిచేస్తుంది'; state the core twist in two clear sentences.\n4. Health Decode intro questions include what to eat and what to avoid (ఏం చేయాలి, ఏం తినాలి, దేనికి దూరంగా ఉండాలి)."
+    }
+  ],
   "rules": [
     {
       "date": "2026-11-18",

@@ -54,7 +54,8 @@ def main(argv=None):
     x = sub.add_parser("request-fail"); x.add_argument("row", type=int); x.add_argument("reason")
     sub.add_parser("run-finish").add_argument("summary")
     sub.add_parser("check"); sub.add_parser("sync"); sub.add_parser("list")
-    sub.add_parser("rules").add_argument("category", nargs="?", choices=CATEGORIES)
+    rp = sub.add_parser("rules"); rp.add_argument("category", nargs="?", choices=CATEGORIES)
+    rp.add_argument("--all", action="store_true", help="show every approved rule (default: newest 20 general ones)")
     a = sub.add_parser("add-original"); a.add_argument("file"); a.add_argument("--id")
     for name in ("add-revision", "add-changes", "add-feedback"):
         x = sub.add_parser(name); x.add_argument("id"); x.add_argument("file")
@@ -168,7 +169,7 @@ def main(argv=None):
         return
     if args.cmd == "rules":  # one category = only its rules; no argument = every category, each under its own heading
         for cat in ([args.category] if args.category else CATEGORIES):
-            print(f"## {cat}\n" + ("\n".join(approved_rules(db, cat)) or "(no approved rules yet)"))
+            print(f"## {cat}\n" + ("\n".join(approved_rules(db, cat, None if args.all else 20)) or "(no approved rules yet)"))
         return
     if args.cmd == "show":
         print(json.dumps(get(db, args.id), ensure_ascii=False, indent=2))

@@ -334,14 +334,22 @@ def rule_category(rec, r):
     return r.get("category") or rec.get("category") or category_of(rec["title"])
 
 
-def approved_rules(db, category=None):
-    """Approved rules; with `category` only that channel's rules: a rule never leaks into another category."""
+def approved_rules(db, category=None, last=None):
+    """Approved rules; with `category` only that channel's rules: a rule never leaks into another category.
+    `last=N` keeps only the N newest GENERAL rules (older ones are already merged into DNA §11); topic rules always stay."""
     out = []
     for rid, rec in db["records"].items():
         for r in rec["rules"]:
             if r["status"] == "approved" and (category is None or rule_category(rec, r) == category):
-                out.append(f"[{r['scope'].upper()}] {r['text']}" + (f"  (from {rid})" if r["scope"] == "topic" else ""))
-    return out
+                out.append((r["scope"], f"[{r['scope'].upper()}] {r['text']}" + (f"  (from {rid})" if r["scope"] == "topic" else "")))
+    if last:
+        general = [i for i, (s, _) in enumerate(out) if s != "topic"]
+        hidden = set(general[:-last]) if len(general) > last else set()
+        lines = [t for i, (_, t) in enumerate(out) if i not in hidden]
+        if hidden:
+            lines.insert(0, f"(older {len(hidden)} general rules hidden - already in DNA §11; `rules <category> --all` shows them)")
+        return lines
+    return [t for _, t in out]
 
 
 def sentence_diff(a, b):

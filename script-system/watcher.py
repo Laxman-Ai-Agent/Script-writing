@@ -44,8 +44,8 @@ MODEL = "opus"  # writes the Telugu; research is delegated to a Sonnet subagent 
 # Lean run: project settings only (no user plugins/hooks/MCP), fewer built-in tools -> ~18k instead of ~56k baseline tokens per step
 LEAN = ["--setting-sources", "project", "--strict-mcp-config", "--exclude-dynamic-system-prompt-sections",
         "--tools", "Read,Write,Edit,Bash,WebSearch,WebFetch,Glob,Grep,Skill,Agent"]
-PROMPT_TOPICS = ("Invoke the Skill tool with skill 'script' and args 'topics'. Follow its Mode G exactly. Do nothing else.")
-PROMPT_REVISE = ("Invoke the Skill tool with skill 'script' and args 'revise'. Follow its Mode F exactly for every claimed row in the "
+PROMPT_TOPICS = ("Invoke the Skill tool with skill 'script' and args 'topics'. Mode G is in .claude/skills/script/modes-other.md: Read that file, follow Mode G exactly. Do nothing else.")
+PROMPT_REVISE = ("Invoke the Skill tool with skill 'script' and args 'revise'. Mode F is in .claude/skills/script/modes-other.md: Read that file, follow Mode F exactly for every claimed row in the "
                  "Script Learning Database sheet. Do nothing else.")
 PROMPT = ("Invoke the Skill tool with skill 'script' and args 'run'. Follow its Mode E exactly for every ON row "
           "in the Google Sheet. Do nothing else.")

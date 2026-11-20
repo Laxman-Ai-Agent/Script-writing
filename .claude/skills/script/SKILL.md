@@ -68,7 +68,7 @@ Read `script-system/writing-dna.md`: Health Decode → whole file except §15; Z
 - ≥10 min: write chapter by chapter, appending to `script.txt`; re-read only the previous chapter's last ~10 lines before writing the next, to keep continuity without bloating context.
 - Narration text only. No headings inside, no b-roll / visual cues, no timestamps, no notes.
 
-### 6. Human narration refinement (rewrite pass on the draft — fix in place)
+### 6. Human narration refinement (apply WHILE writing step 5; afterwards only targeted Edits, never rewrite the whole file)
 Go paragraph by paragraph and ask "would a Telugu person say this out loud to a friend?". Rewrite anything that fails:
 - **Spoken word choice (DNA §2.3, §12):** use the word people actually say. English words people say → Latin script, never Telugu script. Bookish Telugu → spoken Telugu or the everyday English word. Channel-specific word lists in the rules win.
 - **Labels → descriptions:** jargon labels ("chain reaction", "self-defense system") become plain explanations ("ఒకదాని తర్వాత ఒకటి మార్పులు జరుగుతూ", "తనను తాను కాపాడుకునే పద్ధతి").
@@ -80,12 +80,12 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 - **Speakability:** no sentence that needs a breath in an awkward place; no stacked suffixes that trip the tongue.
 - Changing words must never change facts. If a natural phrasing would distort a fact, keep the accurate phrasing.
 
-### 7. Final validation (fix in place, don't report the checklist)
+### 7. Final validation (one check, targeted Edits only, don't report the checklist; token cost: never Write script.txt a second time, one `words` run + one Grep for digits `[0-9]`)
 - No digits in the narration (DNA §11 numbers rule): whole numbers in Telugu words (యాభై, పది కోట్లు, పది గంటలు), decimals in English words (zero point zero five); digits only inside names/codes (GPT-5, T3).
 - Every number, name, date matches `facts.md`. Disputed claims are hedged or omitted. Nothing added that isn't in `facts.md`.
 - No calques, no గ్రాంథిక / newsreader phrasing, §9 "Never" list clean.
 - Paragraphs, not one-liners; no stretch of ~4 sentences of dry exposition without a question / example / turn.
-- Word count within ±10% of target (`python script-system/learning_db.py words <file>` counts the narration, title excluded).
+- Word count near the target (`python script-system/learning_db.py words <file>` counts the narration, title excluded). The duration is only a rough guide (user rule 2026-11-19, all categories, every time frame): the viewer must understand the topic in detail, so never cut an explanation, step, reason, fact or flow to hit the number — longer is fine; trim only repetition and filler.
 - Opening / structure / ending are not repeats from history, and the first sentence, intro closer, CTAs and last line are not copies of the `history-last` wording or of a rule's example sentence.
 - Health Decode only: run the §14 9-point rubric (point 9 = Health content checklist: 8 parts with reasons, separate danger-signs paragraph, spoken 2-sentence disclaimer; point 8 = HEALTHCARE CONTENT SAFETY RULE: no medicines/doses/treatment instructions/cure claims, warning signs + "Doctor decides treatment" included; this rule beats any research finding or older sample); fix until every point is ✅. After the script, show the rubric as a one-line ✅ list (the user wants to see it).
 
@@ -113,37 +113,5 @@ Columns: Script ID (filled when the row is done) | Topic / Script | Extra Data |
 4. Interactive run: show every script in chat as in Mode A. Unattended: one line per row (Script ID, words, path), no script text.
 Triggers: the user types `/script run` in Claude Code (runs regardless of the RUN cell), or `script-system/watcher.py` starts an unattended run when RUN ALL (G1) = START ALL or a row's RUN cell = START. In an unattended run you cannot ask questions: decide with defaults, never wait for input, and only touch output/, history.json and learning_db.py.
 
-## Mode F: `/script revise` (updated scripts pasted in the Script Learning Database sheet)
-The user pastes an update into the **Revised** column (D) of the script's row - the paste may also hold the old script, a comparison, reasons and rules - and/or types reasons in **My Feedback** (F), then picks START in that row's RUN cell (H) or RUN ALL (H1). The watcher claims the rows (H = ⏳ RUNNING). Unattended: never ask questions.
-1. `python script-system/learning_db.py revisions-pending` -> for every row: Script ID, ORIGINAL SCRIPT, D raw, F raw, NEW INPUT / NO NEW INPUT.
-2. Per row, find the updated script inside D: the part under a heading like UPDATED / NEW / REVISED SCRIPT (కొత్త SCRIPT, "new script", ...) - or all of D if it holds only a script. Ignore OLD / ORIGINAL SCRIPT parts. Everything else (comparison, reasons, rules / guidelines) is explanation. If you cannot tell which text is the updated script, or the row says NO NEW INPUT: `python script-system/learning_db.py revision-fail <ID> "<what is unclear>"` and go on to the next row. Never guess, never invent feedback.
-3. Write files under `output/_revise/<ID>/`: `script.txt` = the updated script exactly as pasted (title line + narration, nothing else); `feedback.txt` = the user's reasons VERBATIM (what they typed in F + the why-parts of the paste), nothing added; `changes.txt` = detailed Changes Made as in Mode D step 2 (run `add-revision` first, then `diff <ID>`; user's reason where given, "no reason given" otherwise).
-4. `python script-system/learning_db.py add-revision <ID> output/_revise/<ID>/script.txt`, then `add-feedback` (skip if there are no reasons) and `add-changes`. Rules: the user's updated script is FINAL, so every rule from it (stated outright or inferred from their edits) -> `add-rule <ID> general|topic "<rule>" --approved`. Never PROPOSED.
-5. `python script-system/learning_db.py revision-done <ID>` rewrites the row: D = the clean script only, E/F/G rebuilt, H = ✅ DONE. Any failure -> `revision-fail <ID> "<reason>"` (H = ❌ ASK, reason as hover note).
-6. After the last row: `python script-system/learning_db.py ldb-finish "<n> processed, <m> need you"`.
-
-## Mode G: `/script topics` (fresh topic ideas into the "Topic Ideas" tab)
-Triggered by START FIND (H1 of "Topic Ideas"). Unattended: never ask questions.
-1. `python script-system/ideas.py context` -> today's date, the categories that are ON (how many topics N, focus) and everything to avoid (ideas already suggested incl. skipped ones, scripts already made or requested).
-2. For EVERY ON category start one subagent (Agent tool, `subagent_type: general-purpose`, `model: sonnet`), all in the same message so they run in parallel. Prompt: the category, its focus, today's date; "find the N+3 most interesting NEWS items from the last 7 days in this category, suited to a Telugu explainer channel (science / tech / history / AI; health goes to Health Decode); for each give an English headline, 3-4 key points with the exact numbers, and 2 or more links from DIFFERENT sites, each with its publication date (YYYY-MM-DD); skip rumours, ads and anything on this avoid list: <the titles>; reply with JSON only".
-3. You choose the N best per category (surprising, explainable in 1-5 minutes, not overlapping the avoid list), and for each write a Telugu hook title in natural Tanglish (English words in Latin letters, one line, curiosity-driven, no hype the facts do not support). Write `output/_ideas/<date>.json` = a list of {"category", "title" (English headline), "hook", "points": [...], "sources": [{"url", "date"}]}. Never invent a source, a date or a number: use only what the subagents returned.
-4. `python script-system/ideas.py add output/_ideas/<date>.json` rejects unsafe items and prints why (too old, one source, duplicate, over the limit...). Fix what can be fixed once (e.g. take another candidate), otherwise drop it.
-5. `python script-system/ideas.py finish "<n> added, <m> rejected"`.
-The user then picks ideas in the sheet: USE sends one to "Script Requests" (and shows a tick), SKIP hides it for good.
-
-## Mode D: user sends a revised script / feedback (Script Learning Database)
-1. Find the script by its Script ID (the user may say "S002"; `python script-system/learning_db.py list` shows IDs and titles). Save the user's complete revised script to `output/.../script.txt` AND `python script-system/learning_db.py add-revision <id> <file>` — full text, never shortened. Never touch the original.
-2. `python script-system/learning_db.py diff <id>` for the raw sentence diff, then write a detailed Changes Made analysis (added / removed / rewritten / sentence formation (order, merging/splitting, connectors, endings) / word swaps / hook / storytelling / narration / Telugu grammar / English vocab / flow / facts / rearrangement — with the user's reason where given, "no reason given" otherwise) → `python script-system/learning_db.py add-changes <id> <file>`.
-3. User's explanation, verbatim, never invented → `python script-system/learning_db.py add-feedback <id> <file>`.
-4. Rules: the user's revised script is FINAL — every rule from it (stated or inferred from their edits) → `python script-system/learning_db.py add-rule <id> general|topic "<rule>" --approved`. Never PROPOSED. Don't turn every one-off edit into a rule. The row's CATEGORY (printed by `revisions-pending`, taken from column H) decides everything: `add-rule` stores it with the rule, and approved general rules also go into DNA §11 as a bullet tagged for THAT category only (§9 learning step).
-5. Report SYNCED or PENDING exactly as the tool printed. `python script-system/learning_db.py sync` retries pending records.
-
-## Mode B: `/script update`
-1. List `sample script/` with byte sizes. Compare to `script-system/manifest.json`.
-2. New or changed files only (name not in manifest, or bytes differ): read them.
-3. Merge new findings into `writing-dna.md` — add new openings/structures/endings/phrases, adjust ratios. Keep the file compact; don't duplicate existing entries.
-4. Update `manifest.json` (status `analyzed` / `skipped` with note for duplicates, empty, or non-script files).
-5. Report in 2–3 lines what changed in the profile.
-
-## Mode C: `/script reanalyze`
-Only on explicit request. Read all samples, rebuild `writing-dna.md` from scratch but KEEP §11 Learned corrections, rebuild `manifest.json`.
+## Other modes
+Mode F (`/script revise`), Mode G (`/script topics`), Mode D (user sends a revised script), Mode B (`/script update`) and Mode C (`/script reanalyze`) are in `.claude/skills/script/modes-other.md` - Read that file ONLY when running one of those modes. Mode A (write) and Mode E (`/script run`) are fully above.

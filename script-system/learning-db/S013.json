@@ -26,25 +26,29 @@
       "date": "2026-11-16",
       "scope": "general",
       "text": "Health Decode intro: open with the title question itself plus 2-3 short 'is it X? or Y?' guess-questions (e.g. ఆహారం వల్లనా? నీళ్ల వల్లనా?), not a provocative counter-claim like 'X doesn't kill you'",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-16",
       "scope": "general",
       "text": "In the intro paragraph, list what the video covers as short separate questions (one idea each, each ending in ?) and close with 'ఈ విషయాలన్నీ ఇప్పుడు in detail గా ఈ video లో చూద్దాం'; split the intro into short lines (questions / why it matters / what we will see)",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-16",
       "scope": "general",
       "text": "Intro stays mostly pure Telugu: లవణాలు (not salts), ఆసుపత్రి (not hospital), ఆహారం, క్రిములు; state danger as a hedged fact + consequence (తిరిగి అందించకపోతే ప్రాణాపాయం కూడా రావచ్చు)",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-16",
       "scope": "general",
       "text": "Small everyday words in Telugu: మంచి నీళ్లు (not safe నీళ్లు); small numbers with Telugu units can be said in Telugu (మూడు గంటలకు, not three గంటలకు)",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     }
   ],
   "synced": true,

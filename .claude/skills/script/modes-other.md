@@ -23,15 +23,15 @@ The user then picks ideas in the sheet: USE sends one to "Script Requests" (and 
 1. Find the script by its Script ID (the user may say "S002"; `python script-system/learning_db.py list` shows IDs and titles). Save the user's complete revised script to `output/.../script.txt` AND `python script-system/learning_db.py add-revision <id> <file>` — full text, never shortened. Never touch the original.
 2. `python script-system/learning_db.py diff <id>` for the raw sentence diff, then write a detailed Changes Made analysis (added / removed / rewritten / sentence formation (order, merging/splitting, connectors, endings) / word swaps / hook / storytelling / narration / Telugu grammar / English vocab / flow / facts / rearrangement — with the user's reason where given, "no reason given" otherwise) → `python script-system/learning_db.py add-changes <id> <file>`.
 3. User's explanation, verbatim, never invented → `python script-system/learning_db.py add-feedback <id> <file>`.
-4. Rules: the user's revised script is FINAL — every rule from it (stated or inferred from their edits) → `python script-system/learning_db.py add-rule <id> general|topic "<rule>" --approved`. Never PROPOSED. Don't turn every one-off edit into a rule. The row's CATEGORY (printed by `revisions-pending`, taken from column H) decides everything: `add-rule` stores it with the rule, and approved general rules also go into DNA §11 as a bullet tagged for THAT category only (§9 learning step).
+4. Rules: the user's revised script is FINAL — every rule from it (stated or inferred from their edits) → `python script-system/learning_db.py add-rule <id> general|topic "<rule>" --approved`. Never PROPOSED. Don't turn every one-off edit into a rule. The row's CATEGORY (printed by `revisions-pending`, taken from column H) decides everything: `add-rule` stores it with the rule. In an interactive session also fold each approved general rule into that category's rule file (`rules/dark-world.md` or `rules/health.md`; the older line it replaces is removed) and run `learning_db.py mark-merged "Dark World"` / `mark-merged Health`. Unattended runs only add to the DB; `rules <category>` keeps showing those rules to every new script until an interactive session merges them.
 5. Report SYNCED or PENDING exactly as the tool printed. `python script-system/learning_db.py sync` retries pending records.
 
 ## Mode B: `/script update`
 1. List `sample script/` with byte sizes. Compare to `script-system/manifest.json`.
 2. New or changed files only (name not in manifest, or bytes differ): read them.
-3. Merge new findings into `writing-dna.md` — add new openings/structures/endings/phrases, adjust ratios. Keep the file compact; don't duplicate existing entries.
+3. Merge new findings into the matching rule file (Dark World samples → `rules/dark-world.md`; Health / Zumba samples → `rules/health.md`) — add new openings/structures/endings/phrases in their sections. Keep it compact; never duplicate or stack a line that an existing one already covers.
 4. Update `manifest.json` (status `analyzed` / `skipped` with note for duplicates, empty, or non-script files).
 5. Report in 2–3 lines what changed in the profile.
 
 ## Mode C: `/script reanalyze`
-Only on explicit request. Read all samples, rebuild `writing-dna.md` from scratch but KEEP §11 Learned corrections, rebuild `manifest.json`.
+Only on explicit request. Read all samples, rebuild the sample-derived sections of `rules/dark-world.md` / `rules/health.md` but KEEP every user-correction rule (user rules always beat sample habits), rebuild `manifest.json`.

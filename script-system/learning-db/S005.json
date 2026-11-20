@@ -26,19 +26,22 @@
       "date": "2026-11-13",
       "scope": "general",
       "text": "Dark World news scripts: prefer everyday English words in Latin script over formal Telugu (reason, announce, start, lead, money, deals, drop, first) - stronger Tanglish than before",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-13",
       "scope": "general",
       "text": "No title line inside the spoken script; open with the 'ఈ video లో మనం ... వివరంగా చూద్దాం' intro and end the intro with 'తెలుసుకుందాం' to avoid repeating 'చూద్దాం'",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-13",
       "scope": "general",
       "text": "Intro paragraph names the main entities upfront; no sentence fragments (write 'background చూద్దాం.' not 'background.'); comma before lists for TTS pauses",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     }
   ],
   "synced": true,

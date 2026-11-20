@@ -26,13 +26,15 @@
       "date": "2026-11-18",
       "scope": "general",
       "text": "Health Decode: use plain Telugu where a common Telugu word exists: సాధారణంగా (not normal), ప్రయత్నిస్తే (not try), మోతాదు (not dose), అధ్యయనం (not study), అపోహలు (not myths), అవకాశం (not risk), ప్రేరేపించే (not trigger చేసే), వాహనం నడుపుకుంటూ (not drive), నయం చేసే చికిత్స (not cure), నచ్చితే (not useful అనిపిస్తే); keep medical/device terms in English (Inhaler, Steroid, Immune system, Inflammation, Treatment, Control, Doctor, Ambulance, Air pollution, Cigarette)",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-18",
       "scope": "general",
       "text": "Capitalise the first letter of every English word written in Latin script, also mid-sentence (Inhaler, Sensitive, Attack, Doctor, Treatment, Like, Subscribe, Comments, Friends, Family)",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-18",
@@ -45,7 +47,8 @@
       "date": "2026-11-18",
       "scope": "general",
       "text": "Health Decode emergency/advice steps in duty form, not commands: Ambulance కి Call చేయాలి, వెళ్ళకూడదు, వాడాలి, Doctor ని సంప్రదించాలి, ఏ మాత్రం ఆలస్యం చేయకూడదు; final safety line as short sentences ending 'Doctor సలహా తప్పనిసరిగా తీసుకోండి'",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-18",
@@ -58,7 +61,8 @@
       "date": "2026-11-18",
       "scope": "general",
       "text": "Explain fully, no shorthand: after a list of body changes add one result line (దీంతో గాలి వెళ్లే దారి మరింత ఇరుకుగా మారుతుంది); separate causes (risk factors) from triggers with an explicit contrast sentence; give each consequence its effect (మందంగా మారి శ్వాస తీసుకోవడం మరింత కష్టమవుతుంది); replace metaphors like రక్షణ కవచం with the plain meaning",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     }
   ],
   "synced": true,

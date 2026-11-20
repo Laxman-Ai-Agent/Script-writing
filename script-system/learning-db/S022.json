@@ -33,25 +33,29 @@
       "date": "2026-11-18",
       "scope": "general",
       "text": "Write acronyms letter by letter with spaces so they are read as letters: G E R D, L E S, P P I s.",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-18",
       "scope": "general",
       "text": "Health Decode: prefer Telugu for weak/risk/danger/help/decide/in detail/roughly/tight (బలహీనపడటం, అవకాశం/ప్రమాదం, సహాయపడతాయి, నిర్ణయించాలి, వివరంగా, సుమారుగా, బిగుతుగా) and సమస్య over problem for the condition.",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-18",
       "scope": "general",
       "text": "Complete the sentence instead of bare predicates or '...' pauses: 'acid చాలా strong గా ఉంటుంది', 'one-way door లాగా పనిచేస్తుంది'; state the core twist in two clear sentences.",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-18",
       "scope": "general",
       "text": "Health Decode intro questions include what to eat and what to avoid (ఏం చేయాలి, ఏం తినాలి, దేనికి దూరంగా ఉండాలి).",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     }
   ],
   "synced": true,

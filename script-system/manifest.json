@@ -1,5 +1,5 @@
 {
-  "profile": "writing-dna.md",
+  "profile": "rules/dark-world.md + rules/health.md",
   "analyzed_on": "2026-11-09",
   "files": [
     {"file": "01.txt", "bytes": 3195, "status": "analyzed"},
@@ -38,6 +38,6 @@
     {"file": "34.txt", "bytes": 17126, "status": "analyzed", "note": "vocabulary library, not a script"},
     {"file": "35.txt", "bytes": 7769, "status": "analyzed", "note": "vocabulary library, not a script"},
     {"file": "36.txt", "bytes": 0, "status": "skipped", "note": "empty; analyze if it gets content"},
-    {"file": "Health-decode.txt", "bytes": 142647, "status": "analyzed", "note": "Health Decode channel: 28 health scripts + user's 7-point rubric -> DNA §14. Periods script appears twice inside the file."}
+    {"file": "Health-decode.txt", "bytes": 142647, "status": "analyzed", "note": "Health Decode channel: 28 health scripts + user's 7-point rubric -> rules/health.md. Periods script appears twice inside the file."}
   ]
 }

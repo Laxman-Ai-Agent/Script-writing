@@ -16,8 +16,9 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 ## File map
 | Path | What it is | When to change |
 |---|---|---|
-| `.claude/skills/script/SKILL.md` | The workflow: research → fact sheet → plan → write → human-narration refinement → validation → deliver | Change the *process* |
-| `script-system/writing-dna.md` | Style profile. §1–10 Dark World voice, §11 user corrections (highest priority), §12 phrase table, §13 gold reference script, §14 Health Decode mode + content checklist + 9-point rubric | Change the *style* |
+| `.claude/skills/script/SKILL.md` | The workflow: research → fact sheet → plan → write → human-narration refinement → validation → deliver (`modes-other.md` = Modes B/C/D/F/G) | Change the *process* |
+| `script-system/rules/dark-world.md` | ALL rules for The Dark World (identity, language, numbers, TTS, hooks, structures, endings, never list, phrase table, length, gold script, final check) | Change Dark World *style* |
+| `script-system/rules/health.md` | ALL rules for Health Decode + Zumba Fitness (one Health category): 6-step flow, language, numbers, safety red lines, disclaimer, hooks, endings, final check | Change Health / Zumba *style* |
 | `script-system/manifest.json` | Which sample files were analyzed (name + bytes) | Auto, by `/script update` |
 | `script-system/history.json` | Openings/structures used per script, to avoid repeats | Auto, after each script |
 | `sample script/` | User's original samples (01–35 + Health-decode.txt). 21=22 duplicate, 36 empty, 34/35 vocab lists | User adds files |
@@ -29,10 +30,11 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 
 ## Rules for future changes
 - **No file over 450 lines** (user rule 2026-11-18): split code into modules, data into per-record / per-month files.
-- **Do not re-read `sample script/`** for normal script writing — load `writing-dna.md` only (token saving).
-- User style feedback → add a dated one-line bullet to DNA §11; word-level swaps → add a row to §12. Present corrections to the user as a side-by-side table (old | new | reason).
-- Latest user corrections override older sample habits and older corrections. As of 2026-11-09 (both channels, long + short): natural Tanglish with English words in **Latin script** (chest pain, hospital, doctor) — this replaced the earlier "Telugu words first / Telugu-script loanwords" rule. Connected paragraphs still apply.
-- Words/min (~150) in DNA §8 is still an **estimate** — recalibrate when the user reports a real recorded duration.
+- **Two rule categories that never mix (user 2026-11-20):** Dark World → `rules/dark-world.md` only; Health Decode + Zumba Fitness → `rules/health.md` only. The sheets keep three Category values; the rule file follows from them.
+- **Do not re-read `sample script/`** for normal script writing — load the one rule file only (token saving).
+- **No stacking:** a new user rule goes into its section of the right file and the older line it replaces is deleted or rewritten in the same edit. No dated corrections list. Present corrections to the user as a side-by-side table (old | new | reason).
+- Learning DB rules: once folded into a rule file, `learning_db.py mark-merged "Dark World"|Health`; `rules <cat>` then prints only new unmerged rules (+ topic rules) for writing.
+- Words/min (~150) in the Length sections is still an **estimate** — recalibrate when the user reports a real recorded duration.
 - Git: remote `origin` = https://github.com/Laxman-Ai-Agent/Script-writing.git (branch `main`). Author is set per-repo as "Script-writing". Commit + push when the user asks.
 
 ## Status (2026-11-09)
@@ -59,4 +61,5 @@ Research a topic in English → write a natural, human-sounding Telugu narration
 - 2026-11-20 (pending cleanup): §13 gold has no "…" now (commas / full stops); the unique still-valid old Health rules hidden by the rules cap (spoken verb / word forms) were merged into DNA §11 as one `[HD]` bullet; `watcher.py` now logs cost per model (`claude-opus-5-5:$0.70,claude-sonnet-5-5:$0.30` in run-costs.csv and the log) so the next runs show whether Opus (writing) or the Sonnet research subagent is the main cost. Measured after the cuts: runs at 09:45 / 10:00 still cost $1.07 / $1.28 (53k / 70k new tokens, 14k / 21k output) - no visible saving yet, so DNA size is not the main driver.
 - 2026-11-20: DNA §16 = Health Decode + Zumba Fitness BLUEPRINT (user paste, 100% mandatory for both): 6-step flow (curiosity hook, simple explanation, sources + study limits, habits/myths, red flags, disclaimer + curiosity CTA), must-haves (exact spoken disclaimer, conditional words, Indian food), strict red lines (no cure, no medicine names/doses, no stop-medicine, no diagnosis, no fear words, no unsourced numbers, no fake authority -> "AI డాక్టర్" persona dropped). SKILL.md checks it for both.
 - 2026-11-20: DNA §17 [ALL] (user paste): analytical educator voice, hook types A-E (not the same as the last 4), no repeated opening / ending in the last 20 (`history-last` default now 20 and shows hook_type), no generic Like/Subscribe/Comment closings (replaces fixed CTA endings), filler blacklist (నిజానికి etc. max once), Fact → Indian context → analysis, banned fear words, self-audit fields hook_type / opening_line / closing_line / flagged_words_avoided saved in history.json (not in script.txt). §16 disclaimer now same meaning, rephrased per script.
+- 2026-11-20: **Rule restructure (user):** `writing-dna.md` deleted and split into `rules/dark-world.md` + `rules/health.md` (Health Decode + Zumba = one Health category). All §1-17 rules, [DW]/[HD]/[ZF]/[ALL] bullets and 62 Learning DB general rules merged; outdated ones removed (old intro-paragraph rules, fixed CTA lines, AI doctor persona, "no comma after ప్రకారం", pure-Telugu intro words). All current DB general rules marked `merged`. Notes in the "§" lines above refer to the old DNA numbering.
 - Pending: (1) user to say WHEN "ten hours లో" is used instead of "పది గంటల్లో" (DNA §11 currently guesses "English-heavy wording"); (2) read the per-model cost of the next 3-5 runs in `run-costs.csv`, then cut the biggest part (likely research fetches or Telugu output length, not DNA); (3) 10 sheet rows (40-49) were still to write at 13:20 IST - the watcher continues them; (4) optional further §11 trim only through the word-options workflow; (5) words/min calibration (no recorded duration reported yet).

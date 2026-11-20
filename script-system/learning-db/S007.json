@@ -33,13 +33,15 @@
       "date": "2026-11-15",
       "scope": "general",
       "text": "Intro paragraph starts with a direct statement of the news (e.g. 'చంద్రుడి మీద permanent base కట్టడానికి NASA ... announce చేసింది') instead of 'ఈ video లో మనం ... మాట్లాడుకుందాం'; end it with 'అవన్నీ in detail గా ఈ video లో చూద్దాం'",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-15",
       "scope": "general",
       "text": "Heavier Tanglish: replace formal/bookish Telugu with everyday English words (money, use చేయడం, build చేయడం, work, safe గా, big, small, total, roughly, estimate); keep core natural Telugu words like చంద్రుడు",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-15",

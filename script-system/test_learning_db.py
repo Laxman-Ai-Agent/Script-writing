@@ -97,6 +97,10 @@ def test():
     assert L.approved_rules(db, "Zumba Fitness") == [] and L.approved_rules(db, "Health Decode") == []
     rec["category"] = "Zumba Fitness"  # the user re-picked the category in the sheet: old rules follow the row
     assert L.approved_rules(db, "Zumba Fitness") == ["[TOPIC] R2  (from S001)"] and L.approved_rules(db, "Dark World") == []
+    # Health group = Health Decode + Zumba Fitness; merged rules drop out of the default (new-only) list
+    assert L.approved_rules(db, "Health") == ["[TOPIC] R2  (from S001)"]
+    rec["rules"][-1]["merged"] = "2026-11-20"
+    assert L.approved_rules(db, "Health", new_only=True) == [] and L.approved_rules(db, "Health") == ["[TOPIC] R2  (from S001)"]
 
     # over-limit original is refused, never truncated
     try:

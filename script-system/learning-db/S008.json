@@ -33,19 +33,22 @@
       "date": "2026-11-15",
       "scope": "general",
       "text": "Add a short mid-video like/subscribe CTA at the curiosity turn just before the key reveal (e.g. after 'కానీ ఇక్కడే అసలు interesting విషయం ఉంది.').",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-15",
       "scope": "general",
       "text": "Intro may open directly with the video's main payoff sentence instead of the generic 'ఈ video లో మనం ... గురించి మాట్లాడుకుందాం', then the questions, ending '... అనే విషయాలను in detail గా ఈ video లో చూద్దాం' (not వివరంగా).",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-15",
       "scope": "general",
       "text": "Use spoken English verbs/adverbs where people say them in English: digest అయి (not జీర్ణమై), release చేస్తుంది (not విడుదల), direct గా (not నేరుగా), fast గా (not వేగంగా), help చేస్తుంది (not సహాయపడుతుంది), important, average, damage అయ్యే risk.",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     }
   ],
   "synced": true,

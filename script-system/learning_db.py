@@ -54,8 +54,9 @@ def main(argv=None):
     x = sub.add_parser("request-fail"); x.add_argument("row", type=int); x.add_argument("reason")
     sub.add_parser("run-finish").add_argument("summary")
     sub.add_parser("check"); sub.add_parser("sync"); sub.add_parser("list")
-    rp = sub.add_parser("rules"); rp.add_argument("category", nargs="?", choices=CATEGORIES)
-    rp.add_argument("--all", action="store_true", help="show every approved rule (default: newest 20 general ones)")
+    rp = sub.add_parser("rules"); rp.add_argument("category", nargs="?", choices=CATEGORIES + list(RULE_GROUPS))
+    rp.add_argument("--all", action="store_true", help="show every approved rule (default: only ones not yet merged into rules/*.md)")
+    sub.add_parser("mark-merged").add_argument("category", choices=["Dark World"] + list(RULE_GROUPS))
     a = sub.add_parser("add-original"); a.add_argument("file"); a.add_argument("--id")
     for name in ("add-revision", "add-changes", "add-feedback"):
         x = sub.add_parser(name); x.add_argument("id"); x.add_argument("file")
@@ -171,8 +172,18 @@ def main(argv=None):
                   f"{len(r['rules'])} rules, {'synced' if r['synced'] else 'PENDING'}")
         return
     if args.cmd == "rules":  # one category = only its rules; no argument = every category, each under its own heading
-        for cat in ([args.category] if args.category else CATEGORIES):
-            print(f"## {cat}\n" + ("\n".join(approved_rules(db, cat, None if args.all else 20)) or "(no approved rules yet)"))
+        for cat in ([args.category] if args.category else ["Dark World", "Health"]):
+            print(f"## {cat}\n" + ("\n".join(approved_rules(db, cat, new_only=not args.all)) or "(none new - everything is in the rules file)"))
+        return
+    if args.cmd == "mark-merged":  # after folding the new rules into rules/<file>.md, so writing never loads them twice
+        cats = RULE_GROUPS.get(args.category, [args.category])
+        n = 0
+        for rec in db["records"].values():
+            for r in rec["rules"]:
+                if r["status"] == "approved" and r["scope"] == "general" and not r.get("merged") and rule_category(rec, r) in cats:  # topic rules stay listed
+                    r["merged"], n = today(), n + 1
+        save(db)
+        print(f"{n} rule(s) marked merged.")
         return
     if args.cmd == "show":
         print(json.dumps(get(db, args.id), ensure_ascii=False, indent=2))

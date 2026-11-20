@@ -26,7 +26,8 @@
       "date": "2026-11-18",
       "scope": "general",
       "text": "Write disease/body-part words people say in English in Latin script (thyroid, cabbage, cauliflower, Simple), never in Telugu script (not థైరాయిడ్, క్యాబేజీ)",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-18",
@@ -39,19 +40,22 @@
       "date": "2026-11-18",
       "scope": "general",
       "text": "No trailing '...' ellipses; drop unneeded commas (after subject before verb, after 'opposite', 'most common reason'); no quote marks around reported speech",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-18",
       "scope": "general",
       "text": "Spoken verb forms: చెప్తారు/చెప్తుంది (not చెబుతారు), ఉండడం (not ఉండటం), అనుకొని (not అనుకుని), అవ్వగానే, ఇళ్లల్లో; write 'పని చేయడం', 'సరి చేయడం', 'అంతే కాదు' as separate words",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-18",
       "scope": "general",
       "text": "Split long comma-joined statements into short separate sentences; end CTA with 'ఈ video కి ఒక like వేయండి'",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     }
   ],
   "synced": true,

@@ -167,7 +167,7 @@ def tick(sheet, runner=run_row, say=log):
         return "empty"
     sheet.claim(rows)
     say(f"starting {len(rows)} row(s): {rows}")
-    # one fresh claude run per row: a shared context would re-read every earlier script's DNA/facts on each later step
+    # one fresh claude run per row: a shared context would re-read every earlier script's rules/facts on each later step
     ok, whys = True, []
     for i, row in enumerate(rows, 1):
         sheet.set_all_cell(L.ALL_RUN, f"{stamp()} - running script {i} of {len(rows)} (row {row})")

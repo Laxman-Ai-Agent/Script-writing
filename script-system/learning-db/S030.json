@@ -71,56 +71,64 @@
       "scope": "general",
       "text": "Zumba numbers and English words follow the old rules: whole numbers in Telugu words (పందొమ్మిది మంది, ఎనభై శాతం), decimals in English words; English words people say stay in Latin script (dance, try, share, friend, Comment). Never digits, never Telugu-script English, in VO and Text on screen. (User decision, S030 paste used digits and Telugu script but is NOT the model for this.)",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba Fitness = narration only: no headings, bullets, labels, emoji, timestamps, Visual / Text on screen lines or caption. Connected paragraphs with a blank line between them. Start directly with the hook; never an intro line like \"ఈ video లో వివరంగా తెలుసుకుందాం\".",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba opening: the topic as a question + \"లేక ...?\" alternative, then \"బయటకు చూస్తే ... కానీ ...\" leading to the study. No separate payoff-tease line with \"!\".",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba sentence formation: full flowing sentences joined by connectors (అంతేకాదు, అయితే, ఎందుకంటే, అంటే, కానీ). Stat paragraph = who/what study, then the number, then the verdict: \"CDC లెక్కల ప్రకారం, ఈ స్థాయి శ్రమ Vigorous Exercise కిందకు వస్తుంది.\" (comma after ప్రకారం).",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba myth correction: \"అయితే X ని అచ్చంగా Y అని అనుకోకూడదు. ఎందుకంటే Y లో ... X లో మాత్రం ... అంటే ఇది ...\" - reason with ఎందుకంటే, then a closing \"అంటే\" sentence.",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba safety in duty form: \"...కనిపిస్తే వెంటనే ఆపి Doctor ను సంప్రదించాలి\", \"...ఉన్నవాళ్లు ముందుగానే Doctor సలహా తీసుకోవాలి\" (Doctor ను, not ని). Then a separate spoken disclaimer paragraph: \"ఈ వీడియో సాధారణ అవగాహన కోసం మాత్రమే. మీ ఆరోగ్య పరిస్థితికి ఏ Exercise సరైనదో Doctor మాత్రమే సూచించగలరు.\"",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba ending order: viewer question, then \"మీ అనుభవాన్ని Comment చేయండి.\", then ONE closing payoff line (చూడటానికి Dance లా కనిపించినా, Zumba మన Heart కు మంచి Cardio Workout అవుతుంది). No share line, no subscribe, never mention Health Decode.",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     },
     {
       "date": "2026-11-19",
       "scope": "general",
       "text": "Zumba word forms (user example): \"వీడియో\" in Telugu script, పంతొమ్మిది, లెక్కల ప్రకారం, Heart కు, ను endings (Heart Rate ను, Doctor ను); other English words stay Latin with a capital (Dance, Study, Workout, Exercise, Comment).",
       "category": "Zumba Fitness",
-      "status": "approved"
+      "status": "approved",
+      "merged": "2026-11-20"
     }
   ],
   "synced": true

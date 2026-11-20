@@ -21,6 +21,8 @@ Load THIS file for every script. Do not re-read the sample folder.
 5. **No "…" pauses** (user rule 2026-11-18, TTS): make the pause a full stop or a complete sentence. Sample quotes in this file that still show "…" are pattern placeholders, not output style.
 6. **Hedge uncertain science honestly:** "scientists భావిస్తున్నారు", "అయి ఉండొచ్చు", "science దగ్గర ఇప్పటికీ పూర్తి answer లేదు".
 7. **Cite sources in-voice, never as footnotes:** "OpenAI తర్వాత చెప్పిన ప్రకారం…", "Hugging Face forensic investigation ప్రకారం…", "scientists అంచనా ప్రకారం…".
+8. **Breath and micro-pauses for TTS (user, 2026-11-20):** put a comma after a transitional word and at a dramatic turn so the voice (ElevenLabs) takes a natural breath: "కానీ, ఇక్కడే ఒక twist ఉంది.", "అయితే, అసలు విషయం వేరే ఉంది." The pause is a comma or a full stop, never "…" (rule 5).
+9. **No tongue-twisters (user, 2026-11-20):** avoid heavy compound words and stacked Telugu suffixes; break them into natural spoken phrases - "విడుదల అవ్వడం వల్ల" instead of "విడుదలవుతుండటంతో". Spoken contractions are in §12.
 
 ## 3. Signature moves (use several per script)
 
@@ -42,11 +44,11 @@ _Sample quotes below keep the old Tanglish spelling; copy the MOVE, write it in 
 | POV imagine | "ఒక్కసారి ఆ సమయంలో … ఎలా ఉండేదో ఊహించండి." | dinosaur during impact winter |
 | Recap line before end | "అంటే సింపుల్‌గా చెప్పాలంటే…" / "ఇప్పటివరకు జరిగినదంతా ఒక lineలో చెప్పాలంటే…" | |
 | Arrow chain (long-form) | "ఒక weakness → access → మరో system → మరింత privilege." | |
-| Concrete numbers | exact figures, dates, distances — written in Telugu words (§11, 2026-11-16) | 1,500°C; 23 kiloton at 90 అడుగులు; 17,600 actions |
+| Concrete numbers | exact figures, dates, distances — written in Telugu words (§11, 2026-11-18) | 1,500°C; 23 kiloton at 90 అడుగులు; 17,600 actions |
 
 ## 4. Openings menu (VARIABLE — rotate; never repeat one of the last 3 used)
 
-**⚠️ 2026-11-13 (user rule, both channels, every video script): ALWAYS start with a straight intro paragraph BEFORE the hook below** — 3–4 lines: "ఈ video లో మనం [Company] కొత్తగా release చేసిన [Topic] గురించి తెలుసుకోబోతున్నాం. అవే [Names]. అసలు [Question 1]? [Question 2]? అంతేకాదు, [curiosity hook — the most surprising fact] ఎలా జరిగిందో ఈ video లో వివరంగా చూద్దాం." Then the chosen O#/H# opening as the second paragraph. (This overrides the old "O10 = weakest" note — the summary intro is now mandatory; the O# menu picks the hook paragraph that follows it.)
+**2026-11-18 (user, LATEST, both channels, every script): no fixed template for the start or the end - start directly with a fresh, topic-specific hook** built from this topic (its own scene, number, question or image), picked from the O#/H# menu below. Never reuse the wording `history-last` prints. The old 2026-11-13 rule (a mandatory 3-4 line summary intro paragraph before the hook) is removed.
 
 - **O1 Playful curiosity:** everyday question + "అంత టైం నాకు ఎక్కడిది అంటారా? అయితే చెప్తా జాగ్రత్తగా విను." (01, 02) — shorts only, rare.
 - **O2 Paradox:** "ఇంత పెద్ద shipలో వేల టన్నుల బరువు ఉంటుంది. అయినా అది ఎందుకు మునగదు?" (03, 08, 06)
@@ -57,7 +59,7 @@ _Sample quotes below keep the old Tanglish spelling; copy the MOVE, write it in 
 - **O7 Deep-time scene:** "సుమారు 66 million years ago... Earth మీద వేల రకాల Dinosaurs జీవించేవి." (31, 23, 21)
 - **O8 Hidden-in-plain-sight:** "రైలు పట్టాల మధ్య ఈ చిన్న gap ఎందుకు ఉంటుందో ఎప్పుడైనా గమనించారా?" (01, 13, 14)
 - **O9 Casual greeting:** "హాయ్.. Black Hole అంటే ఏంటో తెలుసా?... తెలీదు కదూ... ఐతే ఇప్పుడు తెలుసుకుందాం." (28) — rare.
-- **O10 Plain promise:** "ఈ వీడియోలో … step by step చూద్దాం." (11) — superseded: now the mandatory intro paragraph (see note above), not a stand-alone opening.
+- **O10 Plain promise:** "ఈ వీడియోలో … step by step చూద్దాం." (11) — rare; only as a freshly worded line built from this topic, never a fixed intro.
 
 ## 5. Body structures menu (VARIABLE — pick by topic, avoid last used)
 
@@ -125,6 +127,7 @@ Long-form (≥5 min) habits from 19, 20, 24, 33: section breaks by blank line; e
 - Overusing connectors: నిజానికి, అయితే, దాంతో, అందుకే, మరి — each at most ~2 times per 300 words; never two consecutive sentences starting with the same word.
 - Forced drama: suspense/twist phrases only where the content really turns. "ఆయుధం", "షాక్ అవుతారు" style words only if the fact is genuinely dramatic.
 - Stronger certainty than the facts: if research says "may reduce", write "కొంతవరకు తగ్గవచ్చు", not "చాలా వరకు తగ్గుతాయి".
+- Heavy compound words and stacked suffixes ("విడుదలవుతుండటంతో"): break into spoken phrases ("విడుదల అవ్వడం వల్ల"), see §2.9.
 - Newsreader / textbook phrasing ("ఈ నేపథ్యంలో", "గణనీయంగా", "పేర్కొన్నారు") in normal narration.
 
 ## 10. Vocabulary bank (compressed from 34, 35 + observed)
@@ -151,11 +154,10 @@ Long-form (≥5 min) habits from 19, 20, 24, 33: section breaks by blank line; e
 - 2026-11-09: Safety lines in plain spoken warning style, addressed straight to the viewer ("మీరంతట మీరే సొంత వైద్యం చేసుకోకుండా నేరుగా doctor నే కలవండి"). Spoken rewriting must not add claims beyond `facts.md` and keeps short hedges ("అంచనా", "పాత cases మీద test లో"). Exact CTA wording: newest Learning DB rule.
 - 2026-11-09 (Health, long-form shape): **Fewer, fuller paragraphs** - 5 min ≈ 8 paragraphs of 5-7 sentences, related proofs merged, side topics cut. Open with a step-by-step real-life scene in short clauses (each obstacle one clause), an idiom for the feeling, then the turn into the topic. Section openers the user likes (tone only, never copy): "ముందుగా … అసలు problem ఏంటో చూద్దాం", "మన India విషయానికే వస్తే", "అయితే … కొన్ని major challenges ఉన్నాయి"; close with "సో చూశారా కదా, …" + one strong image + the safety line. Scenario character = unnamed relatable person, not a named one.
 
-- 2026-11-13 (Fable/Mythos 5.2 rewrite): **Straight intro first** — every script opens with a short intro paragraph (topic / payoff, then short questions, then a closing "… ఈ video లో వివరంగా తెలుసుకుందాం."), then the hook (§4 note). Never "తెలుసుకోబోతున్నాం" or "ఒక్కసారి ఊహించుకోండి" (banned 2026-11-14). The curiosity hook teases the most surprising fact in plain words ("test చేస్తున్న experts నే ఇది ఎలా మోసం చేసిందో").
+- 2026-11-14: Never use "తెలుసుకోబోతున్నాం" or "ఒక్కసారి ఊహించుకోండి". The curiosity hook teases the most surprising fact in plain words ("test చేస్తున్న experts నే ఇది ఎలా మోసం చేసిందో").
 - 2026-11-13: Style edits must not drop facts, numbers or technical details — simplify the words only.
-- 2026-11-18 (user, LATEST — both channels): **No fixed template for the start and the end.** Every script needs an intro, a hook, a mid CTA and an end CTA, but the first sentence, the intro's closing line, the CTA sentences and the very last line must be worded freshly each time, built from this topic (its own scene, number, question or image). The exact sentences quoted in older §11 bullets and Learning DB rules (intro closers, "ఈ విషయాలన్నీ… తెలుసుకుందాం", CTA lines) show the tone, not text to copy. Never reuse the wording `history-last` prints for the last 3 scripts; vary the order too (e.g. question → like, or like → share → question).
-- 2026-11-18 (user, LATEST — both channels): **Talk to the viewer in the middle, keep subscribe short.** Every 2–3 paragraphs ask the viewer a direct question that fits that moment ("మీకు కూడా ఇలా ఎప్పుడైనా జరిగిందా?", "మీరు ఏమనుకుంటున్నారు, ఇది మంచిదా?"), then carry on with the answer, so it feels like a conversation, not a lecture. The mid-video subscribe is ONE short line slipped into the flow at a natural turn (e.g. "ఇలాంటి విషయాలు ఇష్టమైతే channel ని subscribe చేయండి, ఇప్పుడు అసలు విషయానికి వద్దాం."), never a two-line pitch that stops the story. This overrides the longer mid-CTA sentences in older rules.
-- 2026-11-18 (user choice): **Keep connected paragraphs with a blank line between them** — the line-by-line layout rule (S016) is dropped.
+- 2026-11-18 (user, LATEST — both channels): **No fixed template for the start and the end.** Start directly with a fresh, topic-specific hook; every script also has a mid CTA and an end CTA. The first sentence, the CTA sentences and the very last line must be worded freshly each time, built from this topic (its own scene, number, question or image). The exact sentences quoted in Learning DB rules (old intro closers, "ఈ విషయాలన్నీ… తెలుసుకుందాం", CTA lines) show the tone, not text to copy. Never reuse the wording `history-last` prints for the last 3 scripts; vary the order too (e.g. question → like, or like → share → question).
+- 2026-11-18 (user, LATEST — both channels): **Talk to the viewer at natural turns, keep subscribe short.** Ask the viewer a direct question only at a natural story turning point (roughly every 300–400 words, never mechanically every few paragraphs) so the narrative flow is not interrupted ("మీకు కూడా ఇలా ఎప్పుడైనా జరిగిందా?", "మీరు ఏమనుకుంటున్నారు, ఇది మంచిదా?"), then carry on with the answer, so it feels like a conversation, not a lecture. The mid-video subscribe is ONE short line slipped into the flow at a natural turn (e.g. "ఇలాంటి విషయాలు ఇష్టమైతే channel ని subscribe చేయండి, ఇప్పుడు అసలు విషయానికి వద్దాం."), never a two-line pitch that stops the story. This overrides the longer mid-CTA sentences in older rules.
 - 2026-11-18 (user, LATEST — both channels, replaces every older digits / English-number-words rule): **Every number in Telugu words, in Telugu script — never digits.** The unit goes Telugu too: 50 → యాభై, 1970 → పంతొమ్మిది వందల డెబ్బై, 2005 → రెండు వేల ఐదు, 10 crores → పది కోట్లు, 10 hours → పది గంటలు, 25% → ఇరవై ఐదు శాతం. **Decimals are the exception: English words in Latin script** — 0.05 → zero point zero five, 1.5 → one point five. Names/codes that contain a number stay as they are (GPT-5, T3, Falcon 9).
 - [HD] 2026-11-18 (Health Decode, all lengths): **Healthcare Content Safety Rule** — educate only (what / why / how in the body / symptoms / prevention / warning signs); never recommend medicines, doses or specific treatments, never claim a cure, treatment = "Doctor decides". Full text in §14; it is rubric point 8.
 
@@ -177,7 +179,7 @@ Examples of the *direction* of change — understand why, don't search-and-repla
 | ఇది దాని self-defense system | ఇది ఉల్లిపాయ తనను తాను కాపాడుకునే పద్ధతి | explain instead of jargon |
 | ప్రకృతి ఇచ్చిన ఒక ఆయుధం | ప్రకృతి దానికి ఇచ్చిన రక్షణ | calmer, accurate |
 | గుర్తించారు | గమనించారు | observation, not detection |
-| ఏకంగా సెకనుకు 40 మీటర్ల వేగం వరకు | సెకనుకు 40 మీటర్ల వేగంతో కూడా | less hype |
+| ఏకంగా సెకనుకు 40 మీటర్ల వేగం వరకు | సెకనుకు నలభై meters speed తో కూడా | less hype; number in Telugu words, unit word people say stays Latin |
 | చాలావరకు తగ్గుతాయి | కళ్లలో నీళ్లు రావడం కూడా కొంతవరకు తగ్గవచ్చు | hedge matches evidence |
 | దీని వెనుక మన చర్మంలో దాగి ఉన్న ఒక చిన్న ఏర్పాటు ఉంది | దీని వెనుక మన చర్మం కింద ఒక చిన్న వ్యవస్థ పనిచేస్తుంది | active verb ("పనిచేస్తుంది") over static "ఉంది"; వ్యవస్థ over ఏర్పాటు |
 | ప్రభుత్వం అంచనా | government లెక్కల ప్రకారం | the way people say it |
@@ -186,10 +188,22 @@ Examples of the *direction* of change — understand why, don't search-and-repla
 | ఇది ఎందుకు అవసరం? | (new paragraph) అసలు ఇది మనకెందుకు అవసరం? | pull the viewer in; "అసలు" fits here because the previous para said WHAT it is and this steps back to WHY — context-dependent, not a fixed opener |
 | అయితే AI కూడా తప్పు చేయగలదు | కానీ గుర్తుపెట్టుకోండి, AI కూడా అప్పుడప్పుడు తప్పులు చేయొచ్చు | direct warning to viewer |
 | self-diagnose చేసుకోకుండా డాక్టర్‌ని కలవండి | మీరంతట మీరే సొంత వైద్యం చేసుకోకుండా నేరుగా doctor నే కలవండి | Telugu idiom, emphasis |
+| కానీ ఇక్కడే ఒక twist ఉంది. | కానీ, ఇక్కడే ఒక twist ఉంది. | comma after the turn word = breath pause for TTS (§2.8) |
+| అయితే అసలు విషయం వేరే ఉంది. | అయితే, అసలు విషయం వేరే ఉంది. | comma after the transition (§2.8) |
+| విడుదలవుతుండటంతో | విడుదల అవ్వడం వల్ల | de-stack suffixes, easy to speak (§2.9) |
+
+**Spoken contractions (user, 2026-11-20, TTS):** use the short spoken form people really say, not the formal written form.
+
+| Written / formal | Spoken (use this) | Why |
+|---|---|---|
+| ఏమిటి అంటే | ఏంటంటే | one natural spoken word |
+| జరుగుతుంది అని | జరుగుతుందని | no gap before the ending |
+| అవును కదా | కదూ | short spoken tag |
+| చేయడానికి | చేయడానికే | spoken emphasis on the purpose |
 
 ## 13. Gold reference script (user-written target quality — style only, NOT a fact source)
 
-Read this before writing. Notice: paragraphs, varied sentence length, "ఎలా అంటే…" to open an explanation, "చూశారా…" to open the closing reframe, Telugu-script loanwords, calm hedging.
+Read this before writing. Notice: paragraphs, varied sentence length, "ఎలా అంటే…" to open an explanation, "చూశారా…" to open the closing reframe, English words in Latin script, numbers in Telugu words, calm hedging.
 
 ```
 ఉల్లిపాయ కోస్తే కళ్లలో నీళ్లు ఎందుకు వస్తాయి?
@@ -198,19 +212,19 @@ Read this before writing. Notice: paragraphs, varied sentence length, "ఎలా
 
 చాలామంది ఉల్లిపాయ రసం కళ్లలో పడటం వల్లే ఇలా జరుగుతుందని అనుకుంటారు. కానీ అసలు విషయం అది కాదు. మనం ఉల్లిపాయను కోయకముందు కళ్లను మండించే ఆ పదార్థం అందులో ఉండదు. ఉల్లిపాయను కోసినప్పుడే అది తయారవుతుంది.
 
-ఎలా అంటే… ఉల్లిపాయలోని కణాల్లో సల్ఫర్ ఉన్న కొన్ని పదార్థాలు, వాటితో చర్య జరిపే ఎంజైమ్‌లు విడివిడిగా ఉంటాయి. మనం కత్తితో ఉల్లిపాయను కోసినప్పుడు ఆ కణాలు పగిలిపోతాయి. అప్పుడు ఈ పదార్థాలన్నీ ఒకదానితో ఒకటి కలుస్తాయి. దాంతో కొన్ని రసాయన మార్పులు జరిగి, చివరికి Syn-Propanethial-S-oxide అనే వాయువు తయారవుతుంది.
+ఎలా అంటే… ఉల్లిపాయలోని కణాల్లో sulfur ఉన్న కొన్ని పదార్థాలు, వాటితో చర్య జరిపే enzymes విడివిడిగా ఉంటాయి. మనం కత్తితో ఉల్లిపాయను కోసినప్పుడు ఆ కణాలు పగిలిపోతాయి. అప్పుడు ఈ పదార్థాలన్నీ ఒకదానితో ఒకటి కలుస్తాయి. దాంతో కొన్ని రసాయన మార్పులు జరిగి, చివరికి Syn-Propanethial-S-oxide అనే వాయువు తయారవుతుంది.
 
-ఈ వాయువు గాల్లోకి వ్యాపించి మన కళ్ల దగ్గరికి చేరుతుంది. మన కంటిపై ఉండే కార్నియా అనే భాగంలో చాలా సున్నితమైన నరాలు ఉంటాయి. ఈ వాయువు వాటిని తాకగానే అవి వెంటనే స్పందిస్తాయి. వెంటనే మన కంటిలోని కన్నీటి గ్రంథులకు ఒక సంకేతం వెళ్తుంది. కంటికి ఇబ్బంది కలిగిస్తున్న ఈ పదార్థాన్ని బయటకు పంపించడానికి అవి ఎక్కువగా కన్నీళ్లను విడుదల చేస్తాయి. అందుకే ఉల్లిపాయ కోస్తున్నప్పుడు మనకు తెలియకుండానే కళ్లు నీళ్లతో నిండిపోతాయి.
+ఈ వాయువు గాల్లోకి వ్యాపించి మన కళ్ల దగ్గరికి చేరుతుంది. మన కంటిపై ఉండే cornea అనే భాగంలో చాలా సున్నితమైన నరాలు ఉంటాయి. ఈ వాయువు వాటిని తాకగానే అవి వెంటనే స్పందిస్తాయి. వెంటనే మన కంటిలోని కన్నీటి గ్రంథులకు ఒక సంకేతం వెళ్తుంది. కంటికి ఇబ్బంది కలిగిస్తున్న ఈ పదార్థాన్ని బయటకు పంపించడానికి అవి ఎక్కువగా కన్నీళ్లను విడుదల చేస్తాయి. అందుకే ఉల్లిపాయ కోస్తున్నప్పుడు మనకు తెలియకుండానే కళ్లు నీళ్లతో నిండిపోతాయి.
 
 మరి ఉల్లిపాయ ఇలా ఎందుకు చేస్తుంది? నిజానికి ఇది తనను తాను కాపాడుకునే ఒక పద్ధతి. ఉల్లిపాయను తినడానికి వచ్చే కొన్ని పురుగులు, జంతువుల నుంచి రక్షించుకోవడానికి ఈ రసాయన ప్రక్రియ ఉపయోగపడుతుంది.
 
-ఇక్కడ ఇంకో ఆసక్తికరమైన విషయం ఉంది. 2025లో Cornell University పరిశోధకులు హై-స్పీడ్ కెమెరాతో ఉల్లిపాయను కోసినప్పుడు ఏం జరుగుతుందో పరిశీలించారు. కత్తి ఉల్లిపాయను తాకిన ప్రతిసారీ, దాని నుంచి చాలా చిన్న చిన్న ద్రవ బిందువులు బయటకు ఎగురుతున్నట్లు గమనించారు. వాటిలో కొన్ని సెకనుకు 40 మీటర్ల వేగంతో కూడా ప్రయాణించాయి.
+ఇక్కడ ఇంకో ఆసక్తికరమైన విషయం ఉంది. రెండు వేల ఇరవై ఐదులో Cornell University పరిశోధకులు high-speed camera తో ఉల్లిపాయను కోసినప్పుడు ఏం జరుగుతుందో పరిశీలించారు. కత్తి ఉల్లిపాయను తాకిన ప్రతిసారీ, దాని నుంచి చాలా చిన్న చిన్న ద్రవ బిందువులు బయటకు ఎగురుతున్నట్లు గమనించారు. వాటిలో కొన్ని సెకనుకు నలభై meters speed తో కూడా ప్రయాణించాయి.
 
 ముఖ్యంగా మొద్దుబారిన కత్తితో ఉల్లిపాయను కోసినప్పుడు ఇలాంటి బిందువులు ఎక్కువగా బయటకు వస్తాయి. అందుకే పదునైన కత్తితో నెమ్మదిగా కోస్తే, ఉల్లిపాయ నుంచి బయటకు వచ్చే ఈ బిందువుల పరిమాణం తగ్గి, కళ్లలో నీళ్లు రావడం కూడా కొంతవరకు తగ్గవచ్చు.
 
 చూశారా… మనం ఉల్లిపాయను కోస్తుంటే అది మనల్ని ఏడిపిస్తున్నట్లు అనిపిస్తుంది. కానీ అది తనను తాను కాపాడుకునే ప్రయత్నం చేస్తోంది. మనం మాత్రం మధ్యలో ఇరుక్కుపోతున్నాం అంతే!
 
-మరి ఉల్లిపాయ కోసేటప్పుడు పదునైన కత్తి ఉపయోగిస్తే కళ్లలో నీళ్లు తగ్గుతాయని మీకు ముందే తెలుసా? తెలిసుంటే YES, తెలియకపోతే NO అని కామెంట్ చేయండి!
+మరి ఉల్లిపాయ కోసేటప్పుడు పదునైన కత్తి ఉపయోగిస్తే కళ్లలో నీళ్లు తగ్గుతాయని మీకు ముందే తెలుసా? తెలిసుంటే YES, తెలియకపోతే NO అని comment చేయండి!
 ```
 
 ## 14. Health mode — "Health Decode" channel
@@ -287,8 +301,6 @@ The channel educates; it never diagnoses or prescribes. Every script covers thes
 7. Fact-check — medically accurate; no overclaim or misleading statement.
 8. Safety — passes the HEALTHCARE CONTENT SAFETY RULE above: no medicine / tablet / dose / treatment instruction, no "cure" claim, warning signs + "Doctor decides treatment" present, no fear-mongering.
 9. Content checklist — all 8 parts of the Health content checklist below are present, each with its reason; danger signs are their own section; the 2-sentence disclaimer is spoken; facts only from the approved sources; facts.md has the 5 hook ideas, ✅/❌ myths and description sources.
-
-**Note on language:** these health samples use heavy Latin-script English (Body, Brain, Heart, blood). The user's newer §2.3 / §11 corrections win: Telugu words first (శరీరం, మెదడు, గుండె, రక్తం), daily loanwords in Telugu script, Latin only for proper medical names when the Telugu one is unfamiliar (Plasmodium, Type-2 diabetes, Dialyzer).
 
 ## 15. Zumba Fitness mode — "Zumba Fitness" channel
 

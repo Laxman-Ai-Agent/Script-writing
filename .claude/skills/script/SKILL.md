@@ -57,12 +57,12 @@ Read `script-system/writing-dna.md`: Health Decode → whole file except §15; Z
 ### 4. Plan
 - Target words from DNA §8 for the duration.
 - Health Decode: research must include at least one authoritative health source (only WHO, CDC, NIH, NHS, ICMR, AIIMS, GINA, Mayo Clinic or similar top bodies; never invent a study or number; unsure = "ధృవీకరించుకోవాలి" in facts.md, left out of the script) and one why-it-matters number for rubric point 5. Cover all 8 parts of the §14 Health content checklist. Use §14 openings (H1–H6), "normal body first, then what goes wrong" structure, §14 CTAs and safety rules.
-- Pick one opening (§4), one structure (§5), one ending (§6). None of them may match the entries `history-last` printed, and the new first sentence, intro closer, CTA lines and last line must not reuse the wording it shows (DNA §11 "No fixed template"). Exact sentences in rules are tone examples: rephrase them for this topic. Choose what fits the topic, not at random.
+- Pick one opening (§4), one structure (§5), one ending (§6). None of them may match the entries `history-last` printed, and the new first sentence, CTA lines and last line must not reuse the wording it shows (DNA §11 "No fixed template"). Exact sentences in rules are tone examples: rephrase them for this topic. Choose what fits the topic, not at random.
 - Pick 1 everyday analogy and 1 concrete example to carry through (if the topic allows).
 - Durations ≥10 min: outline chapters first (each ~400–600 words, each opening with a bridge question).
 
 ### 5. Write
-- Telugu narration following DNA §2 (fixed voice) and §3 (signature moves). Title line first (§7) — it is file metadata for the Learning DB / word count, not narrated, so keep it even though rules say "no title inside the spoken script" — then the mandatory straight intro paragraph (DNA §4 note / §11; never "తెలుసుకోబోతున్నాం"), then the chosen hook and narration in connected paragraphs (blank line between paragraphs), then CTA (§6).
+- Telugu narration following DNA §2 (fixed voice) and §3 (signature moves). Title line first (§7) — it is file metadata for the Learning DB / word count, not narrated, so keep it even though rules say "no title inside the spoken script" — then start directly with the fresh, topic-specific hook (DNA §4 / §11, 2026-11-18: no fixed intro paragraph; never "తెలుసుకోబోతున్నాం"), then the narration in connected paragraphs (blank line between paragraphs), then CTA (§6). Apply the TTS rules while writing: commas after transition words / dramatic turns, no stacked suffixes (DNA §2.8, §2.9, §12 contractions).
 - Explain in your own Telugu, as if telling a friend at home — understand the fact first, then say it. Never translate a sentence from the sources.
 - ≤8 min: write in one pass into `output/.../script.txt`.
 - ≥10 min: write chapter by chapter, appending to `script.txt`; re-read only the previous chapter's last ~10 lines before writing the next, to keep continuity without bloating context.
@@ -74,7 +74,7 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 - **Labels → descriptions:** jargon labels ("chain reaction", "self-defense system") become plain explanations ("ఒకదాని తర్వాత ఒకటి మార్పులు జరుగుతూ", "తనను తాను కాపాడుకునే పద్ధతి").
 - **Rhythm:** merge choppy one-liners into flowing paragraphs; vary sentence length; no two consecutive sentences with the same opening word.
 - **Connector budget:** నిజానికి / అయితే / దాంతో / అందుకే / మరి — at most ~2 each per 300 words.
-- **Viewer questions + light CTA (DNA §11):** a direct question to the viewer every 2–3 paragraphs, fitting that moment; mid subscribe = one short line in the flow, never a pitch that stops the story.
+- **Viewer questions + light CTA (DNA §11):** a direct question to the viewer only at natural story turning points (roughly every 300–400 words, never mechanically), fitting that moment; mid subscribe = one short line in the flow, never a pitch that stops the story.
 - **Tone:** remove drama the facts don't support (ఆయుధం, షాక్, ఏకంగా); keep suspense only where the content really turns.
 - **Hedging:** certainty words match `facts.md` confidence ("తగ్గవచ్చు" vs "తగ్గుతాయి").
 - **Speakability:** no sentence that needs a breath in an awkward place; no stacked suffixes that trip the tongue.
@@ -86,7 +86,7 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 - No calques, no గ్రాంథిక / newsreader phrasing, §9 "Never" list clean.
 - Paragraphs, not one-liners; no stretch of ~4 sentences of dry exposition without a question / example / turn.
 - Word count near the target (`python script-system/learning_db.py words <file>` counts the narration, title excluded). The duration is only a rough guide (user rule 2026-11-19, all categories, every time frame): the viewer must understand the topic in detail, so never cut an explanation, step, reason, fact or flow to hit the number — longer is fine; trim only repetition and filler.
-- Opening / structure / ending are not repeats from history, and the first sentence, intro closer, CTAs and last line are not copies of the `history-last` wording or of a rule's example sentence.
+- Opening / structure / ending are not repeats from history, and the first sentence, CTAs and last line are not copies of the `history-last` wording or of a rule's example sentence.
 - Health Decode only: run the §14 9-point rubric (point 9 = Health content checklist: 8 parts with reasons, separate danger-signs paragraph, spoken 2-sentence disclaimer; point 8 = HEALTHCARE CONTENT SAFETY RULE: no medicines/doses/treatment instructions/cure claims, warning signs + "Doctor decides treatment" included; this rule beats any research finding or older sample); fix until every point is ✅. After the script, show the rubric as a one-line ✅ list (the user wants to see it).
 
 ### 8. Deliver

@@ -257,9 +257,9 @@ def test():
     assert W.tick_ldb(s, lambda: (False, "timed out"), print, pending_rows=lambda: [3]) == "failed" and ("release", [3]) in s.log
     txt, st = W.summarize('{"result": "hi", "num_turns": 3, "duration_ms": 125000, "total_cost_usd": 1.234, '
                           '"usage": {"input_tokens": 10, "cache_read_input_tokens": 200000, '
-                          '"cache_creation_input_tokens": 30000, "output_tokens": 15000}, "modelUsage": {"claude-opus-5-5": {}}}')
+                          '"cache_creation_input_tokens": 30000, "output_tokens": 15000}, "modelUsage": {"claude-opus-5-5": {"costUSD": 1.2}}}')
     assert txt == "hi" and st["cost"] == 1.23 and st["output"] == 15000
-    assert W.stats_line(st) == "3 steps, 2m05s, claude-opus-5-5: new in 30k + cached 200k, out 15k, ~$1.23 list price"
+    assert W.stats_line(st) == "3 steps, 2m05s, claude-opus-5-5:$1.20: new in 30k + cached 200k, out 15k, ~$1.23 list price"
     assert W.summarize("not json")[1] == {}
     # usage limit on account 1 -> same run on account 2; any other failure does not switch accounts
     acc, W.accounts = W.accounts, lambda: [None, "acct2"]

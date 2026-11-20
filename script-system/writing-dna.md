@@ -161,6 +161,7 @@ Long-form (≥5 min) habits from 19, 20, 24, 33: section breaks by blank line; e
 - 2026-11-18 (user, LATEST — both channels, replaces every older digits / English-number-words rule): **Every number in Telugu words, in Telugu script — never digits.** The unit goes Telugu too: 50 → యాభై, 1970 → పంతొమ్మిది వందల డెబ్బై, 2005 → రెండు వేల ఐదు, 10 crores → పది కోట్లు, 10 hours → పది గంటలు, 25% → ఇరవై ఐదు శాతం. **Decimals are the exception: English words in Latin script** — 0.05 → zero point zero five, 1.5 → one point five. Names/codes that contain a number stay as they are (GPT-5, T3, Falcon 9). **Confirmed 2026-11-20 (user): number and unit are written in the SAME language, never mixed.** Two forms are allowed and the situation decides: Telugu "పది గంటల్లో" (default in normal Telugu narration; same for నిమిషాలు, మీటర్లు, కిలోలు, శాతం) or English "ten hours లో" (number in English WORDS + unit in Latin, when the phrase sits inside English-heavy wording). Never "పది hours లో" and never digits ("10 hours లో"). Other situations are decided case by case by the user (word-options).
 - [HD] 2026-11-18 (Health Decode, all lengths): **Healthcare Content Safety Rule** — educate only (what / why / how in the body / symptoms / prevention / warning signs); never recommend medicines, doses or specific treatments, never claim a cure, treatment = "Doctor decides". Full text in §14; it is rubric point 8.
 
+- [HD] 2026-11-20 (carried over from older Learning DB Health rules that the 20-rule cap now hides): **Spoken forms.** Verbs: చెప్తారు/చెప్తుంది (not చెబుతారు), ఉండడం (not ఉండటం), అనుకొని (not అనుకుని), అవ్వగానే, ఇళ్లల్లో; write "పని చేయడం", "సరి చేయడం", "అంతే కాదు" as separate words. Words: చెయ్యి కదపాలన్నా (not చేయి), గాయమైనా (not గాయం అయినా), పక్కనున్న వాళ్ళు, కలిసే వాళ్లు, చాలా మంది, అంటు వ్యాధి (separate words); in Telugu sentences the Telugu disease name (మూర్ఛ వ్యాధి) where it reads naturally. Split long comma-joined statements into short sentences. (Older Health intro / pure-Telugu word rules that conflict with §2.3 Latin-script English and the 2026-11-18 no-template rule are not carried over; `rules "Health Decode" --all` still lists them.)
 - [HD] 2026-11-19 (user, Health Decode — all health scripts): follow the **Health content checklist** in §14 (8 parts with reasons, approved sources only, no cure claims, medicine only as a general category with no dosage, separate danger-signs section, no fear words, spoken 2-sentence disclaimer, 5 hook ideas + description sources in facts.md). Rubric point 9.
 - [HD] 2026-11-19 (user rewrite, Health Decode — LATEST, replaces the "అపోహ: … వాస్తవం: …" label format): **Myth vs fact = one flowing 3-sentence paragraph, no labels.** (1) the myth as "…అని అనుకోవడం పొరపాటు", (2) the reason with "ఎందుకంటే …", (3) the risk with "కానీ ఈ పరిస్థితిని నిర్లక్ష్యం చేస్తే, భవిష్యత్తులో …" + a source line "CDC గణాంకాల ప్రకారం, …" (comma after ప్రకారం). Use the full term ("Blood Sugar", not just "Sugar"), "ఎక్కువ కష్టపడి", "నిర్లక్ష్యం చేస్తే" (not "పట్టించుకోకపోతే"), "లేదా" between options (not a comma list). **A number inside an English term = English word in Latin script: "Type two Diabetes" (not "Type 2", not "టైప్ టూ")**; plain numbers still go in Telugu words ("నాలుగు కోట్లు"). Gold sample: "Sugar Report Normal గా ఉంటే ఎలాంటి సమస్యా లేనట్టే అని అనుకోవడం పొరపాటు. ఎందుకంటే Pancreas ఎక్కువ కష్టపడి పనిచేస్తున్నంత కాలం Blood Sugar Normal గానే కనిపించవచ్చు. కానీ ఈ పరిస్థితిని నిర్లక్ష్యం చేస్తే, భవిష్యత్తులో Prediabetes లేదా Type two Diabetes వచ్చే అవకాశం ఉంటుంది. CDC గణాంకాల ప్రకారం, అమెరికాలోనే సుమారు నాలుగు కోట్ల మందికి Diabetes ఉంది."
 - [ALL] 2026-11-19 (user, every duration — 1 min, 5 min, 30 min, any): **Understanding first, duration second.** The viewer must understand the topic in detail, whatever the time frame; the duration is only a rough guide. Never cut an explanation, step, reason, fact or flow to hit the §8 word target — if the topic needs more words, write them (longer is fine); trim only repetition and filler.
@@ -204,16 +205,16 @@ Examples of the *direction* of change — understand why, don't search-and-repla
 
 ## 13. Gold reference script (user-written target quality — style only, NOT a fact source)
 
-Read this before writing. Notice: paragraphs, varied sentence length, "ఎలా అంటే…" to open an explanation, "చూశారా…" to open the closing reframe, English words in Latin script, numbers in Telugu words, calm hedging.
+Read this before writing. Notice: paragraphs, varied sentence length, "ఎలా అంటే," to open an explanation, "చూశారా," to open the closing reframe, English words in Latin script, numbers in Telugu words, calm hedging.
 
 ```
 ఉల్లిపాయ కోస్తే కళ్లలో నీళ్లు ఎందుకు వస్తాయి?
 
-ఉల్లిపాయ మన కంటికి చాలా దూరంలోనే ఉంటుంది… కత్తి కూడా కంటికి చాలా దూరంలోనే ఉంటుంది. కానీ ఉల్లిపాయ కోయడం మొదలుపెట్టగానే కాసేపట్లోనే కళ్లు మండటం, నీళ్లు రావడం మొదలవుతుంది. మరి అసలు ఉల్లిపాయలో ఏం జరుగుతుంది? మన కళ్ల నుంచి నీళ్లు వచ్చేలా అది ఎలా చేస్తుంది?
+ఉల్లిపాయ మన కంటికి చాలా దూరంలోనే ఉంటుంది. కత్తి కూడా కంటికి చాలా దూరంలోనే ఉంటుంది. కానీ ఉల్లిపాయ కోయడం మొదలుపెట్టగానే కాసేపట్లోనే కళ్లు మండటం, నీళ్లు రావడం మొదలవుతుంది. మరి అసలు ఉల్లిపాయలో ఏం జరుగుతుంది? మన కళ్ల నుంచి నీళ్లు వచ్చేలా అది ఎలా చేస్తుంది?
 
 చాలామంది ఉల్లిపాయ రసం కళ్లలో పడటం వల్లే ఇలా జరుగుతుందని అనుకుంటారు. కానీ అసలు విషయం అది కాదు. మనం ఉల్లిపాయను కోయకముందు కళ్లను మండించే ఆ పదార్థం అందులో ఉండదు. ఉల్లిపాయను కోసినప్పుడే అది తయారవుతుంది.
 
-ఎలా అంటే… ఉల్లిపాయలోని కణాల్లో sulfur ఉన్న కొన్ని పదార్థాలు, వాటితో చర్య జరిపే enzymes విడివిడిగా ఉంటాయి. మనం కత్తితో ఉల్లిపాయను కోసినప్పుడు ఆ కణాలు పగిలిపోతాయి. అప్పుడు ఈ పదార్థాలన్నీ ఒకదానితో ఒకటి కలుస్తాయి. దాంతో కొన్ని రసాయన మార్పులు జరిగి, చివరికి Syn-Propanethial-S-oxide అనే వాయువు తయారవుతుంది.
+ఎలా అంటే, ఉల్లిపాయలోని కణాల్లో sulfur ఉన్న కొన్ని పదార్థాలు, వాటితో చర్య జరిపే enzymes విడివిడిగా ఉంటాయి. మనం కత్తితో ఉల్లిపాయను కోసినప్పుడు ఆ కణాలు పగిలిపోతాయి. అప్పుడు ఈ పదార్థాలన్నీ ఒకదానితో ఒకటి కలుస్తాయి. దాంతో కొన్ని రసాయన మార్పులు జరిగి, చివరికి Syn-Propanethial-S-oxide అనే వాయువు తయారవుతుంది.
 
 ఈ వాయువు గాల్లోకి వ్యాపించి మన కళ్ల దగ్గరికి చేరుతుంది. మన కంటిపై ఉండే cornea అనే భాగంలో చాలా సున్నితమైన నరాలు ఉంటాయి. ఈ వాయువు వాటిని తాకగానే అవి వెంటనే స్పందిస్తాయి. వెంటనే మన కంటిలోని కన్నీటి గ్రంథులకు ఒక సంకేతం వెళ్తుంది. కంటికి ఇబ్బంది కలిగిస్తున్న ఈ పదార్థాన్ని బయటకు పంపించడానికి అవి ఎక్కువగా కన్నీళ్లను విడుదల చేస్తాయి. అందుకే ఉల్లిపాయ కోస్తున్నప్పుడు మనకు తెలియకుండానే కళ్లు నీళ్లతో నిండిపోతాయి.
 
@@ -223,7 +224,7 @@ Read this before writing. Notice: paragraphs, varied sentence length, "ఎలా
 
 ముఖ్యంగా మొద్దుబారిన కత్తితో ఉల్లిపాయను కోసినప్పుడు ఇలాంటి బిందువులు ఎక్కువగా బయటకు వస్తాయి. అందుకే పదునైన కత్తితో నెమ్మదిగా కోస్తే, ఉల్లిపాయ నుంచి బయటకు వచ్చే ఈ బిందువుల పరిమాణం తగ్గి, కళ్లలో నీళ్లు రావడం కూడా కొంతవరకు తగ్గవచ్చు.
 
-చూశారా… మనం ఉల్లిపాయను కోస్తుంటే అది మనల్ని ఏడిపిస్తున్నట్లు అనిపిస్తుంది. కానీ అది తనను తాను కాపాడుకునే ప్రయత్నం చేస్తోంది. మనం మాత్రం మధ్యలో ఇరుక్కుపోతున్నాం అంతే!
+చూశారా, మనం ఉల్లిపాయను కోస్తుంటే అది మనల్ని ఏడిపిస్తున్నట్లు అనిపిస్తుంది. కానీ అది తనను తాను కాపాడుకునే ప్రయత్నం చేస్తోంది. మనం మాత్రం మధ్యలో ఇరుక్కుపోతున్నాం అంతే!
 
 మరి ఉల్లిపాయ కోసేటప్పుడు పదునైన కత్తి ఉపయోగిస్తే కళ్లలో నీళ్లు తగ్గుతాయని మీకు ముందే తెలుసా? తెలిసుంటే YES, తెలియకపోతే NO అని comment చేయండి!
 ```

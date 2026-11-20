@@ -78,7 +78,7 @@ def summarize(out):
     u = d.get("usage") or {}
     return d.get("result") or "", {
         "turns": d.get("num_turns", 0), "seconds": round(d.get("duration_ms", 0) / 1000),
-        "models": ",".join((d.get("modelUsage") or {}).keys()),
+        "models": ",".join(f"{m}:${v.get('costUSD', 0):.2f}" for m, v in (d.get("modelUsage") or {}).items()),  # per-model cost: shows Opus (writing) vs Sonnet (research)
         "input": u.get("input_tokens", 0), "cache_write": u.get("cache_creation_input_tokens", 0),
         "cache_read": u.get("cache_read_input_tokens", 0), "output": u.get("output_tokens", 0),
         "cost": round(d.get("total_cost_usd", 0), 2), "error": bool(d.get("is_error"))}

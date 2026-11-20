@@ -316,7 +316,7 @@ Channel-specific rules grow only from the user's own corrections of Zumba Fitnes
 - Full flowing sentences with connectors (అంతేకాదు, అయితే, ఎందుకంటే, అంటే, కానీ). Stat = study, number, then "CDC లెక్కల ప్రకారం, … కిందకు వస్తుంది".
 - Myth: "అయితే X ని అచ్చంగా Y అని అనుకోకూడదు. ఎందుకంటే … X లో మాత్రం … అంటే ఇది …".
 - Safety in duty form ("…వెంటనే ఆపి Doctor ను సంప్రదించాలి", "…ముందుగానే Doctor సలహా తీసుకోవాలి"), then a spoken 2-sentence disclaimer paragraph ("ఈ వీడియో సాధారణ అవగాహన కోసం మాత్రమే. …").
-- Ending: viewer question → "మీ అనుభవాన్ని Comment చేయండి." → one closing payoff line. No share / subscribe line, never Health Decode.
+- Ending: one sharp topic-specific question or closing reflection (§17: no generic "Comment చేయండి" formula, never the same ending twice). No share / subscribe line, never Health Decode.
 - Numbers in Telugu words (పంతొమ్మిది, ఎనభై శాతం); English words in Latin with a capital; "వీడియో" in Telugu script; "ను" endings (Heart Rate ను, Doctor ను).
 
 ## 16. Health Decode + Zumba Fitness BLUEPRINT (user, 2026-11-20 — 100% mandatory for BOTH channels, long + Short; highest priority, wins over any conflicting line in §14 / §15 / older bullets)
@@ -337,7 +337,7 @@ Zumba reads "health problem" as the fitness topic: Step 2 = what happens in the 
 - Tanglish TTS: Telugu words in Telugu script, English medical/technical terms in Latin (Acidity, Insulin, Metabolism, Research, Symptoms).
 - Conditional (safe) words: "help అవ్వొచ్చు", "Research ప్రకారం", "సాధారణంగా", "చాలా మందిలో".
 - Indian context: diet examples from Indian food (ఇడ్లీ, పప్పు, పెరుగు, చపాతీ, రాగులు, పల్లీలు).
-- Disclaimer at the end, always: "ఈ video educational purpose కి మాత్రమే. మీ health గురించి ఎలాంటి నిర్ణయాలు తీసుకున్నా ముందుగా మీ doctor ని సంప్రదించండి."
+- Disclaimer at the end, always, with this meaning (educational only + see your doctor before any decision); base wording: "ఈ video educational purpose కి మాత్రమే. మీ health గురించి ఎలాంటి నిర్ణయాలు తీసుకున్నా ముందుగా మీ doctor ని సంప్రదించండి." Rephrase it naturally per script so no two recent scripts share the same disclaimer sentence (§17, 2026-11-20).
 
 **Never (strict red lines):**
 - Cure guarantees: "sugar పూర్తిగా పోతుంది", "3 రోజుల్లో belly fat కరిగిపోతుంది", "Cancer cure".
@@ -355,3 +355,24 @@ Zumba reads "health problem" as the fitness topic: Step 2 = what happens in the 
 - ❌ "ఈ food తింటే heart attack వచ్చి చనిపోతారు!" → ✅ "ఈ food ని ఎక్కువగా తీసుకోవడం వల్ల cholesterol పెరిగే chance ఉందని ICMR guidelines చెబుతున్నాయి."
 
 **Validation (both channels):** before delivering, check the 6 steps are in order, every Must-have is present and no Never line appears; fix until all ✅ and show it as a one-line ✅ list.
+
+## 17. [ALL] Analytical educator + anti-repetition (user, 2026-11-20 — ALL three channels, long + Short; newest, wins over older lines in §1-16 that conflict)
+
+**Role & voice:** an analytical educator and researcher, NOT a doctor and NOT a sensational news anchor. Calm, objective, grounded, insightful. Tanglish: Telugu words in Telugu script, English technical/medical terms in Latin (ElevenLabs).
+
+**Anti-repetition (check `history-last`, which shows the last 20 scripts of this channel):**
+- **Hook type** (separate from the §4 / H# opening codes), rotate across: **A** surprising data point / study result, **B** relatable everyday Indian habit / scenario, **C** common misconception vs reality, **D** direct "what happens inside…" mechanism preview, **E** short real-world case / comparison. Never the same type as the previous 4 scripts of the channel (so all 5 rotate).
+- **Opening:** never reuse the first-sentence structure or the first 10 words of any of the last 20 scripts. (§14 H1 signature: at most once in 20 now.)
+- **Ending / CTA:** never end two scripts the same way. No generic closings ("Like కొట్టండి", "Subscribe చేయండి", "Comment లో చెప్పండి" formulas). End with a topic-specific closing reflection or one sharp question tied to today's topic. (Replaces the fixed CTA endings in §6 / §14 Health CTAs / §15.)
+- **Filler blacklist:** "అసలు…?", "అంతేకాకుండా", "నిజానికి", "ఇక్కడ ముఖ్యమైన విషయం ఏంటంటే" — at most once each per script, and not as the opening of a paragraph two scripts in a row. Track other recurring fillers the same way.
+- **Sentence length:** mix crisp ~6-word sentences with detailed ~18-word explanations for natural TTS pacing.
+
+**No parroting — Fact → Real-world context → Original analysis:** for every major point, give the fact, then the practical Indian context (Indian diet, budget, daily routine, real-world usability) or the study's limitation / hidden caveat, then a grounded view. E.g. "ఈ report లో ఈ number ఆకర్షణీయంగా కనిపించినా, ground reality లో సామాన్యులకు ఇది ఎంతవరకు ఉపయోగపడుతుందో చూడాలి." The view must come from facts.md, never invented facts.
+
+**Banned (zero tolerance):**
+- Fear / panic / clickbait: "Silent killer", "ప్రమాదకరం", "చనిపోతారు", "Red alert", "రాక్షసుడు", "నిజమా?", "అసలు నిజం".
+- Health topics: no cure claim, no medicine names or dosages, no "stop your medicine", no diagnosis; always a natural, non-repetitive educational disclaimer at the end (§16).
+- Tech / news topics: no unverified guesses about disasters, stock crashes or emergencies; cite official reports, benchmarks or primary sources (in facts.md).
+
+**Self-audit (after every script):** record in the `history.json` entry (NOT in script.txt, which stays narration only) and, in interactive runs, show after the script as a 4-line JSON block:
+`hook_type` (A-E), `opening_line` (exact first sentence), `closing_line` (exact last sentence), `flagged_words_avoided` (confirm 0 banned / repeated words).

@@ -63,7 +63,7 @@ def main(argv=None):
     x.add_argument("text"); x.add_argument("--approved", action="store_true")
     x = sub.add_parser("approve"); x.add_argument("id"); x.add_argument("n", type=int)
     x = sub.add_parser("supersede"); x.add_argument("id"); x.add_argument("n", type=int); x.add_argument("by")
-    x = sub.add_parser("history-last"); x.add_argument("channel", choices=["dark", "health", "zumba"]); x.add_argument("--n", type=int, default=3)
+    x = sub.add_parser("history-last"); x.add_argument("channel", choices=["dark", "health", "zumba"]); x.add_argument("--n", type=int, default=20)
     sub.add_parser("diff").add_argument("id")
     sub.add_parser("show").add_argument("id")
     args = p.parse_args(argv)
@@ -79,12 +79,15 @@ def main(argv=None):
         hist = json.loads((Path(__file__).parent / "history.json").read_text(encoding="utf-8"))
         mine = [h for h in hist if h.get("channel", "dark") == args.channel][-args.n:]
         for h in mine:
-            print(f"{h['date']} | opening {h['opening']} | structure {h['structure']} | ending {h['ending']} | {h['topic'][:60]}")
+            print(f"{h['date']} | hook {h.get('hook_type', '-')} | opening {h['opening']} | structure {h['structure']} | ending {h['ending']} | {h['topic'][:60]}")
+            first, last = h.get("opening_line"), h.get("closing_line")
             f = Path(__file__).resolve().parent.parent / h.get("file", "")
-            if f.is_file():  # the actual wording, so the new script can avoid reusing it (not just the type codes)
+            if not (first and last) and f.is_file():  # older entries: take the wording from the script itself
                 paras = [p.strip() for p in f.read_text(encoding="utf-8").split("\n")[1:] if p.strip()]
                 if paras:
-                    print(f"   starts: {paras[0][:110]}\n   intro ends: ...{paras[0][-90:]}\n   ends: ...{paras[-1][-140:]}")
+                    first, last = first or paras[0][:110], last or "..." + paras[-1][-140:]
+            if first:
+                print(f"   starts: {first[:110]}\n   ends: {last[-140:]}")
         print(f"({len(mine)} most recent {args.channel} scripts; do NOT reuse their wording; append new entries to script-system/history.json)")
         return
     if args.cmd == "requests":

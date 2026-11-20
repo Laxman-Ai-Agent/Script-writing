@@ -233,7 +233,7 @@ Read this before writing. Notice: paragraphs, varied sentence length, "ఎలా
 
 Source: `sample script/Health-decode.txt` (28 health scripts + the user's own rubric, now 9 points). Use this section **in addition to** §1–§13 when the topic is health / body / disease / medicine. §2 voice rules and §11 corrections still apply (they are newer than these samples).
 
-**Identity:** channel "Health Decode". Optional persona "AI డాక్టర్" ("హాయ్… నేను AI డాక్టర్‌ని…"). Explains how the body works and why diseases happen, for ordinary families. Calm, caring, never scary.
+**Identity:** channel "Health Decode". No "AI డాక్టర్" persona any more (§16 Fake Authority, 2026-11-20): the narrator is a friendly explainer who read the research, never a doctor. Explains how the body works and why diseases happen, for ordinary families. Calm, caring, never scary.
 
 **Health openings (rotate, don't overuse the first):**
 - H1 Signature: "…ఎందుకు వస్తుందో తెలుసా?… తెలీదు కదూ… ఐతే నేను చెప్తా!" — the channel's trademark, but max 1 in 3 scripts.
@@ -285,7 +285,7 @@ The channel educates; it never diagnoses or prescribes. Every script covers thes
 6. Types of medical treatment that exist (general description only) and when to see a Doctor.
 7. Complications if it is ignored.
 8. Myths vs facts — spoken as flowing paragraphs, NOT "అపోహ:/వాస్తవం:" labels (see §11, 2026-11-19); the same pairs go in facts.md as ✅/❌ lines.
-- **Sources:** only WHO, CDC, NIH, NHS, ICMR, AIIMS, GINA, Mayo Clinic (and similar top bodies). Never invent a study, statistic or organisation. Not sure → mark it "ధృవీకరించుకోవాలి" in facts.md and leave it out of the narration.
+- **Sources:** only WHO, CDC, NIH, NHS, ICMR, NIN, AIIMS, GINA, Mayo Clinic (and similar top bodies). Never invent a study, statistic or organisation. Not sure → mark it "ధృవీకరించుకోవాలి" in facts.md and leave it out of the narration.
 - **No cure claims:** no food, home tip or supplement "నయం చేస్తుంది" or "మందులు అవసరం లేదు". Say home tips do not replace medical treatment.
 - **Medicines:** only the general category (e.g. reliever inhaler, controller inhaler). Never dosage, how much to take, or stopping a medicine. (This replaces "No drug names at all" above.)
 - **Danger signs / emergency:** a clearly separate section (its own paragraph) — when to get urgent medical help.
@@ -306,7 +306,7 @@ The channel educates; it never diagnoses or prescribes. Every script covers thes
 
 ## 15. Zumba Fitness mode — "Zumba Fitness" channel
 
-Use §1–§13 (the general voice) + the `[ALL]` and `[ZF]` bullets in §11 + the Learning DB rules of category Zumba Fitness. Never apply `[DW]`/`[HD]` bullets or §14 (the Health content checklist) here.
+Use §1–§13 (the general voice) + the `[ALL]` and `[ZF]` bullets in §11 + the Learning DB rules of category Zumba Fitness. Never apply `[DW]`/`[HD]` bullets or §14 (the Health content checklist) here. **§16 blueprint DOES apply here, 100%** (user, 2026-11-20).
 
 Channel-specific rules grow only from the user's own corrections of Zumba Fitness scripts (a Learning DB row with Category = Zumba Fitness, or a direct correction); newest also in §11 tagged `[ZF]`. Scripts so far: S026–S030.
 
@@ -318,3 +318,40 @@ Channel-specific rules grow only from the user's own corrections of Zumba Fitnes
 - Safety in duty form ("…వెంటనే ఆపి Doctor ను సంప్రదించాలి", "…ముందుగానే Doctor సలహా తీసుకోవాలి"), then a spoken 2-sentence disclaimer paragraph ("ఈ వీడియో సాధారణ అవగాహన కోసం మాత్రమే. …").
 - Ending: viewer question → "మీ అనుభవాన్ని Comment చేయండి." → one closing payoff line. No share / subscribe line, never Health Decode.
 - Numbers in Telugu words (పంతొమ్మిది, ఎనభై శాతం); English words in Latin with a capital; "వీడియో" in Telugu script; "ను" endings (Heart Rate ను, Doctor ను).
+
+## 16. Health Decode + Zumba Fitness BLUEPRINT (user, 2026-11-20 — 100% mandatory for BOTH channels, long + Short; highest priority, wins over any conflicting line in §14 / §15 / older bullets)
+
+Zumba reads "health problem" as the fitness topic: Step 2 = what happens in the body during the exercise, Step 5 = when to stop exercising / see a Doctor. Every other rule applies word for word.
+
+**Flow (6 steps, in this order):**
+1. **Curiosity hook (first 5-10 seconds):** a daily-life question or a myth that makes people curious, never fear. E.g. "మీలో చాలా మంది తిన్న వెంటనే నీళ్ళు తాగుతుంటారు. ఇది digestion ని slow చేస్తుందని చాలా మంది అంటారు. నిజంగా ఇందులో ఎంత నిజం ఉంది? Science ఏం చెబుతోంది?"
+2. **Simple explanation, "అసలు ఇది ఏంటి?":** what happens inside the body, in plain words instead of big doctor terms.
+3. **Science & official sources:** what WHO / ICMR / NIN / Mayo Clinic / published studies say, simply, AND the limits of that study.
+4. **Actionable habits / myths vs facts:** safe everyday habits (నడక, నిద్ర, నీళ్ళు, Indian food).
+5. **Red flags, "ఎప్పుడు Doctor ని కలవాలి?":** normally it's okay, but if these 2-3 danger signs appear, go to the hospital right away. Most valuable part, its own paragraph.
+6. **Safe outro + curiosity CTA:** spoken disclaimer, then a small curiosity question for comments / the next video.
+(The §14 8-part checklist fits inside steps 2-5; in Shorts keep the 6 steps, shortened.)
+
+**Must have:**
+- Teacher / explainer tone: "నేను research చదివి మీకు simple గా చెబుతున్నాను", friendly.
+- Tanglish TTS: Telugu words in Telugu script, English medical/technical terms in Latin (Acidity, Insulin, Metabolism, Research, Symptoms).
+- Conditional (safe) words: "help అవ్వొచ్చు", "Research ప్రకారం", "సాధారణంగా", "చాలా మందిలో".
+- Indian context: diet examples from Indian food (ఇడ్లీ, పప్పు, పెరుగు, చపాతీ, రాగులు, పల్లీలు).
+- Disclaimer at the end, always: "ఈ video educational purpose కి మాత్రమే. మీ health గురించి ఎలాంటి నిర్ణయాలు తీసుకున్నా ముందుగా మీ doctor ని సంప్రదించండి."
+
+**Never (strict red lines):**
+- Cure guarantees: "sugar పూర్తిగా పోతుంది", "3 రోజుల్లో belly fat కరిగిపోతుంది", "Cancer cure".
+- Medicine names or dosages: no tablet name, no "రోజుకి 500mg". (A general type like "inhaler" only where §14 allows it.)
+- Stop-medicine advice: never "Tablets ఆపేయండి, ఈ natural remedy వాడండి" (demonetization risk).
+- Direct diagnosis: never "ఈ symptoms ఉంటే మీకు X ఉన్నట్టే"; only "ఈ symptoms ఉంటే doctor ని కలిసి test చేయించుకోవడం మంచిది".
+- Fear-mongering: "Silent Killer", "ఇది తింటే చనిపోతారు", "మీరు danger లో ఉన్నారు".
+- Unsourced numbers: no "95% మంది Indians…" without an official source.
+- Fake authority: no "నేను చెబుతున్నాను నమ్మండి", never present the AI voice as a doctor (so no "AI డాక్టర్" persona).
+
+**Write it like this (❌ → ✅):**
+- ❌ "పసుపు నీళ్ళు తాగితే diabetes cure అవుతుంది." → ✅ "Research ప్రకారం turmeric లో ఉండే curcumin sugar control కి కొంత help అవ్వొచ్చు. కానీ ఇది tablets కి replacement మాత్రం కాదు."
+- ❌ "మీకు night నిద్ర పట్టకపోతే మీకు sleep apnea ఉన్నట్టే." → ✅ "మీకు regular గా నిద్రలో ఇబ్బంది ఉంటే, ఇది sleep apnea కి ఒక symptom అవ్వొచ్చు. Exact కారణం తెలియాలంటే doctor ని కలవాలి."
+- ❌ "Tablets వల్ల side effects వస్తాయి, అవి మానేసి ఈ diet follow అవ్వండి." → ✅ "మీరు ఇప్పటికే medicines వాడుతుంటే, వాటికి తోడుగా doctor సలహాతో ఈ healthy diet follow అవ్వొచ్చు."
+- ❌ "ఈ food తింటే heart attack వచ్చి చనిపోతారు!" → ✅ "ఈ food ని ఎక్కువగా తీసుకోవడం వల్ల cholesterol పెరిగే chance ఉందని ICMR guidelines చెబుతున్నాయి."
+
+**Validation (both channels):** before delivering, check the 6 steps are in order, every Must-have is present and no Never line appears; fix until all ✅ and show it as a one-line ✅ list.

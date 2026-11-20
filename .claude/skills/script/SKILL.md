@@ -20,7 +20,7 @@ All system files live in `script-system/` (project root). Samples live in `sampl
 
 ## Categories - rules never mix (user rule 2026-11-19)
 Three separate categories: **Dark World**, **Health Decode**, **Zumba Fitness**. Every script, Learning DB row and Script Requests row has one (Category column H in both tabs; a value the user picked there is final, otherwise `category_of` guesses from the title). Before writing a script OR saving a rule, decide the category first:
-- Writing: apply DNA §1-13 + `[ALL]` bullets + only the bullets tagged with THIS category (§11 tags `[DW]` `[HD]` `[ZF]`; Health also §14, Zumba also §15) and `learning_db.py rules "<category>"`. Never apply another category's rules.
+- Writing: apply DNA §1-13 + `[ALL]` bullets + only the bullets tagged with THIS category (§11 tags `[DW]` `[HD]` `[ZF]`; Health also §14, Zumba also §15; Health AND Zumba both also §16 blueprint, 100% mandatory) and `learning_db.py rules "<category>"`. Never apply another category's rules.
 - Saving a rule from a sheet update or a user correction: it goes ONLY to that row's category - `add-rule` stores the row's category automatically; the DNA §11 bullet gets that category's tag (`[ALL]` only if the user says it is for every channel). A rule from a Health row never changes how Dark World or Zumba scripts are written, and vice versa.
 
 ## Reading the user's update: sentence formation first, words second (user rule 2026-11-19, MAIN)
@@ -56,7 +56,8 @@ Read `script-system/writing-dna.md`: Health Decode → whole file except §15; Z
 
 ### 4. Plan
 - Target words from DNA §8 for the duration.
-- Health Decode: research must include at least one authoritative health source (only WHO, CDC, NIH, NHS, ICMR, AIIMS, GINA, Mayo Clinic or similar top bodies; never invent a study or number; unsure = "ధృవీకరించుకోవాలి" in facts.md, left out of the script) and one why-it-matters number for rubric point 5. Cover all 8 parts of the §14 Health content checklist. Use §14 openings (H1–H6), "normal body first, then what goes wrong" structure, §14 CTAs and safety rules.
+- Health Decode: research must include at least one authoritative health source (only WHO, CDC, NIH, NHS, ICMR, NIN, AIIMS, GINA, Mayo Clinic or similar top bodies; never invent a study or number; unsure = "ధృవీకరించుకోవాలి" in facts.md, left out of the script), the study's limits, and one why-it-matters number for rubric point 5. Cover all 8 parts of the §14 Health content checklist.
+- Health Decode AND Zumba Fitness: follow the §16 blueprint 100% (6-step flow, must-haves incl. the exact spoken disclaimer, strict red lines, ❌→✅ examples). §16 wins over any conflicting line. Use §14 openings (H1–H6), "normal body first, then what goes wrong" structure, §14 CTAs and safety rules.
 - Pick one opening (§4), one structure (§5), one ending (§6). None of them may match the entries `history-last` printed, and the new first sentence, CTA lines and last line must not reuse the wording it shows (DNA §11 "No fixed template"). Exact sentences in rules are tone examples: rephrase them for this topic. Choose what fits the topic, not at random.
 - Pick 1 everyday analogy and 1 concrete example to carry through (if the topic allows).
 - Durations ≥10 min: outline chapters first (each ~400–600 words, each opening with a bridge question).
@@ -88,6 +89,7 @@ Go paragraph by paragraph and ask "would a Telugu person say this out loud to a 
 - Word count near the target (`python script-system/learning_db.py words <file>` counts the narration, title excluded). The duration is only a rough guide (user rule 2026-11-19, all categories, every time frame): the viewer must understand the topic in detail, so never cut an explanation, step, reason, fact or flow to hit the number — longer is fine; trim only repetition and filler.
 - Opening / structure / ending are not repeats from history, and the first sentence, CTAs and last line are not copies of the `history-last` wording or of a rule's example sentence.
 - Health Decode only: run the §14 9-point rubric (point 9 = Health content checklist: 8 parts with reasons, separate danger-signs paragraph, spoken 2-sentence disclaimer; point 8 = HEALTHCARE CONTENT SAFETY RULE: no medicines/doses/treatment instructions/cure claims, warning signs + "Doctor decides treatment" included; this rule beats any research finding or older sample); fix until every point is ✅. After the script, show the rubric as a one-line ✅ list (the user wants to see it).
+- Health Decode AND Zumba Fitness: run the §16 blueprint check (6 steps in order, all must-haves, no red line); fix until all ✅; show it as a one-line ✅ list.
 
 ### 8. Deliver
 - Append to `history.json`: `{"date": "YYYY-MM-DD", "channel": "dark" | "health", "topic": "...", "duration": "...", "opening": "O#" | "H#", "structure": "S#", "ending": "E#", "file": "output/.../script.txt"}`. Opening-repeat checks compare only within the same channel.

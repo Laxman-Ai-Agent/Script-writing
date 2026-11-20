@@ -158,7 +158,7 @@ Long-form (≥5 min) habits from 19, 20, 24, 33: section breaks by blank line; e
 - 2026-11-13: Style edits must not drop facts, numbers or technical details — simplify the words only.
 - 2026-11-18 (user, LATEST — both channels): **No fixed template for the start and the end.** Start directly with a fresh, topic-specific hook; every script also has a mid CTA and an end CTA. The first sentence, the CTA sentences and the very last line must be worded freshly each time, built from this topic (its own scene, number, question or image). The exact sentences quoted in Learning DB rules (old intro closers, "ఈ విషయాలన్నీ… తెలుసుకుందాం", CTA lines) show the tone, not text to copy. Never reuse the wording `history-last` prints for the last 3 scripts; vary the order too (e.g. question → like, or like → share → question).
 - 2026-11-18 (user, LATEST — both channels): **Talk to the viewer at natural turns, keep subscribe short.** Ask the viewer a direct question only at a natural story turning point (roughly every 300–400 words, never mechanically every few paragraphs) so the narrative flow is not interrupted ("మీకు కూడా ఇలా ఎప్పుడైనా జరిగిందా?", "మీరు ఏమనుకుంటున్నారు, ఇది మంచిదా?"), then carry on with the answer, so it feels like a conversation, not a lecture. The mid-video subscribe is ONE short line slipped into the flow at a natural turn (e.g. "ఇలాంటి విషయాలు ఇష్టమైతే channel ని subscribe చేయండి, ఇప్పుడు అసలు విషయానికి వద్దాం."), never a two-line pitch that stops the story. This overrides the longer mid-CTA sentences in older rules.
-- 2026-11-18 (user, LATEST — both channels, replaces every older digits / English-number-words rule): **Every number in Telugu words, in Telugu script — never digits.** The unit goes Telugu too: 50 → యాభై, 1970 → పంతొమ్మిది వందల డెబ్బై, 2005 → రెండు వేల ఐదు, 10 crores → పది కోట్లు, 10 hours → పది గంటలు, 25% → ఇరవై ఐదు శాతం. **Decimals are the exception: English words in Latin script** — 0.05 → zero point zero five, 1.5 → one point five. Names/codes that contain a number stay as they are (GPT-5, T3, Falcon 9).
+- 2026-11-18 (user, LATEST — both channels, replaces every older digits / English-number-words rule): **Every number in Telugu words, in Telugu script — never digits.** The unit goes Telugu too: 50 → యాభై, 1970 → పంతొమ్మిది వందల డెబ్బై, 2005 → రెండు వేల ఐదు, 10 crores → పది కోట్లు, 10 hours → పది గంటలు, 25% → ఇరవై ఐదు శాతం. **Decimals are the exception: English words in Latin script** — 0.05 → zero point zero five, 1.5 → one point five. Names/codes that contain a number stay as they are (GPT-5, T3, Falcon 9). **Confirmed 2026-11-20 (user): number and unit are written in the SAME language, never mixed.** Two forms are allowed and the situation decides: Telugu "పది గంటల్లో" (default in normal Telugu narration; same for నిమిషాలు, మీటర్లు, కిలోలు, శాతం) or English "ten hours లో" (number in English WORDS + unit in Latin, when the phrase sits inside English-heavy wording). Never "పది hours లో" and never digits ("10 hours లో"). Other situations are decided case by case by the user (word-options).
 - [HD] 2026-11-18 (Health Decode, all lengths): **Healthcare Content Safety Rule** — educate only (what / why / how in the body / symptoms / prevention / warning signs); never recommend medicines, doses or specific treatments, never claim a cure, treatment = "Doctor decides". Full text in §14; it is rubric point 8.
 
 - [HD] 2026-11-19 (user, Health Decode — all health scripts): follow the **Health content checklist** in §14 (8 parts with reasons, approved sources only, no cure claims, medicine only as a general category with no dosage, separate danger-signs section, no fear words, spoken 2-sentence disclaimer, 5 hook ideas + description sources in facts.md). Rubric point 9.
@@ -179,7 +179,7 @@ Examples of the *direction* of change — understand why, don't search-and-repla
 | ఇది దాని self-defense system | ఇది ఉల్లిపాయ తనను తాను కాపాడుకునే పద్ధతి | explain instead of jargon |
 | ప్రకృతి ఇచ్చిన ఒక ఆయుధం | ప్రకృతి దానికి ఇచ్చిన రక్షణ | calmer, accurate |
 | గుర్తించారు | గమనించారు | observation, not detection |
-| ఏకంగా సెకనుకు 40 మీటర్ల వేగం వరకు | సెకనుకు నలభై meters speed తో కూడా | less hype; number in Telugu words, unit word people say stays Latin |
+| ఏకంగా సెకనుకు 40 మీటర్ల వేగం వరకు | సెకనుకు నలభై మీటర్ల speed తో కూడా | less hype; number and unit both in Telugu words |
 | చాలావరకు తగ్గుతాయి | కళ్లలో నీళ్లు రావడం కూడా కొంతవరకు తగ్గవచ్చు | hedge matches evidence |
 | దీని వెనుక మన చర్మంలో దాగి ఉన్న ఒక చిన్న ఏర్పాటు ఉంది | దీని వెనుక మన చర్మం కింద ఒక చిన్న వ్యవస్థ పనిచేస్తుంది | active verb ("పనిచేస్తుంది") over static "ఉంది"; వ్యవస్థ over ఏర్పాటు |
 | ప్రభుత్వం అంచనా | government లెక్కల ప్రకారం | the way people say it |
@@ -200,6 +200,7 @@ Examples of the *direction* of change — understand why, don't search-and-repla
 | జరుగుతుంది అని | జరుగుతుందని | no gap before the ending |
 | అవును కదా | కదూ | short spoken tag |
 | చేయడానికి | చేయడానికే | spoken emphasis on the purpose |
+| 10 hours లో / పది hours లో (mixed) | పది గంటల్లో, or ten hours లో | number + unit in the same language, never mixed; situation decides which (user 2026-11-20); digits never |
 
 ## 13. Gold reference script (user-written target quality — style only, NOT a fact source)
 
@@ -218,7 +219,7 @@ Read this before writing. Notice: paragraphs, varied sentence length, "ఎలా
 
 మరి ఉల్లిపాయ ఇలా ఎందుకు చేస్తుంది? నిజానికి ఇది తనను తాను కాపాడుకునే ఒక పద్ధతి. ఉల్లిపాయను తినడానికి వచ్చే కొన్ని పురుగులు, జంతువుల నుంచి రక్షించుకోవడానికి ఈ రసాయన ప్రక్రియ ఉపయోగపడుతుంది.
 
-ఇక్కడ ఇంకో ఆసక్తికరమైన విషయం ఉంది. రెండు వేల ఇరవై ఐదులో Cornell University పరిశోధకులు high-speed camera తో ఉల్లిపాయను కోసినప్పుడు ఏం జరుగుతుందో పరిశీలించారు. కత్తి ఉల్లిపాయను తాకిన ప్రతిసారీ, దాని నుంచి చాలా చిన్న చిన్న ద్రవ బిందువులు బయటకు ఎగురుతున్నట్లు గమనించారు. వాటిలో కొన్ని సెకనుకు నలభై meters speed తో కూడా ప్రయాణించాయి.
+ఇక్కడ ఇంకో ఆసక్తికరమైన విషయం ఉంది. రెండు వేల ఇరవై ఐదులో Cornell University పరిశోధకులు high-speed camera తో ఉల్లిపాయను కోసినప్పుడు ఏం జరుగుతుందో పరిశీలించారు. కత్తి ఉల్లిపాయను తాకిన ప్రతిసారీ, దాని నుంచి చాలా చిన్న చిన్న ద్రవ బిందువులు బయటకు ఎగురుతున్నట్లు గమనించారు. వాటిలో కొన్ని సెకనుకు నలభై మీటర్ల speed తో కూడా ప్రయాణించాయి.
 
 ముఖ్యంగా మొద్దుబారిన కత్తితో ఉల్లిపాయను కోసినప్పుడు ఇలాంటి బిందువులు ఎక్కువగా బయటకు వస్తాయి. అందుకే పదునైన కత్తితో నెమ్మదిగా కోస్తే, ఉల్లిపాయ నుంచి బయటకు వచ్చే ఈ బిందువుల పరిమాణం తగ్గి, కళ్లలో నీళ్లు రావడం కూడా కొంతవరకు తగ్గవచ్చు.
 

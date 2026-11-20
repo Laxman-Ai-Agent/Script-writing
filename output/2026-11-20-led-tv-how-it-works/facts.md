@@ -1,0 +1,31 @@
+# How an LED TV works
+- Remote's IR LED sends commands as pulses of infrared light (~930-950 nm), modulated on a ~38 kHz carrier (NEC protocol most common) — https://en.wikipedia.org/wiki/Consumer_IR — high
+- TV receiver has a photodiode + demodulator that strips the carrier; a microcontroller decodes the button code — https://en.wikipedia.org/wiki/Consumer_IR — high
+- "LED TV" is an LCD panel with LED backlight (replaced CCFL lamps), not a true LED display — https://en.wikipedia.org/wiki/LED-backlit_LCD_display — high
+- LCD pixels emit no light themselves; they need a backlight — https://en.wikipedia.org/wiki/Liquid-crystal_display — high
+- Edge-lit: LEDs on the rim + light guide/diffuser; direct-lit (full-array): LEDs directly behind the screen — https://en.wikipedia.org/wiki/LED-backlit_LCD_display — high
+- Local dimming: backlight zones dimmed independently for more contrast; trade-off is blooming/halo around bright objects — https://en.wikipedia.org/wiki/LED-backlit_LCD_display — high
+- Mini-LED: thousands of tiny LEDs enabling hundreds to thousands of dimming zones; better contrast, still some blooming — https://en.wikipedia.org/wiki/LED-backlit_LCD_display — high
+- Typical white LED = blue LED + cerium-doped YAG phosphor converting part of the blue to yellow; blue + yellow looks white — https://en.wikipedia.org/wiki/Light-emitting_diode — high
+- Blue LED invented early 1990s by Nakamura, Amano, Akasaki; Nobel Prize in Physics 2014 — https://en.wikipedia.org/wiki/Light-emitting_diode — high
+- Each pixel sits between two polarizers, usually perpendicular; without liquid crystal in between light is blocked — https://en.wikipedia.org/wiki/Liquid-crystal_display — high
+- Twisted nematic: liquid crystal molecules twist light's polarization so it passes; voltage untwists them and the pixel darkens; voltage sets the gray level — https://en.wikipedia.org/wiki/Liquid-crystal_display — high (note: IPS/VA panels work differently, same principle of voltage-controlled light)
+- Active matrix: a thin-film transistor (TFT) dedicated to each pixel; rows are scanned in sequence each refresh — https://en.wikipedia.org/wiki/Liquid-crystal_display — high
+- Red/green/blue color filters made by photolithography; black matrix between subpixels; each pixel = 3 subpixels — https://en.wikipedia.org/wiki/Liquid-crystal_display — high
+- 3840 x 2160 = 8,294,400 pixels (~8.3 million) — https://en.wikipedia.org/wiki/4K_resolution — high
+- Subpixels = 8,294,400 x 3 = 24,883,200 (~24.9 million) — computed from the above (arithmetic) — high
+- 8-bit per channel = 256 levels; 24-bit = 16,777,216 colors — https://en.wikipedia.org/wiki/Color_depth — high
+- 10-bit per channel (30-bit) = ~1.07 billion colors; needs supporting hardware/content (HDR) — https://en.wikipedia.org/wiki/Color_depth — high
+- LCD pixels don't flash on/off between frames, so low refresh gives no flicker but fast motion can smear/ghost — https://en.wikipedia.org/wiki/Liquid-crystal_display — high
+- Refresh rate (60/120 Hz) = how many times per second the screen is updated; 60 Hz = 60 updates/second (definition; no cited number beyond this) — https://en.wikipedia.org/wiki/Refresh_rate — medium (not directly fetched)
+- Motion on screen is a series of still frames; flicker fusion makes fast flashes blend — https://en.wikipedia.org/wiki/Persistence_of_vision — high
+- Persistence of vision as the explanation for motion in film is rejected by psychology/physiology; phi phenomenon / beta movement (brain fills in motion) is the accepted account — https://en.wikipedia.org/wiki/Persistence_of_vision — disputed (popular belief vs science)
+- HDMI carries uncompressed video; streaming video is compressed and decoded in the TV's processor into frames — not fetched from a source; general knowledge — medium
+- HDMI CEC is a separate single-wire control bus from the video signal — https://en.wikipedia.org/wiki/Consumer_Electronics_Control — high (optional side fact)
+- OLED/MicroLED are self-emissive; backlit LCDs cannot achieve true black because black pixels still pass some light — https://en.wikipedia.org/wiki/LED-backlit_LCD_display — high
+
+## Angle
+- Core twist: the "LED" in LED TV never makes the picture; it is only a white lamp. The picture is made by ~25 million tiny colored shutters (subpixels) that each block or pass that light, controlled by a transistor each. A TV is basically a super precise light-blocking machine.
+- Misconception 1: "LED TV" is not an LED display; it is an LCD TV with LED backlight (OLED is the self-emissive one).
+- Misconception 2: "persistence of vision makes movies move" is a popular myth; the brain's phi/beta motion perception does it.
+- Side nugget: white LED is really blue LED + yellow phosphor; the remote's light is invisible infrared (phone camera can show it, common knowledge, not sourced).

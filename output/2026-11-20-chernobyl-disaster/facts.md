@@ -1,0 +1,34 @@
+# Chernobyl - how one nuclear reactor accident changed an entire city
+- Unit 4 crew prepared a turbine run-down test on 25 April 1986 ahead of a routine shutdown; operators disabled automatic shutdown mechanisms before the test — https://world-nuclear.org/information-library/safety-and-security/safety-of-plants/chernobyl-accident — high
+- Power fell to ~30 MWt at 00:28 on 26 April, stabilised ~200 MWt at 01:00; operating reactivity margin was equal to 8 rods vs required minimum 15 — https://world-nuclear.org/information-library/appendices/chernobyl-accident-appendix-1-sequence-of-events — high
+- 01:23:04 test began (turbine feed valves closed); 01:23:40 AZ-5 emergency button pressed; 01:23:43 power over 530 MWt; fuel channel rupture seconds later — WNA appendix 1 (same URL) — high
+- Why AZ-5 was pressed is not established by the Commission; Diatlov said it was a wish to shut down after the work finished — WNA appendix 1 — medium
+- RBMK positive void coefficient: more steam bubbles = more reactivity; at low power it became dominant — https://world-nuclear.org/information-library/safety-and-security/safety-of-plants/chernobyl-accident and https://oecd-nea.org/jcms/pl_28271/chernobyl-chapter-i-the-site-and-accident-sequence — high
+- Control rods had graphite displacer/tip; on insertion of fully withdrawn rods it replaced neutron-absorbing water at the core bottom, adding reactivity ("positive scram"); identified at Ignalina 1983, restrictions never imposed — WNA appendix 1 — high
+- Steam explosion destroyed the reactor; second explosion 2-3 s later; fires (graphite) started — WNA main page — high
+- First 14 firefighters arrived 01:28 — WNA appendix 1 — high
+- Release ~14 EBq total; I-131 (half-life 8 days) 1.8 EBq; Cs-137 (half-life 30 years) 0.085 EBq — WNA main page — high
+- Wind carried material over Scandinavia and Europe; Forsmark plant (Sweden, >1,000 km away) alarms went off morning of 28 April 1986; USSR admitted only after Sweden threatened to alert IAEA — https://en.wikipedia.org/wiki/Chernobyl_disaster — medium (single source; Forsmark not in WNA)
+- Pripyat (~45,000 residents) evacuated 27 April 1986 (~36 hours after); residents told ~3 days — WNA main page + Wikipedia — high (Wikipedia gives ~49,000 from the 10 km zone)
+- ~116,000 evacuated from 30 km zone by 14 May 1986; ~220,000 resettled in later years (Wikipedia: ~135,000 long-term evacuees) — WNA main page — medium (figures differ by source)
+- 2 died immediately; 28 died of acute radiation sickness within weeks (incl. 6 firefighters); 30 in official initial toll (some lists say 31 incl. a coronary thrombosis death); ARS confirmed in 134 cases (237 first suspected) — WNA main page — high
+- Liquidators: ~200,000 in 1986-87 (avg ~100 mSv); over 600,000 overall in later years — WNA main page — medium (counts vary by definition)
+- Thyroid cancer: ~20,000 cases 1991-2015 among those aged 18 or under in 1986; UNSCEAR: ~5,000 probably radiation-caused; 15 fatal by 2005 — WNA main page citing UNSCEAR — high
+- UNSCEAR: no evidence of a major public health impact from radiation apart from thyroid cancer — WNA main page — high
+- Exclusion zone: 30 km radius = 2,800 km² per WNA (user brief said ~2,600; sources vary), later extended to 4,300 km² — WNA main page — medium
+- Cs-137 half-life ~30 years, so contaminated land stays restricted for decades — WNA main page — high
+- New Safe Confinement slid over unit 4 in November 2016, completed 2019; 110 m high, 162 m long, 257 m span, 36,000 t — WNA main page — high
+- 2022: Russian forces entered from Belarus 24 Feb 2022, held the zone until end of March 2022; dug trenches in contaminated soil; wildlife cameras kept recording — https://brighterworld.mcmaster.ca/?p=77349 and https://www.aljazeera.com/amp/features/longform/2026/4/24/chornobyl-at-40-settlers-and-horses-survive-russian-drones-contamination — medium-high (exact withdrawal date from search summaries only; Greenpeace Germany July 2022 claimed higher readings than IAEA estimates: disputed)
+- 14 Feb 2025: drone pierced ~6 m hole in NSC roof, fires smouldered over two weeks; radiation stayed normal; Ukraine blamed Russia, Russia denied; IAEA did not attribute — https://www.ans.org/news/article-6767/iaea-chernobyl-drone-strike-latest-threat-to-nuclear-safety-in-ukraine and WNA main page — high (attribution disputed)
+- 5 Dec 2025: IAEA (Grossi) said NSC "lost its primary safety functions, including the confinement capability"; load-bearing structure and monitoring not permanently damaged — https://www.aljazeera.com/news/2025/12/6/iaea-flags-damage-to-chornobyl-nuclear-plants-protective-shield and WNA main page — high
+- Repair estimate ~EUR 500 million, full restoration targeted 2030 — WNA main page — medium (WNA page; note it also states donor pledges in "November 2026", date looks odd, verify before use)
+- Long-term death toll DISPUTED: UN-attributed up to ~4,000 eventual deaths in Ukraine/Belarus/Russia; ~16,000 across Europe (Wikipedia citing studies); WNA says never precisely known and some exaggerated figures were repudiated — WNA main page, Wikipedia — disputed
+- 19 further workers died 1987-2004, not necessarily radiation-related — WNA main page — medium
+- Wildlife thrives in the zone (horses, wolves etc.; camera traps) — Al Jazeera 2026 + McMaster — medium (no counts verified)
+- Tourism: not verified in fetched pages — skip or mention loosely
+
+## Angle
+- The disaster was not just operator error: a design flaw (graphite tips making the emergency shutdown button cause a power surge) was known since 1983 and hidden; the button meant to save the reactor sealed its fate, in 40 seconds from 01:23:04 to 01:23:44.
+- Twist: Pripyat residents were told "3 days" and never came back; humans left, nature returned; yet in 2025 a drone strike broke the shield built to protect the world for 100 years.
+- Misconception: radiation deaths were not thousands within days: 2 + 28 early deaths; the biggest proven health effect was ~5,000 child thyroid cancers; total toll disputed. Also, Chernobyl was not a nuclear bomb-type explosion: steam explosion plus graphite fire.
+- Misconception: land is not "forever" dead; Cs-137 halves every ~30 years, hotspots remain.

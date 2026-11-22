@@ -13,6 +13,7 @@ Calm-tone rule (Module 2 / Module 3) still wins over any replacement here.
 - విసర్జక వ్యవస్థ → ఒంట్లో చెడు బయటకు పంపే భాగాలు
 - నాళాలు / రక్తనాళాలు → రక్తం వెళ్లే పైపులు / నరాలు
 - ధమనులు / సిరలు → రక్తం వెళ్లే పైపులు / Arteries / Veins
+- ఛాతీ → గుండె భాగంలో / గుండె పక్కన
 - కాలేయం → Liver
 - మూత్రపిండాలు → Kidneys
 - క్లోమం → Pancreas

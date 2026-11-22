@@ -14,7 +14,7 @@ Research a topic in English -> write a natural Telugu narration script in the us
 | Path | What it is |
 |---|---|
 | `.claude/skills/script/SKILL.md` | Status (no rules) + research mechanics |
-| `script-system/rules/health-decode.md` | Health Decode rules, full (Part 1 Modules 1-3: YMYL shield, deliverables, 7-step flow; Part 2 Modules 4-7: Shorts, TTS, blacklist, PAST_SCRIPTS_LOG). Other channels: no rules yet |
+| `script-system/rules/health-decode.md` | Health Decode rules, full (Part 1 Modules 1-3: YMYL shield, deliverables, 7-step flow; Part 2 Modules 4-7: Shorts, TTS, blacklist, PAST_SCRIPTS_LOG; Module 8: Linguistic Style Rules from old_health-topic-refrence.txt). Other channels: no rules yet |
 | `script-system/credentials/service-account.json` | Google service-account key (gitignored, never commit); kept for a future sheet connector |
 | `output/YYYY-MM-DD-<slug>/` | per-script outputs (all health outputs removed 2026-11-22) |
 | `sample script/` | User's old sample scripts (Health-decode.txt removed). NOT analyzed, NOT used |

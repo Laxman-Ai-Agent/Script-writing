@@ -97,6 +97,13 @@ Calm-tone & monetization rules (Module 3, Module 8) win over any replacement her
 - కాలగర్భంలో కలిసిపోయింది → కనుమరుగైపోయింది / ఎవరికీ గుర్తులేకుండా పోయింది
 - ఈ మిస్టరీ వీడలేదు → ఇప్పటికీ దీనికి సమాధానం దొరకలేదు
 
+## 7b. Tech, AI & Space bookish / translated పదాలు
+- కృత్రిమ మేధస్సు → AI
+- అంతరిక్ష నౌక → రాకెట్ / Rocket
+- సమాచార గోప్యత → డేటా సేఫ్టీ
+- అత్యంత శక్తివంతమైన → చాలా పవర్‌ఫుల్
+- గణనీయంగా → బాగా ఎక్కువ
+
 ## 8. YouTube Monetization safety rules (తప్పనిసరి)
 1. మొదటి ముప్పై సెకన్లలో (intro) Section 1 లోని ఏ పదం గానీ, దాని భావం గానీ రాకూడదు.
 2. YouTube తెలుగు audio ని కూడా transcribe చేస్తుంది, కాబట్టి audio లో కూడా safe పదాలే పలకాలి.

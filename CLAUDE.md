@@ -8,7 +8,7 @@ Research a topic in English -> write a natural Telugu narration script in the us
 - Wants narration text only in script.txt: no b-roll cues, no timestamps. Final script shown directly (no fact-sheet approval step).
 
 ## How to use
-- No script writing until new rules exist. No sheet connector exists now.
+- Health Decode: `/script run` processes sheet rows (F=START generate, J=START template check); see SKILL.md.
 
 ## File map
 | Path | What it is |
@@ -17,7 +17,8 @@ Research a topic in English -> write a natural Telugu narration script in the us
 | `script-system/rules/health-decode/` | ALL Health Decode rules, nothing else: 01-style-dna (Directive, Module 1.1-1.6, 2), 02-style-examples (1.7 training pack), 03-ymyl-and-structure (3-5), 04-shorts-tts-blacklist (6-8), 05-past-scripts-log (9 + log) |
 | `script-system/rules/zumba-fitness/` | ALL Zumba Fitness rules: same 5-file layout, adapted to fitness science (independent copy made 2026-11-22; never sync with health-decode/) |
 | `script-system/rules/dark-world/` | README only, no rules yet |
-| `script-system/credentials/service-account.json` | Google service-account key (gitignored, never commit); kept for a future sheet connector |
+| `script-system/hd_sheet.py` | Health Decode <-> Google Sheet ("Health-Decode" tab). Writes only D, E, F, I, J; never G/H (user edits). `selftest` command |
+| `script-system/credentials/service-account.json` | Google service-account key (gitignored, never commit) |
 | `output/YYYY-MM-DD-<slug>/` | per-script outputs (all health outputs removed 2026-11-22) |
 | `sample script/` | User's old sample scripts (Health-decode.txt removed). NOT analyzed, NOT used |
 

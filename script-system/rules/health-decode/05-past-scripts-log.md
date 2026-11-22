@@ -20,3 +20,8 @@ Only for Health Decode. Zumba Fitness and The Dark World never use these files.
 - **Hook Style Used:** Sudden physical cycle sensation (వణికించే చలి -> జ్వరం -> చెమటల చక్రం); Intro Closing: "ఈ వీడియోలో... తెలుసుకుందాం"
 - **Analogies Used:** తాళం-తాళంచెవి, సరుకు నిండిన గోడౌన్, వంటగది చెత్త డబ్బా, గాలి ఎక్కువైన బుడగ, ఊరంతా మోగే అలారం సైరన్, ఇరుకైన పైపులో చెత్త, Thermostat
 - **Key Cellular Chain:** Anopheles mosquito saliva Sporozoites -> Liver cells multiplication into Merozoites -> Red Blood Cells invasion & bursting -> Hemozoin & Cytokines release -> Brain Hypothalamus temperature set point rise
+
+- **Topic:** Acidity (అసిడిటీ) — sheet S001, one-minute test version
+- **Hook Style Used:** Physical sensation (ఛాతీ మంట + పుల్లటి నీళ్లు) + "ఎలా చేరుతుంది?" ప్రశ్న; Intro Closing: లేదు (నేరుగా X అంటే Y)
+- **Analogies Used:** నాన్‌స్టిక్ పెనం పూత, ఒకవైపు మాత్రమే తిరిగే gate, ఆగకుండా doorbell నొక్కడం
+- **Key Cellular Chain:** Parietal cells Proton pumps -> Acid -> Mucus layer Stomach ని కాపాడుతుంది -> Muscle ring వదులు -> Acid Food pipe లోకి -> cells దెబ్బతినడం -> Pain-sensitive nerves -> Brain -> ఛాతీ మంట

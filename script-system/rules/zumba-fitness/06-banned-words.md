@@ -29,6 +29,8 @@ Calm-tone rule (Module 2 / Module 3) still wins over any replacement here.
   - `మార్గదర్శకాల ప్రకారం` → `W-H-O reports ప్రకారం`, `A-C-S-M research ప్రకారం`
   - `ప్రమాద ఘంటికలు` → `శరీరం ఇచ్చే సంకేతాలు`, `మార్పులు`
 
+- **Old CTA lines (NEVER USE):** `Related Video`, `Subscribe`, `subscribe చేసుకోండి`, `Bell icon`, `DM`.
+
 ## Part A2. Everyday Verbs (old Module 1.4)
 టెక్స్ట్‌బుక్ పదాలకు బదులు ఎల్లప్పుడూ కింది సహజమైన వాడుక పదాలను మాత్రమే వాడాలి:
 - `చొచ్చుకుపోతాయి` వద్దు → **`లోపలికి వెళ్తాయి` / `లోపలికి దూరుతాయి`** వాడాలి.

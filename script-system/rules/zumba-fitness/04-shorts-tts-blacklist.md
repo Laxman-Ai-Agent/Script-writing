@@ -10,12 +10,15 @@ Only for Zumba Fitness. Other channels never use these files.
   - కీలక మెడికల్ పదం వచ్చిన వెంటనే **`"X అంటే Y"`** పద్ధతిలో ఒక్క వాక్యంలో అర్థం చెప్పాలి.
   - ఎలాంటి కథలు, మందులు, లేదా చికిత్స సలహాలు ఉండకూడదు.
   - వాయిస్‌లోనే **W-H-O** లేదా **A-C-S-M** రిఫరెన్స్ ఒక చిన్న పదంలో ప్రస్తావించాలి.
-- **Platform-Safe Dynamic Endings (Zero Verbatim Copy-Paste — చివర్లో "ధన్యవాదాలు" లేదా "Thank you" రాయకూడదు):**
-  - **YouTube Shorts Ending (Zero Keyword Comment Spam & Dynamic Variety):**
-    - YouTube Shorts లో కామెంట్ కీవర్డ్ స్పామ్ ఫిల్టర్ రిస్క్ ఉంటుంది కాబట్టి, అక్కడ కీవర్డ్ కామెంట్ అస్సలు అడగకూడదు.
-    - అలాగే ప్రతి షార్ట్ చివర్లో ఒకే ఫిక్స్‌డ్ వాక్యం కాపీ-పేస్ట్ చేయకుండా, **ఆ వీడియో టాపిక్‌కు కనెక్ట్ చేస్తూ సహజంగా Related Video క్లిక్ చేయమని చెప్పే కొత్త వాక్యం** రాయాలి (ఉదాహరణ భావం: *"ఈ కణాల మార్పు తర్వాత అవయవాలపై ఎలాంటి ప్రభావం పడుతుందో పూర్తి వీడియోలో చూడండి — కింద Related Video క్లిక్ చేయండి!"*).
-  - **Instagram / Facebook Reels Ending (Safe Neutral Keyword CTA — Dynamic Wording):**
-    - Meta ప్లాట్‌ఫారమ్‌ల కోసం న్యూట్రల్ fitness కీవర్డ్ (`ZUMBA`, `MUSCLE`, `HEART`, `STAMINA` లాంటివి మాత్రమే — `CURE`, `MEDICINE`, `WEIGHTLOSS` పదాలు నిషేధం) తో, ప్రతి వీడియోకు పదాలను కొంచెం మారుస్తూ DM CTA రాయాలి (ఉదాహరణ భావం: *"దీని పూర్తి వీడియో లింక్ కోసం కింద '[NEUTRAL_TOPIC_KEYWORD]' అని Comment చేయండి, నేరుగా మీ DM లో పంపిస్తాను!"*).
+- **Closing CTA (Question + Follow + Comment) — ప్రతి one-minute script చివర సరిగ్గా 2 వాక్యాలు, రోజువారీ వాడుక తెలుగులో:**
+  - **వాక్యం 1 — Relatable Question:** ఆ video topic కే కనెక్ట్ అయ్యే ఒక random, సరదా లేదా ఆలోచింపజేసే ప్రశ్న. ఒకే ప్రశ్న రెండుసార్లు ఎప్పుడూ వాడకూడదు (05 log చెక్ చేయాలి).
+  - **వాక్యం 2 — Comment + Follow CTA:** సమాధానం Comment లో చెప్పమని, daily fitness tips కోసం పేజీని Follow అవ్వమని సహజంగా అడగాలి.
+  - Tone: Zumba coach ఫ్రెండ్‌తో మాట్లాడినట్టు friendly, energetic. Related Video, keyword-comment / DM CTA, Subscribe, Bell icon, "ధన్యవాదాలు" / "Thank you" వద్దు (Reels / Shorts కోసం).
+  - **Reference styles (ప్రతిసారీ style మార్చాలి, వాక్యాలు copy చేయకూడదు):**
+    - Belly Fat: *"మీ పొట్ట చుట్టూ ఉన్న కొవ్వు మెత్తగా ఉందా, లేక లోపల గట్టిగా అనిపిస్తోందా? కింద Comment లో చెప్పండి, ఇలాంటి మరిన్ని ఫిట్‌నెస్ టిప్స్ కోసం మన పేజీని Follow అవ్వండి!"*
+    - Daily Movement: *"మీరు రోజుకు కనీసం అరగంటైనా ఒంటికి చెమట పట్టేలా కదులుతున్నారా? నిజాయితీగా Comment చేయండి, రోజూ హెల్త్ అప్‌డేట్స్ కోసం Follow చేయడం మర్చిపోకండి!"*
+    - Sugar / Diet: *"మీరు రోజుకు ఎన్ని కప్పుల టీ లేదా కాఫీ తాగుతారో కింద Comment లో చెప్పండి! బరువు తగ్గే సింపుల్ చిట్కాల కోసం ఇప్పుడే Follow అవ్వండి."*
+    - Energy / Stamina: *"మెట్లు ఎక్కగానే మీకు కూడా ఆయాసం వస్తోందా? మీ అనుభవాన్ని Comment లో పంచుకోండి, ఫిట్‌గా ఉండటానికి మన పేజీని Follow చేయండి!"*
 
 ---
 

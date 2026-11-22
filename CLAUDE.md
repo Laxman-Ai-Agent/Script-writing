@@ -14,9 +14,9 @@ Research a topic in English -> write a natural Telugu narration script in the us
 | Path | What it is |
 |---|---|
 | `.claude/skills/script/SKILL.md` | Status (no rules) + research mechanics |
-| `script-system/rules/health-decode/` | ALL Health Decode rules, nothing else: 01-style-dna (Directive, Module 1.1-1.6, 2), 02-style-examples (1.7 training pack), 03-ymyl-and-structure (3-5), 04-shorts-tts-blacklist (6-8), 05-past-scripts-log (9 + log) |
-| `script-system/rules/zumba-fitness/` | ALL Zumba Fitness rules: same 5-file layout, adapted to fitness science (independent copy made 2026-11-22; never sync with health-decode/) |
-| `script-system/rules/dark-world/` | ALL Dark World rules: 01-style-dna (voice, narrator opinion rule), 02-style-examples, 03-monetization-and-structure (3-5), 04-shorts-tts-blacklist (6-8), 05-past-scripts-log (9); `sample_content.txt` = style reference only (2026-11-22) |
+| `script-system/rules/health-decode/` | ALL Health Decode rules, nothing else: 01-style-dna (Directive, Module 1.1-1.6, 2), 02-style-examples (1.7 training pack), 03-ymyl-and-structure (3-5), 04-shorts-tts-blacklist (6-8), 05-past-scripts-log (9 + log), 06-banned-words (10: banned word -> replacement list by section; every new banned word goes here) |
+| `script-system/rules/zumba-fitness/` | ALL Zumba Fitness rules: same 6-file layout, adapted to fitness science (independent copy made 2026-11-22; never sync with health-decode/) |
+| `script-system/rules/dark-world/` | ALL Dark World rules: 01-style-dna (voice, narrator opinion rule), 02-style-examples, 03-monetization-and-structure (3-5), 04-shorts-tts-blacklist (6-8), 05-past-scripts-log (9), 06-banned-words (10: word bans + YouTube monetization words); `sample_content.txt` = style reference only (2026-11-22) |
 | `script-system/sheet.py` | Google Sheet connector, tabs "Health-Decode" + "Dark-World" (long+short, A-J) and "Zumba-Fitness" (short only, A-H). Never writes *-UPDATED user columns. `selftest` command |
 | `script-system/credentials/service-account.json` | Google service-account key (gitignored, never commit) |
 | `output/YYYY-MM-DD-<slug>/` | per-script outputs (all health outputs removed 2026-11-22) |

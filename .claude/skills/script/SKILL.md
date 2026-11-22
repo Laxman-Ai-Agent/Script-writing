@@ -8,14 +8,14 @@ description: Telugu narration script writer for Health Decode, Zumba Fitness and
 ## Status
 | Category | Rules folder (read ONLY this folder for that channel) |
 |---|---|
-| Health Decode | `script-system/rules/health-decode/` (5 files: 01-style-dna, 02-style-examples, 03-ymyl-and-structure, 04-shorts-tts-blacklist, 05-past-scripts-log) |
-| Zumba Fitness | `script-system/rules/zumba-fitness/` (same 5 files, fitness version; run steps below with this folder) |
-| The Dark World | `script-system/rules/dark-world/` (5 files: 01-style-dna, 02-style-examples, 03-monetization-and-structure, 04-shorts-tts-blacklist, 05-past-scripts-log; style reference `sample_content.txt` - style only, never copy) |
+| Health Decode | `script-system/rules/health-decode/` (6 files: 01-style-dna, 02-style-examples, 03-ymyl-and-structure, 04-shorts-tts-blacklist, 05-past-scripts-log, 06-banned-words) |
+| Zumba Fitness | `script-system/rules/zumba-fitness/` (same 6 files, fitness version; run steps below with this folder) |
+| The Dark World | `script-system/rules/dark-world/` (6 files: 01-style-dna, 02-style-examples, 03-monetization-and-structure, 04-shorts-tts-blacklist, 05-past-scripts-log, 06-banned-words; style reference `sample_content.txt` - style only, never copy) |
 - A channel whose folder has no rules: do NOT write scripts for it; ask the user for rules. Never reuse any old rule, old script style, `sample script/`, earlier `output/` scripts or anything from git history.
 - New rules go into that channel's folder only (channels never mix). A later rule replaces the line it contradicts in the same edit (no stacking, no duplicates).
 
 ## Channel run - Health Decode / Zumba Fitness / The Dark World (use only that channel's folder)
-1. Read all 5 files in the channel folder (05 = PAST_SCRIPTS_LOG: hooks, intro lines, analogies already used).
+1. Read all rule files in the channel folder (05 = PAST_SCRIPTS_LOG: hooks, intro lines, analogies already used; 06 = banned words -> replacements; new banned words the user gives go into 06's matching section).
 2. Research -> `output/YYYY-MM-DD-<slug>/facts.md`.
 3. Write `script.txt` (main, Module 4-5) and `short.txt` (Module 6: YouTube ending in the script, Reels ending as one extra line after a blank line).
 4. Check with Python (not grep; grep misses Telugu here): no digits, no Module 8 / 1.4 banned words.

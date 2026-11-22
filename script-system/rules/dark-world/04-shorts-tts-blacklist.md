@@ -20,7 +20,7 @@ Only for The Dark World. Other channels never use these files.
 
 ---
 
-## MODULE 8: BLACKLIST & LIMITED FRAMES
+## MODULE 8: BLACKLIST & LIMITED FRAMES (word → replacement lists, incl. monetization words, live in `06-banned-words.md`, Module 10)
 
 - **టెక్స్ట్‌బుక్ / కఠిన గ్రాంథిక పదాలు (NEVER USE):**
   `నిర్దిష్ట`, `ఉపరితలంపై`, `విభజన`, `చొచ్చుకుపోతాయి`, `అప్రమత్తమై`, `అసౌకర్యం`, `అనుభూతి`, `నిరంతరం`, `సంచితమవుతాయి`, `క్షీణిస్తాయి`, `సంధానమవుతుంది`.

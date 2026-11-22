@@ -1,7 +1,25 @@
-# The Dark World - Banned Words List (Module 10)
+# The Dark World - Banned Words List (Module 8 + Module 10) — every banned word of this channel lives only here
 Only for The Dark World. Every script, every situation: the left word NEVER appears; use a word from the right side.
 New banned words the user gives later go into the matching section below (or a new section), nothing anywhere else.
 Calm-tone & monetization rules (Module 3, Module 8) win over any replacement here, so fear/gore options were left out.
+
+
+## Part A1. Module 8 Blacklist (textbook, hype, AI clichés, gossip, limited frames)
+- **టెక్స్ట్‌బుక్ / కఠిన గ్రాంథిక పదాలు (NEVER USE):**
+  `నిర్దిష్ట`, `ఉపరితలంపై`, `విభజన`, `చొచ్చుకుపోతాయి`, `అప్రమత్తమై`, `అసౌకర్యం`, `అనుభూతి`, `నిరంతరం`, `సంచితమవుతాయి`, `క్షీణిస్తాయి`, `సంధానమవుతుంది`.
+- **భయం / hype పదాలు (NEVER USE — calm tone only):**
+  `దారుణంగా`, `భయంకరమైన`, `ప్రాణాంతకమైన`, `నిప్పులా`, `మృత్యువు`, `విలయం`, `scary`, `shocking`, `తిరుగుబాటు`, `షాక్ అవుతారు`.
+- **Gossip / clickbait (NEVER USE):**
+  `అంట`, `అంటారంట`, `నేను సీక్రెట్ చెప్పట్లేదు`, `నాకు అంత టైం ఎక్కడిది అంటారా?`, `ఐతే చెప్తా జాగ్రత్తగ విను`.
+- **AI Clichés (NEVER USE):**
+  `కీలక పాత్ర పోషిస్తుంది`, `లోతుగా పరిశీలిస్తే`, `లోతుగా తెలుసుకుందాం`, `ఇక్కడ గమనించాల్సిన ముఖ్యమైన విషయం ఏంటంటే`, `ఒక్క మాటలో చెప్పాలంటే`, `ఇది చాలా ముఖ్యం`, `చివరగా`, `ఈ వీడియో మీకు నచ్చిందని ఆశిస్తున్నాను`, `ఒక్కసారి ఆలోచించండి`, `మీకు తెలుసా`, `మనలో చాలామందికి తెలియని నిజం`, `విప్లవాత్మక మార్పులు`, `మనకు అర్థమవుతుంది`, `వివరంగా తెలుసుకుందాం`, వాక్యం మొదట్లో `నిజానికి`; fake Q&A transitions (`అయితే ఇక్కడ ఒక ప్రశ్న వస్తుంది... అదేంటంటే...`); passive voice (`చేయబడుతుంది`, `రూపొందించబడింది`); translation artifact `యొక్క`.
+- **Limited Frames (sample లో ఎక్కువ రిపీట్ అయినవి — ఒక script లో గరిష్టం ఒక్కసారి, వరుసగా రెండు scripts లో రాకూడదు):**
+  `...ఎప్పుడైనా ఆలోచించారా?`, hook లో `...తెలుసా?`, `సింపుల్‌గా చెప్పాలంటే`, `ఇలాంటి ... కోసం channel follow అవ్వండి`, `అసలు విషయం ఏంటంటే`.
+- **వాటి స్థానంలో:**
+  - `దారుణంగా` / `భయంకరమైన` → `చాలా పెద్దగా`, `తీవ్రమైన`
+  - `scary` / `shocking` → `ఆలోచించాల్సిన విషయం`, `ఆశ్చర్యపరిచే`
+  - `సింపుల్‌గా చెప్పాలంటే` → `అంటే మొత్తం logic ఇదే...`, `ఒక్క లైన్‌లో అంటే...`
+  - `నిర్దిష్ట` → `కచ్చితమైన`; `ఉపరితలంపై` → `పైన`; `నిరంతరం` → `ఆగకుండా`
 
 ## 1. YouTube Monetization (Yellow Dollar) danger words - narration లో, audio లో ఎప్పుడూ వద్దు
 - హత్య / చంపేయడం / Murder / Kill → ప్రాణాలు తీయడం / కథ ముగించడం / లేకుండా చేయడం

@@ -1,6 +1,6 @@
 ---
 name: script
-description: Telugu narration script writer for Health Decode, Zumba Fitness and The Dark World. Each channel has its own rules folder in script-system/rules/; only Health Decode has rules yet. Use when the user gives a topic or new writing rules.
+description: Telugu narration script writer for Health Decode, Zumba Fitness and The Dark World. Each channel has its own independent rules folder in script-system/rules/ (6 files each). Use when the user gives a topic or new writing rules.
 ---
 
 # Telugu Narration Script Writer
@@ -15,10 +15,10 @@ description: Telugu narration script writer for Health Decode, Zumba Fitness and
 - New rules go into that channel's folder only (channels never mix). A later rule replaces the line it contradicts in the same edit (no stacking, no duplicates).
 
 ## Channel run - Health Decode / Zumba Fitness / The Dark World (use only that channel's folder)
-1. Read all rule files in the channel folder (05 = PAST_SCRIPTS_LOG: hooks, intro lines, analogies already used; 06 = banned words -> replacements; new banned words the user gives go into 06's matching section).
+1. Read that channel's 01, 02, 03, 04, 06 fully and only the log entries of 05 (hooks, intro lines, analogies, CTAs already used). Dark World `sample_content.txt`: only if the voice is unclear, first ~60 lines. Never read another channel's folder.
 2. Research -> `output/YYYY-MM-DD-<slug>/facts.md`.
 3. Write `script.txt` (main, Module 4-5) and `short.txt` (Module 6: YouTube ending in the script, Reels ending as one extra line after a blank line).
-4. Check with Python (not grep; grep misses Telugu here): no digits, no Module 8 / 1.4 banned words.
+4. `python -X utf8 script-system/check.py <health|zumba|dark> <file>` until OK (reads that channel's 06 live: banned words, digits, suffix space, acronyms, citation, markdown). Then re-read once for rhythm (Module 1.6/1.8) and repetition vs 05.
 5. Show both scripts in chat, then append the 4-line log (Module 9) to `05-past-scripts-log.md`.
 
 ## Sheet run (`/script run`) - script `script-system/sheet.py <health|zumba> ...`, one tab per channel
@@ -37,4 +37,4 @@ description: Telugu narration script writer for Health Decode, Zumba Fitness and
 
 ## Mechanics kept (not writing style)
 - Research: English sources into `output/YYYY-MM-DD-<slug>/facts.md` (claim - source URL - confidence), optionally via one Sonnet subagent; write only from facts.md, re-tell, never translate.
-- Sheet connector: `script-system/sheet.py` (tabs Health-Decode + Zumba-Fitness), key in `script-system/credentials/` (gitignored).
+- Sheet connector: `script-system/sheet.py` (tabs Health-Decode, Dark-World, Zumba-Fitness), key in `script-system/credentials/` (gitignored).

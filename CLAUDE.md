@@ -14,12 +14,13 @@ Research a topic in English -> write a natural Telugu narration script in the us
 | Path | What it is |
 |---|---|
 | `.claude/skills/script/SKILL.md` | Status (no rules) + research mechanics |
-| `script-system/rules/health-decode/` | ALL Health Decode rules, nothing else: 01-style-dna (Directive, Module 1.1-1.6, 2), 02-style-examples (1.7 training pack), 03-ymyl-and-structure (3-5), 04-shorts-tts-blacklist (6-8), 05-past-scripts-log (9 + log), 06-banned-words (10: banned word -> replacement list by section; every new banned word goes here) |
+| `script-system/rules/health-decode/` | ALL Health Decode rules, nothing else: 01-style-dna (Directive, Module 1.1-1.6, 2), 02-style-examples (1.7 training pack), 03-ymyl-and-structure (3-5), 04-shorts-tts (6-7), 05-past-scripts-log (9 + log), 06-banned-words (8 + 10: every banned word of the channel, by section) |
 | `script-system/rules/zumba-fitness/` | ALL Zumba Fitness rules: same 6-file layout, adapted to fitness science (independent copy made 2026-11-22; never sync with health-decode/) |
-| `script-system/rules/dark-world/` | ALL Dark World rules: 01-style-dna (voice, narrator opinion rule), 02-style-examples, 03-monetization-and-structure (3-5), 04-shorts-tts-blacklist (6-8), 05-past-scripts-log (9), 06-banned-words (10: word bans + YouTube monetization words); `sample_content.txt` = style reference only (2026-11-22) |
+| `script-system/rules/dark-world/` | ALL Dark World rules: 01-style-dna (voice, narrator opinion rule), 02-style-examples, 03-monetization-and-structure (3-5), 04-shorts-tts (6-7), 05-past-scripts-log (9), 06-banned-words (8 + 10: word bans, gossip, limited frames, monetization words); `sample_content.txt` = style reference only (2026-11-22) |
+| `script-system/check.py` | Script checker per channel; reads 06-banned-words.md live. `selftest` command |
 | `script-system/sheet.py` | Google Sheet connector, tabs "Health-Decode" + "Dark-World" (long+short, A-J) and "Zumba-Fitness" (short only, A-H). Never writes *-UPDATED user columns. `selftest` command |
 | `script-system/credentials/service-account.json` | Google service-account key (gitignored, never commit) |
-| `output/YYYY-MM-DD-<slug>/` | per-script outputs (all health outputs removed 2026-11-22) |
+| `output/YYYY-MM-DD-<slug>/` | per-script outputs: facts.md, script.txt / short.txt (old.txt = imported old version) |
 | `sample script/` | User's old sample scripts (Health-decode.txt removed). NOT analyzed, NOT used |
 
 ## Rules for future changes
@@ -30,7 +31,5 @@ Research a topic in English -> write a natural Telugu narration script in the us
 - Git: remote `origin` = https://github.com/Laxman-Ai-Agent/Script-writing.git (branch `main`). Author "Script-writing". Commit + push only when the user asks.
 
 ## Status
-- 2026-11-22 (first reset): old DNA, Learning DB, Topic Ideas, watcher removed; old code only in git history (commit 7c8ea07 and earlier).
-- 2026-11-22 (second reset, user): the Health Decode rules (4-part master prompt + Part 5 series splitter) and all writing steps in SKILL.md were removed. 
-- 2026-11-22 (third clean-up, user "motham remove it"): all health outputs in output/, sample script/Health-decode.txt, hd_sheet.py + test removed. Nothing health-related is left.
-- 2026-11-22: new Health Decode rules Part 2 (Modules 4-7) later replaced by a 3-part version (Modules 1-9 + 1.7 training pack), then split into the folder rules/health-decode/ (5 files).
+- 2026-11-22: all old rules/outputs reset (old code only in git history, commit 7c8ea07 and earlier). Current rules written fresh per channel.
+- 2026-11-22 restructure: every channel folder = 01 style DNA, 02 examples, 03 structure, 04 shorts + TTS, 05 log, 06 ALL banned words (Module 8 blacklist + word swaps + Module 10 lists). New banned words go only into that channel's 06. `script-system/check.py` enforces 06 automatically.

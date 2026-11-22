@@ -1,65 +1,33 @@
 # Telugu Script Writing System
 
-Research a topic in English → write a natural, human-sounding Telugu narration script in the user's channel voice.
+Research a topic in English -> write a natural Telugu narration script in the user's channel voice. **All writing rules cleared 2026-11-22 (second reset) - the user will give new rules.**
 
 ## User
-- Runs two Telugu YouTube channels: **The Dark World** (science / tech / history / AI explainers) and **Health Decode** (health; no "AI డాక్టర్" persona since 2026-11-20).
-- Reply in **Telugu script** (user writes Telugu / Tanglish). Native speaker — their language corrections are final.
-- Wants narration text only: no b-roll cues, no timestamps. Final script shown directly (no fact-sheet approval step).
+- Runs Telugu YouTube channels: **Health Decode**, **Zumba Fitness**, **The Dark World**. None has writing rules now; the user gives new ones.
+- Reply in **Telugu script** (user writes Telugu / Tanglish). Native speaker - their language corrections are final.
+- Wants narration text only in script.txt: no b-roll cues, no timestamps. Final script shown directly (no fact-sheet approval step).
 
 ## How to use
-- `/script <topic> <duration>` — e.g. `/script కిడ్నీ ఎలా పనిచేస్తుంది 1.30`. Durations used: 40s, 50s, 1, 1.30, 2, 3, 5, 7, 8, 10, 12, 15, 20, 30 (min).
-- `/script run` - reads Pending rows from the Google Sheet tab "Script Requests" (Script ID, Topic / Script, Extra Data, Minutes dropdown, ON/OFF, Status; row 1 = RUN control). Only ON rows run, one at a time; Done rows are skipped, writes each script, saves the original to the Learning DB, marks the row Done.
-- `/script update` — analyze only new files in `sample script/` and merge into the profile.
-- `/script reanalyze` — full rebuild (only on explicit request).
+- No script writing until new rules exist. No sheet connector exists now.
 
 ## File map
-| Path | What it is | When to change |
-|---|---|---|
-| `.claude/skills/script/SKILL.md` | The workflow: research → fact sheet → plan → write → human-narration refinement → validation → deliver (`modes-other.md` = Modes B/C/D/F/G) | Change the *process* |
-| `script-system/rules/dark-world.md` | ALL rules for The Dark World (identity, language, numbers, TTS, hooks, structures, endings, never list, phrase table, length, gold script, final check) | Change Dark World *style* |
-| `script-system/rules/health.md` | ALL rules for Health Decode + Zumba Fitness (one Health category): 6-step flow, language, numbers, safety red lines, disclaimer, hooks, endings, final check | Change Health / Zumba *style* |
-| `script-system/manifest.json` | Which sample files were analyzed (name + bytes) | Auto, by `/script update` |
-| `script-system/history.json` | Openings/structures used per script, to avoid repeats | Auto, after each script |
-| `sample script/` | User's original samples (01–35 + Health-decode.txt). 21=22 duplicate, 36 empty, 34/35 vocab lists | User adds files |
-| `script-system/learning_db.py` (+ `ldb_core.py` store/parsing, `ldb_sheet.py` Google Sheets) | Script Learning Database CLI: local `learning-db/S###.json` (one file per script) (source of truth: originals, all revisions, changes, feedback, rules) mirrored to Google Sheet tab "Script Learning Database" (7 columns: Script ID, Title, Original, Revised, Changes, Feedback, Rules; IDs S001, S002, ...). Self-check: `python script-system/test_learning_db.py` | Change the learning/sync logic |
-| `script-system/watcher.py` | Auto-run: polls the sheet's RUN cell (B1); on `RUN NOW` starts one unattended `claude -p` run of Mode E (dontAsk mode, writes only output/ + history.json, $10 cap). `--dry-run`, `--once`, `install-startup`. Needs `claude auth login` once. Log `watcher.log` (gitignored) | Change the auto-run behaviour |
-| `script-system/ideas.py` | Topic Ideas: tabs "Topic Ideas" (new topics per category, newest on top, filter by Category; USE dropdown -> row in Script Requests + ✅ USED) and "Topic Settings" (category ON/OFF, how many 3/5/7/10, focus). Local `ideas-db/YYYY-MM.json` (one idea per line) = every idea ever suggested (never repeated). Self-check: `python script-system/test_ideas.py` | Change the topic finder |
-| `script-system/credentials/service-account.json` | Google service-account key (gitignored, never commit) | User sets up once |
-| `output/YYYY-MM-DD-<slug>/` | `facts.md` (claims + sources) and `script.txt` per script | Auto |
+| Path | What it is |
+|---|---|
+| `.claude/skills/script/SKILL.md` | Status (no rules) + research mechanics |
+| `script-system/rules/health-decode.md` | Health Decode rules, full (Part 1 Modules 1-3: YMYL shield, deliverables, 7-step flow; Part 2 Modules 4-7: Shorts, TTS, blacklist, PAST_SCRIPTS_LOG). Other channels: no rules yet |
+| `script-system/credentials/service-account.json` | Google service-account key (gitignored, never commit); kept for a future sheet connector |
+| `output/YYYY-MM-DD-<slug>/` | per-script outputs (all health outputs removed 2026-11-22) |
+| `sample script/` | User's old sample scripts (Health-decode.txt removed). NOT analyzed, NOT used |
 
 ## Rules for future changes
-- **No file over 450 lines** (user rule 2026-11-18): split code into modules, data into per-record / per-month files.
-- **Two rule categories that never mix (user 2026-11-20):** Dark World → `rules/dark-world.md` only; Health Decode + Zumba Fitness → `rules/health.md` only. The sheets keep three Category values; the rule file follows from them.
-- **Do not re-read `sample script/`** for normal script writing — load the one rule file only (token saving).
-- **No stacking:** a new user rule goes into its section of the right file and the older line it replaces is deleted or rewritten in the same edit. No dated corrections list. Present corrections to the user as a side-by-side table (old | new | reason).
-- Learning DB rules: once folded into a rule file, `learning_db.py mark-merged "Dark World"|Health`; `rules <cat>` then prints only new unmerged rules (+ topic rules) for writing.
-- Words/min (~150) in the Length sections is still an **estimate** — recalibrate when the user reports a real recorded duration.
-- Git: remote `origin` = https://github.com/Laxman-Ai-Agent/Script-writing.git (branch `main`). Author is set per-repo as "Script-writing". Commit + push when the user asks.
+- **No file over 450 lines**: split code into modules.
+- **Three rule categories that never mix:** each gets its own file in `script-system/rules/` when the user gives its new rules. Nothing carries over between them.
+- **No stacking:** a new rule goes into its section of the right file and the older line it replaces is deleted or rewritten in the same edit. Show corrections as a table (old | new | reason).
+- Words/min (~150) is an estimate; recalibrate when the user reports a real recorded duration.
+- Git: remote `origin` = https://github.com/Laxman-Ai-Agent/Script-writing.git (branch `main`). Author "Script-writing". Commit + push only when the user asks.
 
-## Status (2026-11-09)
-- System built; DNA covers both channels; user corrections through 2026-11-09 are in §11/§12/§13.
-- Scripts done: onion (Dark World, rewritten by user → §13 gold), goosebumps (Dark World), anaemia (Health Decode, user approved "బాగుంది"), AI Doctor 5-min + 1-min (Health Decode, both rewritten by user → style rules in DNA §11).
-- 2026-11-13: Claude Fable/Mythos 5.2 (Dark World, 5 min) — user rewrite saved; new rules: mandatory "ఈ video లో మనం…" intro paragraph before the hook, English words people say in English stay Latin (price, simple, powerful, daily). See DNA §4 note, §11, §12.
-- 2026-11-13: Script Learning Database built (learning_db.py). Fable/Mythos record backfilled (3 approved + 3 proposed rules). Google Sheets sync LIVE: GCP project `script-learning-514611`, service account `script-sync@script-learning-514611.iam.gserviceaccount.com` (Editor on the sheet), key in gitignored `script-system/credentials/`. Verified read/write, no-dup re-sync, full-length cells.
-- 2026-11-13: `/script run` + "Script Requests" tab added (learning_db.py `requests`, `request-done`).
-- 2026-11-13: ON/OFF + S.No + RUN control added; `watcher.py` built (tests + real-sheet idle check pass). NOT yet run end-to-end: the `claude` CLI login had expired (`claude auth login` needed).
-- 2026-11-13: Script IDs (S001...) + Title column: Learning DB is now 7 columns, Script Requests gets a Script ID column; old slug ids became aliases (Fable/Mythos = S001).
-- 2026-11-13: Script Requests: Script ID is column A (S.No removed); Status shows ⏳ Running (orange) -> ✅ (green) / ❌ Failed (red).
-- 2026-11-13: Script Requests column G = per-row RUN (▶ RUN / ▶ START / ⏳ RUNNING), G2 = RUN ALL; watcher claims the chosen rows. B1 RUN NOW still works. No Apps Script (an unused, unauthorized bound project "Untitled project" exists on the user's Drive).
-- 2026-11-13: Cost cut (watcher runs): lean flags (project settings only, no MCP, fewer tools: ~18k vs ~56k baseline tokens/step) + research/facts.md delegated to a Sonnet subagent (SKILL.md step 1), Opus writes the Telugu. Same-topic test: old $0.79 / 20 steps -> new $0.47 / 10 steps (list price), quality comparable. Per-run usage goes to run-costs.csv + sheet C1. Test outputs: output/_compare-old|new (not committed).
-- 2026-11-13: Script Requests top control row removed: row 1 = headers, data from row 2, RUN ALL = G1, last-run summary = hover note on G1 (B1 RUN NOW is gone).
-- 2026-11-13: Learning DB sheet now has a RUN column, last = I (I1 = RUN ALL). Paste an update (script + reasons + comparison) in the Revised column, pick START: watcher runs SKILL.md Mode F -> D = clean script only, E changes, F reasons (verbatim), G rules (auto-approved since 2026-11-16: user's update is final), H = ✅ DONE / ❌ ASK. A sync never overwrites pasted/typed D or F.
-- 2026-11-14: Topic Ideas built (ideas.py, SKILL.md Mode G). H1 = ▶ FIND TOPICS: the watcher runs a finder pass (Sonnet subagents search, Opus picks + writes Telugu hooks); results are added on top, nothing is deleted. No daily timer: runs only when clicked.
-- 2026-11-18: Token/quality cleanup: watcher runs one `claude -p` per row; unattended runs don't echo the script; Dark World loads DNA §1-13 only; `history-last` replaces reading history.json; overridden Learning DB rules marked `superseded` (`learning_db.py supersede <ID> <n> "<by>"`, hidden from `rules`); DNA §2.3/§2.5/§11/§12 conflicts removed (Latin-script English, no "…", numbers as digits).
-- 2026-11-19: Learning DB sheet got a Category column H, before the RUN column I; filter on Category only (Dark World / Health Decode dropdown, auto-set from the title by `category_of`; a value picked in the sheet is never overwritten).
-- 2026-11-19: Health Decode content checklist added (DNA §14, rubric point 9): 8 parts with reasons, approved sources only, medicine only as a general category, separate danger signs, spoken disclaimer, hook ideas + sources in facts.md.
-- 2026-11-19: **Three separate categories — Dark World, Health Decode, Zumba Fitness; rules never mix.** Category column H in both sheet tabs (filter + dropdown). Learning DB rules carry the row's category (`learning_db.py rules "<category>"`; `revisions-pending` takes the category from the sheet); DNA §11 bullets are tagged `[DW]`/`[HD]`/`[ZF]`/`[ALL]`; §15 = Zumba Fitness (rules start empty). `history-last` also takes `zumba`. A rule from one category's sheet update only changes that category's scripts.
-- 2026-11-20: Token cost (~$1/script, 15-25 steps): SKILL.md Modes B/C/D/F/G moved to `.claude/skills/script/modes-other.md` (read only for those modes; watcher prompts point to it); `learning_db.py rules` shows the newest 20 general rules per category (`--all` for every rule); DNA §11/§12 merged duplicates; SKILL steps 6-7 = one targeted-edit pass. Usage limit: runs failed at 10:09 on 2026-11-20 ("5-hour limit, resets 1:20pm IST") after ~13 scripts in a morning; an earlier log line also showed a weekly limit (resets 22:30 IST). Watcher runs fail while a limit is active and carry on when RUN ALL is started again.
-- 2026-11-20: DNA cleanup (user paste): §4 mandatory intro paragraph removed (start directly with a fresh topic-specific hook); §11 old intro / line-by-line bullets removed; §13 gold = Latin-script English + numbers in Telugu words; §14 Telugu-script loanword note removed; new TTS rules §2.8 (commas = breath pauses) and §2.9 (no stacked suffixes), §12 spoken contractions; viewer question only at natural turns (~300-400 words). SKILL.md steps 4-7 aligned.
-- 2026-11-20: Numbers: number and unit in the SAME language, never mixed - "పది గంటల్లో" (default) or "ten hours లో" (situation decides); never "పది hours లో", never digits. Working method (memory `word-options-workflow`): user gives one word, I give use/avoid options, they pick, I update DNA §12 (+§11 if a rule), tagged by category.
-- 2026-11-20 (pending cleanup): §13 gold has no "…" now (commas / full stops); the unique still-valid old Health rules hidden by the rules cap (spoken verb / word forms) were merged into DNA §11 as one `[HD]` bullet; `watcher.py` now logs cost per model (`claude-opus-5-5:$0.70,claude-sonnet-5-5:$0.30` in run-costs.csv and the log) so the next runs show whether Opus (writing) or the Sonnet research subagent is the main cost. Measured after the cuts: runs at 09:45 / 10:00 still cost $1.07 / $1.28 (53k / 70k new tokens, 14k / 21k output) - no visible saving yet, so DNA size is not the main driver.
-- 2026-11-20: DNA §16 = Health Decode + Zumba Fitness BLUEPRINT (user paste, 100% mandatory for both): 6-step flow (curiosity hook, simple explanation, sources + study limits, habits/myths, red flags, disclaimer + curiosity CTA), must-haves (exact spoken disclaimer, conditional words, Indian food), strict red lines (no cure, no medicine names/doses, no stop-medicine, no diagnosis, no fear words, no unsourced numbers, no fake authority -> "AI డాక్టర్" persona dropped). SKILL.md checks it for both.
-- 2026-11-20: DNA §17 [ALL] (user paste): analytical educator voice, hook types A-E (not the same as the last 4), no repeated opening / ending in the last 20 (`history-last` default now 20 and shows hook_type), no generic Like/Subscribe/Comment closings (replaces fixed CTA endings), filler blacklist (నిజానికి etc. max once), Fact → Indian context → analysis, banned fear words, self-audit fields hook_type / opening_line / closing_line / flagged_words_avoided saved in history.json (not in script.txt). §16 disclaimer now same meaning, rephrased per script.
-- 2026-11-20: **Rule restructure (user):** `writing-dna.md` deleted and split into `rules/dark-world.md` + `rules/health.md` (Health Decode + Zumba = one Health category). All §1-17 rules, [DW]/[HD]/[ZF]/[ALL] bullets and 62 Learning DB general rules merged; outdated ones removed (old intro-paragraph rules, fixed CTA lines, AI doctor persona, "no comma after ప్రకారం", pure-Telugu intro words). All current DB general rules marked `merged`. Notes in the "§" lines above refer to the old DNA numbering.
-- Pending: (1) user to say WHEN "ten hours లో" is used instead of "పది గంటల్లో" (DNA §11 currently guesses "English-heavy wording"); (2) read the per-model cost of the next 3-5 runs in `run-costs.csv`, then cut the biggest part (likely research fetches or Telugu output length, not DNA); (3) 10 sheet rows (40-49) were still to write at 13:20 IST - the watcher continues them; (4) optional further §11 trim only through the word-options workflow; (5) words/min calibration (no recorded duration reported yet).
+## Status
+- 2026-11-22 (first reset): old DNA, Learning DB, Topic Ideas, watcher removed; old code only in git history (commit 7c8ea07 and earlier).
+- 2026-11-22 (second reset, user): the Health Decode rules (4-part master prompt + Part 5 series splitter) and all writing steps in SKILL.md were removed. 
+- 2026-11-22 (third clean-up, user "motham remove it"): all health outputs in output/, sample script/Health-decode.txt, hd_sheet.py + test removed. Nothing health-related is left.
+- 2026-11-22: new Health Decode rules Part 2 (Modules 4-7) saved in rules/health-decode.md; Part 1 (Modules 1-3) added same day. Health Decode rules complete.

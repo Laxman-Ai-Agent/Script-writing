@@ -15,4 +15,33 @@ Only for Zumba Fitness. Other channels never use these files.
 ---
 
 ## PAST_SCRIPTS_LOG (ప్రతి వీడియో తర్వాత కింద 4-లైన్ల లాగ్ జత చేయండి — Max 15 Latest Entries)
-*(ఇంకా Zumba Fitness స్క్రిప్ట్స్ రాయలేదు — ఖాళీగా ఉంది)*
+
+### S026 (Short, 2026-11-22)
+- **Topic:** Belly fat - look కాదు, లోపలి Visceral fat signal
+- **Hook Style Used:** Surprising-fact question ("రెండు వేర్వేరు రకాలు అని మీకు తెలుసా?") | Ending: Heart మీద ప్రభావం -> Related Video; Reels keyword CORE
+- **Analogies Used:** Radio tower (Cytokines broadcast)
+- **Key Cellular Chain:** Visceral Fat cells -> Cytokines Blood లోకి -> Liver, Blood vessels Inflammation; W-H-O waist marker; Muscles లోపలి కొవ్వును fuel గా ఖర్చు
+
+### S027 (Short, 2026-11-22)
+- **Topic:** Insulin resistance - food energy కాకుండా fat గా ఎందుకు
+- **Hook Style Used:** Direct why-question ("కొవ్వుగా ఎందుకు జమ అవుతుంది?") | Ending: gates ఎంతసేపు -> Related Video మిస్ అవ్వకండి; Reels keyword MUSCLE
+- **Analogies Used:** Messenger hormone; Doorbell పనిచేయకపోయినా వెనక తలుపు (GLUT four)
+- **Key Cellular Chain:** Glucose -> Insulin -> Cells వినవు -> అదనపు Insulin -> Fat storage; Muscle contraction -> GLUT four పైకి -> Insulin లేకుండా Glucose లోపలికి; A-C-S-M
+
+### S028 (Short, 2026-11-22)
+- **Topic:** Zumba vs Walking - energy ఖర్చు, Heart rate తేడా
+- **Hook Style Used:** Side-by-side comparison question ("ఒక గంట నడక... ఒక గంట Zumba... ఒకటేనా?") | Ending: Heart rate zone పూర్తి లెక్క -> నొక్కి చూడండి; Reels keyword STAMINA
+- **Analogies Used:** ఒక bulb vs ఇంట్లో అన్ని lights
+- **Key Cellular Chain:** MET (నడక మూడు-నాలుగు, Zumba ఆరు పైగా) -> ఎక్కువ Muscle fibers -> ATP -> Oxygen -> Heart rate; W-H-O ఒక నిమిషం vigorous = రెండు నిమిషాల నడక
+
+### S029 (Short, 2026-11-22)
+- **Topic:** Spot reduction myth - Crunches తో పొట్ట కొవ్వు మాత్రమే?
+- **Hook Style Used:** Myth statement then contradiction ("చాలామంది నమ్మే మాట ఇదే... కానీ") | Ending: Body ముందుగా ఏ ప్రాంతం -> ఆ సైన్స్ Related Video; Reels keyword ZUMBA
+- **Analogies Used:** ఏ ATM అయినా ఒకే bank account
+- **Key Cellular Chain:** Triglycerides -> Adrenaline Body అంతటా -> అన్ని Fat cells లో Lipolysis -> Blood -> పనిచేసే Muscles కి fuel; A-C-S-M no spot reduction
+
+### S030 (Short, 2026-11-22)
+- **Topic:** Zumba = Dance మాత్రమే కాదు, Interval cardio
+- **Hook Style Used:** Sensory feeling hook (chorus దగ్గర గుండె దడ, slow beat లో తగ్గడం) | Ending: ఆపిన తర్వాత Calories? question -> క్లిక్ చేయండి; Reels keyword HEART
+- **Analogies Used:** సముద్రపు అలలు (శ్రమ పెరుగుతూ తగ్గుతూ)
+- **Key Cellular Chain:** Fast steps -> Glycogen ఖర్చు -> Lactate -> slow part లో Oxygen తో Lactate fuel గా; A-C-S-M డెబ్బై ఏడు శాతం vigorous; పూర్తి HIIT కాదు

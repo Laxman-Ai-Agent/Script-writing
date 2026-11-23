@@ -32,7 +32,8 @@ description: Telugu narration script writer for Health Decode, Zumba Fitness and
 3. Template check (CHECK=START): `<ch> status <row> check RUNNING` -> `<ch> texts` (user edit wins over AI text) + `<ch> overlap <row>` + that channel's `05-past-scripts-log.md`. Judge STRUCTURE, not just words, against every other row of the same tab and the log:
    - hook type/shape, intro closing line, authority line wording, transition/bridge lines, analogies, end CTA + comment question, Short ending, paragraph order, repeated sentence openings or frames (e.g. "X అంటే...", "మరి ... ఎందుకు?") used the same way.
    - Write `I` in Telugu, short: `NO REPEAT ✅` + one line why, OR `REPEATED ⚠️` + bullets (what repeats, which row ID, suggested fix). Save to a temp file -> `<ch> check-result <row> <file>` (sets TEMPLATES CHECK, CHECK=DONE). On failure: `<ch> status <row> check ERROR`.
-4. Never touch A, B, C, user columns or formatting; `sheet.py` refuses to write them.
+3b. Fix (CHECK=FIX, user clicked it after a ⚠️): take the final text (user edit wins) + the problems written in TEMPLATES CHECK -> change ONLY what those problems name (and anything `check.py` flags), keep the rest of the user's wording -> `check.py` OK -> template check again -> `<ch> fix <row> <long|short> <fixed.txt> <result.txt>` (writes the fixed text into the *-UPDATED column, the result, CHECK=DONE). Result should now be `NO REPEAT ✅`; if a problem can't be fixed safely, write `REPEATED ⚠️` + why.
+4. Never touch A, B, C or formatting. *-UPDATED columns are written ONLY by step 3b (`sheet.py fix`); `put` refuses them.
 5. The *-UPDATED, TEMPLATES CHECK and CHECK columns are the user's manual controls (user, 2026-11-22). After generating (step 2) STOP: never start the template check yourself. Run step 3 only for rows where the user set CHECK=START.
 
 ## Mechanics kept (not writing style)

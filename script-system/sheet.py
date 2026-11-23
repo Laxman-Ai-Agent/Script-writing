@@ -17,6 +17,7 @@ Usage:  python sheet.py <health|dark|zumba> <command> ...
   texts                                   final text per row (user edit if present, else AI) as JSON
   overlap <row>                           shared 4-word phrases with other rows
   check-result <row> <result.txt>         TEMPLATES CHECK=result, CHECK=DONE
+  fix <row> <long|short> <fixed.txt> <result.txt>   CHECK=FIX only: fixed text -> *-UPDATED, result, CHECK=DONE
 python sheet.py selftest
 """
 import json, re, sys
@@ -32,7 +33,7 @@ CHANNELS = {
     "zumba": {"tab": "Zumba-Fitness", "last": "H", "long": None, "short": "D", "run": "E",
               "long_user": None, "short_user": "F", "result": "G", "check": "H"},
 }
-STATES = {"START", "RUNNING", "DONE", "ERROR"}
+STATES = {"START", "RUNNING", "DONE", "ERROR", "FIX"}
 
 
 def writable(ch):
@@ -130,8 +131,8 @@ def main(a):
     ch, cmd, c = a[0], a[1], CHANNELS[a[0]]
     if cmd == "pending":
         p = [{"row": r["row"], "id": r["A"], "topic": r["B"], "extra": r["C"],
-              "run": r[c["run"]] == "START", "check": r[c["check"]] == "START"} for r in rows(ch)
-             if r[c["run"]] == "START" or r[c["check"]] == "START"]
+              "run": r[c["run"]] == "START", "check": r[c["check"]] == "START", "fix": r[c["check"]] == "FIX"}
+             for r in rows(ch) if r[c["run"]] == "START" or r[c["check"]] in ("START", "FIX")]
         return print(json.dumps(p, ensure_ascii=False, indent=1))
     if cmd == "status":
         row, kind, state = int(a[2]), a[3], a[4]
@@ -157,6 +158,14 @@ def main(a):
     if cmd == "check-result":
         row = int(a[2])
         return put(ch, row, {c["result"]: Path(a[3]).read_text(encoding="utf-8").strip(), c["check"]: "DONE"})
+    if cmd == "fix":  # user chose CHECK=FIX: fixed text goes into the *-UPDATED column (only path allowed to write it)
+        row, kind = int(a[2]), a[3]
+        col = c[f"{kind}_user"]
+        assert kind in ("long", "short") and col, f"{ch} has no {kind}_user column"
+        data = [{"range": f"{c['tab']}!{k}{row}", "values": [[v]]} for k, v in
+                {col: Path(a[4]).read_text(encoding="utf-8").strip(),
+                 c["result"]: Path(a[5]).read_text(encoding="utf-8").strip(), c["check"]: "DONE"}.items()]
+        return api().values().batchUpdate(spreadsheetId=SID, body={"valueInputOption": "RAW", "data": data}).execute()
     print(__doc__)
 
 

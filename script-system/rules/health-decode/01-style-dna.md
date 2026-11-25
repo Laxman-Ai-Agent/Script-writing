@@ -57,6 +57,10 @@ Only for Health Decode. Zumba Fitness and The Dark World never use these files.
   3. **Question-to-Answer Bridge** (చిన్న ప్రశ్న → వెంటనే సమాధానం): *"మరి లోపల దాక్కున్న ఈ కొవ్వును కరిగించేది ఎలా? అక్కడే Workout హెల్ప్ చేస్తుంది."*
   4. **Reality Check / Support** (ఒకటి సరిపోదు, ఇది కూడా తోడవ్వాలి): *"ఈ కొవ్వును కరిగించాలంటే డైట్ ఒక్కటే సరిపోదు, Workout కూడా తోడవ్వాలి."*
 - TTS: Telugu పదాలు Telugu script లో, English technical పదాలు (Workout, Visceral fat, AI, GPU) English script లో.
+- **Hook = ప్రశ్న + `ఎందుకంటే...` + వెంటనే సమాధానం** (2026-11-25): మొదటి వాక్యం viewer మనసులోని ప్రశ్న, తర్వాత `ఎందుకంటే...` pause, తర్వాత సూటిగా జవాబు మొదలు.
+  - ✅ *"మనం తిన్న అన్నం బలంగా మారకుండా, ఒంట్లో కొవ్వుగా ఎందుకు పేరుకుపోతుంది? ఎందుకంటే... మనం తిన్న తిండి Glucose గా మారి Blood లో కలుస్తుంది."*
+  - ❌ *"మనం తిన్న అన్నం బలంగా మారకుండా, ఒంట్లో కొవ్వుగా ఎందుకు పేరుకుపోతుంది? మనం తిన్న తిండి Glucose గా మారి Blood లో కలుస్తుంది."* (ప్రశ్న, జవాబు మధ్య bridge లేదు — abrupt)
+  - Variations: `...పేరుకుపోతుందో తెలుసా? ఎందుకంటే...` (extra curiosity), `బలంగా` బదులు `శక్తిగా`. ప్రశ్న wording ప్రతి topic కి మారాలి — ఒకే వాక్యం రిపీట్ కాకూడదు.
 
 ## MODULE 2: STRICT CONTENT & PERSONA EXCLUSIONS
 

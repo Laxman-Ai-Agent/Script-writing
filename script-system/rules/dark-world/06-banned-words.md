@@ -20,6 +20,7 @@ Calm-tone & monetization rules (Module 3, Module 8) win over any replacement her
   - `scary` / `shocking` → `ఆలోచించాల్సిన విషయం`, `ఆశ్చర్యపరిచే`
   - `సింపుల్‌గా చెప్పాలంటే` → `అంటే మొత్తం logic ఇదే...`, `ఒక్క లైన్‌లో అంటే...`
   - `నిర్దిష్ట` → `కచ్చితమైన`; `ఉపరితలంపై` → `పైన`; `నిరంతరం` → `ఆగకుండా`
+- **Problem-to-solution transition templates (NEVER USE):** `పని మొదలవుతుంది`, `అసలు మ్యాజిక్`, `అసలు magic`, `ఇక్కడే అసలు మార్పు మొదలవుతుంది` (01 §1.9 లోని 4 angles వాడాలి).
 
 ## 1. YouTube Monetization (Yellow Dollar) danger words - narration లో, audio లో ఎప్పుడూ వద్దు
 - హత్య / చంపేయడం / Murder / Kill → ప్రాణాలు తీయడం / కథ ముగించడం / లేకుండా చేయడం

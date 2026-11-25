@@ -23,10 +23,11 @@ Only for The Dark World. Other channels never use these files.
 - Opinion లో అనుమతి ఉన్నవి: ఆశ్చర్యం, engineering/ఆలోచనను మెచ్చుకోవడం, ఆలోచన రేపే ప్రశ్న.
 - Opinion లో వద్దు: ఆరోగ్య సలహా, రాజకీయాలు, మతం, ఒక వ్యక్తి/సంస్థ మీద తీర్పు, భయపెట్టే అంచనాలు.
 
-### 1.3 "X అంటే..." Instant Explanation
-- కొత్త technical పదం వచ్చిన వెంటనే **"X అంటే..."** తో ఒక్క చిన్న వాక్యంలో అర్థం చెప్పాలి.
-  - *"Turbine అంటే... నీళ్ల ఒత్తిడికి గిర్రున తిరిగే ఒక పెద్ద fan లాంటి చక్రం."*
-  - *"Router అంటే... ఇంట్లో ఉన్న devices అన్నింటికీ internet పంచిపెట్టే ఒక చిన్న post office."*
+### 1.3 "దీన్నే X అంటారు. అంటే..." Term-Introduction Rule (కొత్త పదం పరిచయం)
+- కొత్త పదం (English term) వచ్చినప్పుడు **వాక్యాన్ని నేరుగా "X అంటే..." తో మొదలుపెట్టకూడదు** — textbook definition లా వినిపిస్తుంది, screen label కి pause ఉండదు.
+- **3-step flow:** (1) ముందు ఆ విషయాన్ని మామూలు మాటల్లో చెప్పాలి → (2) **"దీన్నే X అంటారు."** (full stop = audio gap, screen మీద X label pop-up కి) → (3) **"అంటే ... అనమాట."** తో అర్థం.
+- ❌ *"రెండోది పొట్ట లోపల ఉండే Liver, పేగుల చుట్టూ దాక్కుని ఉంటుంది. Visceral fat అంటే మన కడుపు లోపలి అవయవాల మధ్యలో పేరుకుపోయే ఈ కొవ్వు పొర."*
+- ✅ *"రెండోది పొట్ట లోపల ఉండే Liver, పేగుల చుట్టూ దాక్కుని ఉంటుంది. దీన్నే Visceral fat అంటారు. అంటే మన కడుపు లోపలి అవయవాల మధ్యలో పేరుకుపోయే ఈ కొవ్వు పొర అనమాట."*
 
 ### 1.4 "అనుకుందాం" Scenario Engine
 - కష్టమైన concept ని ఒక ఊహా పరిస్థితితో వివరించాలి: *"...పెట్టారనుకుందాం"*, *"...ఉందనుకోండి"*.
@@ -55,6 +56,15 @@ Only for The Dark World. Other channels never use these files.
 - **వాక్యం 3 — Direct Impact:** నిజ జీవితంలో వెంటనే వచ్చే ఫలితాన్ని విడిగా ఒక చిన్న punch వాక్యంలో చెప్పాలి (`దెబ్బకు...` తో మొదలుపెట్టొచ్చు).
 - ఉదాహరణలు: `02-style-examples.md` PART D.
 ---
+
+### 1.9 Problem → Solution Transition (4 angles, రొటీన్ template వద్దు)
+- సమస్య/concept చెప్పి solution, action లేదా main tool కి వెళ్లేటప్పుడు `ఇక్కడే అసలు [Topic] పని మొదలవుతుంది`, `అప్పుడే అసలు మ్యాజిక్ మొదలవుతుంది` లాంటి translated AI templates ఎప్పుడూ వద్దు (`06-banned-words.md` Part A1).
+- సందర్భాన్ని బట్టి ఈ 4 angles లో ఒకటి వాడాలి. ఒకే script లో, వరుస scripts లో ఒకే angle మళ్ళీ మళ్ళీ రాకూడదు:
+  1. **Direct Need** (ఆ అవసరం ఎందుకో సూటిగా): *"దీన్ని తగ్గించడానికే మనకు Workout అవసరం అవుతుంది."*
+  2. **Core Role / Impact** (దాని అసలు పాత్ర): *"ఈ లోపలి కొవ్వును కరిగించడంలోనే Workout అసలు పాత్ర ఉంటుంది."*
+  3. **Question-to-Answer Bridge** (చిన్న ప్రశ్న → వెంటనే సమాధానం): *"మరి లోపల దాక్కున్న ఈ కొవ్వును కరిగించేది ఎలా? అక్కడే Workout హెల్ప్ చేస్తుంది."*
+  4. **Reality Check / Support** (ఒకటి సరిపోదు, ఇది కూడా తోడవ్వాలి): *"ఈ కొవ్వును కరిగించాలంటే డైట్ ఒక్కటే సరిపోదు, Workout కూడా తోడవ్వాలి."*
+- TTS: Telugu పదాలు Telugu script లో, English technical పదాలు (Workout, Visceral fat, AI, GPU) English script లో.
 
 ## MODULE 2: LEGACY SAMPLE FILTER (sample నుండి వదిలేయాల్సినవి)
 1. Sample లోని వాక్యాలు, topics, facts, numbers ను copy చేయకూడదు — శైలి మాత్రమే.

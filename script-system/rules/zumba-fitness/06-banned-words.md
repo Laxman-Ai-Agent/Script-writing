@@ -30,6 +30,7 @@ Calm-tone rule (Module 2 / Module 3) still wins over any replacement here.
   - `ప్రమాద ఘంటికలు` → `శరీరం ఇచ్చే సంకేతాలు`, `మార్పులు`
 
 - **Old CTA lines (NEVER USE):** `Related Video`, `Subscribe`, `subscribe చేసుకోండి`, `Bell icon`, `DM`.
+- **Problem-to-solution transition templates (NEVER USE):** `పని మొదలవుతుంది`, `అసలు మ్యాజిక్`, `అసలు magic`, `ఇక్కడే అసలు మార్పు మొదలవుతుంది` (01 §1.9 లోని 4 angles వాడాలి).
 
 ## Part A2. Everyday Verbs (old Module 1.4)
 టెక్స్ట్‌బుక్ పదాలకు బదులు ఎల్లప్పుడూ కింది సహజమైన వాడుక పదాలను మాత్రమే వాడాలి:

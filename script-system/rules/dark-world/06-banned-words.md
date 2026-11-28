@@ -22,6 +22,7 @@ Calm-tone & monetization rules (Module 3, Module 8) win over any replacement her
   - `నిర్దిష్ట` → `కచ్చితమైన`; `ఉపరితలంపై` → `పైన`; `నిరంతరం` → `ఆగకుండా`
 - **Problem-to-solution transition templates (NEVER USE):** `పని మొదలవుతుంది`, `అసలు మ్యాజిక్`, `అసలు magic`, `ఇక్కడే అసలు మార్పు మొదలవుతుంది` (01 §1.9 లోని 4 angles వాడాలి).
 - **Studies/reports-say verbs (NEVER USE — translated sound):** `చెబుతున్నాయి`, `చెప్తున్నాయి`, `అంటున్నాయి`, `సూచిస్తున్నాయి`, `చూపిస్తున్నాయి`, `వెల్లడిస్తున్నాయి`, `తెలుపుతున్నాయి`, `హెచ్చరిస్తున్నాయి` (బదులు: source పేరు + ప్రకారం, లేదా ...లో తేలింది).
+- **User ban (NEVER USE):** `ఉత్పత్తి`, `ఉత్పత్తు` (బదులు: తయారు చేస్తుంది / తయారవుతుంది; వస్తువు అయితే Product).
 
 ## 1. YouTube Monetization (Yellow Dollar) danger words - narration లో, audio లో ఎప్పుడూ వద్దు
 - హత్య / చంపేయడం / Murder / Kill → ప్రాణాలు తీయడం / కథ ముగించడం / లేకుండా చేయడం

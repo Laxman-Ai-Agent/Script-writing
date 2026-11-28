@@ -33,6 +33,7 @@ Calm-tone rule (Module 2 / Module 3) still wins over any replacement here.
 - **Old CTA lines (NEVER USE):** `Related Video`, `Subscribe`, `subscribe చేసుకోండి`, `Bell icon`, `DM`.
 - **Problem-to-solution transition templates (NEVER USE):** `పని మొదలవుతుంది`, `అసలు మ్యాజిక్`, `అసలు magic`, `ఇక్కడే అసలు మార్పు మొదలవుతుంది` (01 §1.9 లోని 4 angles వాడాలి).
 - **Studies/reports-say verbs (NEVER USE — translated sound):** `చెబుతున్నాయి`, `చెప్తున్నాయి`, `అంటున్నాయి`, `సూచిస్తున్నాయి`, `చూపిస్తున్నాయి`, `వెల్లడిస్తున్నాయి`, `తెలుపుతున్నాయి`, `హెచ్చరిస్తున్నాయి` (బదులు: source పేరు + ప్రకారం, లేదా ...లో తేలింది).
+- **User ban (NEVER USE):** `ఉత్పత్తి`, `ఉత్పత్తు` (బదులు: తయారు చేస్తుంది / తయారవుతుంది; వస్తువు అయితే Product).
 
 ## Part A2. Everyday Verbs (old Module 1.4)
 టెక్స్ట్‌బుక్ పదాలకు బదులు ఎల్లప్పుడూ కింది సహజమైన వాడుక పదాలను మాత్రమే వాడాలి:

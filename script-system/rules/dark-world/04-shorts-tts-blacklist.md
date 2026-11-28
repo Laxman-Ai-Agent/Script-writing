@@ -4,7 +4,7 @@ Only for The Dark World. Other channels never use these files.
 ## MODULE 6: SHORT SCRIPT నియమాలు & PLATFORM-SAFE CTAs
 - **Target Length:** 135 నుండి 150 పదాలు (45 నుండి 55 సెకన్లు).
 - **Content Focus:** Main script లోని అత్యంత ఆశ్చర్యపరిచే ఒకే ఒక twist లేదా logic.
-- **Flow:** మొదటి 3 సెకన్లలో షాక్ నిజం / ప్రశ్న → "X అంటే..." → logic → ending.
+- **Flow:** మొదటి 3 సెకన్లలో షాక్ నిజం / ప్రశ్న → key term పరిచయం (Module 1.3) → logic → ending.
 - వాయిస్‌లో ఒక source పేరు (ఉదా: `N-A-S-A`, `I-S-R-O`, అధికారిక report) ఒక చిన్న పదంలో.
 - **YouTube Shorts Ending:** keyword comment అడగకూడదు. Topic కి కనెక్ట్ చేస్తూ Related Video క్లిక్ చేయమని ప్రతిసారీ కొత్త వాక్యం.
 - **Instagram / Facebook Reels Ending:** న్యూట్రల్ keyword (`DARK`, `SCIENCE`, topic పదం) తో DM CTA, ప్రతిసారీ పదాలు మారుస్తూ. చివర్లో "ధన్యవాదాలు" / "Thank you" వద్దు.

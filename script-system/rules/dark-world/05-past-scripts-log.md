@@ -2,6 +2,8 @@
 Only for The Dark World. Other channels never use these files.
 
 ## MODULE 9: రోలింగ్ మెమరీ & యాంటీ-రిపిటీషన్ ఇంజిన్
+
+- **Originality (2026-11-28):** ప్రతి video ముందు దాని copy లా topic, పదాలు మాత్రమే మార్చినట్టు ఉండకూడదు. ప్రతి script కి ఆ topic కే చెందిన వివరణ, సరిపోయే ఉదాహరణలు / పోలికలు, నిజమైన సమాచార విలువ, ఆ topic కి సహజంగా సరిపోయే నిర్మాణం ఉండాలి (channel 03 flow దశల లోపలే వివరణ లోతు, క్రమం topic ని బట్టి మారాలి). ఒకే intro, ఒకే transitions, ఒకే explanation pattern, ఊహించగలిగే ముగింపు వద్దు. Technical terms, సాధారణ తెలుగు పదాలు రిపీట్ అవడం సమస్య కాదు — వాటికి అసహజమైన synonyms వద్దు.
 - కొత్త script రాసే ముందు కింద ఉన్న `PAST_SCRIPTS_LOG` లోని **తాజా 15 entries** తప్పనిసరిగా చెక్ చేయాలి (15 దాటితే పాతవి తీసేసి తాజా 15 మాత్రమే ఉంచాలి).
 - గత scripts లో వాడిన **Hook రకం (Module 5 a–f)**, **Intro closing line**, **"అనుకుందాం" scenarios / పోలికలు**, **Opinion line రూపం**, **End CTA + comment ప్రశ్న** కొత్త script లో రిపీట్ కాకూడదు.
 - వరుసగా రెండు scripts ఒకే Hook రకంతో మొదలు కాకూడదు.

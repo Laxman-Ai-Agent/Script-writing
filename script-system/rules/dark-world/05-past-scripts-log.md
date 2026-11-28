@@ -71,11 +71,11 @@ Only for The Dark World. Other channels never use these files.
 - **Opinion Line:** నిజాయితీగా చెప్పాలంటే...
 - **CTA + Comment Question:** recap opener అసలు లెక్క ఇదే...; topic-specific CTA + comment
 
-- **Topic:** Antimatter — S16, long rewrite
-- **Hook Type + Intro Closing:** c (intro closing: see script.txt)
-- **Scenarios / Analogies:** see output/2026-11-22-dw-s038/script.txt
-- **Opinion Line:** నేను ఆశ్చర్యపోయింది...
-- **CTA + Comment Question:** recap opener నేరుగా చెప్పాలంటే...; topic-specific CTA + comment
+- **Topic:** Antimatter — S16, long rewrite (2026-11-28 మళ్ళీ rewrite)
+- **Hook Type + Intro Closing:** b (మరి ఇంత శక్తి ఉన్న పదార్థం మన చుట్టూ ఎందుకు కనిపించదు?)
+- **Scenarios / Analogies:** Paper Clip బరువు, అద్దం కవల, సబ్బు బుడగ, Speed Breakers
+- **Opinion Line:** నేను ఆశ్చర్యపోయింది... / నాకైతే ... గట్టి తాళం
+- **CTA + Comment Question:** recap "అంటే Antimatter కల్పన కాదు"; అద్దం ప్రపంచాలు CTA + Antimatter ఎక్కడికి వెళ్లింది?
 
 - **Topic:** Antikythera Mechanism — S17, long rewrite
 - **Hook Type + Intro Closing:** f (intro closing: see script.txt)

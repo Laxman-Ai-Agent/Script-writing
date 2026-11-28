@@ -56,7 +56,7 @@ Only for Health Decode. Zumba Fitness and The Dark World never use these files.
 
 4. **దశ 4 — Microscopic & Cellular Invasion (`A -> B -> C` Order):**
    - ఆ కారకం blood flow లోకి వెళ్లి ఏ ప్రత్యేక కణాలపై (Liver cells, Red Blood Cells, Alveoli, Beta cells మొదలైనవి) ప్రభావం చూపుతుందో చెప్పాలి.
-   - **No Step-Skipping:** మధ్యలో ఏ చిన్న స్టెప్ వదిలేయకుండా `A -> B -> C` క్రమంలో కణం లోపల జరిగే మార్పును వివరించాలి. ప్రతి కీలక కణ మార్పు పక్కన ఒక కొత్త రోజువారీ పోలిక (Analogy) ఇవ్వాలి.
+   - **No Step-Skipping:** మధ్యలో ఏ చిన్న స్టెప్ వదిలేయకుండా `A -> B -> C` క్రమంలో కణం లోపల జరిగే మార్పును వివరించాలి. కష్టమైన కీలక కణ మార్పుల పక్కన మాత్రమే ఒక కొత్త రోజువారీ పోలిక (Analogy) ఇవ్వాలి — ప్రతి step కి బలవంతంగా వద్దు.
 
 5. **దశ 5 — Immune System Battle & Organ Impact:**
    - ఆ మార్పును గుర్తించిన మన White Blood Cells మరియు Immune system ఎలా స్పందిస్తాయి? అక్కడ Inflammation (వాపు), chemical signals ఎలా పుడతాయి?

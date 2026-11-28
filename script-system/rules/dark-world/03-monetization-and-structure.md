@@ -42,12 +42,13 @@ Only for The Dark World. Other channels never use these files.
 
 1. **దశ 1 — Hook (6 రకాలు, ప్రతి video కి మారాలి — Module 9 log చూసి):**
    - (a) రోజూ చూసే విషయం మీద ఆసక్తికర ప్రశ్న, (b) షాక్ ఇచ్చే నిజం / సంఖ్య, (c) "అనుకుందాం" scenario, (d) చరిత్రలో ఒక క్షణం, (e) ఒక తప్పుడు నమ్మకాన్ని పగలగొట్టడం, (f) రెండు విషయాల పోలిక.
+   - ఏ రకమైనా మొదటి వాక్యం నుండే topic point తెలియాలి; scenario / చరిత్ర క్షణాన్ని story లా, drama తో సాగదీయకూడదు (Module 1.1 Direct Explanation).
    - మొదటి పేరా చివర్లో ప్రతిసారీ ఒకే intro closing line రాకూడదు.
 2. **దశ 2 — Basics:** topic లోని ముఖ్య పదాన్ని "X అంటే..." తో రెండు చిన్న వాక్యాల్లో.
 3. **దశ 3 — Problem / Scenario:** "అనుకుందాం" తో అసలు సమస్య లేదా ప్రశ్నను కళ్ళకు కట్టినట్టు.
-4. **దశ 4 — Step-by-Step Logic:** `ముందుగా... ఆ తర్వాత...` క్రమంలో, ఏ step వదలకుండా; ప్రతి ముఖ్య step కి ఒక కొత్త రోజువారీ పోలిక.
+4. **దశ 4 — Step-by-Step Logic:** `ముందుగా... ఆ తర్వాత...` క్రమంలో, ఏ step వదలకుండా; కష్టమైన step కి మాత్రమే ఒక కొత్త రోజువారీ పోలిక (ప్రతి step కి బలవంతంగా వద్దు).
 5. **దశ 5 — Twist:** viewer కి తెలియని ఒక interesting విషయం (source తో).
-6. **దశ 6 — Narrator Opinion:** Module 1.2 ప్రకారం 1–2 వాక్యాల్లో సొంత అభిప్రాయం.
+6. **దశ 6 — Narrator Opinion:** Module 1.2 ప్రకారం, విలువ ఉన్న చోట 1–2 వాక్యాల్లో సొంత అభిప్రాయం (సహజమైన thought లేకపోతే వదిలేయొచ్చు).
 7. **దశ 7 — Recap, Mid-Video Rule & Single End CTA:**
    - **Mid-Video Subscribe Rule:** 2–5 నిమిషాల script లో మధ్యలో subscribe అడగకూడదు; 6–7 నిమిషాలు అయితే దశ 4 తర్వాత ఒక 3 సెకన్ల line మాత్రమే.
    - **Ending:** 2 వాక్యాల recap → ఒకే ఒక Subscribe CTA → topic కి సంబంధించిన ఒక comment ప్రశ్న. CTA, comment ప్రశ్న ప్రతి video కి కొత్త పదాలతో.

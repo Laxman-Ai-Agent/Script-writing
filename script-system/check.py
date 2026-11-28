@@ -69,6 +69,9 @@ def selftest():
     assert check("health", "Cellsలో 37 WHO") and not check("health", "Cells లో W-H-O ప్రకారం ముప్పై ఏడు.")
     assert any("హత్య" in b for b in check("dark", "అక్కడ హత్య జరిగింది."))
     assert not any("banned" in b for b in check("dark", "అంటే దాని వల్ల ఇలా జరుగుతుంది."))
+    lim = check("health", "ఇప్పుడు తెలుసుకుందాం. ఇప్పుడు తెలుసుకుందాం. W-H-O")
+    assert any("limited" in b for b in lim) and not any("banned" in b for b in lim), lim
+    assert not check("dark", "సింపుల్‌గా చెప్పాలంటే ఇదే.")  # Limited Frame once = OK
     print("selftest OK", {ch: len(banned(ch)[0]) for ch in FOLDER})
 
 

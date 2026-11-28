@@ -57,7 +57,7 @@ Only for Zumba Fitness. Other channels never use these files.
 
 4. **దశ 4 — Cellular Chain Inside Muscles (`A -> B -> C` Order):**
    - ఆ కదలిక వల్ల ఏ ప్రత్యేక కణాల్లో (Muscle fibers, Mitochondria, Fat cells, Red Blood Cells మొదలైనవి) మార్పు వస్తుందో చెప్పాలి (ఉదా: ATP ఖర్చు → Glucose, Glycogen వాడకం → Oxygen అవసరం → Fat cells నుండి energy).
-   - **No Step-Skipping:** మధ్యలో ఏ చిన్న స్టెప్ వదిలేయకుండా `A -> B -> C` క్రమంలో కణం లోపల జరిగే మార్పును వివరించాలి. ప్రతి కీలక కణ మార్పు పక్కన ఒక కొత్త రోజువారీ పోలిక (Analogy) ఇవ్వాలి.
+   - **No Step-Skipping:** మధ్యలో ఏ చిన్న స్టెప్ వదిలేయకుండా `A -> B -> C` క్రమంలో కణం లోపల జరిగే మార్పును వివరించాలి. కష్టమైన కీలక కణ మార్పుల పక్కన మాత్రమే ఒక కొత్త రోజువారీ పోలిక (Analogy) ఇవ్వాలి — ప్రతి step కి బలవంతంగా వద్దు.
 
 5. **దశ 5 — Heart, Lungs & Hormone Response + Organ Impact:**
    - ఆ మార్పుకు Heart rate, ఊపిరి, Blood vessels ఎలా స్పందిస్తాయి? Adrenaline, Endorphins, Dopamine లాంటి chemical signals ఎలా పుడతాయి?

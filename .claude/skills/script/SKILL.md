@@ -18,7 +18,7 @@ description: Telugu narration script writer for Health Decode, Zumba Fitness and
 1. Read that channel's 01, 02, 03, 04, 06 fully and only the log entries of 05 (hooks, intro lines, analogies, CTAs already used). Dark World `sample_content.txt`: only if the voice is unclear, first ~60 lines. Never read another channel's folder.
 2. Research -> `output/YYYY-MM-DD-<slug>/facts.md`.
 3. Write `script.txt` (main, Module 4-5) and `short.txt` (Module 6: YouTube ending in the script, Reels ending as one extra line after a blank line).
-4. `python -X utf8 script-system/check.py <health|zumba|dark> <file>` until OK (reads that channel's 06 live: banned words, digits, suffix space, acronyms, citation, markdown). Then re-read once for rhythm (Module 1.6/1.8) and repetition vs 05.
+4. `python -X utf8 script-system/check.py <health|zumba|dark> <file>` until OK (reads that channel's 06 live: banned words, digits, suffix space, acronyms, citation, markdown). Then re-read once for rhythm (Module 1.6/1.8) and repetition vs 05, and answer this final quality check (fix any "no"): topic explained directly from the first sentence? sounds like a real person speaking? noticeable repeated words / phrases / openings replaced with simple familiar ones (no forced or difficult new words)? every sentence clear on first hearing, natural spoken Telugu order (not translated English)? paragraph transitions smooth and logical? opinion only where that channel's 01 allows it and where it adds value? all original facts kept (rewrites)?
 5. Show both scripts in chat, then append the 4-line log (Module 9) to `05-past-scripts-log.md`.
 
 ## Sheet run (`/script run`) - script `script-system/sheet.py <health|zumba> ...`, one tab per channel
